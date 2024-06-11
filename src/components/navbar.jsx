@@ -16,11 +16,11 @@ function Navbar (){
          <div className="flex justify-between mx-4">
          <Link to="/" ><img src={log_test} alt=""/></Link>
          
-         <div class="flex gap-8">
+         <div className="flex gap-8">
            <Link to="/" className="flex flex-col justify-center mr-3">
              <img className="md:hidden" src={USA} alt=""/>
            </Link>
-           <Link to="javascript:void(0);" class="flex flex-col justify-center mr-3">
+           <Link to="javascript:void(0);" className="flex flex-col justify-center mr-3">
              <img onClick={handleBurger} className="md:hidden" src={burger}  alt=""/>
            </Link>
            </div>
