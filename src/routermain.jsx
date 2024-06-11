@@ -6,33 +6,31 @@ import Home from "./page/home";
 import Sell from "./page/sell";
 
 const RouterMain = () => {
-    // const [products, setProducts] = useState([]);
-    const router = createBrowserRouter([
-        {
-          path: "/",
-          element: (
-            <>
-              <Navbar />
-              <Home />
-              <Footer/>
-            </>
-          ),
-        },
-        {
-            path: "/Sell",
-            element: (
-              <>
-                <Navbar />
-                <Sell />
-                <Footer/>
-              </>
-            ),
-          },
-      ]);
+  // const [products, setProducts] = useState([]);
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <>
+          <Navbar />
+          <Home />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/Sell",
+      element: (
+        <>
+          <Navbar />
+          <Sell />
+          <Footer />
+        </>
+      ),
+    },
+  ]);
 
-      return (
-        <RouterProvider router={router} />
-      );    
-}
+  return <RouterProvider router={router} />;
+};
 
 export default RouterMain;
