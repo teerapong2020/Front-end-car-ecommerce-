@@ -1,4 +1,3 @@
-// แก้ไข path และ alt ที่ไม่ถูกต้อง
 const carBrands = [
   { src: "src/assets/Logo/carLogo/audi-logo.jpg", alt: "Audi" },
   { src: "src/assets/Logo/carLogo/BMW.jpg", alt: "BMW" },
@@ -6,10 +5,10 @@ const carBrands = [
   { src: "src/assets/Logo/carLogo/Land-Rover.jpg", alt: "Land-Rover" },
   { src: "src/assets/Logo/carLogo/Mercedes-Benz.jpg", alt: "Mercedes-Benz" },
   { src: "src/assets/Logo/carLogo/Mini-logo.jpg", alt: "Mini" },
-  { src: "src/assets/Logo/carLogo/Peugeot.jpg", alt: "Peugeot" }, // แก้ไขจาก Perugueot เป็น Peugeot
+  { src: "src/assets/Logo/carLogo/Peugeot.jpg", alt: "Peugeot" },
   { src: "src/assets/Logo/carLogo/PORSCHE-logo.jpg", alt: "Porsche" },
-  { src: "src/assets/Logo/carLogo/Tesla-logo.jpg", alt: "Tesla" }, // แก้ไข alt จาก Volkswagen เป็น Tesla
-  { src: "src/assets/Logo/carLogo/Volkswagen.jpg", alt: "Volkswagen" }, // แก้ไข alt จาก Volvo เป็น Volkswagen
+  { src: "src/assets/Logo/carLogo/Tesla-logo.jpg", alt: "Tesla" },
+  { src: "src/assets/Logo/carLogo/Volkswagen.jpg", alt: "Volkswagen" },
   { src: "src/assets/Logo/carLogo/Volvo-logo.jpg", alt: "Volvo" },
 ];
 
