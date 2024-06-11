@@ -4,7 +4,7 @@ function Navbar (){
     return(
     <nav className="bg-gray-800 p-4">
             <Link to = "/">
-                Home
+               mm
             </Link>
             <Link to = "/Sell">
                 Sell
