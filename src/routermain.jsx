@@ -5,6 +5,7 @@ import Footer from "./components/footer";
 import Home from "./page/home";
 import Sell from "./page/sell";
 import Buy from "./page/buy";
+import { Card } from "./components/champ/card";
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
@@ -35,6 +36,16 @@ const RouterMain = () => {
         <>
           <Navbar />
           <Buy />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/card",
+      element: (
+        <>
+          <Navbar />
+          <Card />
           <Footer />
         </>
       ),
