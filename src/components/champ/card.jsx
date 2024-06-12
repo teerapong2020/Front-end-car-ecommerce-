@@ -7,6 +7,14 @@ export const Card = () => {
   
   return (
     <>
+      <hero>
+      <div >
+        <img class="absolute  w-full" src="/assets/bg.png" alt="" />
+        <div class="flex justify-center bg-gray-300 ">
+          <h1 class="relative text-white  font-black text-4xl mt-20 max-md:mt-2  ">บริการเช่ารถยนต์</h1>
+        </div>
+      </div>
+    </hero>
     <div className="max-md:w-full bg-white rounded-[20px] border-t shadow-md flex flex-col h-[360px] w-[383px] ">
     <div className="flex justify-between">
       <h3 className="ml-6 mt-4 font-black text-[16px]">BENZ GLC 300 4MATIC</h3>
