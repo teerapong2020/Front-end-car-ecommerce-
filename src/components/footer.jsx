@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 function Footer() {
   return (
-    <footer className="flex bg-blue-900 text-white p-4 justify-around ">
+    <footer className="flex bg-[#1E3769] text-white p-4 justify-around ">
       <div className="flex flex-col">
         <img src="src\assets\Logo\log_test.png" className="h-20 w-fit" />
         <p className="font-semibold">Roddee Co., Ltd</p>
