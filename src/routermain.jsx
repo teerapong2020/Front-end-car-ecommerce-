@@ -4,6 +4,7 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Home from "./page/home";
 import Sell from "./page/sell";
+import {Card}  from "./components/champ/card";
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
@@ -28,7 +29,18 @@ const RouterMain = () => {
         </>
       ),
     },
+    {
+      path: "/card",
+      element: (
+        <>
+          <Navbar />
+          <Card />
+          <Footer/>
+        </>
+      ),
+    },
   ]);
+
 
   return <RouterProvider router={router} />;
 };
