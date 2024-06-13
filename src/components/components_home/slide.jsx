@@ -12,7 +12,7 @@ const CarSlideshow = () => {
       alt: "Mercedes-Benz",
     },
     { href: "link", src: "src/assets/Slide/Miini.jpg", alt: "Mini" },
-    { href: "link", src: "src/assets/Slide/Peugeot-01.jpg", alt: "Peugeot" },
+    { href: "link", src: "src/assets/Slide/Peugeot.jpg", alt: "Peugeot" },
     {
       href: "link",
       src: "src/assets/Slide/porsche-normal.jpg",
