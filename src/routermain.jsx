@@ -22,7 +22,7 @@ const RouterMain = () => {
       ),
     },
     {
-      path: "/Sell",
+      path: "/sell",
       element: (
         <>
           <Navbar />
