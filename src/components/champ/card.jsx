@@ -5,7 +5,7 @@ export const Card = ({pdcard}) => {
   
   return (
     <>
-    <div className="max-md:w-full bg-white rounded-[20px] border-t shadow-md flex flex-col h-[360px] w-[383px] mt-20">
+    <div className="max-md:w-full bg-white rounded-[20px] border-t shadow-md flex flex-col h-[360px] w-[383px]">
     <div className="flex justify-between">
       <h3 className="ml-6 mt-4 font-black text-[16px]">{pdcard.name} </h3>
       <div className="flex ">
@@ -27,8 +27,8 @@ export const Card = ({pdcard}) => {
       </div>
     </div>
     <img className="object-scale-down h-[180px] w-[260px] self-center"
-    src= ''
-     alt='BenzGlc300'/>
+    src= {pdcard.image}
+     alt=''/>
     
     
     <div className="flex justify-between">
