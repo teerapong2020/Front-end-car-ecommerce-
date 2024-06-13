@@ -1,9 +1,17 @@
+import example_products from "../../data/example_products";
+import { useParams } from "react-router-dom";
 function ProductCard_Info() {
+    const { name_id } = useParams();
+    const id = parseInt(name_id.substring(name_id.lastIndexOf("_") + 1));
+    const product =example_products.find((product) => product.id === id);
+
   return (
     <div className="flex justify-center">
-    <div className="้ bg-red-300 w-[1150px] flex justify-center">
+    <div className="้ bg-red-300 w-[1152px] flex justify-center">
       <section className="flex my-9 max-md:flex justify-center">
         <div className="relative md:w-[768px]">
+            {product.name}
+            <img src={product.image}/>
           <div className="show">
             <img className="rounded-[10px] w-full" src="/assets/bmw/X4/X4-main.jpg" alt="X4-main" />
           </div>

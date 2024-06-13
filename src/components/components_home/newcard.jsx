@@ -27,7 +27,7 @@ export const NewCard = ({ product }) => {
         </div>
       </div>
       <div className="border-t border-gray-300 mx-7 my-1 py-1"></div>
-      <Link className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]" to="/productcard_info">Rent now</Link>
+      <Link className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]" to={`/productcard_info/${product.name}_${product.id}`}>Rent now</Link>
       <Link className="mx-32 mb-4 mt-2 text-center underline px-3 hover:text-blue-900 text-[14px]" to="/">View Detail</Link>
     </div>
   );
