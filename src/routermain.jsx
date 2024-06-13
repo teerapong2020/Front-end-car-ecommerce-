@@ -21,7 +21,7 @@ const RouterMain = () => {
       ),
     },
     {
-      path: "/Sell",
+      path: "/sell",
       element: (
         <>
           <Navbar />
@@ -40,16 +40,7 @@ const RouterMain = () => {
         </>
       ),
     },
-    {
-      path: "/card",
-      element: (
-        <>
-          <Navbar />
-          <Card />
-          <Footer />
-        </>
-      ),
-    },
+
   ]);
 
   return <RouterProvider router={router} />;
