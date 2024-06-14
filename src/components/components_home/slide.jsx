@@ -1,62 +1,88 @@
 import { useState, useEffect } from "react";
 
-const carImages = [
-  { src: "src/assets/carModel/Audi.jpg", alt: "Audi" },
-  { src: "src/assets/carModel/BMW.jpg", alt: "BMW" },
-  { src: "src/assets/carModel/JAGUAR.jpg", alt: "JAGUAR" },
-  { src: "src/assets/carModel/LandRover.jpg", alt: "LandRover" },
-  { src: "src/assets/carModel/Mercedes-Benz.jpg", alt: "Mercedes-Benz" },
-  { src: "src/assets/carModel/mini.jpg", alt: "mini" },
-  { src: "src/assets/carModel/Peugeot.jpg", alt: "Peugeot" },
-  { src: "src/assets/carModel/Porsche.jpg", alt: "Porsche" },
-  { src: "src/assets/carModel/Tesla.jpg", alt: "Tesla"},
-  { src: "src/assets/carModel/Volkswagen.jpg", alt: "Volkswagen" },
-  { src: "src/assets/carModel/Volvo.png", alt: "Volvo" },
-];
 const CarSlideshow = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const slides = [
+    { href: "link", src: "src/assets/Slide/Audi.jpg", alt: "Audi" },
+    { href: "link", src: "src/assets/Slide/BWM.jpg", alt: "BMW" },
+    { href: "link", src: "src/assets/Slide/Jaguar.jpg", alt: "Jaguar" },
+    { href: "link", src: "src/assets/Slide/Land-Rover.jpg", alt: "Land Rover" },
+    {
+      href: "link",
+      src: "src/assets/Slide/Mercedes-Benz.jpg",
+      alt: "Mercedes-Benz",
+    },
+    { href: "link", src: "src/assets/Slide/Miini.jpg", alt: "Mini" },
+    { href: "link", src: "src/assets/Slide/Peugeot.jpg", alt: "Peugeot" },
+    {
+      href: "link",
+      src: "src/assets/Slide/porsche-normal.jpg",
+      alt: "Porsche",
+    },
+    { href: "link", src: "src/assets/Slide/Tesla.jpg", alt: "Tesla" },
+    { href: "link", src: "src/assets/Slide/Volvo.jpg", alt: "Volvo" },
+  ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % carImages.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide(
-      (prevSlide) => (prevSlide - 1 + carImages.length) % carImages.length
-    );
-  };
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      nextSlide();
-    }, 3000);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 6000);
     return () => clearInterval(interval);
-  }, []);
+  }, [slides.length]);
+
+  const handlePrevClick = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + slides.length) % slides.length
+    );
+  };
+
+  const handleNextClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+  };
 
   return (
-    <main className="container mx-auto mt-4">
-      <div className="relative p-4 shadow rounded w-full overflow-hidden h-full">
-        <div className="carousel-item active">
-          <img
-            src={carImages[currentSlide].src}
-            alt={carImages[currentSlide].alt}
-            className="w-full h-full object-cover rounded"
-          />
+    <section id="SlideShow" className="flex flex-col">
+      <div id="carImagesMain" className="relative mt-auto pointer-events-auto h-1/4">
+        <div className="relative w-full h overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {slides.map((item, index) => (
+              <div className="w-full flex-shrink-0 h-[425px]" key={index}>
+                <a href={item.href} title={item.alt}>
+                  <picture className="block w-full h-[425px]">
+                    <source
+                      media="(min-width:1024px)"
+                      srcSet={item.src}
+                      className="w-full h-[425px] object-cover"
+                    />
+                    <img
+                      src={item.src}
+                      className="w-full h-[425px] object-cover"
+                      alt={item.alt}
+                    />
+                  </picture>
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
         <button
-          onClick={prevSlide}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded"
+          onClick={handlePrevClick}
+          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full focus:outline-none"
         >
-          Prev
+          &#9664;
         </button>
         <button
-          onClick={nextSlide}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded"
+          onClick={handleNextClick}
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full focus:outline-none"
         >
-          Next
+          &#9654;
         </button>
       </div>
-    </main>
+    </section>
   );
 };
 
