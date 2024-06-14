@@ -10,7 +10,7 @@ function Home() {
       <div className=" w-full">
         <Slide />
         <div className="flex justify-center">
-        <div className=" w-[1150px]">
+        <div className=" w-[1128px]">
                     <CarBrands />
         <ScollNewCar />
           </div>

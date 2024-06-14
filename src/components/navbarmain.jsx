@@ -3,16 +3,33 @@ import logofinal from '../assets/Logo/logocar_final.png';
 import login from '../assets/Logo/login.png';
 import USA from '../assets/Logo/USA.png';
 import burger from '../assets/Logo/burger.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function NavbarMain() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
   const handleBurger = () => {
     setOpen(!open);
   };
 
+  const handleScroll = () => {
+    if (window.scrollY > 430) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="fixed top-0 w-full bg-black bg-opacity-10 text-white z-20 ">
+    <nav className={`fixed top-0 w-full text-white z-20 transition-colors duration-700 ${scrolled ? ' bg-[#1E3769]' : 'bg-black bg-opacity-10'}`}>
       <div className="flex justify-between mx-4">
         <Link to="/" >
           <img src={logofinal} alt="Logo" className="h-[65px]"/>

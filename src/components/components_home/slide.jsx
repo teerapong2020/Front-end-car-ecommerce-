@@ -1,25 +1,27 @@
 import { useState, useEffect } from "react";
+import left from "../../assets/Logo/logo_other/left.png";
+import right from "../../assets/Logo/logo_other/right.png";
 
 const CarSlideshow = () => {
   const slides = [
-    { href: "link", src: "src/assets/Slide/Audi.jpg", alt: "Audi" },
-    { href: "link", src: "src/assets/Slide/BWM.jpg", alt: "BMW" },
-    { href: "link", src: "src/assets/Slide/Jaguar.jpg", alt: "Jaguar" },
-    { href: "link", src: "src/assets/Slide/Land-Rover.jpg", alt: "Land Rover" },
+    { href: "#", src: "src/assets/Slide/Audi.jpg", alt: "Audi" },
+    { href: "#", src: "src/assets/Slide/BWM.jpg", alt: "BMW" },
+    { href: "#", src: "src/assets/Slide/Jaguar.jpg", alt: "Jaguar" },
+    { href: "#", src: "src/assets/Slide/Land-Rover.jpg", alt: "Land Rover" },
     {
-      href: "link",
+      href: "#",
       src: "src/assets/Slide/Mercedes-Benz.jpg",
       alt: "Mercedes-Benz",
     },
-    { href: "link", src: "src/assets/Slide/Miini.jpg", alt: "Mini" },
-    { href: "link", src: "src/assets/Slide/Peugeot.jpg", alt: "Peugeot" },
+    { href: "#", src: "src/assets/Slide/Miini.jpg", alt: "Mini" },
+    { href: "#", src: "src/assets/Slide/Peugeot.jpg", alt: "Peugeot" },
     {
-      href: "link",
+      href: "#",
       src: "src/assets/Slide/porsche-normal.jpg",
       alt: "Porsche",
     },
-    { href: "link", src: "src/assets/Slide/Tesla.jpg", alt: "Tesla" },
-    { href: "link", src: "src/assets/Slide/Volvo.jpg", alt: "Volvo" },
+    { href: "#", src: "src/assets/Slide/Tesla.jpg", alt: "Tesla" },
+    { href: "#", src: "src/assets/Slide/Volvo.jpg", alt: "Volvo" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -69,18 +71,19 @@ const CarSlideshow = () => {
             ))}
           </div>
         </div>
-        <button
+        <img
           onClick={handlePrevClick}
-          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full focus:outline-none"
-        >
-          &#9664;
-        </button>
-        <button
+          className="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer hover:scale-110"
+          src={left}
+        />
+          
+        
+        <img
           onClick={handleNextClick}
-          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full focus:outline-none"
-        >
-          &#9654;
-        </button>
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer hover:scale-110"
+          src={right}
+        />
+      
       </div>
     </section>
   );

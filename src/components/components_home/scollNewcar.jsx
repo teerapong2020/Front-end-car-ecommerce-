@@ -16,13 +16,13 @@ function ScrollNewCar() {
 
   const scrollLeft = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -1176, behavior: 'smooth' });
+      scrollRef.current.scrollBy({ left: -1152, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 1176, behavior: 'smooth' });
+      scrollRef.current.scrollBy({ left: 1152, behavior: 'smooth' });
     }
   };
 
@@ -41,18 +41,18 @@ function ScrollNewCar() {
     <section>
       <div className="flex flex-col items-center">
         <h1 className="text-xl mb-4">New Product</h1>
-        <div className="relative w-[1152px] mx-auto">
+        <div className="relative w-[1128px] mx-auto">
           {!isAtStart && (
             <img
               src={leftArrow}
               alt="Scroll Left"
               onClick={scrollLeft}
-              className="absolute left-[-50px] top-1/2 transform -translate-y-1/2 cursor-pointer p-2 bg-white rounded-full shadow-md"
+              className="absolute left-[-50px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110"
             />
           )}
-          <div className="flex w-full overflow-x-auto whitespace-nowrap shadow rounded bg-orange-500" ref={scrollRef}>
+          <div className="flex w-full overflow-x-auto whitespace-nowrap shadow rounded " ref={scrollRef}>
             {example_products.map(product => (
-              <div key={product.id} className="mr-[31px]">
+              <div key={product.id} className="mr-[24px]">
                 <NewCard product={product} />
               </div>
             ))}
@@ -61,7 +61,7 @@ function ScrollNewCar() {
             src={rightArrow}
             alt="Scroll Right"
             onClick={scrollRight}
-            className="absolute right-[-50px] top-1/2 transform -translate-y-1/2 cursor-pointer p-2 bg-white rounded-full shadow-md"
+            className="absolute right-[-50px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110"
           />
         </div>
       </div>

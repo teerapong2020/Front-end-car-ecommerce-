@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer className="flex bg-[#1E3769] text-white p-4 justify-center">
-      <section className="justify-around flex w-[1150px]">
+      <section className="justify-around flex w-[1128px]">
         <div className="flex flex-col">
         <img src="src\assets\Logo\log_test.png" className="h-20 w-fit" />
         <p className="font-semibold">Roddee Co., Ltd</p>
