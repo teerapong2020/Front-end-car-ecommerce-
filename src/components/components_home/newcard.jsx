@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import star from "../../assets/Logo/logo_product_card/star.png";
+import check_in from "../../assets/Logo/logo_product_card/check_in.png";
+import sharenetwork from "../../assets/Logo/logo_product_card/sharenetwork.png";
+import heart from "../../assets/Logo/logo_product_card/heart.png";
 
 export const NewCard = ({ product }) => {
   return (
-    <div className="max-md:w-full bg-white rounded-[20px] border-t shadow-md flex flex-col h-[335px] w-[365px]">
+    <div className=" bg-white rounded-[20px] border-t shadow flex flex-col w-[361px]">
       <div className="flex justify-between">
         <h3 className="ml-6 mt-4 font-black text-[16px]">{product.name}</h3>
         <div className="flex">
@@ -26,9 +30,12 @@ export const NewCard = ({ product }) => {
           <h4>Mileage: {product.mile}</h4>
         </div>
       </div>
-      <div className="border-t border-gray-300 mx-7 my-1 py-1"></div>
-      <Link className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]" to={`/productcard_info/${product.name}_${product.id}`}>Rent now</Link>
-      <Link className="mx-32 mb-4 mt-2 text-center underline px-3 hover:text-blue-900 text-[14px]" to="/">View Detail</Link>
+      <div className=" border-t border-gray-300 mx-7 my-1 py-1"></div>
+      <div className='flex flex-col'>      
+        <Link className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]" to={`/productcard_info/${product.name}_${product.id}`}>Rent now</Link>
+        <Link className="mx-32 mb-4 mt-2 text-center underline px-3 hover:text-blue-900 text-[14px]" to="/">View Detail</Link>
+      </div>
     </div>
+    
   );
 }

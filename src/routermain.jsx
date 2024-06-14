@@ -7,6 +7,7 @@ import Sell from "./page/sell";
 import Buy from "./page/buy";
 import { Card } from "./components/champ/card";
 import ProductCard_Info from "./components/components_home/productcard_info";
+import NavbarMain from "./components/navbarmain";
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
@@ -15,7 +16,7 @@ const RouterMain = () => {
       path: "/",
       element: (
         <>
-          <Navbar />
+          <NavbarMain/>
           <Home />
           <Footer />
         </>
