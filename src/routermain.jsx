@@ -64,7 +64,8 @@ const RouterMain = () => {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+            <RouterProvider router={router} />);
 };
 
 export default RouterMain;

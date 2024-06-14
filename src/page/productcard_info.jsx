@@ -1,4 +1,4 @@
-import example_products from "../../data/example_products";
+import example_products from "../data/example_products";
 import { useParams } from "react-router-dom";
 function ProductCard_Info() {
     const { name_id } = useParams();
