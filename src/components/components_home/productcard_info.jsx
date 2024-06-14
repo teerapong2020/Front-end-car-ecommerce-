@@ -7,42 +7,41 @@ function ProductCard_Info() {
 
   return (
     <div className="flex justify-center">
-    <div className="้ bg-red-300 w-[1152px] flex justify-center">
-      <section className="flex my-9 max-md:flex justify-center">
-        <div className="relative md:w-[768px]">
+    <div className="้ bg-red-300 w-[1152px] flex ">
+      <section className="w-[660px] bg-lime-600">
+        <div className="relative">
             {product.name}
-            <img src={product.image}/>
           <div className="show">
-            <img className="rounded-[10px] w-full" src="/assets/bmw/X4/X4-main.jpg" alt="X4-main" />
+            <img className="rounded-[10px] w-full" src={product.imageMain} alt="X4-main" />
           </div>
           <div className="show hidden">
-            <img className="w-full" src="/assets/bmw/X4/X4-1.jpg" alt="X4-1" />
+            <img className="w-full" src={product.image1} alt="X4-1" />
           </div>
           <div className="show hidden">
-            <img className="w-full" src="/assets/bmw/X4/X4-2.jpg" alt="X4-2" />
+            <img className="w-full" src={product.image2} alt="X4-2" />
           </div>
           <div className="show hidden">
-            <img className="w-full" src="/assets/bmw/X4/X4-3.jpg" alt="X4-3" />
+            <img className="w-full" src={product.image3} alt="X4-3" />
           </div>
           <div className="show hidden">
-            <img className="w-full" src="/assets/bmw/X4/X4-4.jpg" alt="X4-4" />
+            <img className="w-full" src={product.image4} alt="X4-4" />
           </div>
           <div className="show hidden">
-            <img className="w-full" src="/assets/bmw/X4/X4-5.jpg" alt="X4-5" />
+            <img className="w-full" src={product.image5} alt="X4-5" />
           </div>
 
-          <div className="absolute w-full flex justify-between px-4 top-40 max-md:hidden text-2xl font-black select-none">
+          <div className="absolute w-full flex justify-between px-4 top-40 transform translate-y-1/2 text-2xl font-black select-none">
             <a className="cursor-pointer backdrop-blur-sm bg-white/30 bg-gray-800 rounded-full px-2 hover:text-gray-500" onClick={() => plusSlides(-1)}>❮</a>
             <a className="cursor-pointer backdrop-blur-sm bg-white/30 bg-gray-800 rounded-full px-2 hover:text-gray-500" onClick={() => plusSlides(1)}>❯</a>
           </div>
 
-          <div className="flex w-[124.5px] md:my-2 gap-1">
-            <img className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500" src="/assets/bmw/X4/X4-main.jpg" onClick={() => currentSlide(1)} alt="X4-main" />
-            <img className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500" src="/assets/bmw/X4/X4-1.jpg" onClick={() => currentSlide(2)} alt="X4-1" />
-            <img className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500" src="/assets/bmw/X4/X4-2.jpg" onClick={() => currentSlide(3)} alt="X4-2" />
-            <img className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500" src="/assets/bmw/X4/X4-3.jpg" onClick={() => currentSlide(4)} alt="X4-3" />
-            <img className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500" src="/assets/bmw/X4/X4-4.jpg" onClick={() => currentSlide(5)} alt="X4-4" />
-            <img className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500" src="/assets/bmw/X4/X4-5.jpg" onClick={() => currentSlide(6)} alt="X4-5" />
+          <div className="flex w-[100px] m-2 gap-2" >
+            <img className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500" src={product.imageMain} onClick={() => currentSlide(1)} alt="X4-main" />
+            <img className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500" src={product.image1} onClick={() => currentSlide(2)} alt="X4-1" />
+            <img className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500" src={product.image2} onClick={() => currentSlide(3)} alt="X4-2" />
+            <img className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500" src={product.image3} onClick={() => currentSlide(4)} alt="X4-3" />
+            <img className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500" src={product.image4} onClick={() => currentSlide(5)} alt="X4-4" />
+            <img className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500" src={product.image5} onClick={() => currentSlide(6)} alt="X4-5" />
           </div>
 
           <div className="md:hidden">

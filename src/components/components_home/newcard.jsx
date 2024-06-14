@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 export const NewCard = ({ product }) => {
   return (
-    <div className="max-md:w-full bg-white rounded-[20px] border-t shadow-md flex flex-col h-[360px] w-[383px]">
+    <div className="max-md:w-full bg-white rounded-[20px] border-t shadow-md flex flex-col h-[335px] w-[365px]">
       <div className="flex justify-between">
         <h3 className="ml-6 mt-4 font-black text-[16px]">{product.name}</h3>
         <div className="flex">
           <h3 className="mr-6 mt-5 font-black text-xs">4.8/5.0</h3>
         </div>
       </div>
-      <img className="object-scale-down h-[180px] w-[260px] self-center" src={product.image} alt={product.name} />
+      <img className="object-scale-down h-[180px] w-[260px] self-center" src={product.imageMain} alt={product.name} />
       <div className="flex justify-between mx-6">
         <div className="flex">
           <p className="ml-1 text-[15px]">{product.location}</p>
