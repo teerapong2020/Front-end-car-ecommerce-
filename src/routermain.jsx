@@ -6,7 +6,7 @@ import Home from "./page/home";
 import Sell from "./page/sell";
 import Buy from "./page/buy";
 import { Card } from "./components/champ/card";
-import ProductCard_Info from "./components/components_home/productcard_info";
+import ProductCard_Info from "./page/productcard_info";
 import NavbarMain from "./components/navbarmain";
 
 const RouterMain = () => {
