@@ -30,12 +30,11 @@ export const NewCard = ({ product }) => {
         <div className="flex mx-6 text-[15px]">
           <h4>PRICE</h4>
           <h4 className="mx-1 font-bold">฿{product.price}</h4>
-          <h4>/Day</h4>
         </div>
       </div>
       <div className=" border-t border-gray-300 mx-7 my-1 py-1"></div>
       <div className='flex flex-col'>      
-        <Link className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]" to={`/productcard_info/${product.name}_${product.id}`}>Buy now</Link>
+        <Link className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]" to={`/buy_productcard_info/${product.name}_${product.id}`}>Buy now</Link>
         <Link className="mx-32 mb-4 mt-2 text-center underline px-3 hover:text-blue-900 text-[14px]" to="/">View Detail</Link>
       </div>
     </div>

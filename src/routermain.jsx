@@ -6,7 +6,7 @@ import Home from "./page/home";
 import Sell from "./page/sell";
 import Buy from "./page/buy";
 import { Card } from "./components/champ/card";
-import ProductCard_Info from "./page/productcard_info";
+import Buy_ProductCard_Info from "./page/buy_productcard_info";
 import NavbarMain from "./components/navbarmain";
 
 const RouterMain = () => {
@@ -53,11 +53,11 @@ const RouterMain = () => {
       ),
     },
     {
-      path: "/productcard_info/:name_id",
+      path: "/buy_productcard_info/:name_id",
       element: (
         <>
           <Navbar />
-          <ProductCard_Info/>
+          <Buy_ProductCard_Info/>
           <Footer />
         </>
       ),

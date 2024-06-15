@@ -47,8 +47,8 @@ function NavbarMain() {
         {/* Desktop */}
         <ul className="flex items-center gap-16 mr-6 max-md:hidden">
           <li><Link className="hover:underline" to="/">บริการเช่า</Link></li>
-          <li><Link className="hover:underline" to="/">ต้องการซื้อ</Link></li>
-          <li><Link className="hover:underline" to="/sell">ต้องการขาย</Link></li>
+          <li><Link className="hover:underline" to="/sell">ต้องการซื้อ</Link></li>
+          <li><Link className="hover:underline" to="/buy">ต้องการขาย</Link></li>
           <li><Link className="hover:underline" to="/"><img src={USA} alt="USA" /></Link></li>
           <li><Link className="hover:underline" to="/"><img src={login} alt="Login" /></Link></li>
         </ul>

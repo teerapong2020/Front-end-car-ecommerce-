@@ -4,13 +4,22 @@ import example_products from '../../data/example_products';
 import leftArrow from '../../assets/Logo/logo_product_card/left_slide.png';
 import rightArrow from '../../assets/Logo/logo_product_card/right_slide.png';
 
+const scrollContainerStyles = {
+  scrollbarWidth: 'none',
+  // scrollbarWidth: 'thin',
+  // scrollbarColor: '#040575 #f1f1f1',
+};
+
 function ScrollNewCar() {
   const scrollRef = useRef(null);
   const [isAtStart, setIsAtStart] = useState(true);
+  const [isAtEnd, setIsAtEnd] = useState(false);
 
   const handleScroll = () => {
     if (scrollRef.current) {
-      setIsAtStart(scrollRef.current.scrollLeft === 0);
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setIsAtStart(scrollLeft === 0);
+      setIsAtEnd(scrollLeft + clientWidth >= scrollWidth);
     }
   };
 
@@ -29,6 +38,7 @@ function ScrollNewCar() {
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.addEventListener('scroll', handleScroll);
+      handleScroll(); // Check initial state
     }
     return () => {
       if (scrollRef.current) {
@@ -50,19 +60,21 @@ function ScrollNewCar() {
               className="absolute left-[-50px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110"
             />
           )}
-          <div className="flex w-full overflow-x-auto whitespace-nowrap shadow rounded " ref={scrollRef}>
-            {example_products.map(product => (
-              <div key={product.id} className="mr-[24px]">
+          <div className="flex w-full overflow-x-auto whitespace-nowrap shadow rounded gap-[24px]" ref={scrollRef} style={scrollContainerStyles}>
+            {example_products.slice(0, 9).map(product => (
+              <div key={product.id} className="">
                 <NewCard product={product} />
               </div>
             ))}
           </div>
-          <img
-            src={rightArrow}
-            alt="Scroll Right"
-            onClick={scrollRight}
-            className="absolute right-[-50px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110"
-          />
+          {!isAtEnd && (
+            <img
+              src={rightArrow}
+              alt="Scroll Right"
+              onClick={scrollRight}
+              className="absolute right-[-50px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110"
+            />
+          )}
         </div>
       </div>
     </section>

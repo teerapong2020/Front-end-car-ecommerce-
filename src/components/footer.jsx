@@ -79,10 +79,6 @@ function Footer() {
           <p className="flex "> 02-139-1234</p>
         </div>
         <div className="flex gap-2 ">
-          <img src="src\assets\Logo\logo_footer\email.png" className="h-4" />
-          <p className="flex "> service@roddee.com</p>
-        </div>
-        <div className="flex gap-2 ">
           <img src="src\assets\Logo\logo_footer\line.png" className="h-4" />
           <p className="flex "> Roddeeth</p>
         </div>
