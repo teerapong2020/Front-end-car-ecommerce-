@@ -238,7 +238,7 @@ function Buy_ProductCard_Info() {
           ;
         </section>
         {/* ----------------------------------------------------Right------------------------------------------------------------------- */}
-        <section className=" w-[468px] flex flex-col px-6">
+        <section className=" w-[468px] flex flex-col pl-6 border-green-600">
           <div className="ml-8 max-md:hidden rounded-[20px] border shadow-md h-[300px] w-auto mt-[96px]">
             <h2 className="ml-6 mt-2 mb-2 font-black text-[]">
               Mercedes-Benz GLC 300 4MATIC
