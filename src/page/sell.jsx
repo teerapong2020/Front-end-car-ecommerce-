@@ -1,6 +1,7 @@
 
 import bg from '../assets/cardcar.jsx/bg/bg.png'
 import { Carddata } from "../data/carddata";
+import { Search } from '../components/champ/search';
 
 function Sell() {
   return (
@@ -12,8 +13,10 @@ function Sell() {
             บริการซื้อรถยนต์
           </h1>
         </div>
+        <Search/>
       </hero>
       <Carddata />
+      
     </>
   );
 }

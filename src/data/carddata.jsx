@@ -8,69 +8,63 @@ export const Carddata = () => {
     const pdcards = [
       {
         name: 'BMW X5',
-        rating: '4.9/5.0',
-        ratingIcon: '',
+        point: '4.9/5.0',
         category: 'SUV',
         image: p911,
         location: 'Pattaya, Thailand',
         price: '฿25,000',
-        now: '/view_rent/bmw/X5.html',
-        detail: '/view_rent/bmw/X5.html'
+        now: '/',
+        detail: '/'
       },
       {
         name: 'BMW X5',
-        rating: '4.9/5.0',
-        ratingIcon: '',
+        point: '4.9/5.0',
         category: 'SUV',
         image: p911,
         location: 'Pattaya, Thailand',
         price: '฿25,000',
-        now: '/view_rent/bmw/X5.html',
-        detail: '/view_rent/bmw/X5.html'
+        now: '/',
+        detail: '/'
       },
       {
         name: 'BMW X5',
-        rating: '4.9/5.0',
-        ratingIcon: '',
+        point: '4.9/5.0',
         category: 'SUV',
         image: p911,
         location: 'Pattaya, Thailand',
         price: '฿25,000',
-        now: '/view_rent/bmw/X5.html',
-        detail: '/view_rent/bmw/X5.html'
+        now: '/',
+        detail: '/'
       },
       {
         name: 'BMW X5',
-        rating: '4.9/5.0',
-        ratingIcon: '',
+        point: '4.9/5.0',
         category: 'SUV',
         image: p911,
         location: 'Pattaya, Thailand',
         price: '฿25,000',
-        now: '/view_rent/bmw/X5.html',
-        detail: '/view_rent/bmw/X5.html'
+        now: '/',
+        detail: '/'
       },
       {
         name: 'BMW X5',
-        rating: '4.9/5.0',
-        ratingIcon: '',
+        point: '4.9/5.0',
         category: 'SUV',
         image: p911,
         location: 'Pattaya, Thailand',
         price: '฿25,000',
-        now: '/view_rent/bmw/X5.html',
-        detail: '/view_rent/bmw/X5.html'
+        now: '/',
+        detail: '/'
       },
       {
         name: 'BMW X5',
-        rating: '4.9/5.0',
-        ratingIcon: '',
+        point: '4.9/5.0',
         category: 'SUV',
         image: p911,
         location: 'Pattaya, Thailand',
         price: '฿25,000',
-        now: '/view_rent/bmw/X5.html',
-        detail: '/view_rent/bmw/X5.html'
+        now: '/',
+        detail: '/'
       },
       
      
@@ -83,9 +77,15 @@ export const Carddata = () => {
     ))}
   </div>
   <div className='flex justify-center'>
+    <div className='mb-12'>
   <button>◀️</button>
     <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>...</button>
+    <button>7</button>
     <button>▶️</button>
+    </div>
   </div>
   
   </>
