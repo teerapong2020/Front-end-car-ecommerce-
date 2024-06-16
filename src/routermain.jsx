@@ -62,16 +62,7 @@ const RouterMain = () => {
         </>
       ),
     },
-    {
-      path: "/card1",
-      element: (
-        <>
-          <Navbar />
-          <ProductCard_Info/>
-          <Footer />
-        </>
-      ),
-    },
+ 
   ]);
 
   return (
