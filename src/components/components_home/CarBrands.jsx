@@ -15,8 +15,8 @@ const carBrands = [
 const CarBrands = () => {
   return (
     <div className="w-full overflow-x-auto whitespace-nowrap mt-4 p-4 shadow rounded">
-      <h2 className="text-xl font-bold mb-2">ยี่ห้อรถยนต์ทั้งหมด</h2>
-      <div className="flex justify-between">
+      <h2 className="text-xl font-bold mb-2 text-center">ยี่ห้อรถยนต์ทั้งหมด</h2>
+      <div className="flex justify-center space-x-4">
         {carBrands.map((brand, index) => (
           <div key={index} className="p-2 shadow rounded-xl flex-shrink-0">
             <img src={brand.src} alt={brand.alt} className="h-24" />
