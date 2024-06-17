@@ -3,7 +3,7 @@ import {Card}  from '../components/champ/card';
 import p911 from '../assets/cardcar.jsx/porche/911/porche_911_main.jpg'
 
 
-export const Carddata = () => {
+export const Carddata = ({price}) => {
   
     const pdcards = [
       {
