@@ -67,7 +67,7 @@ const RouterMain = () => {
       path: "/login",
       element: (
         <>
-          <Navbar />
+          <NavbarMain />
           <Login />
         </>
       ),
