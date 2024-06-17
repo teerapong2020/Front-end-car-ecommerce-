@@ -6,7 +6,8 @@ import Home from "./page/home";
 import Sell from "./page/sell";
 import Buy from "./page/buy";
 import { Card } from "./components/champ/card";
-import ProductCard_Info from "./components/components_home/productcard_info";
+import Buy_ProductCard_Info from "./page/buy_productcard_info";
+import NavbarMain from "./components/navbarmain";
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
@@ -15,7 +16,7 @@ const RouterMain = () => {
       path: "/",
       element: (
         <>
-          <Navbar />
+          <NavbarMain/>
           <Home />
           <Footer />
         </>
@@ -52,28 +53,20 @@ const RouterMain = () => {
       ),
     },
     {
-      path: "/productcard_info/:name_id",
+      path: "/buy_productcard_info/:name_id",
       element: (
         <>
           <Navbar />
-          <ProductCard_Info/>
+          <Buy_ProductCard_Info/>
           <Footer />
         </>
       ),
     },
-    {
-      path: "/card1",
-      element: (
-        <>
-          <Navbar />
-          <ProductCard_Info/>
-          <Footer />
-        </>
-      ),
-    },
+ 
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+            <RouterProvider router={router} />);
 };
 
 export default RouterMain;
