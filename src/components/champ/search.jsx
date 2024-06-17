@@ -1,6 +1,10 @@
 import React from "react";
+import { useState } from "react";
+
 
 export const Search = () => {
+  const [searchPrice,setSearchPrice]=useState('')
+  
   return (
     <>
     <div className=" relative bg-white rounded-2xl drop-shadow-xl w-full pb-2 md:w-1/2 md:ml-96 pt-2 px-8   ">

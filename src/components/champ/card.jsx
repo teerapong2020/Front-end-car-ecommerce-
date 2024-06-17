@@ -5,7 +5,7 @@ export const Card = ({pdcard}) => {
   
   return (
     <>
-    <Link className=" h" to={pdcard.detail}>
+    <Link  to={pdcard.detail}>
     <div className="max-md:w-full bg-white rounded-[20px] border-t shadow-md flex flex-col h-[360px] w-[383px]  hover:bg-gray-300">
     <div className="flex justify-between">
       <h3 className="ml-6 mt-4 font-black text-[16px]">{pdcard.name} </h3>
@@ -39,7 +39,7 @@ export const Card = ({pdcard}) => {
     
     <div className="border-t border-gray-300 mx-7 my-1 py-1"></div>  
     
-    <Link className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]" to={pdcard.now}>Buy now</Link>
+    <Link className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]" to={pdcard.detail}>Buy now</Link>
     </div>
     </Link>
  
