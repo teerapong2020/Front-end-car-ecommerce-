@@ -22,13 +22,12 @@ function Home() {
       {/* <audio ref={audioRef} src={youwill} /> */}
       <div className=" w-full">
         <Slide />
-        <div className="flex justify-center">
-        <div className=" w-[1128px]">
-                    <CarBrands />
+      <div className="flex justify-center">
+      <div className=" w-[1128px]">
+        <CarBrands />
         <ScollNewCar />
-          </div>
-        </div>
-
+      </div>
+      </div>
         <WhyMe />
       </div>
     </div>
