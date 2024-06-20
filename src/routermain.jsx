@@ -5,7 +5,7 @@ import Footer from "./components/footer";
 import Home from "./page/home";
 import Sell from "./page/sell";
 import Buy from "./page/buy";
-import { Card } from "./components/champ/card";
+import { NewCard } from "./components/components_home/newcard";
 import Buy_ProductCard_Info from "./page/buy_productcard_info";
 import NavbarMain from "./components/navbarmain";
 
@@ -47,7 +47,7 @@ const RouterMain = () => {
       element: (
         <>
           <Navbar />
-          <Card />
+          <NewCard />
           <Footer />
         </>
       ),
