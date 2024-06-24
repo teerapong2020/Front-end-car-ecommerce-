@@ -59,7 +59,7 @@ function Buy() {
   return (
     <form
       onSubmit={handleSubmit}
-      className=" mx-auto p-4 flex flex-col w-[1152px]"
+      className=" mx-auto p-4 flex flex-col w-[1154px]"
     >
       <h5 className="text-[28px] mt-[35px] mb-[35px]">ขายรถของคุณ</h5>
       <div className="border border-black py-[18px] px-[25px] rounded-3xl  ">
