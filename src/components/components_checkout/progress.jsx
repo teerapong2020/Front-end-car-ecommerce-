@@ -4,7 +4,7 @@ function Progress() {
   return (
     <article
       id="statusContainer"
-      className="flex flex-row max-w-[1145px] mt-[55px] mb-12 relative"
+      className="flex flex-row max-w-[1145px] mt-[55px] mb-12 relative text-[14px] font-light "
     >
       <div className="flex flex-col items-center">
         <div
@@ -20,29 +20,27 @@ function Progress() {
             className="w-[4px] h-[31px] top-[13px] left-[32px] rotate-45 rounded-full bg-white absolute"
           ></div>
         </div>
-        <p className="text-[14px]">กรอกข้อมูล</p>
+        <p>กรอกข้อมูล</p>
       </div>
       <div className="w-[203px] h-1 bg-[#CDECFF] relative top-[25px]"></div>
       <div className="flex flex-col items-center ">
         <div
           id="circleStatus"
-          className="w-[45px] h-[45px]  bg-[#CDECFF] rounded-full grid place-content-center mt-1"
+          className="w-[45px] h-[45px] mt-1  bg-[#CDECFF] rounded-full grid place-content-center text-xl font-medium "
         >
           2
         </div>
-        <p className="text-[14px]">ชำระเงิน</p>
+        <p>ชำระเงิน</p>
       </div>
       <div className="w-[203px] h-1 bg-[#CDECFF] relative top-[25px]"></div>
       <div className="flex flex-col items-center relative ">
         <div
           id="circleStatus"
-          className="w-[45px]  h-[45px]  bg-[#CDECFF] rounded-full grid place-content-center mt-1 ml-[2px]"
+          className="w-[45px]  h-[45px] mt-1 ml-[2px]  bg-[#CDECFF] rounded-full grid place-content-center text-xl font-medium "
         >
           3
         </div>
-        <p className="text-[14px] top-[49px] left-[1px] w-20  absolute ">
-          เช่ารถสำเร็จ
-        </p>
+        <p className=" top-[49px] left-[-10px] w-20  absolute ">เช่ารถสำเร็จ</p>
       </div>
     </article>
   );
