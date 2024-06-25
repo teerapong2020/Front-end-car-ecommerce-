@@ -34,8 +34,8 @@ function Payment() {
             </li>
             <li className="w-[120px] h-[80px]">
               <img
-                src="/src/assets/checkout_page/trueMonetEditt1.png"
-                alt="true"
+                src="/src/assets/checkout_page/binance2.png"
+                alt="binance"
                 className="object-contain w-[120px] h-[80px] border border-[#E1E1E1] rounded-lg p-1 grayscale"
               />
             </li>
