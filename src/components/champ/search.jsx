@@ -1,9 +1,9 @@
 import React from "react";
-import { useState } from "react";
+
 
 
 export const Search = () => {
-  const [searchPrice,setSearchPrice]=useState('')
+  
   
   return (
     <>
@@ -13,7 +13,7 @@ export const Search = () => {
         <h2 className="text-xl">ฟิลเตอร์</h2>
       </div>
       <div className="flex  gap-4 justify-center ">
-        <input className="w-full mx-4 rounded-xl bg-gray-200 " type="text" placeholder="    🛒  ค้นหารถรุ่นที่ต้องการ ยี่ห้อ รุ่น หรือ คีย์เวิร์ด"/>
+        <input className="w-full pl-4 mx-4 rounded-xl bg-gray-200 " type="text" placeholder="🛒ค้นหารถรุ่นที่ต้องการ ยี่ห้อ รุ่น หรือ คีย์เวิร์ด"/>
           <button className="bg-blue-900 text-white hover:bg-blue-950 p-2 rounded-xl px-4 mx-2">ค้นหา</button>       
       </div>
     </div>
