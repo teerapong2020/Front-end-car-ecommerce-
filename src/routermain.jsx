@@ -8,6 +8,7 @@ import Buy from "./page/buy";
 import { NewCard } from "./components/components_home/newcard";
 import Buy_ProductCard_Info from "./page/buy_productcard_info";
 import NavbarMain from "./components/navbarmain";
+import Login from "./page/login";
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
@@ -62,6 +63,16 @@ const RouterMain = () => {
         </>
       ),
     },
+    {
+      path: "/login",
+      element: (
+        <>
+          <NavbarMain />
+          <Login />
+        </>
+      ),
+    },
+    
  
   ]);
 
