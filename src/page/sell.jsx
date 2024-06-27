@@ -7,7 +7,7 @@ function Sell() {
   return (
     <>
       <hero  >
-        <img className=" absolute  pt-16 md:absolute  w-full  md:pt-0 md:py-0 sm:h-1/3 " src={bg} alt="" />
+        <img className=" absolute  mt-16 md:mt-0 md:absolute  w-full  md:py-0 sm:h-1/3 " src={bg} alt="" />
         <div className=" pt-20 md:py-0">
           <h1 className="relative  flex justify-center  text-white  font-black text-4xl md:py-20 ">
             บริการซื้อรถยนต์

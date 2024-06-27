@@ -7,7 +7,7 @@ import heart from "../../assets/Logo/logo_product_card/heart.png";
 
 export const NewCard = ({ product }) => {
   return (
-    <Link className="" to={`/buy_productcard_info/${product.name}_${product.id}`}>
+ 
     <div className=" bg-white rounded-[20px] border-t shadow flex flex-col w-[360px] pb-4 hover:bg-gray-300">
      <div className='p-2'>
       <div className="flex justify-between items-center">
@@ -35,10 +35,9 @@ export const NewCard = ({ product }) => {
       </div>
       <div className=" border-t border-gray-300 mx-7 my-1 py-1"></div>
       <div className='flex flex-col'>      
-        <Link className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]" to=''>Buy now</Link>
-     
+        <Link className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]" to='{`/buy_productcard_info/${product.name}_${product.id}`}'>View Detail</Link>
       </div>
     </div>
-    </Link>
+  
   );
 }

@@ -49,7 +49,7 @@ function Navbar ({className}){
        
         {/* mobile  */}
         { open&&
-       <ul  className="  flex justify-center flex-col items-center bg-gray-600 text-white text-4xl py-36 gap-16  md:hidden ">
+       <ul  className=" flex justify-center flex-col items-center bg-gray-600 text-white text-4xl py-36 gap-16  md:hidden ">
            <li><Link className="hover:bg-blue-950 py-4 px-28" onClick={handleBurger} to="/">บริการเช่า</Link></li>
            <li><Link className="hover:bg-blue-950 py-4 px-28" onClick={handleBurger} to="/sell">ต้องการซื้อ</Link></li>
            <li><Link className="hover:bg-blue-950 py-4 px-28" onClick={handleBurger} to="/buy">ต้องการขาย</Link></li>
