@@ -28,9 +28,8 @@ function Home() {
         <div className=" w-[1128px]">
                     <CarBrands />
         <ScollNewCar />
-          </div>
-        </div>
-
+      </div>
+      </div>
         <WhyMe />
       </div>
     </div>
