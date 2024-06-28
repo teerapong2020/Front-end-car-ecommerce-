@@ -57,6 +57,22 @@ function Buy() {
     document.getElementById(`uploadfileinbuycar`).click();
   };
 
+  const sendNotification = async () => {
+    const response = await fetch('https://vocal-bavarois-0229a8.netlify.app/.netlify/functions/line-notify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify({message : "รถมาแล้ววว"} ),
+    });
+
+    if (response.ok) {
+      alert('Notification sent');
+    } else {
+      alert('Failed to send notification');
+    }
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -320,6 +336,7 @@ function Buy() {
         <button
           type="submit"
           className="px-4 py-2 bg-[#3E5685] text-white rounded w-[364px] h-[50px]"
+          onClick={sendNotification}
         >
           ลงขาย
         </button>
