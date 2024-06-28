@@ -35,7 +35,7 @@ export const NewCard = ({ product }) => {
       </div>
       <div className=" border-t border-gray-300 mx-7 my-1 py-1"></div>
       <div className='flex flex-col'>      
-        <Link className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]" to='{`/buy_productcard_info/${product.name}_${product.id}`}'>View Detail</Link>
+        <Link className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]" to={`/buy_productcard_info/${product.name}_${product.id}`}>View Detail</Link>
       </div>
     </div>
   

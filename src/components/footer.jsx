@@ -1,4 +1,10 @@
 import { Link } from "react-router-dom";
+import facebook from "../assets/Logo/logo_footer/facebook.png";
+import instagram from "../assets/Logo/logo_footer/instagram.png";
+import x from "../assets/Logo/logo_footer/X.png";
+import mobile from "../assets/Logo/logo_footer/mobile.png";
+import phone from "../assets/Logo/logo_footer/phone.png";
+import line from "../assets/Logo/logo_footer/line.png";
 function Footer() {
   return (
     <footer className="flex bg-[#1E3769] text-white p-4 justify-center">
@@ -11,21 +17,21 @@ function Footer() {
         <div className="flex space-x-4 mt-2">
           <a href="#">
             <img
-              src="src\assets\Logo\logo_footer\facebook.png"
+              src={facebook}
               alt="Facebook"
               className="w-6 h-6"
             />
           </a>
           <a href="#">
             <img
-              src="src\assets\Logo\logo_footer\instagram.png"
+              src={instagram}
               alt="Instagram"
               className="w-6 h-6"
             />
           </a>
           <a href="#">
             <img
-              src="src\assets\Logo\logo_footer\X.png"
+              src={x}
               alt="X"
               className="w-6 h-6"
             />
@@ -71,15 +77,15 @@ function Footer() {
       <div className="pt-6">
         <h3 className="font-bold mb-2 text-lg">ช่องทางการติดต่อ</h3>
         <div className="flex gap-2 ">
-          <img src="src\assets\Logo\logo_footer\mobile.png" className="h-4" />
+          <img src={mobile} className="h-4" />
           <p className="flex "> 089-123-1234</p>
         </div>
         <div className="flex gap-3.5 ">
-          <img src="src\assets\Logo\logo_footer\phone.png" className="h-4" />
+          <img src={phone} className="h-4" />
           <p className="flex "> 02-139-1234</p>
         </div>
         <div className="flex gap-2 ">
-          <img src="src\assets\Logo\logo_footer\line.png" className="h-4" />
+          <img src={line} className="h-4" />
           <p className="flex "> Roddeeth</p>
         </div>
       </div>
