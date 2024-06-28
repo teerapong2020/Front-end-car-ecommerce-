@@ -32,7 +32,7 @@ function NavbarMain() {
     <nav className={`fixed top-0 w-full text-white z-20 transition-colors duration-700 ${scrolled ? ' bg-[#1E3769]' : 'bg-black bg-opacity-10'}`}>
       <div className="flex justify-between mx-4">
         <Link to="/" >
-          <img src={logofinal} alt="Logo" className="h-[65px]"/>
+          <img src={logofinal} alt="Logo" className="h-[64px]"/>
         </Link>
 
         <div className="flex gap-8">

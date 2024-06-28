@@ -9,6 +9,9 @@ import { Card } from "./components/champ/card";
 import Buy_ProductCard_Info from "./page/buy_productcard_info";
 import NavbarMain from "./components/navbarmain";
 import Login from "./page/login";
+import Forgot from "./page/forgotpassword";
+import ResetPassword from "./page/resetpassword";
+import Register from "./page/register";
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
@@ -69,6 +72,33 @@ const RouterMain = () => {
         <>
           <NavbarMain />
           <Login />
+        </>
+      ),
+    },
+    {
+      path: "/register",
+      element: (
+        <>
+          <NavbarMain />
+          <Register />
+        </>
+      ),
+    },
+    {
+      path: "/forgotpassword",
+      element: (
+        <>
+          <NavbarMain />
+          <Forgot />
+        </>
+      ),
+    },
+    {
+      path: "/Reset-Password",
+      element: (
+        <>
+          <NavbarMain />
+          <ResetPassword />
         </>
       ),
     },
