@@ -4,24 +4,17 @@ import right from "../../assets/Logo/logo_other/right.png";
 
 const CarSlideshow = () => {
   const slides = [
-    { href: "#", src: "src/assets/Slide/Audi.jpg", alt: "Audi" },
-    { href: "#", src: "src/assets/Slide/BWM.jpg", alt: "BMW" },
-    { href: "#", src: "src/assets/Slide/Jaguar.jpg", alt: "Jaguar" },
-    { href: "#", src: "src/assets/Slide/Land-Rover.jpg", alt: "Land Rover" },
-    {
-      href: "#",
-      src: "src/assets/Slide/Mercedes-Benz.jpg",
-      alt: "Mercedes-Benz",
-    },
-    { href: "#", src: "src/assets/Slide/Miini.jpg", alt: "Mini" },
-    { href: "#", src: "src/assets/Slide/Peugeot.jpg", alt: "Peugeot" },
-    {
-      href: "#",
-      src: "src/assets/Slide/porsche-normal.jpg",
-      alt: "Porsche",
-    },
-    { href: "#", src: "src/assets/Slide/Tesla.jpg", alt: "Tesla" },
-    { href: "#", src: "src/assets/Slide/Volvo.jpg", alt: "Volvo" },
+    { href: "#", src: "src/assets/Slide/audi.jpg", alt: "Audi" },
+    { href: "#", src: "src/assets/Slide/bmw.jpg", alt: "BMW" },
+    { href: "#", src: "src/assets/Slide/jaguar.jpg", alt: "Jaguar" },
+    { href: "#", src: "src/assets/Slide/range-rover.jpg", alt: "Land Rover" },
+    { href: "#", src: "src/assets/Slide/mercedes-benz.jpg",alt: "Mercedes-Benz",},
+    { href: "#", src: "src/assets/Slide/mini.jpg", alt: "Mini" },
+    { href: "#", src: "src/assets/Slide/peugeot.jpg", alt: "Peugeot" },
+    { href: "#", src: "src/assets/Slide/tesla.jpg", alt: "Tesla",},
+    { href: "#", src: "src/assets/Slide/volkswgan.jpg", alt: "Volkswgan" },
+    { href: "#", src: "src/assets/Slide/volvo.jpg", alt: "Volvo" },
+    { href: "#", src: "src/assets/Slide/porsche-normal.jpg", alt: "Porsche" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -45,7 +38,10 @@ const CarSlideshow = () => {
 
   return (
     <section id="SlideShow" className="flex flex-col">
-      <div id="carImagesMain" className="relative mt-auto pointer-events-auto h-2/6">
+      <div
+        id="carImagesMain"
+        className="relative mt-auto pointer-events-auto h-2/6"
+      >
         <div className="relative w-full h overflow-hidden">
           <div
             className="flex transition-transform duration-500 ease-in-out"
@@ -76,14 +72,11 @@ const CarSlideshow = () => {
           className="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer hover:scale-110"
           src={left}
         />
-          
-        
         <img
           onClick={handleNextClick}
           className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer hover:scale-110"
           src={right}
         />
-      
       </div>
     </section>
   );

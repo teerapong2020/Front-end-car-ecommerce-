@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { NewCard } from './newcard';
 import example_products from '../../data/example_products';
 import leftArrow from '../../assets/Logo/logo_product_card/left_slide.png';
