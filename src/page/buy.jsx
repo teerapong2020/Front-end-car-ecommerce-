@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import carDefault from "../assets/buy_page/defaultcar.png";
+import uploadImage from "../assets/buy_page/upload_photo_icon.png";
 function Buy() {
   const [formData, setFormData] = useState({
     headline: "",
@@ -104,14 +105,14 @@ function Buy() {
             )}
           </div>
           <img
-            src="/src/assets/buy_page/defaultcar.png"
+            src={carDefault}
             id="imagePreview"
             alt="default car"
             className=" mr-[18px]"
           />
           <div className="w-[354px] flex flex-col justify-center items-center border border-gray-400 rounded-2xl">
             <img
-              src="/src/assets/buy_page/upload_photo_icon.png"
+              src={uploadImage}
               id="1"
               alt="img_test"
               className="w-[100px] "
