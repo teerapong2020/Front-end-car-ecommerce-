@@ -5,12 +5,13 @@ import x from "../assets/Logo/logo_footer/X.png";
 import mobile from "../assets/Logo/logo_footer/mobile.png";
 import phone from "../assets/Logo/logo_footer/phone.png";
 import line from "../assets/Logo/logo_footer/line.png";
+import logcar_final from '../assets/Logo/logocar_final.png'
 function Footer() {
   return (
     <footer className="flex bg-[#1E3769] text-white p-4 justify-center">
       <section className="justify-around flex w-[1128px]">
         <div className="flex flex-col">
-        <img src="src\assets\Logo\log_test.png" className="h-20 w-fit" />
+        <img src={logcar_final} className="h-20 w-fit" />
         <p className="font-semibold">Roddee Co., Ltd</p>
         <p>บริการเช่ารถอย่างครอบวงจร</p>
         <p className="font-semibold text-lg">ติดตามเรา</p>

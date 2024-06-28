@@ -7,7 +7,7 @@ import verify from "../assets/Logo/Icon_productcard_info/Verified.png";
 import favwhite from "../assets/Logo/Icon_productcard_info/favwhite.png";
 import bagtype from "../assets/Logo/Icon_productcard_info/bagtype.png";
 import cartype from "../assets/Logo/Icon_productcard_info/cartype.png";
-import doortype from '../assets/Logo/Icon_productcard_info/doortype.png'
+import doortype from "../assets/Logo/Icon_productcard_info/doortype.png";
 import enginetype from "../assets/Logo/Icon_productcard_info/enginetype.png";
 import gastype from "../assets/Logo/Icon_productcard_info/gastype.png";
 import geartype from "../assets/Logo/Icon_productcard_info/geartype.png";
@@ -20,27 +20,22 @@ function Buy_ProductCard_Info() {
   const { name_id } = useParams();
   const id = parseInt(name_id.split("_").pop());
   const product = example_products.find((product) => product.id === id);
-  const [lscore, setlscore] = useState(true)
-  const [rscore, setrscore] = useState(false)
- 
+  const [lscore, setlscore] = useState(true);
+  const [rscore, setrscore] = useState(false);
+
   useEffect(() => {
-    window.scrollTo({ top: 0});
+    window.scrollTo({ top: 0 });
   }, []);
 
-
-  function leftscore (){
-    setlscore(true)
-    setrscore(false)
+  function leftscore() {
+    setlscore(true);
+    setrscore(false);
   }
 
-
-  function rightscore (){
-    setlscore(false)
-    setrscore(true)
+  function rightscore() {
+    setlscore(false);
+    setrscore(true);
   }
-
-
-
 
   return (
     <div className="flex justify-center">
@@ -50,42 +45,43 @@ function Buy_ProductCard_Info() {
             <h1 className="h-24 flex items-center text-[28px] font-extrabold">
               {product.name}
             </h1>
-            <div className="show flex items-center">
-              <img
-                className="rounded-[10px] w-full relative "
-                src={product.imageMain}
-                alt="X4-main"
-              />
-            </div>
-            <div className="show hidden ">
-              <img className="w-full" src={product.image1} alt="X4-1" />
-            </div>
-            <div className="show hidden">
-              <img className="w-full" src={product.image2} alt="X4-2" />
-            </div>
-            <div className="show hidden">
-              <img className="w-full" src={product.image3} alt="X4-3" />
-            </div>
-            <div className="show hidden">
-              <img className="w-full" src={product.image4} alt="X4-4" />
-            </div>
-            <div className="show hidden">
-              <img className="w-full" src={product.image5} alt="X4-5" />
-            </div>
-
-            <div className="absolute top-1/2 transform translate-y-1/2 w-[660px] flex justify-between px-4  text-2xl font-black select-none">
-              <a
-                className="cursor-pointer backdrop-blur-sm bg-white/30 bg-gray-800 rounded-full px-2 hover:text-gray-500"
-                onClick={() => plusSlides(-1)}
-              >
-                ❮
-              </a>
-              <a
-                className="cursor-pointer backdrop-blur-sm bg-white/30 bg-gray-800 rounded-full px-2 hover:text-gray-500"
-                onClick={() => plusSlides(1)}
-              >
-                ❯
-              </a>
+            <div className="relative">
+              <div className="show flex items-center">
+                <img
+                  className="rounded-[10px] w-full "
+                  src={product.imageMain}
+                  alt="X4-main"
+                />
+              </div>
+              <div className="show hidden ">
+                <img className="w-full" src={product.image1} alt="X4-1" />
+              </div>
+              <div className="show hidden">
+                <img className="w-full" src={product.image2} alt="X4-2" />
+              </div>
+              <div className="show hidden">
+                <img className="w-full" src={product.image3} alt="X4-3" />
+              </div>
+              <div className="show hidden">
+                <img className="w-full" src={product.image4} alt="X4-4" />
+              </div>
+              <div className="show hidden">
+                <img className="w-full" src={product.image5} alt="X4-5" />
+              </div>
+              <div className="absolute top-1/2 transform translate-y-0 w-[660px] flex justify-between px-4  text-2xl font-black select-none">
+                <a
+                  className="cursor-pointer backdrop-blur-sm bg-white/30 bg-gray-800 rounded-full px-2 hover:text-gray-500"
+                  onClick={() => plusSlides(-1)}
+                >
+                  ❮
+                </a>
+                <a
+                  className="cursor-pointer backdrop-blur-sm bg-white/30 bg-gray-800 rounded-full px-2 hover:text-gray-500"
+                  onClick={() => plusSlides(1)}
+                >
+                  ❯
+                </a>
+              </div>
             </div>
 
             <div className="flex w-[100px] m-2 gap-2">
@@ -205,33 +201,51 @@ function Buy_ProductCard_Info() {
                   </div>
                 </div>
                 <div className="border shadow-sm rounded-[15px]  flex w-full h-[70px] mt-6">
-                  {lscore?
-                  <button type="button" className="rounded-[15px] bg-[#3E5685] text-white m-2 w-full " onClick={leftscore}>
-                    คะแนนรถคันนี้
-                  </button>:
-                  <button type="button" className="rounded-[15px]  m-2 w-full " onClick={leftscore}>
-                    คะแนนรถคันนี้
-                  </button>
-                  }
+                  {lscore ? (
+                    <button
+                      type="button"
+                      className="rounded-[15px] bg-[#3E5685] text-white m-2 w-full "
+                      onClick={leftscore}
+                    >
+                      คะแนนรถคันนี้
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="rounded-[15px]  m-2 w-full "
+                      onClick={leftscore}
+                    >
+                      คะแนนรถคันนี้
+                    </button>
+                  )}
 
-                  {rscore?
-                  <button type="button" className="rounded-[15px] bg-[#3E5685] text-white m-2 w-full " onClick={rightscore}>
-                    คะแนนรถคันนี้
-                  </button>:
-                  <button type="button" className="rounded-[15px]  m-2 w-full " onClick={rightscore}>
-                    คะแนนรถคันนี้
-                  </button>
-                  }
-
+                  {rscore ? (
+                    <button
+                      type="button"
+                      className="rounded-[15px] bg-[#3E5685] text-white m-2 w-full "
+                      onClick={rightscore}
+                    >
+                      คะแนนรถคันนี้
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="rounded-[15px]  m-2 w-full "
+                      onClick={rightscore}
+                    >
+                      คะแนนรถคันนี้
+                    </button>
+                  )}
                 </div>
-                {lscore?
-                <div className="h-[246px] flex justify-center items-center">
-                  waiting1
-                </div>:
-                <div className="h-[246px] flex justify-center items-center">
-                  waiting2
-                </div>
-                }
+                {lscore ? (
+                  <div className="h-[246px] flex justify-center items-center">
+                    waiting1
+                  </div>
+                ) : (
+                  <div className="h-[246px] flex justify-center items-center">
+                    waiting2
+                  </div>
+                )}
               </main>
             </section>
           </div>
@@ -250,11 +264,7 @@ function Buy_ProductCard_Info() {
               </button>
               <div className="flex gap-1">
                 <button className="bg-[#191f2c] text-white ml-6 py-2 px-11 hover:bg-blue-950 rounded-md flex">
-                  <img
-                    className="h-[15px] mt-1"
-                    src={favwhite}
-                    alt=""
-                  />
+                  <img className="h-[15px] mt-1" src={favwhite} alt="" />
                   Add to favourite
                 </button>
                 <button className="border border-gray-400 py-2 px-3 hover:bg-blue-950 rounded-md">
