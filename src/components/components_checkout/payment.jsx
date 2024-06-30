@@ -55,14 +55,22 @@ function Payment() {
           />
           <input
             type="number"
-            placeholder="CVV"
+            placeholder="ชื่อเจ้าของบัตร"
             className=" h-[56px]  px-5  mb-8 rounded-[15px] border border-[#E1E1E1]  text-base font-medium"
           />
-          <input
-            type="text"
-            placeholder="ชื่อเจ้าของบัตร"
-            className=" h-[56px]  px-5  mb-4 rounded-[15px] border border-[#E1E1E1] text-base font-medium"
-          />
+          <div className="flex flex-row gap-6 mb-4 ">
+            <input
+              type="number"
+              placeholder="CVV"
+              className=" h-[56px]  px-5 w-full rounded-[15px] border border-[#E1E1E1] text-base font-medium"
+            />
+            <input
+              type="text"
+              placeholder="Expiration MM/YY"
+              className=" h-[56px]  px-5 w-full   rounded-[15px] border border-[#E1E1E1] text-base font-medium"
+            />
+          </div>
+
           <div className="flex">
             <input type="checkbox" className="h-4 w-4  mt-1 mr-2" />
             <label className="text-base font-extralight ">
