@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Buy() {
   const [formData, setFormData] = useState({
     headline: "",
     brand: "",
+    model: "",
+    type: "",
     year: "",
     mileage: "",
     color: "",
     fuel: "",
-    gas: "",
+    enginecap: "",
+    cushion: "",
+    seat: "",
     gear: "",
     price: "",
     pnumber: "",
@@ -24,13 +28,16 @@ function Buy() {
 
   const [count, setCount] = useState(1);
 
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
-    console.log(formData);
   };
 
   const handleFileChange = async (e) => {
@@ -57,15 +64,12 @@ function Buy() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className=" mx-auto p-4 flex flex-col w-[1154px]"
-    >
-      <h5 className="text-[28px] mt-[35px] mb-[35px]">ขายรถของคุณ</h5>
-      <div className="border border-black py-[18px] px-[25px] rounded-3xl  ">
+    <form onSubmit={handleSubmit} className=" mx-auto flex flex-col w-[1129px]">
+      <h5 className="text-xl font-semibold mt-12 mb-[30px]">ขายรถของคุณ</h5>
+      <div className="border border-black p-4 rounded-[10px]  ">
         {/* First image */}
-        <div className="mb-4 flex">
-          <div id="image-container" className="    ">
+        <div className=" flex">
+          <div id="image-container" className="">
             {formData.file1 && (
               <img
                 src={URL.createObjectURL(formData.file1)}
@@ -107,17 +111,19 @@ function Buy() {
             src="/src/assets/buy_page/defaultcar.png"
             id="imagePreview"
             alt="default car"
-            className=" mr-[18px]"
+            className=" mr-4 "
           />
-          <div className="w-[354px] flex flex-col justify-center items-center border border-gray-400 rounded-2xl">
+          <div className="w-[344px] flex flex-col justify-center items-center border border-gray-400 rounded-[10px]">
             <img
               src="/src/assets/buy_page/upload_photo_icon.png"
               id="1"
               alt="img_test"
-              className="w-[100px] "
+              className="w-[72px] "
               onClick={uploadimage}
             />
-            <div>อัพโหลดรูปภาพ</div>
+            <div className="text-[#9E9E9E] font-medium text-[18px]">
+              อัพโหลดรูปภาพ
+            </div>
           </div>
           <input
             id="uploadfileinbuycar"
@@ -127,40 +133,70 @@ function Buy() {
           />
         </div>
       </div>
-      <div className=" gap-[58px] mb-[58px] flex flex-col w-full">
-        <h5 className="text-[28px] mt-[35px] mb-[21px]">รายละเอียดสินค้า</h5>
+      <h5 className="text-[24px] font-semibold mt-[40px] mb-[19px]">
+        รายละเอียดสินค้า
+      </h5>
+      <div className=" gap-[56px] mb-[62px] flex flex-col w-full">
         <div className="flex items-center justify-between ">
-          <label className=" text-gray-700 text-lg font-medium">
+          <label className=" text-gray-700 text-[18px] font-medium">
             หัวข้อรถที่ต้องการขาย
           </label>
           <input
             type="text"
-            name="mileage"
-            className="w-[758px] h-[54px] p-5 text-base border border-gray-300 rounded-s-xl"
+            name="headline"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="เช่น BMW X1 2021 สภาพดี ไมล์น้อย"
-            value={formData.mileage}
+            value={formData.headline}
             onChange={handleChange}
             required
           />
         </div>
         <div className="flex items-center justify-between ">
-          <label className=" text-gray-700 text-lg font-medium">ยี่ห้อ</label>
+          <label className=" text-gray-700 text-[18px] font-medium">
+            แบรนด์
+          </label>
           <input
             type="text"
             name="brand"
-            className="w-[758px] h-[54px] p-5 text-base border border-gray-300 rounded-s-xl"
-            placeholder="เลือกยี่ห้อ"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
+            placeholder="เลือกแบรนด์"
             value={formData.brand}
             onChange={handleChange}
             required
           />
         </div>
         <div className="flex items-center justify-between ">
-          <label className=" text-gray-700 text-lg font-medium">ปีรถ</label>
+          <label className=" text-gray-700 text-[18px] font-medium">รุ่น</label>
+          <input
+            type="text"
+            name="model"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
+            placeholder="รุ่นโมเดลของรถ"
+            value={formData.model}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="flex items-center justify-between ">
+          <label className=" text-gray-700 text-[18px] font-medium">
+            ประเภทรถยนต์
+          </label>
+          <input
+            type="text"
+            name="type"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
+            placeholder="เลือกประเภทรถยนต์"
+            value={formData.type}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="flex items-center justify-between ">
+          <label className=" text-gray-700 text-[18px] font-medium">ปีรถ</label>
           <input
             type="number"
             name="year"
-            className="w-[758px] h-[54px] p-5 text-base border border-gray-300 rounded-s-xl"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="ปีรถ"
             value={formData.year}
             onChange={handleChange}
@@ -168,94 +204,120 @@ function Buy() {
           />
         </div>
         <div className="flex items-center justify-between ">
-          <label className=" text-gray-700 text-lg font-medium">เลขไมล์</label>
+          <label className=" text-gray-700 text-[18px] font-medium">
+            เลขไมล์
+          </label>
           <input
             type="number"
-            name="model"
-            className="w-[758px] h-[54px] p-5 text-base border border-gray-300 rounded-s-xl"
+            name="mileage"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="ระบุเลขไมล์"
-            value={formData.model}
+            value={formData.mileage}
             onChange={handleChange}
             required
           />
         </div>
         <div className="flex items-center justify-between ">
-          <label className=" text-gray-700 text-lg font-medium">สี</label>
-          <select
+          <label className=" text-gray-700 text-[18px] font-medium">สี</label>
+          <input
+            type="text"
             name="color"
-            className="w-[758px] h-[54px] p-5 text-base border border-gray-300 rounded-s-xl"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="เลือกสี"
             value={formData.color}
             onChange={handleChange}
             required
-          >
-            <option value="red">เลือกสี</option>
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="black">Black</option>
-            <option value="white">White</option>
-          </select>
+          ></input>
         </div>
         <div className="flex items-center justify-between ">
-          <label className=" text-gray-700 text-lg font-medium">
+          <label className=" text-gray-700 text-[18px] font-medium">
             เชื้อเพลิง
           </label>
           <select
             name="fuel"
-            className="w-[758px] h-[54px] p-5 text-base border border-gray-300 rounded-s-xl"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="เลือก เชื้อเพลิง"
             value={formData.fuel}
             onChange={handleChange}
             required
           >
             <option value="">เลือก เชื้อเพลิง</option>
-            <option value="gasoline">Gasoline</option>
+            <option value="benzine">Benzine</option>
             <option value="diesel">Diesel</option>
             <option value="electric">Electric</option>
             <option value="hybrid">Hybrid</option>
           </select>
         </div>
         <div className="flex items-center justify-between ">
-          <label className=" text-gray-700 text-lg font-medium">
-            แก๊ส/ไฟฟ้า
+          <label className=" text-gray-700 text-[18px] font-medium">
+            ความจุเครื่องยนต์
+          </label>
+          <input
+            type="text"
+            name="enginecap"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
+            placeholder="ความจุเครื่องยนต์"
+            value={formData.enginecap}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="flex items-center justify-between ">
+          <label className=" text-gray-700 text-[18px] font-medium">
+            ประเภทเบาะ
           </label>
           <select
-            name="gas"
-            className="w-[758px] h-[54px] p-5 text-base border border-gray-300 rounded-s-xl"
-            placeholder="เลือกแก๊ส"
-            value={formData.gas}
+            name="cushion"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
+            placeholder="ประเภท เบาะ"
+            value={formData.cushion}
             onChange={handleChange}
             required
           >
-            <option value="">เลือก แก๊สหรือไฟฟ้า</option>
-            <option value="gasoline">แก๊ส</option>
-            <option value="diesel">ไฟฟ้า</option>
+            <option value="">ประเภท เบาะ</option>
+            <option value="fabric">เบาะผ้า</option>
+            <option value="leather">เบาะหนัง</option>
           </select>
         </div>
         <div className="flex items-center justify-between ">
-          <label className=" text-gray-700 text-lg font-medium">เกียร์</label>
+          <label className=" text-gray-700 text-[18px] font-medium">
+            จำนวนที่นั่ง
+          </label>
+          <input
+            type="number"
+            name="seat"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
+            placeholder="เลือก จำนวนที่นั่ง"
+            value={formData.seat}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="flex items-center justify-between ">
+          <label className=" text-gray-700 text-[18px] font-medium">
+            เกียร์
+          </label>
           <select
             name="gear"
-            className="w-[758px] h-[54px] p-5 text-base border border-gray-300 rounded-s-xl"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="เลือกเกียร์"
             value={formData.gear}
             onChange={handleChange}
             required
           >
             <option value="">เลือกเกียร์</option>
-            <option value="">ธรรมดา</option>
-            <option value="gasoline">ออโต้</option>
+            <option value="manual">ธรรมดา</option>
+            <option value="auto">ออโต้</option>
           </select>
         </div>
         <div className="flex items-center justify-between ">
-          <label className=" text-gray-700 text-lg font-medium">
+          <label className=" text-gray-700 text-[18px] font-medium">
             ระบุราคาที่เหมาะสม
           </label>
           <input
             type="number"
             name="price"
-            className="w-[758px] h-[54px] p-5 text-base border border-gray-300 rounded-s-xl"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="ระบุราคาเต็ม ไม่ใช่ราคาดาวน์"
             value={formData.price}
             onChange={handleChange}
@@ -263,13 +325,13 @@ function Buy() {
           />
         </div>
         <div className="flex items-center justify-between ">
-          <label className=" text-gray-700 text-lg font-medium">
+          <label className=" text-gray-700 text-[18px] font-medium">
             เบอร์โทรศัพท์
           </label>
           <input
             type="text"
             name="pnumber"
-            className="w-[758px] h-[54px] p-5 text-base border border-gray-300 rounded-s-xl"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="เบอร์มือถือ เช่น 09xxxxxxxx"
             value={formData.pnumber}
             onChange={handleChange}
@@ -277,26 +339,26 @@ function Buy() {
           />
         </div>
         <div className="flex items-center justify-between ">
-          <label className=" text-gray-700 text-lg font-medium">
+          <label className=" text-gray-700 text-[18px] font-medium">
             ระบุที่อยู่ของรถ
           </label>
           <input
             type="text"
             name="address"
-            className="w-[758px] h-[54px] p-5 text-base border border-gray-300 rounded-s-xl"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="เลือกจังหวัด, อำเภอ"
             value={formData.address}
             onChange={handleChange}
             required
           />
         </div>
-        <div className="flex items-center justify-between ">
-          <label className=" text-gray-700 text-lg font-medium">
+        <div className="flex  justify-between ">
+          <label className=" text-gray-700 text-[18px] font-medium mt-4">
             ข้อมูลเพิ่มเติม
           </label>
           <textarea
             name="additionalInfo"
-            className="w-[758px]  p-5 text-base border border-gray-300 rounded-s-xl"
+            className="w-[744px]  p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="ใส่รายละเอียดเพิ่มเติม เช่น เข้าศูนย์เช็คตลอด, ไม่เคยชน"
             rows="4"
             value={formData.additionalInfo}
@@ -305,9 +367,9 @@ function Buy() {
         </div>
       </div>
 
-      <div className="flex items-center gap-6 mb-[54px] text-[18px] ">
-        <input type="checkbox" className="h-5 w-5" />
-        <label className="text-lg">
+      <div className="flex items-center gap-[8px] mb-[50px] text-[18px] ">
+        <input type="checkbox" className="h-6 w-6" />
+        <label>
           กดเพื่อยอมรับ
           <a href="" className="text-red-600">
             ข้อกำหนดและเงื่อนไขการลงประกาศ
@@ -315,16 +377,16 @@ function Buy() {
         </label>
       </div>
 
-      <div className="flex justify-center gap-[30px] text-[18px] font-bold ">
+      <div className="flex justify-center gap-[23px] text-[18px] font-bold mb-[186px]">
         <button
           type="submit"
-          className="px-4 py-2 bg-[#3E5685] text-white rounded w-[364px] h-[50px]"
+          className=" bg-[#3E5685] text-white rounded-[10px] w-[361px] h-[48px]"
         >
           ลงขาย
         </button>
         <button
           type="button"
-          className="px-4 py-2 bg-[#E7E9EE] text-black rounded w-[364px] h-[50px] "
+          className=" bg-[#E7E9EE] text-black rounded-[10px]  w-[361px] h-[48px] "
         >
           ยกเลิก
         </button>
