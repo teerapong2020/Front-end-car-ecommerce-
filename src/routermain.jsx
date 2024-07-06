@@ -12,7 +12,8 @@ import Login from "./page/login";
 import Forgot from "./page/forgotpassword";
 import ResetPassword from "./page/resetpassword";
 import Register from "./page/register";
-import ImageUpload from "./page/testpage";
+import ImageUpload from "./page/testCloudinary";
+import TestApi from "./page/testApi";
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
   const router = createBrowserRouter([
@@ -103,15 +104,23 @@ const RouterMain = () => {
       ),
     },
     {
-      path: "/testPage",
+      path: "/testCloudinary",
       element: (
         <>
+          <Navbar />
           <ImageUpload />
         </>
       ),
     },
-    
- 
+    {
+      path: "/testApi",
+      element: (
+        <>
+          <Navbar />
+          <TestApi />
+        </>
+      ),
+    }
   ]);
 
   return (
