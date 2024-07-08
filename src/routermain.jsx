@@ -14,6 +14,7 @@ import ResetPassword from "./page/resetpassword";
 import Register from "./page/register";
 import ImageUpload from "./page/testCloudinary";
 import TestApi from "./page/testApi";
+import Dashboard from './page/dashboard';
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
   const router = createBrowserRouter([
@@ -118,6 +119,15 @@ const RouterMain = () => {
         <>
           <Navbar />
           <TestApi />
+        </>
+      ),
+    },
+    {
+      path: '/dashboard',
+      element: (
+        <>
+          <NavbarMain />
+          <Dashboard />
         </>
       ),
     }
