@@ -29,7 +29,7 @@ export const Selldata = () => {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-8 my-20 md:my-20">
+      <div className="flex flex-wrap justify-center  gap-8 my-20 m md:my-20 md:mx-0 lg:mx-24">
         {example_products
           .slice(indexOfFirstImage, indexOfLastImage)
           .map((product, index) => (

@@ -1,5 +1,6 @@
+import Audi from "../../assets/Logo/carLogo/audi-logo.jpg"
 const carBrands = [
-  { src: "src/assets/Logo/carLogo/audi-logo.jpg", alt: "Audi" },
+  { src: Audi, alt: "Audi" },
   { src: "src/assets/Logo/carLogo/BMW.jpg", alt: "BMW" },
   { src: "src/assets/Logo/carLogo/Jaguar.jpg", alt: "Jaguar" },
   { src: "src/assets/Logo/carLogo/Land-Rover.jpg", alt: "Land-Rover" },
@@ -16,7 +17,7 @@ const CarBrands = () => {
   return (
     <div className="w-full overflow-x-auto whitespace-nowrap mt-4 p-4 shadow rounded">
       <h2 className="text-xl font-bold mb-2 text-center">ยี่ห้อรถยนต์ทั้งหมด</h2>
-      <div className="flex justify-center space-x-4">
+      <div className="flex justify-center ">
         {carBrands.map((brand, index) => (
           <div key={index} className="p-2 shadow rounded-xl flex-shrink-0">
             <img src={brand.src} alt={brand.alt} className="h-24" />
