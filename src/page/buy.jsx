@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-
+import carDefault from "../assets/buy_page/defaultcar.png";
+import uploadImage from "../assets/buy_page/upload_photo_icon.png";
 function Buy() {
   const [formData, setFormData] = useState({
     headline: "",
@@ -63,6 +64,22 @@ function Buy() {
     document.getElementById(`uploadfileinbuycar`).click();
   };
 
+  const sendNotification = async () => {
+    const response = await fetch('https://vocal-bavarois-0229a8.netlify.app/.netlify/functions/line-notify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify({message : "รถมาแล้ววว"} ),
+    });
+
+    if (response.ok) {
+      alert('Notification sent');
+    } else {
+      alert('Failed to send notification');
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit} className=" mx-auto flex flex-col w-[1129px]">
       <h5 className="text-xl font-semibold mt-12 mb-[30px]">ขายรถของคุณ</h5>
@@ -108,14 +125,14 @@ function Buy() {
             )}
           </div>
           <img
-            src="/src/assets/buy_page/defaultcar.png"
+            src={carDefault}
             id="imagePreview"
             alt="default car"
             className=" mr-4 "
           />
           <div className="w-[344px] flex flex-col justify-center items-center border border-gray-400 rounded-[10px]">
             <img
-              src="/src/assets/buy_page/upload_photo_icon.png"
+              src={uploadImage}
               id="1"
               alt="img_test"
               className="w-[72px] "
@@ -380,7 +397,8 @@ function Buy() {
       <div className="flex justify-center gap-[23px] text-[18px] font-bold mb-[186px]">
         <button
           type="submit"
-          className=" bg-[#3E5685] text-white rounded-[10px] w-[361px] h-[48px]"
+          className="px-4 py-2 bg-[#3E5685] text-white rounded w-[364px] h-[50px]"
+          onClick={sendNotification}
         >
           ลงขาย
         </button>
