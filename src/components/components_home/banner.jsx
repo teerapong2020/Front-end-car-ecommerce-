@@ -52,8 +52,8 @@ const Banner = () => {
 
   return (
     <section>
-      <div className="flex flex-col items-center">
-        <h1 className="text-xl mb-4">โปรโมชั่นประจำเดือน 🥳</h1>
+      <div className="flex flex-col">
+        <h1 className="text-xl mb-4">โปรโมชั่นประจำเดือน🥳</h1>
         <div className="relative w-[1128px] mx-auto">
           {!isAtStart && (
             <img
