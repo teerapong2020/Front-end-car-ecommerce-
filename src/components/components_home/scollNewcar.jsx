@@ -49,7 +49,7 @@ function ScrollNewCar() {
 
   return (
     <section>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col">
         <h1 className="text-xl mb-4">รถเข้าใหม่ประจำเดือน</h1>
         <div className="relative w-[1128px] mx-auto">
           {!isAtStart && (

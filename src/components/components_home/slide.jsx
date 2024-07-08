@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import left from "../../assets/Logo/logo_other/left.png";
 import right from "../../assets/Logo/logo_other/right.png";
-import Audi from "../../assets/Slide/audi.jpg";
+import Audi from '../../assets/Slide/audi.jpg';
 import BMW from "../../assets/Slide/bmw.jpg";
 import Jaguar from "../../assets/Slide/jaguar.jpg";
 import LandRover from "../../assets/Slide/range-rover.jpg";
