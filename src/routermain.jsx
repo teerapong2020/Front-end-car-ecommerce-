@@ -14,7 +14,7 @@ import ResetPassword from "./page/resetpassword";
 import Register from "./page/register";
 import ImageUpload from "./page/testCloudinary";
 import TestApi from "./page/testApi";
-import Dashboard from './page/dashboard';
+import Dashboard from "./page/dashboard";
 import Checkout from "./page/checkout";
 import Checkout2 from "./page/checkout2";
 import Paymentresult from "./page/paymentresult";
@@ -26,7 +26,7 @@ const RouterMain = () => {
       path: "/",
       element: (
         <>
-          <NavbarMain/>
+          <NavbarMain />
           <Home />
           <Footer />
         </>
@@ -67,7 +67,7 @@ const RouterMain = () => {
       element: (
         <>
           <Navbar />
-          <Buy_ProductCard_Info/>
+          <Buy_ProductCard_Info />
           <Footer />
         </>
       ),
@@ -127,7 +127,7 @@ const RouterMain = () => {
       ),
     },
     {
-      path: '/dashboard',
+      path: "/dashboard",
       element: (
         <>
           <NavbarMain />
@@ -135,192 +135,6 @@ const RouterMain = () => {
         </>
       ),
     },
-    {
-      path: "/Checkout",
-      element: (
-        <>
-          <Navbar />
-          <Checkout />
-          <Footer />
-        </>
-      ),
-    },
-    {
-      path: "/Checkout2",
-      element: (
-        <>
-          <Navbar />
-          <Checkout2 />
-          <Footer />
-        </>
-      ),
-    },
-    {
-      path: "/paymentresult",
-      element: (
-        <>
-          <Navbar />
-          <Paymentresult />
-          <Footer />
-        </>
-      ),
-    },
-    {
-      path: "/login",
-      element: (
-        <>
-          <NavbarMain />
-          <Login />
-        </>
-      ),
-    },
-    {
-      path: "/register",
-      element: (
-        <>
-          <NavbarMain />
-          <Register />
-        </>
-      ),
-    },
-    {
-      path: "/forgotpassword",
-      element: (
-        <>
-          <NavbarMain />
-          <Forgot />
-        </>
-      ),
-    },
-    {
-      path: "/Reset-Password",
-      element: (
-        <>
-          <NavbarMain />
-          <ResetPassword />
-        </>
-      ),
-    },
-    {
-      path: "/testCloudinary",
-      element: (
-        <>
-          <Navbar />
-          <ImageUpload />
-        </>
-      ),
-    },
-    {
-      path: "/testApi",
-      element: (
-        <>
-          <Navbar />
-          <TestApi />
-        </>
-      ),
-    },
-    {
-      path: '/dashboard',
-      element: (
-        <>
-          <NavbarMain />
-          <Dashboard />
-        </>
-      ),
-    }
-    {
-      path: "/Checkout",
-      element: (
-        <>
-          <Navbar />
-          <Checkout />
-          <Footer />
-        </>
-      ),
-    },
-    {
-      path: "/Checkout2",
-      element: (
-        <>
-          <Navbar />
-          <Checkout2 />
-          <Footer />
-        </>
-      ),
-    },
-    {
-      path: "/paymentresult",
-      element: (
-        <>
-          <Navbar />
-          <Paymentresult />
-          <Footer />
-        </>
-      ),
-    },
-    {
-      path: "/login",
-      element: (
-        <>
-          <NavbarMain />
-          <Login />
-        </>
-      ),
-    },
-    {
-      path: "/register",
-      element: (
-        <>
-          <NavbarMain />
-          <Register />
-        </>
-      ),
-    },
-    {
-      path: "/forgotpassword",
-      element: (
-        <>
-          <NavbarMain />
-          <Forgot />
-        </>
-      ),
-    },
-    {
-      path: "/Reset-Password",
-      element: (
-        <>
-          <NavbarMain />
-          <ResetPassword />
-        </>
-      ),
-    },
-    {
-      path: "/testCloudinary",
-      element: (
-        <>
-          <Navbar />
-          <ImageUpload />
-        </>
-      ),
-    },
-    {
-      path: "/testApi",
-      element: (
-        <>
-          <Navbar />
-          <TestApi />
-        </>
-      ),
-    },
-    {
-      path: '/dashboard',
-      element: (
-        <>
-          <NavbarMain />
-          <Dashboard />
-        </>
-      ),
-    }
     {
       path: "/Checkout",
       element: (
@@ -353,8 +167,7 @@ const RouterMain = () => {
     },
   ]);
 
-  return (
-            <RouterProvider router={router} />);
+  return <RouterProvider router={router} />;
 };
 
 export default RouterMain;
