@@ -21,13 +21,15 @@ const TestApi = () => {
       <div style={{ whiteSpace: 'pre-wrap' }} className=' bg-lime-200 p-20'>
         {JSON.stringify(Data, null, 2)}
       </div>
-      {/* <div className='bg-blue-300 p-20'>
+      <div className='bg-blue-300 p-20'>
         {Data.map((car, index) => (
           <div key={index}>
-            {car.brand}
+            <img src={car.file1} />
           </div>
         ))}
-      </div> */}
+      </div>
+      <div>
+      </div>
     </div>
   );
 };
