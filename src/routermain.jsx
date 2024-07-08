@@ -127,6 +127,15 @@ const RouterMain = () => {
       ),
     },
     {
+      path: "/testApi/:id",
+      element: (
+        <>
+          <Navbar />
+          <TestApi />
+        </>
+      ),
+    },
+    {
       path: "/dashboard",
       element: (
         <>

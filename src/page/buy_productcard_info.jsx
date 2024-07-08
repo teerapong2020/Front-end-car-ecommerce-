@@ -20,8 +20,8 @@ function Buy_ProductCard_Info() {
   const { name_id } = useParams();
   const id = parseInt(name_id.split("_").pop());
   const product = example_products.find((product) => product.id === id);
-  const [lscore, setlscore] = useState(true);
-  const [rscore, setrscore] = useState(false);
+  // const [lscore, setlscore] = useState(true);
+  // const [rscore, setrscore] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -40,7 +40,8 @@ function Buy_ProductCard_Info() {
   return (
     <div className="flex justify-center">
       <div className="้w-[1128px] flex ">
-        <section className="w-[660px]">
+        {/* -----------------------left -----------------------------------*/}
+        <section className="w-[648px]">
           <div className="">
             <h1 className="h-24 flex items-center text-[28px] font-extrabold">
               {product.name}
@@ -84,9 +85,9 @@ function Buy_ProductCard_Info() {
               </div>
             </div>
 
-            <div className="flex w-[100px] m-2 gap-2">
+            <div className="flex w-[98px] mt-2 gap-[12px]">
               <img
-                className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500"
+                className="silde cursor-pointer rounded-[5px] hover:border border-blue-500"
                 src={product.imageMain}
                 onClick={() => currentSlide(1)}
                 alt="X4-main"
@@ -123,18 +124,28 @@ function Buy_ProductCard_Info() {
               />
             </div>
 
-            <div className="md:hidden">
+            {/* <div className="md:hidden">
               <h1 className="mb-2 font-black text-xl mx-4 my-4">
                 Mercedes-Benz EQS-450
               </h1>
-            </div>
+            </div> */}
 
             <section>
               <main>
-                <h4 className="font-medium mx-4 mt-4 text-[20px]">Detail</h4>
-                <div className="border-t-2 border-t-blue-950 w-[68px] mx-4"></div>
-                <div className="border-t border-gray-300 mx-4 py-1"></div>
-                <p className="mt-3 mx-4 text-[14px]">
+                <h4 className="font-medium  mt-6 text-[20px]">Detail</h4>
+                <div className="border-t-2 border-t-blue-950 w-[68px] "></div>
+                <div className="border-t border-gray-300 py-1"></div>
+                <p className="mt-3 text-[14px]">
+                  EQS 450 คือรุ่นยนต์ไฟฟ้าของ Mercedes-Benz
+                  ที่เป็นส่วนหนึ่งของตระกูล EQ
+                  ซึ่งเป็นรถยนต์ไฟฟ้าแบบเต็มรูปแบบของบริษัท
+                  มันเป็นรถยนต์ที่มุ่งหน้าไปสู่การขับขี่ที่ยั่งยืนและยังความสวยงามของรถยนต์เล็กทุกความเร็ว
+                  รถยนต์รุ่นนี้มาพร้อมกับความสามารถในการขับขี่ไกลโดยใช้พลังงานไฟฟ้า
+                  ด้วยชุดแบตเตอรี่ขนาดใหญ่ที่ให้ระยะทางขับขี่ที่ยาวนาน
+                  และมีสมรรถนะขับเคลื่อนที่ยอดเยี่ยม นอกจากนี้
+                  มันยังมีดีไซน์ที่หรูหราและสมวัยมาพร้อมกับเทคโนโลยีที่ล้ำหน้าอื่นๆ
+                  ที่ช่วยให้ EQS 450
+                  เป็นตัวเลือกที่น่าสนใจสำหรับผู้ที่ต้องการรถยนต์ไฟฟ้าระดับพรีเมียมที่สมบูรณ์แบบ
                   EQS 450 คือรุ่นยนต์ไฟฟ้าของ Mercedes-Benz
                   ที่เป็นส่วนหนึ่งของตระกูล EQ
                   ซึ่งเป็นรถยนต์ไฟฟ้าแบบเต็มรูปแบบของบริษัท
@@ -147,33 +158,13 @@ function Buy_ProductCard_Info() {
                   เป็นตัวเลือกที่น่าสนใจสำหรับผู้ที่ต้องการรถยนต์ไฟฟ้าระดับพรีเมียมที่สมบูรณ์แบบ
                 </p>
 
-                <h4 className="text-[20px] font-medium mt-2 mx-4">Feature</h4>
-                <div className="border-t-2 border-t-blue-950 w-[68px] mx-4"></div>
-                <div className="border-t border-gray-300 mx-4 py-1"></div>
+                <h4 className="text-[20px] font-medium mt-6 ">Feature</h4>
+                <div className="border-t-2 border-t-blue-950 w-[68px] "></div>
+                <div className="border-t border-gray-300 py-1"></div>
 
-                <div className="text-[14px]">
-                  <li className="mx-4 max-md:my-2">
-                    ด้วยระบบขับเคลื่อนไฟฟ้า
-                    มันมอบประสิทธิภาพการขับขี่ที่เงียบสงบและมีเสน่ห์
-                  </li>
-                  <li className="snap-center mx-4 max-md:my-2">
-                    มีชุดแบตเตอรี่ขนาดใหญ่ที่ให้ระยะทางขับขี่ไกลโดยไม่ต้องเติมพลังงานบ่อยครั้ง
-                  </li>
-                  <li className="mx-4 max-md:my-2">
-                    ด้วยดีไซน์ที่สวยงามและหรูหราที่มาพร้อมกับเส้นโค้งที่นุ่มนวลและความสมดุลของรถยนต์
-                  </li>
-                  <li className="mx-4 max-md:my-2">
-                    มีการนำเทคโนโลยีล้ำหน้ามาใช้ในระบบการขับขี่อัจฉริยะ,
-                    การเชื่อมต่อ, และความปลอดภัย
-                    เพื่อประสบการณ์ขับขี่ที่ปลอดภัยและสะดวกสบาย
-                  </li>
-                  <li className="mx-4 max-md:my-2">
-                    มาพร้อมกับองค์ประกอบภายในที่หรูหราและสะดวกสบาย,
-                    รวมถึงประสิทธิภาพขับขี่ที่ดีและการควบคุมที่แม่นยำ
-                  </li>
-                </div>
+                <div className="text-[14px]">{/* work on progress */}</div>
 
-                <h4 className="font-medium mx-4 mt-4 text-[20px]">Review </h4>
+                {/* <h4 className="font-medium mx-4 mt-4 text-[20px]">Review </h4>
                 <div className="border-t-2 border-t-blue-950 w-[68px] mx-4 "></div>
                 <div className="border-t border-gray-300 mx-4 py-1"></div>
 
@@ -245,29 +236,31 @@ function Buy_ProductCard_Info() {
                   <div className="h-[246px] flex justify-center items-center">
                     waiting2
                   </div>
-                )}
+                )} */}
               </main>
             </section>
           </div>
-          ;
         </section>
         {/* ----------------------------------------------------Right------------------------------------------------------------------- */}
-        <section className=" w-[468px] flex flex-col pl-6 border-green-600">
-          <div className="ml-8 max-md:hidden rounded-[20px] border shadow-md h-[300px] w-auto mt-[96px]">
-            <h2 className="ml-6 mt-2 mb-2 font-black text-[]">
+        <section className=" w-[480px] flex flex-col pl-6 border-green-600">
+          <div className=" max-md:hidden rounded-[20px] border shadow-md h-[364px] w-[456px] mt-[96px]">
+            <h2 className="ml-6 mt-2 mb-2 text-[16px] ">รายละเอียด</h2>
+            <h2 className="ml-6 mt-2 mb-2 font-black text-[16px]">
               Mercedes-Benz GLC 300 4MATIC
             </h2>
-            <h2 className="mb-2 ml-40">ราคา ฿20,000/วัน</h2>
-            <div className="flex flex-col gap-2">
-              <button className="bg-[#3E5685] text-white mx-6 py-2 hover:bg-blue-950 rounded-md">
-                Booking
+            <h2 className="ml-6 mt-2 mb-2 text-[16px]">Bangkok, Thailand</h2>
+            <h2 className="ml-6 mt-2 mb-2 text-[16px]">ราคา ฿20,000/วัน</h2>
+
+            <div className="flex flex-col gap-4">
+              <button className="bg-[#3E5685] text-white mx-6 w-[408px] h-[48px] hover:bg-blue-950 rounded-md">
+                ซื้อรถคันนี้
               </button>
               <div className="flex gap-1">
-                <button className="bg-[#191f2c] text-white ml-6 py-2 px-11 hover:bg-blue-950 rounded-md flex">
-                  <img className="h-[15px] mt-1" src={favwhite} alt="" />
-                  Add to favourite
+                <button className="bg-[#191f2c] text-white ml-6 w-[336px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center">
+                  <img className="h-[15px] " src={favwhite} alt="" />
+                  เพิ่มรายการโปรด
                 </button>
-                <button className="border border-gray-400 py-2 px-3 hover:bg-blue-950 rounded-md">
+                <button className="border border-gray-400  ml-1 w-[64px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center">
                   <img className="h-[17px]" src={share} alt="" />
                 </button>
               </div>
@@ -275,7 +268,7 @@ function Buy_ProductCard_Info() {
           </div>
 
           {/* spec */}
-          <div className="flex py-[128px]">
+          <div className="flex pt-[96px] items-center place-content-center">
             <div>
               <div className="flex my-6">
                 <img
@@ -306,8 +299,8 @@ function Buy_ProductCard_Info() {
                   alt="cartype"
                 />
                 <div>
-                  <p className="text-[14px]">ระบบเชื้อเพลิง</p>
-                  <p className="font-bold text-[15px]">เบนซิน</p>
+                  <p className="text-[14px]">เลขไมล์</p>
+                  <p className="font-bold text-[15px]">45,232 KM</p>
                 </div>
               </div>
               <div className="flex mb-6">
@@ -364,27 +357,29 @@ function Buy_ProductCard_Info() {
                   alt="cartype"
                 />
                 <div>
-                  <p className="text-[14px]">จำนวนสัมภาระ</p>
-                  <p className="font-bold text-[15px]">กระเป๋า 2-3 ใบ</p>
+                  <p className="text-[14px]">สีรถยนต์</p>
+                  <p className="font-bold text-[15px]">ขาว</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Etc */}
-          <div className=" ">
-            <p className="ml-8 py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[300px] mt-6 pl-4 ">
-              เงื่อนไขข้อตกลง
-            </p>
-            <p className="ml-8 py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[300px] mt-6 pl-4">
-              เอกสารที่ใช้เช่ารถ
-            </p>
-            <p className="ml-8 py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[300px] mt-6 pl-4">
-              ประกันภัยรถยนต์
-            </p>
-            <p className="ml-8 py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[300px] mt-6 pl-4">
-              อื่นๆ
-            </p>
+          <div className="self-center">
+            <div>
+              <p className=" py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-[96px] pl-4 ">
+                เงื่อนไขข้อตกลง
+              </p>
+              <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6 pl-4">
+                เอกสารที่ใช้เช่ารถ
+              </p>
+              <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6 pl-4">
+                ประกันภัยรถยนต์
+              </p>
+              <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6 mb-10 pl-4">
+                อื่นๆ
+              </p>
+            </div>
           </div>
         </section>
       </div>
