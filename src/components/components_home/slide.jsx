@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import left from "../../assets/Logo/logo_other/left.png";
 import right from "../../assets/Logo/logo_other/right.png";
-import Audi from '../../assets/Slide/audi.jpg';
+import Audi from '../../assets/Slide/Audi.jpg';
 import BMW from "../../assets/Slide/bmw.jpg";
-import Jaguar from "../../assets/Slide/jaguar.jpg";
+import Jaguar from "../../assets/Slide/Jaguar.jpg";
 import LandRover from "../../assets/Slide/range-rover.jpg";
-import MercedesBenz from "../../assets/Slide/mercedes-benz.jpg";
+import MercedesBenz from "../../assets/Slide/Mercedes-Benz.jpg";
 import Mini from "../../assets/Slide/mini.jpg";
-import Peugeot from "../../assets/Slide/peugeot.jpg";
-import Tesla from "../../assets/Slide/tesla.jpg";
+import Peugeot from "../../assets/Slide/Peugeot.jpg";
+import Tesla from "../../assets/Slide/Tesla.jpg";
 import Volkswgan from "../../assets/Slide/volkswgan.jpg";
-import Volvo from "../../assets/Slide/volvo.jpg";
+import Volvo from "../../assets/Slide/Volvo.jpg";
 import Porsche from "../../assets/Slide/porsche-normal.jpg";
 
 const CarSlideshow = () => {
