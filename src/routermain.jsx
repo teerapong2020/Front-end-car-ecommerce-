@@ -63,7 +63,8 @@ const RouterMain = () => {
       ),
     },
     {
-      path: "/buy_productcard_info/:name_id",
+      path: "/buy_productcard_info/:id",
+      // path: "/buy_productcard_info/:name_id",
       element: (
         <>
           <Navbar />
