@@ -2,11 +2,15 @@ import { Link } from "react-router-dom";
 import logo from '../assets/Logo/logocar_final.png'
 import USA from '../assets/Logo/USA.png'
 import burger from '../assets/Logo/burger.png'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { jwtDecode } from "jwt-decode";//ตัวถอดโทเคน
+
 
 
 function Navbar ({className}){
     const [open,setOpen]=useState(false)
+    const [userId, setUserId] = useState('')//Id Global
+
     const handleBurger=()=>{
         setOpen(!open)            
     }
@@ -16,6 +20,20 @@ function Navbar ({className}){
         behavior: 'smooth'
       });
     };
+
+    useEffect(() => {//ดึงโทเคน+decode+เซ็ทค่า
+      try {
+        const token = localStorage.getItem('token');
+        if (token) {
+          const decodedToken = jwtDecode(token);
+          setUserId(decodedToken.id); // เปลี่ยน 'id' ตามโครงสร้างของโทเคนของคุณ
+        }
+      } catch (error) {
+        console.error('Error decoding token:', error);
+      }
+    }, []);
+
+
     return(
       <nav className={`${className} bg-blue-950 text-white max-md:fixed w-full `}>
          <div className="flex justify-between mx-4">
@@ -28,7 +46,7 @@ function Navbar ({className}){
            <li><Link className="hover:underline"onClick={scrollToTop} to="/">เช่ารถยนต์</Link></li>
            </div>
            </ul>
-         
+         <p> {userId}</p>
          <div className="flex gap-8">
            <Link to="/" className="flex flex-col justify-center mr-3">
              <img className="md:hidden" src={USA} alt=""/>
