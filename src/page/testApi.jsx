@@ -1,9 +1,5 @@
 import { carRandom } from '../components/API/API_Cars';//เปลี่ยนตาม API ที่ใช้
 import { useState } from 'react';
-import { getCarById } from '../components/API/API_Cars';
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
-
 
 const TestApi = () => {
   const [Data, setData] = useState([]);
@@ -13,12 +9,6 @@ const TestApi = () => {
     const API = await getCarById(carId);//เปลี่ยนตาม API ที่ใช้ และ เปลี่ยน parameterขึ้นกับว่า inputเป็นแบบไหน
     setData(API);
   };
-
-
-  // const Active = async () => {
-  //   const API = await carRandom();//เปลี่ยนตาม API ที่ใช้ และ เปลี่ยน parameterขึ้นกับว่า inputเป็นแบบไหน
-  //   setData(API);
-  // };
 
   
   return (
