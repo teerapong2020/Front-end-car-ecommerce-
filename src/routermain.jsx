@@ -18,6 +18,8 @@ import Dashboard from "./page/dashboard";
 import Checkout from "./page/checkout";
 import Checkout2 from "./page/checkout2";
 import Paymentresult from "./page/paymentresult";
+import MarkMap from "./components/StreetMap/markMap";
+import ShowMap from "./components/StreetMap/showMap";
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
@@ -171,6 +173,26 @@ const RouterMain = () => {
         <>
           <Navbar />
           <Paymentresult />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/markmap",
+      element: (
+        <>
+          <Navbar />
+          <MarkMap />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/showmap",
+      element: (
+        <>
+          <Navbar />
+          <ShowMap />
           <Footer />
         </>
       ),
