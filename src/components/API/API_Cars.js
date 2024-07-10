@@ -20,3 +20,14 @@ export const createCar = async (data) => {
     return error.response.data;
   }
 };
+
+//API - Get product info by ID
+export const getCarById = async (id) => {
+  try {
+    const response = await axiosInstance.get(`/cars/${id}`);
+    console.log("Frontend - Car Data:", response.data); 
+    return response.data; 
+  } catch (error) {
+    return error.response.data; 
+  }
+};

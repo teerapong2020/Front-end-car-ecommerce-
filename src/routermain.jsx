@@ -65,7 +65,8 @@ const RouterMain = () => {
       ),
     },
     {
-      path: "/buy_productcard_info/:name_id",
+      path: "/buy_productcard_info/:id",
+      // path: "/buy_productcard_info/:name_id",
       element: (
         <>
           <Navbar />
@@ -121,6 +122,15 @@ const RouterMain = () => {
     },
     {
       path: "/testApi",
+      element: (
+        <>
+          <Navbar />
+          <TestApi />
+        </>
+      ),
+    },
+    {
+      path: "/testApi/:id",
       element: (
         <>
           <Navbar />
