@@ -1,5 +1,5 @@
 import { carRandom } from '../components/API/API_Cars';//เปลี่ยนตาม API ที่ใช้
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const TestApi = () => {
   const [Data, setData] = useState([]);
@@ -9,7 +9,11 @@ const TestApi = () => {
     setData(API);
   };
 
-  
+ // UseEffect เอ๊ะสี่เหลี่ยมเป็นยังน้า ห้ะเปลี่ยนแล้ว > [] งั้นเทอร์รันปีกกาต่อได้เลยน้า {} ด้วย
+  useEffect(() => {
+    Active()
+  }, []);
+
   return (
     <div className="h-96">
       <button

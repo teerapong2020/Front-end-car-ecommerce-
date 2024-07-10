@@ -5,7 +5,8 @@ import check_in from "../../assets/Logo/logo_product_card/check_in.png";
 import sharenetwork from "../../assets/Logo/logo_product_card/sharenetwork.png";
 import heart from "../../assets/Logo/logo_product_card/heart.png";
 
-export const NewCard = ({ product }) => (
+
+export const RandomCard = ({ product }) => (
   <div className="bg-white rounded-[20px] border-t shadow flex flex-col w-[360px] pb-4 hover:bg-gray-300">
     <div className="p-2">
       <div className="flex justify-between items-center">
