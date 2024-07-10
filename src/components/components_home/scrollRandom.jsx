@@ -12,7 +12,7 @@ function ScrollRandom() {
   const scrollRef = useRef(null);
   const [isAtStart, setIsAtStart] = useState(true);
   const [isAtEnd, setIsAtEnd] = useState(false);
-  const [products, setProducts] = useState(example_products); // Set initial state to example_products
+  const [products, setProducts] = useState(); // Set initial state to example_products
 
   const handleScroll = () => {
     if (scrollRef.current) {
