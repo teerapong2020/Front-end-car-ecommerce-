@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-export const SearchMain = ({ setSearchResults }) => {
+export const SearchMain = ({setSearchResults}) => {
   const [searchValue, setSearchValue] = useState("");
   
 
   const handleClearSearch = async() => {
- 
-      setSearchResults([]);
-    setSearchValue("");
+    setSearchValue("")
   };
 
   return (
@@ -37,8 +35,7 @@ export const SearchMain = ({ setSearchResults }) => {
         <button  
           className="bg-blue-900 text-white hover:bg-blue-950 p-2 rounded-xl px-4 mx-2"
         >
-         
-          <Link to={`/buy`}> ค้นหา</Link>
+          <Link to={`/buy`} state={searchValue} > ค้นหา</Link>
         </button>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { onSearchCar } from "../API/API_Cars";
 import example_products from "../../data/example_products";
-
+import { Link } from "react-router-dom";
 
 
 
@@ -47,10 +47,9 @@ export const Search = ({ setSearchResults }) => {
           </span>
         )}
         <button
-          onClick={handleSearch}
           className="bg-blue-900 text-white hover:bg-blue-950 p-2 rounded-xl px-4 mx-2"
         >
-          ค้นหา
+         <Link onClick={handleSearch} to={`/buy`}> ค้นหา</Link>
         </button>
       </div>
     </div>
