@@ -18,6 +18,8 @@ import Dashboard from "./page/dashboard";
 import Checkout from "./page/checkout";
 import Checkout2 from "./page/checkout2";
 import Paymentresult from "./page/paymentresult";
+import SellAdmin from "./page/sellAdmin";
+import Mockesetdata from "./page/mockesetdata";
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
@@ -63,7 +65,8 @@ const RouterMain = () => {
       ),
     },
     {
-      path: "/buy_productcard_info/:name_id",
+      path: "/buy_productcard_info/:id",
+      // path: "/buy_productcard_info/:name_id",
       element: (
         <>
           <Navbar />
@@ -127,6 +130,15 @@ const RouterMain = () => {
       ),
     },
     {
+      path: "/testApi/:id",
+      element: (
+        <>
+          <Navbar />
+          <TestApi />
+        </>
+      ),
+    },
+    {
       path: "/dashboard",
       element: (
         <>
@@ -166,15 +178,25 @@ const RouterMain = () => {
       ),
     },
     {
-      path:"/userprofile",
-      element:(
+      path: "/adminSell",
+      element: (
         <>
-        <Navbar/>
-        
-        <Footer/>
+          <Navbar />
+          <SellAdmin />
+          <Footer />
         </>
-      )
-    }
+      ),
+    },
+    {
+      path: "/mockselldata",
+      element: (
+        <>
+          <Navbar />
+          <Mockesetdata />
+          <Footer />
+        </>
+      ),
+    },
   ]);
 
   return <RouterProvider router={router} />;

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Tesla from "../../src/assets/Login/Tesla1.png";
 import ShowEye from "../../src/assets/Login/Showpassword.png";
 import HideEye from "../../src/assets/Login/Hidepassword.png";
+import { loginUser } from '../components/API/API_Users';
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -12,6 +14,8 @@ function Login() {
   const [isRegistering, setIsRegistering] = useState(false);
   const [name, setName] = useState("");
   const [surName, setSurName] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const validateEmail = () => {
@@ -40,8 +44,8 @@ function Login() {
     validateEmail();
     validatePassword();
   }, [email, password]);
-
-  function handleSubmit(e) {
+//แก้เป็น async เพราะมีการต่อAPI 
+  const handleSubmit = async(e) => {
     e.preventDefault();
     if (!emailError && !passwordError) {
       alert(
@@ -56,6 +60,14 @@ function Login() {
       alert("Please fix the password error in the form.");
     } else {
       console.log("Unknown error, please refresh your browser");
+    }
+
+    //ยิง API login
+    const user = await loginUser(email, password);
+    // Handle successful login 
+    if (user && user.access_token){
+      localStorage.setItem("token", user.access_token)
+      navigate("/")
     }
   }
 

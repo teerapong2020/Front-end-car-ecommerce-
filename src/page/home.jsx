@@ -7,7 +7,7 @@ import tokyoDrift from "../audio/tokyo drift.aac";
 import { Search } from "../components/champ/search";
 import { SearchMain } from "../components/champ/searchMain";
 import Banner from "../components/components_home/banner";
-// import youwill from "../audio/You Will Never See Me Coming - NEFFEX.mp3"
+import ScrollRandom from "../components/components_home/scrollRandom";
 
 function Home() {
   const audioRef = useRef(null)
@@ -24,13 +24,14 @@ function Home() {
   return (
     <div className="flex justify-center">
       {/* <audio ref={audioRef} src={tokyoDrift} /> */}
-      <div className=" w-full">
+      <div className="w-full">
         <Slide />
         <SearchMain />
         <div className="flex justify-center">
-          <div className=" w-[1128px]">
+          <div className="w-[1128px]">
             <CarBrands />
             <Banner />
+            <ScrollRandom />
             <ScollNewCar />
           </div>
         </div>

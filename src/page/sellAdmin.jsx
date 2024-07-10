@@ -2,34 +2,17 @@ import { useEffect, useState } from "react";
 import carDefault from "../assets/sell_page/defaultcar.png";
 import uploadImage from "../assets/sell_page/upload_photo_icon.png";
 import { createCar } from "../components/API/API_Cars";
-import Mapgoogle from "../components/googlemap/map";
+import MapAdmin from "../components/googlemap/mapAdmin";
+import { useLocation } from "react-router-dom";
 
-function Sell() {
-  const [formData, setFormData] = useState({
-    headline: "",
-    brand: "",
-    model: "",
-    type: "",
-    year: "",
-    mileage: "",
-    color: "",
-    fuel: "",
-    enginecap: "",
-    cushion: "",
-    seat: "",
-    gear: "",
-    price: "",
-    pnumber: "",
-    address: "",
-    additionalInfo: "",
-    location: "",
-    file1: null,
-    file2: null,
-    file3: null,
-    file4: null,
-    file5: null,
-    file6: null,
-  });
+function SellAdmin() {
+  let { state } = useLocation();
+
+  if (!state) {
+    return <div>data not found</div>;
+  }
+
+  const [formData, setFormData] = useState(state);
 
   const [count, setCount] = useState(1);
 
@@ -60,10 +43,6 @@ function Sell() {
     } catch (error) {
       console.error("Error uploading image:", error);
     }
-
-    document.getElementById("imagePreview").className = "hidden";
-    document.getElementById("image-container").className =
-      "grid grid-cols-3 gap-6 mr-[18px]";
   };
 
   const uploadToCloudinary = async (file) => {
@@ -129,8 +108,8 @@ function Sell() {
       <h5 className="text-xl font-semibold mt-12 mb-[30px]">ขายรถของคุณ</h5>
       <div className="border border-black p-4 rounded-[10px]  ">
         {/* First image */}
-        <div className=" flex">
-          <div id="image-container" className="">
+        <div className=" ">
+          <div id="image-container" className="grid grid-cols-3 gap-6 ">
             {formData.file1 && (
               <img
                 src={formData.file1}
@@ -168,30 +147,6 @@ function Sell() {
               />
             )}
           </div>
-          <img
-            src={carDefault}
-            id="imagePreview"
-            alt="default car"
-            className=" mr-4 "
-          />
-          <div className="w-[344px] flex flex-col justify-center items-center border border-gray-400 rounded-[10px]">
-            <img
-              src={uploadImage}
-              id="1"
-              alt="img_test"
-              className="w-[72px] "
-              onClick={uploadimage}
-            />
-            <div className="text-[#9E9E9E] font-medium text-[18px]">
-              อัพโหลดรูปภาพ
-            </div>
-          </div>
-          <input
-            id="uploadfileinbuycar"
-            type="file"
-            className="hidden"
-            onChange={handleFileChange}
-          />
         </div>
       </div>
       <h5 className="text-[24px] font-semibold mt-[40px] mb-[19px]">
@@ -427,10 +382,23 @@ function Sell() {
           />
         </div>
         <div className="flex  justify-between ">
+          <label className=" text-gray-700 text-[18px] font-medium mt-4">
+            ความเห็นจากแอดมิน
+          </label>
+          <textarea
+            name="adminComment"
+            className="w-[744px]  p-5 text-base border border-gray-300 rounded-[15px]"
+            placeholder="ใส่รายละเอียดเพิ่มเติม เช่น เข้าศูนย์เช็คตลอด, ไม่เคยชน"
+            rows="4"
+            value={formData.adminComment}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex  justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
             ปักหมุดที่อยู่ของคุณ
           </label>
-          <Mapgoogle setFormData={setFormData} />
+          <MapAdmin formData={formData} />
         </div>
       </div>
 
@@ -462,4 +430,4 @@ function Sell() {
   );
 }
 
-export default Sell;
+export default SellAdmin;
