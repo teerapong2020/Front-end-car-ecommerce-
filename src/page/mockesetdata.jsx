@@ -20,8 +20,8 @@ function mockesetdata() {
     pnumber: "0812345678",
     address: "123 Main St, Bangkok, Thailand",
     additionalInfo: "One owner, full service history, accident-free",
-    latitude: "33.84515527803934",
-    longitude: "104.5662217562873",
+    latitude: "13.7563",
+    longitude: "100.5018",
     file1:
       "https://res.cloudinary.com/di8f9idgx/image/upload/v1720244966/ixuhxjluzscejal7v5tb.webp",
     file2:
