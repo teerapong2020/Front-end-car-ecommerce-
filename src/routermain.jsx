@@ -18,6 +18,8 @@ import Dashboard from "./page/dashboard";
 import Checkout from "./page/checkout";
 import Checkout2 from "./page/checkout2";
 import Paymentresult from "./page/paymentresult";
+import SellAdmin from "./page/sellAdmin";
+import Mockesetdata from "./page/mockesetdata";
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
@@ -161,6 +163,26 @@ const RouterMain = () => {
         <>
           <Navbar />
           <Paymentresult />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/adminSell",
+      element: (
+        <>
+          <Navbar />
+          <SellAdmin />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/mockselldata",
+      element: (
+        <>
+          <Navbar />
+          <Mockesetdata />
           <Footer />
         </>
       ),
