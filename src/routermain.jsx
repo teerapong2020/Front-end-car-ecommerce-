@@ -18,6 +18,8 @@ import Dashboard from "./page/dashboard";
 import Checkout from "./page/checkout";
 import Checkout2 from "./page/checkout2";
 import Paymentresult from "./page/paymentresult";
+import MarkMap from "./components/StreetMap/markMap";
+import ShowMap from "./components/StreetMap/showMap";
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
@@ -63,7 +65,8 @@ const RouterMain = () => {
       ),
     },
     {
-      path: "/buy_productcard_info/:name_id",
+      path: "/buy_productcard_info/:id",
+      // path: "/buy_productcard_info/:name_id",
       element: (
         <>
           <Navbar />
@@ -127,6 +130,15 @@ const RouterMain = () => {
       ),
     },
     {
+      path: "/testApi/:id",
+      element: (
+        <>
+          <Navbar />
+          <TestApi />
+        </>
+      ),
+    },
+    {
       path: "/dashboard",
       element: (
         <>
@@ -161,6 +173,26 @@ const RouterMain = () => {
         <>
           <Navbar />
           <Paymentresult />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/markmap",
+      element: (
+        <>
+          <Navbar />
+          <MarkMap />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/showmap",
+      element: (
+        <>
+          <Navbar />
+          <ShowMap />
           <Footer />
         </>
       ),
