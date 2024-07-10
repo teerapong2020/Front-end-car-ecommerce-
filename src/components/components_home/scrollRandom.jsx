@@ -1,8 +1,9 @@
 import { useRef, useState, useEffect } from "react";
-import { RandomCard } from "./components/components_home/cardCarRandom.jsx";
+import { RandomCard } from "../components_home/cardCarRandom";
 import leftArrow from "../../assets/Logo/logo_product_card/left_slide.png";
 import rightArrow from "../../assets/Logo/logo_product_card/right_slide.png";
-import example_products from "../../data/example_products";
+import { carRandom } from "../API/API_Cars";
+
 
 const scrollContainerStyles = {
   scrollbarWidth: "none",
@@ -12,7 +13,7 @@ function ScrollRandom() {
   const scrollRef = useRef(null);
   const [isAtStart, setIsAtStart] = useState(true);
   const [isAtEnd, setIsAtEnd] = useState(false);
-  const [products, setProducts] = useState(); // Set initial state to example_products
+  const [products, setProducts] = useState([]);
 
   const handleScroll = () => {
     if (scrollRef.current) {
@@ -44,6 +45,15 @@ function ScrollRandom() {
         scrollRef.current.removeEventListener("scroll", handleScroll);
       }
     };
+  }, []);
+
+  const Active = async () => {
+    const API = await carRandom ();//เปลี่ยนตาม API ที่ใช้ และ เปลี่ยน parameterขึ้นกับว่า inputเป็นแบบไหน
+    setProducts(API);
+  };
+
+  useEffect(() =>{
+    Active()
   }, []);
 
   return (
