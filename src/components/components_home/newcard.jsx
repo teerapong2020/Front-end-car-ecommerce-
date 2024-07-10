@@ -9,22 +9,19 @@ export const NewCard = ({ product }) => (
   <div className="bg-white rounded-[20px] border-t shadow flex flex-col w-[360px] pb-4 hover:bg-gray-300">
     <div className='p-2'>
       <div className="flex justify-between items-center">
-        <h3 className="font-bold text-[16px]">{product.name}</h3>
-        <div className="flex gap-1">
-          <img src={star} alt="Star" /><h3 className="font-black text-xs">4.8/5.0</h3>
-        </div>
+        <h3 className="font-bold text-[16px]">{product.brand}</h3>
       </div>
       <div className="flex justify-between items-center">
-        <h3 className="font-light text-[12px]">{product.name}</h3>
+        <h3 className="font-light text-[12px]">{product.brand}</h3>
         <div className="flex gap-2">
           <img src={heart} className='h-4' alt="Heart" /><img src={sharenetwork} className='h-4' alt="Share" />
         </div>
       </div>
     </div>
-    <img className="object-scale-down h-[140px] self-center" src={product.imageMain} alt={product.name} />
+    <img className="object-scale-down h-[140px] self-center" src={product.file1} alt={product.brand} />
     <div className="flex justify-between mx-6">
       <div className="flex items-center">
-        <img src={check_in} className='h-2.5' alt="Check-in" /><p className="ml-1 text-[15px]">{product.location}</p>
+        <img src={check_in} className='h-2.5' alt="Check-in" /><p className="ml-1 text-[15px]">{product.address}</p>
       </div>
       <div className="flex mx-6 text-[15px]">
         <h4>PRICE</h4>

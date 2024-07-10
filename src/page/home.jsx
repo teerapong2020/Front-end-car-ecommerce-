@@ -5,12 +5,14 @@ import ScollNewCar from "../components/components_home/scollNewcar";
 import { useRef, useEffect } from "react";
 import tokyoDrift from "../audio/tokyo drift.aac";
 import { Search } from "../components/champ/search";
+import { SearchMain } from "../components/champ/searchMain";
 import Banner from "../components/components_home/banner";
 // import youwill from "../audio/You Will Never See Me Coming - NEFFEX.mp3"
 
 function Home() {
   const audioRef = useRef(null);
 
+  
   // useEffect(() => {
   //   audioRef.current.play().catch(error => {
   //     console.log('Error playing audio:', error);
@@ -22,7 +24,7 @@ function Home() {
       {/* <audio ref={audioRef} src={tokyoDrift} /> */}
       <div className=" w-full">
         <Slide />
-        <Search />
+        <SearchMain />
         <div className="flex justify-center">
           <div className=" w-[1128px]">
             <CarBrands />

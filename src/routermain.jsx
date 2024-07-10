@@ -165,6 +165,16 @@ const RouterMain = () => {
         </>
       ),
     },
+    {
+      path:"/userprofile",
+      element:(
+        <>
+        <Navbar/>
+        
+        <Footer/>
+        </>
+      )
+    }
   ]);
 
   return <RouterProvider router={router} />;

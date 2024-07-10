@@ -1,26 +1,13 @@
 import React, { useState } from "react";
-import { onSearchCar } from "../API/API_Cars";
-import example_products from "../../data/example_products";
+import { Link } from "react-router-dom";
 
-
-
-
-export const Search = ({ setSearchResults }) => {
+export const SearchMain = ({ setSearchResults }) => {
   const [searchValue, setSearchValue] = useState("");
-
-  const handleSearch = async () => {
-    try {
-      const result = await onSearchCar(searchValue);
-      setSearchResults(result);
-      console.log(result);
-    } catch (error) {
-      console.error("Error searching for cars:", error);
-    }
-  };
+  
 
   const handleClearSearch = async() => {
-    const showAll = await example_products();
-      setSearchResults(showAll);
+ 
+      setSearchResults([]);
     setSearchValue("");
   };
 
@@ -46,11 +33,12 @@ export const Search = ({ setSearchResults }) => {
             clear
           </span>
         )}
-        <button
-          onClick={handleSearch}
+      
+        <button  
           className="bg-blue-900 text-white hover:bg-blue-950 p-2 rounded-xl px-4 mx-2"
         >
-          ค้นหา
+         
+          <Link to={`/buy`}> ค้นหา</Link>
         </button>
       </div>
     </div>

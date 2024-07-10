@@ -17,11 +17,27 @@ import seattype from "../assets/Logo/Icon_productcard_info/seattype.png";
 import share from "../assets/Logo/Icon_productcard_info/share.png";
 
 function Buy_ProductCard_Info() {
-  const { name_id } = useParams();
-  const id = parseInt(name_id.split("_").pop());
-  const product = example_products.find((product) => product.id === id);
+  const [product, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const product = await example_products();
+        setProducts(product);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+
+  // const { name_id } = useParams();
+  // const id = parseInt(name_id.split("_").pop());
+  // const product = products.find((product) => product.id === id);
   const [lscore, setlscore] = useState(true);
   const [rscore, setrscore] = useState(false);
+
+  
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -93,31 +109,31 @@ function Buy_ProductCard_Info() {
               />
               <img
                 className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500"
-                src={product.image1}
+                src={product.file1}
                 onClick={() => currentSlide(2)}
                 alt="X4-1"
               />
               <img
                 className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500"
-                src={product.image2}
+                src={product.file1}
                 onClick={() => currentSlide(3)}
                 alt="X4-2"
               />
               <img
                 className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500"
-                src={product.image3}
+                src={product.file1}
                 onClick={() => currentSlide(4)}
                 alt="X4-3"
               />
               <img
                 className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500"
-                src={product.image4}
+                src={product.file1}
                 onClick={() => currentSlide(5)}
                 alt="X4-4"
               />
               <img
                 className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500"
-                src={product.image5}
+                src={product.file1}
                 onClick={() => currentSlide(6)}
                 alt="X4-5"
               />

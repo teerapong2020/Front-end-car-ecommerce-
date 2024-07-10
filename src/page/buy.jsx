@@ -16,7 +16,7 @@ function Buy() {
             บริการซื้อรถยนต์
           </h1>
         </div>
-        <Search />
+        {/* <Search /> */}
       </hero>
       <Selldata />
     </>

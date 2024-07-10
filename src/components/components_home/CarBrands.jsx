@@ -26,7 +26,7 @@ const carBrands = [
 
 const CarBrands = () => {
   return (
-    <div className="w-full overflow-x-auto mt-4 shadow rounded">
+    <div className="w-full  mt-4 shadow rounded-xl">
       <h2 className="text-xl font-bold mb-2 text-center">ยี่ห้อรถยนต์ทั้งหมด</h2>
       <div className="flex justify-center gap-2 ">
         {carBrands.map((brand, index) => (
