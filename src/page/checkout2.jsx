@@ -8,7 +8,7 @@ function Checkout2() {
     <div className="flex flex-col items-center text-base">
       <Progress />
       <div className="w-[1128px] flex justify-start item">
-        <Login_for_checkout />
+
       </div>
       <div className="w-[1128px]  flex gap-x-[24px] ">
         <div className="flex flex-col w-[744px]">
