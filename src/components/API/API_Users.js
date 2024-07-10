@@ -16,3 +16,22 @@ export const loginUser = async (email, password) => {
       return error.response.data; 
     }
 };
+
+//API - Register
+export const registerUser = async (firstName, lastName, registerEmail, registerPassword, confirmPassword, pnumber) => {
+  try {
+    const response = await axiosInstance.post("/users/register", {
+      FirstName: firstName,
+      LastName: lastName,
+      Email: registerEmail,
+      Password: registerPassword,
+      confirmPassword: confirmPassword,
+      pnumber: pnumber,
+      // isAdmin: false,
+      // pinned: [],
+    });
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};

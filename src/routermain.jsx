@@ -8,7 +8,7 @@ import Buy from "./page/buy";
 import { NewCard } from "./components/components_home/newcard";
 import Buy_ProductCard_Info from "./page/buy_productcard_info";
 import NavbarMain from "./components/navbarmain";
-import Login from "./page/login";
+import LoginAndRegister from "./page/login";
 import Forgot from "./page/forgotpassword";
 import ResetPassword from "./page/resetpassword";
 import Register from "./page/register";
@@ -74,11 +74,11 @@ const RouterMain = () => {
       ),
     },
     {
-      path: "/login",
+      path: "/loginandregister",
       element: (
         <>
           <NavbarMain />
-          <Login />
+          <LoginAndRegister />
         </>
       ),
     },
