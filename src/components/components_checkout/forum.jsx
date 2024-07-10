@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 
 function Forum() {
   const [formData, setFormData] = useState({
-    fName: "",
-    lName: "",
-    email: "",
-    purpose: "",
-    moreDetail: "",
+    address: "",
+    etc: "",
+    date: "",
   });
 
   const handleChange = async (e) => {
@@ -22,47 +20,33 @@ function Forum() {
   return (
     <form id="informUser" className="mb-[55px]">
       <div className="flex flex-col  border border-[#E1E1E1] rounded-[20px]  px-6 pt-[28px] pb-10 text-base">
-        <p className="font-semibold text-2xl mb-6 ">กรอกข้อมูล</p>
-        <label className="font-medium text-lg ">ข้อมูลผู้ขับขี่</label>
+        <p className="font-semibold text-2xl mb-8 ">กรอกข้อมูล</p>
+        <label className="font-medium text-sm mb-2 ">ที่อยู่จัดส่ง</label>
         <input
           type="text"
-          name="fName"
-          value={formData.fName}
+          name="address"
+          value={formData.address}
           onChange={handleChange}
-          placeholder="ชื่อจริง"
-          className="  h-[56px] mt-6  px-5 rounded-2xl border border-[#E1E1E1] font-medium "
+          placeholder="ที่อยู่"
+          className="  h-[56px] mb-6   px-5 rounded-2xl border border-[#E1E1E1] font-medium text-base"
         />
+        <label className="font-medium text-sm mb-2 ">ข้อมูลเพิ่มเติม</label>
         <input
           type="text"
-          name="lName"
-          value={formData.lName}
+          name="etc"
+          value={formData.etc}
           onChange={handleChange}
-          placeholder="นามสกุล"
-          className=" h-[56px] mt-[32px]  px-5 rounded-2xl border border-[#E1E1E1] font-medium"
+          placeholder="ข้อมูลเพิ่มเติม (ถ้ามี) "
+          className=" h-[56px] mb-6   px-5 rounded-2xl border border-[#E1E1E1] font-medium text-base"
         />
+        <label className="font-medium text-sm mb-2 ">เลือกวันที่รับรถ</label>
         <input
-          type="email"
-          name="email"
-          value={formData.email}
+          type="date"
+          name="date"
+          value={formData.date}
           onChange={handleChange}
-          placeholder="อีเมล์"
-          className=" h-[56px] mt-[32px]  px-5 rounded-2xl border border-[#E1E1E1]  font-medium"
-        />
-        <input
-          type="text"
-          name="purpose"
-          value={formData.purpose}
-          onChange={handleChange}
-          placeholder="จุดประสงค์ในการใช้รถ"
-          className=" h-[56px] mt-[32px]  px-5 rounded-2xl border border-[#E1E1E1] font-medium"
-        />
-        <input
-          type="text"
-          name="moreDetail"
-          value={formData.moreDetail}
-          onChange={handleChange}
-          placeholder="ข้อมูลเพิ่มเติม (ถ้ามี)"
-          className=" h-[56px] mt-[32px]  px-5 rounded-2xl border border-[#E1E1E1]  font-medium"
+          placeholder="เลือกวันที่"
+          className=" h-[56px]   px-5 rounded-2xl border border-[#E1E1E1]  font-medium text-base"
         />
       </div>
       <div
