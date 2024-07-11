@@ -46,7 +46,7 @@ export const carBuy = async()=>{
 // CAR NEW
 export const carNew = async()=>{
   try {
-    const response = await axiosInstance.get("/cars/Car-New")
+    const response = await axiosInstance.get("/cars/car-new")
     return response.data
   } catch (error) {
     return error.response.data
