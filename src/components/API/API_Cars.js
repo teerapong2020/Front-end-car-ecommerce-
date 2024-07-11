@@ -11,16 +11,6 @@ export const carRandom = async () => {
   }
 };
 
-export const carLatest = async () => {
-  try {
-    const response = await axiosInstance.get("/cars/car-latest"); //เปลี่ยนตามเส้น API
-    console.log(response.data.result); // .result มั้ยขึ้นอยู่กับว่า backend return เป็นอะไร
-    return response.data.result;
-  } catch (error) {
-    return error.response.data;
-  }
-};
-
 export const createCar = async (data) => {
   console.log("werun");
   try {
@@ -56,7 +46,7 @@ export const carBuy = async()=>{
 // CAR NEW
 export const carNew = async()=>{
   try {
-    const response = await axiosInstance.get("/cars/Car-New")
+    const response = await axiosInstance.get("/cars/car-new")
     return response.data
   } catch (error) {
     return error.response.data
