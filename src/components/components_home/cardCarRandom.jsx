@@ -1,36 +1,33 @@
-import React, {useState} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import star from "../../assets/Logo/logo_product_card/star.png";
 import check_in from "../../assets/Logo/logo_product_card/check_in.png";
 import sharenetwork from "../../assets/Logo/logo_product_card/sharenetwork.png";
-import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import heart from "../../assets/Logo/logo_product_card/heart.png";
 
-export const RandomCard = ({ product }) => {
-  const [isFilled, setIsFilled] = useState(false);
-  
-  const toggleHeart = () => {
-    setIsFilled(!isFilled);
-  }
-  return (
-    <>
-<div className="bg-white rounded-[20px] border-t shadow flex flex-col w-[360px] pb-4 hover:bg-gray-300">
+
+export const RandomCard = ({ product }) => (
+  <div className="bg-white rounded-[20px] border-t shadow flex flex-col w-[360px] pb-4 hover:bg-gray-300">
     <div className="p-2">
       <div className="flex justify-between items-center">
-      <h3 className="font-bold text-[16px]">{product.brand} {product.model}</h3>
-        <div className="flex gap-2 relative">
-          <div onClick={toggleHeart} style={{ cursor: 'pointer', fontSize: '24px' }}>
-            {isFilled ? <AiFillHeart color="#00008B" /> : <AiOutlineHeart color="grey" />}
-          </div>
-          <img src={sharenetwork} className="h-4 m-1" alt="Share" />
+        <h3 className="font-bold text-[16px]">{product.brand}</h3>
+        <div className ="flex gap-1">
+          <img src={star} alt="Star" />
+          <h3 className="font-black text-xs">4.8/5.0</h3>
         </div>
       </div>
       <div className="flex justify-between items-center">
-        <h3 className="font-light text-[12px]">{product.type}</h3>
+        <h3 className="font-light text-[12px]">{product.brand}</h3>
+        <div className="flex gap-2">
+          <img src={heart} className="h-4" alt="Heart" />
+          <img src={sharenetwork} className="h-4" alt="Share" />
+        </div>
       </div>
     </div>
     <img
       className="object-scale-down h-[140px] self-center"
-      src={product.file1}
-      alt={product.file1}
+      src={product.file1} //ตามหา obj
+      alt={product.brand} //backend
     />
     <div className="flex justify-between mx-6">
       <div className="flex items-center">
@@ -38,8 +35,8 @@ export const RandomCard = ({ product }) => {
         <p className="ml-1 text-[15px]">{product.address}</p>
       </div>
       <div className="flex mx-6 text-[15px]">
-        <h4>THB </h4>
-        <h4 className="mx-1 font-bold">{product.price.toLocaleString()}</h4>
+        <h4>PRICE</h4>
+        <h4 className="mx-1 font-bold">฿{product.price}</h4>
       </div>
     </div>
     <div className="border-t border-gray-300 mx-7 my-1 py-1"></div>
@@ -52,6 +49,4 @@ export const RandomCard = ({ product }) => {
       </Link>
     </div>
   </div>
-    </>
-  )
-};
+);
