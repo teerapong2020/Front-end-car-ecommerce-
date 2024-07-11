@@ -21,17 +21,20 @@ import Paymentresult from "./page/paymentresult";
 import SellAdmin from "./page/sellAdmin";
 import Mockesetdata from "./page/mockesetdata";
 import UploadProfile from "./page/uploadprofile";
+import { FormProvider } from "./context_component/Regiscontext";// ตรวจสอบ path ว่าถูกต้อง
+
+
+
 
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
-  
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
         <>
-          <NavbarMain />
+          <NavbarMain  />
           <Home />
           <Footer />
         </>
@@ -82,8 +85,8 @@ const RouterMain = () => {
       path: "/loginandregister",
       element: (
         <>
-          <Navbar  />
-          <LoginAndRegister/>
+          <NavbarMain  />
+          <LoginAndRegister />
         </>
       ),
     },
@@ -206,12 +209,16 @@ const RouterMain = () => {
         <>
           <NavbarMain />
           <UploadProfile />
+
         </>
       ),
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return ( <FormProvider>
+    <RouterProvider router={router} />
+    </FormProvider>
+    );
 };
 
 export default RouterMain;

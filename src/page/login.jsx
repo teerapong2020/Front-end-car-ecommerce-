@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState  } from "react";
 import Tesla from "../../src/assets/Login/Tesla1.png";
 import ShowEye from "../../src/assets/Login/Showpassword.png";
 import HideEye from "../../src/assets/Login/Hidepassword.png";
 import { loginUser } from '../components/API/API_Users';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { registerUser } from "../components/API/API_Users";
-import Navbar from "../components/navbar";
+import { FormContext } from "../context_component/Regiscontext";
+import { useContext } from "react";
+
+
 
 
 function LoginAndRegister() {
@@ -18,12 +21,31 @@ function LoginAndRegister() {
   const [hideConfirmPassword, setHideConfirmPassword] = useState(true);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [isRegistering, setIsRegistering] = useState(false);
+  // const [isRegistering, setIsRegistering] = useState(false);
+  
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [pnumber, setPnumber] = useState("");
 
+  const { isRegistering, setIsRegistering } = useContext(FormContext);
   const navigate = useNavigate();
+
+
+  // useEffect(() => {
+  //   if (location.state && location.state.isRegistering) {
+  //     setIsRegistering(true);
+  //   }
+  // }, [location.state]);
+
+  // useEffect(() => {
+  //   if (location.state && location.state.isRegistering) {
+  //     setIsRegistering(true);
+  //   } else {
+  //     setIsRegistering(true);
+  //   }
+  // }, [location]);
+
+  
 
   useEffect(() => {
     const validateEmail = () => {
@@ -73,6 +95,7 @@ function LoginAndRegister() {
       alert(
         `Form submitted successfully! Your email ${email} has been submitted.`
       );
+      
       console.log(email, password);
     } else if (emailError && passwordError) {
       alert("Please fix the email address and password errors in the form.");
@@ -100,6 +123,7 @@ function LoginAndRegister() {
         navigate("/");
       } else {
         alert("Please verify your email to complete registration");
+        navigate("/");
       }
     } else {
       alert("Please fix the errors in the form or make sure passwords match");
@@ -124,13 +148,16 @@ function LoginAndRegister() {
     setIsRegistering(!isRegistering);
   }
 
+ 
+
 
 
   return (
     // login form
       
-
+    
     <section>
+      
       
       <img
         src={Tesla}
@@ -241,7 +268,7 @@ function LoginAndRegister() {
                 onClick={handleToggleForm}
                 className=" text-white bg-[#333333]  mb-[24px] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-[6px] text-sm text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 w-[360px] h-[40px]"
               >
-                เข้าสู่ระบบด้วย Google
+                สมัครสมาชิก?
               </button>    
             </div>
           </form>

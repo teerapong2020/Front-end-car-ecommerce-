@@ -4,13 +4,22 @@ import USA from "../assets/Logo/USA.png";
 import burger from "../assets/Logo/burger.png";
 import { useState, useEffect } from "react";
 import {jwtDecode} from "jwt-decode"; //ตัวถอดโทเคน
+import { useContext } from "react";
+import { FormContext } from "../context_component/Regiscontext";
 
-function Navbar({ className, onRegisterClick }) {
+function Navbar({ className }) {
   const [open, setOpen] = useState(false);
   const [User, setUser] = useState(""); // Id Global
   const [istoken, setIstoken] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
+
+  const { setIsRegistering } = useContext(FormContext);
+
+  const handleRegisterClick = () => {
+    setIsRegistering(true); //ตั้งเป็นฟอร์ม register
+    navigate("/loginandregister");
+  };
 
   const handleBurger = () => {
     setOpen(!open);
@@ -107,14 +116,14 @@ function Navbar({ className, onRegisterClick }) {
             </li>
             <li>
               <Link
-               onClick={handleBurger}
+               onClick
                to="/loginandregister">
                 เข้าสู่ระบบ
               </Link>
             </li>
             <li>
               <Link
-                onClick={onRegisterClick}
+                onClick={handleRegisterClick}
                 className="bg-white text-black p-2 rounded-full"
                 to="/loginandregister"
               >
