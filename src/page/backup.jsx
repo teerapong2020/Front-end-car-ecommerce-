@@ -310,7 +310,6 @@
   </div>
 </div>
 </section>
-);
-}
+
 
 export default Login;

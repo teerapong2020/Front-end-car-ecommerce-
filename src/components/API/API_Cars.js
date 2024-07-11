@@ -41,3 +41,35 @@ export const getCarById = async (id) => {
     return error.response.data; 
   }
 };
+
+// API Car Buy
+export const carBuy = async()=>{
+  try {
+    const response = await axiosInstance.get("/cars/")
+    
+    return response.data
+  } catch (error) {
+    return error.response.data
+  }
+};
+
+// CAR NEW
+export const carNew = async()=>{
+  try {
+    const response = await axiosInstance.get("/cars/Car-New")
+    return response.data
+  } catch (error) {
+    return error.response.data
+  }
+};
+
+// car Seach 
+export const onSearchCar = async (query) => {
+  try {
+    const response = await axiosInstance.post("/cars/searchbar", {query});
+      return response.data;
+  
+  } catch (error) {
+    console.log("An unexpected error occurred. Please try again.");
+  }
+};

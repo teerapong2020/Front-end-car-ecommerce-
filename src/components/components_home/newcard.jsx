@@ -32,15 +32,10 @@ export const NewCard = ({ product }) => {
 
       </div>
     </div>
-    <img
-      className="object-scale-down h-[140px] self-center"
-      src={product.imageMain}
-      alt={product.name}
-    />
+    <img className="object-scale-down h-[140px] self-center" src={product.file1} alt={product.brand} />
     <div className="flex justify-between mx-6">
       <div className="flex items-center">
-        <img src={check_in} className="h-2.5" alt="Check-in" />
-        <p className="ml-1 text-[15px]">{product.location}</p>
+        <img src={check_in} className='h-2.5' alt="Check-in" /><p className="ml-1 text-[15px]">{product.address}</p>
       </div>
       <div className="flex mx-6 text-[15px]">
         <h4>THB </h4>
@@ -51,7 +46,7 @@ export const NewCard = ({ product }) => {
     <div className="flex flex-col">
       <Link
         className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]"
-        to={`/buy_productcard_info/${product.name}_${product.id}`}
+        to={`/buy_productcard_info/${product.id}`}
       >
         ดูรายละเอียด
       </Link>
