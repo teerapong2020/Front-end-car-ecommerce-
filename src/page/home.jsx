@@ -1,15 +1,20 @@
 import Slide from "../components/components_home/slide";
 import WhyMe from "../components/components_home/why_me";
 import CarBrands from "../components/components_home/CarBrands";
-import ScollNewCar from "../components/components_home/scollNewcar";
-import { useRef, useEffect } from "react";
+import ScrollNew from "../components/components_home/scrollNew";
+import { useRef, useEffect,useState } from "react";
+import tokyoDrift from "../audio/tokyo drift.aac";
 import { Search } from "../components/champ/search";
+import { SearchMain } from "../components/champ/searchMain";
 import Banner from "../components/components_home/banner";
 import ScrollRandom from "../components/components_home/scrollRandom";
 
 function Home() {
-  const audioRef = useRef(null);
+  const audioRef = useRef(null)
 
+
+
+  
   // useEffect(() => {
   //   audioRef.current.play().catch(error => {
   //     console.log('Error playing audio:', error);
@@ -27,7 +32,7 @@ function Home() {
             <CarBrands />
             <Banner />
             <ScrollRandom />
-            <ScollNewCar />
+            <ScrollNew />
           </div>
         </div>
         <WhyMe />

@@ -4,6 +4,7 @@ import example_products from '../../data/example_products';//เป็นกา�
 import leftArrow from '../../assets/Logo/logo_product_card/left_slide.png';
 import rightArrow from '../../assets/Logo/logo_product_card/right_slide.png';
 
+
 const scrollContainerStyles = {
   scrollbarWidth: 'none',
   // scrollbarWidth: 'thin',
@@ -14,6 +15,19 @@ function ScrollNewCar() {
   const scrollRef = useRef(null);
   const [isAtStart, setIsAtStart] = useState(true);
   const [isAtEnd, setIsAtEnd] = useState(false);
+
+  const [products, setProducts] = useState([]);
+useEffect(() => {
+  const fetchProducts = async () => {
+    try {
+      const products = await example_products();
+      setProducts(products);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
+  fetchProducts();
+}, []);
 
   const handleScroll = () => {
     if (scrollRef.current) {
@@ -61,7 +75,7 @@ function ScrollNewCar() {
             />
           )}
           <div className="flex w-full overflow-x-auto whitespace-nowrap shadow rounded gap-[24px]" ref={scrollRef} style={scrollContainerStyles}>
-            {example_products.slice(0, 9).map(product => (
+            {products.slice(0, 9).map(product => (
               <div key={product.id} className="">
                 <NewCard product={product} />
               </div>
