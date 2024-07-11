@@ -26,7 +26,7 @@ function Home() {
       {/* <audio ref={audioRef} src={tokyoDrift} /> */}
       <div className="w-full">
         <Slide />
-        <SearchMain />
+        <Search />
         <div className="flex justify-center">
           <div className="w-[1128px]">
             <CarBrands />

@@ -16,10 +16,24 @@ import seatnum from "../assets/Logo/Icon_productcard_info/seatnum.png";
 import seattype from "../assets/Logo/Icon_productcard_info/seattype.png";
 import share from "../assets/Logo/Icon_productcard_info/share.png";
 import { getCarById } from "../components/API/API_Cars";
+import { Link } from "react-router-dom";
 
 function Buy_ProductCard_Info() {
+
   const { id } = useParams();
   const [Data, setData] = useState(null);
+  let paymentData =Data&&{
+    img:Data.file1,
+    headline:Data.headline,
+    brand:Data.brand,
+    model:Data.model,
+    year:Data.year,
+    address:Data.address,
+    price:Data.price,
+    type:Data.type,
+    fuel:Data.fuel,
+    
+  }
 
   useEffect(() => {
     if (id) {
@@ -290,9 +304,11 @@ function Buy_ProductCard_Info() {
                 <h2 className="ml-[316px] mt-3 mb-3 text-[12px]">ยังไม่รวมภาษีมูลค่าเพิ่ม</h2>
 
                 <div className="flex flex-col gap-4">
-                  <button className="bg-[#3E5685] text-white mx-6 w-[408px] h-[48px] hover:bg-blue-950 rounded-md">
-                    ซื้อรถคันนี้
-                  </button>
+                 
+                  <Link to="/adminSell" state={paymentData}
+                  className="bg-[#3E5685] text-white mx-6 w-[408px] h-[48px] hover:bg-blue-950 rounded-md">
+                  ซื้อรถคันนี้
+                  </Link>
                   <div className="flex gap-1">
                     <button className="bg-[#191f2c] text-white ml-6 w-[336px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center">
                       <img className="h-[15px] " src={favwhite} alt="" />

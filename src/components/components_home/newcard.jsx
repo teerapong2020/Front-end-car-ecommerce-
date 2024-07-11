@@ -33,7 +33,7 @@ export const NewCard = ({ product }) => (
     <div className="flex flex-col">
       <Link
         className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]"
-        to={`/buy_productcard_info/${product.name}_${product.id}`}
+        to={`/buy_productcard_info/${product.id}`}
       >
         ดูรายละเอียด
       </Link>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import bg from "../assets/cardcar.jsx/bg/bg.png";
 import { Selldata } from "../data/selldata";
-import { Search } from "../components/champ/search";
+
 
 function Buy() {
 

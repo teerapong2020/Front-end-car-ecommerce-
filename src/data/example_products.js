@@ -14,7 +14,8 @@ const example_products = async () => {
       // image4:file4,
       // image5:file5,
       name:product.brand,
-      location:product.address
+      location:product.address,
+      id:product._id
     }));
 
     return products;

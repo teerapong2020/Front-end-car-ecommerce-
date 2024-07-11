@@ -9,13 +9,14 @@ export const Selldata = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [products, setProducts] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
 
-  useState(() => {
+  useEffect(() => {
     const fetchProducts = async () => {
       try {
         const products = await example_products();
         setProducts(products);
-        setSearchResults(products); 
+        setSearchResults(products);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -41,7 +42,7 @@ export const Selldata = () => {
 
   return (
     <>
-      <Search setSearchResults={setSearchResults} />
+      <Search setSearchResults={setSearchResults} setSearchValue={setSearchValue} />
       <div className="flex flex-wrap justify-center gap-8 my-20 md:my-20 md:mx-0 lg:mx-24">
         {searchResults
           .slice(indexOfFirstImage, indexOfLastImage)
