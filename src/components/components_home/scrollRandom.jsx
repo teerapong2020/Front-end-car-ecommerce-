@@ -56,6 +56,10 @@ function ScrollRandom() {
     Active()
   }, []);
 
+  useEffect(() => {
+    handleScroll(); // Ensure we check the scroll position when products are loaded
+  }, [products])
+  
   return (
     <section>
       <div className="flex flex-col">
@@ -74,7 +78,7 @@ function ScrollRandom() {
             ref={scrollRef}
             style={scrollContainerStyles}
           >
-            {products.slice(0, 9).map((product) => (
+            {products.map((product) => (
               <div key={product.id} className="">
                 <RandomCard product={product} />
               </div>
