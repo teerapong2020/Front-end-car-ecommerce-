@@ -5,7 +5,7 @@ import burger from "../assets/Logo/burger.png";
 import { useState, useEffect } from "react";
 import {jwtDecode} from "jwt-decode"; //ตัวถอดโทเคน
 
-function Navbar({ className }) {
+function Navbar({ className, onRegisterClick }) {
   const [open, setOpen] = useState(false);
   const [User, setUser] = useState(""); // Id Global
   const [istoken, setIstoken] = useState(null);
@@ -47,7 +47,7 @@ function Navbar({ className }) {
 
   return (
     <nav className={`${className} bg-blue-950 text-white max-md:fixed w-full`}>
-      <div className="flex justify-between mx-4">
+      <div className="flex justify-between mx-4 ">
         <ul className="flex gap-12">
           <li>
             <Link to="/" onClick={scrollToTop}>
@@ -106,15 +106,17 @@ function Navbar({ className }) {
               </Link>
             </li>
             <li>
-              <Link onClick={scrollToTop} to="/">
+              <Link
+               onClick={handleBurger}
+               to="/loginandregister">
                 เข้าสู่ระบบ
               </Link>
             </li>
             <li>
               <Link
-                onClick={scrollToTop}
+                onClick={onRegisterClick}
                 className="bg-white text-black p-2 rounded-full"
-                to="/"
+                to="/loginandregister"
               >
                 สมัครสมาชิก
               </Link>

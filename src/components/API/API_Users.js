@@ -35,3 +35,16 @@ export const registerUser = async (firstName, lastName, registerEmail, registerP
     return error.response.data;
   }
 };
+
+// apiupload profile pic
+export const uploadProfilePicture = async (userId, Profile_Image) => {
+  try {
+    const response = await axiosInstance.patch("/users/uploadprofilepicture", {
+      userId,
+      Profile_Image,
+    });
+    return response.data;
+  } catch (error) {
+    throw error.response ? error.response.data : new Error(error.message);
+  }
+};

@@ -5,6 +5,7 @@ import HideEye from "../../src/assets/Login/Hidepassword.png";
 import { loginUser } from '../components/API/API_Users';
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../components/API/API_Users";
+import Navbar from "../components/navbar";
 
 
 function LoginAndRegister() {
@@ -123,10 +124,14 @@ function LoginAndRegister() {
     setIsRegistering(!isRegistering);
   }
 
+
+
   return (
     // login form
+      
 
     <section>
+      
       <img
         src={Tesla}
         className="w-full h-[911px] absolute object-cover "
@@ -232,22 +237,12 @@ function LoginAndRegister() {
               </div>
 
               <button
-                type="submit"
+                type="button"
+                onClick={handleToggleForm}
                 className=" text-white bg-[#333333]  mb-[24px] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-[6px] text-sm text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 w-[360px] h-[40px]"
               >
                 เข้าสู่ระบบด้วย Google
-              </button>
-
-              <div className="text-sm font-light text-center">
-                ยังไม่ได้เป็นสมาชิก?
-                <button
-                  type="button"
-                  onClick={handleToggleForm}
-                  className="font-medium text-primary-600 hover:underline text-red-600"
-                >
-                  สมัครเลย
-                </button>
-              </div>
+              </button>    
             </div>
           </form>
 
@@ -421,22 +416,14 @@ function LoginAndRegister() {
               </div>
 
               <button
-                type="submit"
+                type="button"
+                onClick={handleToggleForm}
                 className=" text-white bg-[#333333]  mb-[24px] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-[6px] text-sm text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 w-[360px] h-[40px]"
               >
                 เข้าสู่ระบบด้วย Google
               </button>
 
-              <div className="text-sm font-light text-center">
-                เป็นสมาชิกแล้ว?
-                <button
-                  type="button"
-                  onClick={handleToggleForm}
-                  className="font-medium text-primary-600 hover:underline text-red-600"
-                >
-                  เข้าสู่ระบบ
-                </button>
-              </div>
+             
             </div>
           </form>
         </div>

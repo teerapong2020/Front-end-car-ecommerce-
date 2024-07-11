@@ -20,9 +20,12 @@ import Checkout2 from "./page/checkout2";
 import Paymentresult from "./page/paymentresult";
 import SellAdmin from "./page/sellAdmin";
 import Mockesetdata from "./page/mockesetdata";
+import UploadProfile from "./page/uploadprofile";
+
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
+  
   const router = createBrowserRouter([
     {
       path: "/",
@@ -79,8 +82,8 @@ const RouterMain = () => {
       path: "/loginandregister",
       element: (
         <>
-          <NavbarMain />
-          <LoginAndRegister />
+          <Navbar  />
+          <LoginAndRegister/>
         </>
       ),
     },
@@ -194,6 +197,15 @@ const RouterMain = () => {
           <Navbar />
           <Mockesetdata />
           <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/uploadprofile",
+      element: (
+        <>
+          <NavbarMain />
+          <UploadProfile />
         </>
       ),
     },
