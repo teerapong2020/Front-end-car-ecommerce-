@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Container, Form, Button } from 'react-bootstrap';
@@ -50,5 +50,4 @@ function MarkMap
   );
 }
 
-export default MarkMap
-;
+export default MarkMap;
