@@ -17,7 +17,7 @@ const Search = ({ onSearchSubmit, initialSearchValue,Clear}) => {
   };
 
   return (
-    <div className="relative bg-white rounded-2xl drop-shadow-xl w-full pb-2 md:w-1/2 md:ml-96 pt-2 px-8">
+    <div className="relative bg-white rounded-2xl drop-shadow-xl w-full pb-2 md:w-1/2 pt-2 px-8">
       <div className="flex gap-8 mx-4 mb-2">
         <h2 className="text-xl text-blue-900">ค้นหารถที่ต้องการ</h2>
         <h2 className="text-xl">ฟิลเตอร์</h2>
