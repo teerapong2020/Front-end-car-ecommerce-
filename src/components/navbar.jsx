@@ -172,7 +172,7 @@ function Navbar({ className }) {
           <li>
             <Link
               className="bg-gray-800 py-4 px-36 w-full hover:bg-blue-950"
-              to="/"
+              to="/login"
             >
               Login
             </Link>

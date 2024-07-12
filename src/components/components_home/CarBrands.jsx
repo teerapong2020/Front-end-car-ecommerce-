@@ -16,7 +16,7 @@ const carBrands = [
   { src: Audi, alt: "Audi" },
   { src: BMW, alt: "BMW" },
   { src: Jaguar, alt: "Jaguar" },
-  { src: LandRover, alt: "Land-Rover" },
+  { src: LandRover, alt: "Land Rover" },
   { src: MercedesBenz, alt: "Mercedes-Benz" },
   { src: Mini, alt: "Mini" },
   { src: Peugeot, alt: "Peugeot" },
@@ -31,8 +31,8 @@ const carBrands = [
 const CarBrands = () => {
 
   const navigate = useNavigate();
-  const handleBrandClick = (brand) => {
-    navigate(`/buy?brand=${brand}`);
+  const handleBrandClick = (alt) => {
+    navigate('/buy', { state: { searchValue: alt } });
   };
 
   return (
