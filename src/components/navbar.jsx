@@ -111,7 +111,7 @@ function Navbar({ className }) {
               </Link>
             </li>
             <li>
-              <Link onClick={scrollToTop} to="/">
+              <Link onClick={scrollToTop} to="/login">
                 เข้าสู่ระบบ
               </Link>
             </li>
@@ -119,7 +119,7 @@ function Navbar({ className }) {
               <Link
                 onClick={scrollToTop}
                 className="bg-white text-black p-2 rounded-full"
-                to="/"
+                to="/register"
               >
                 สมัครสมาชิก
               </Link>
@@ -161,7 +161,7 @@ function Navbar({ className }) {
           <li>
             <Link
               className="bg-gray-800 py-4 px-36 w-full hover:bg-blue-950"
-              to="/"
+              to="/login"
             >
               Login
             </Link>
