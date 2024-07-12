@@ -25,21 +25,24 @@ function mockesetdata() {
     file1:
       "https://res.cloudinary.com/di8f9idgx/image/upload/v1720244966/ixuhxjluzscejal7v5tb.webp",
     file2:
-      "https://res.cloudinary.com/di8f9idgx/image/upload/v1720244966/ixuhxjluzscejal7v5tb.webp",
+      "https://res.cloudinary.com/dyrs3bvzj/image/upload/v1720509869/dtmz63wx3azouk9blwu2.jpg",
     file3:
-      "https://res.cloudinary.com/di8f9idgx/image/upload/v1720244966/ixuhxjluzscejal7v5tb.webp",
+      "https://res.cloudinary.com/dyrs3bvzj/image/upload/v1720508953/mccd8mnzk5qdbo3oldql.jpg",
     file4:
-      "https://res.cloudinary.com/di8f9idgx/image/upload/v1720244966/ixuhxjluzscejal7v5tb.webp",
+      "https://res.cloudinary.com/dyrs3bvzj/image/upload/v1720508911/y56xqjutspoh7g2uauj4.jpg",
     file5:
-      "https://res.cloudinary.com/di8f9idgx/image/upload/v1720244966/ixuhxjluzscejal7v5tb.webp",
+      "https://res.cloudinary.com/dyrs3bvzj/image/upload/v1720507943/f0v9ydnqxel035anopfb.jpg",
     file6:
-      "https://res.cloudinary.com/di8f9idgx/image/upload/v1720244966/ixuhxjluzscejal7v5tb.webp",
+      "https://res.cloudinary.com/dyrs3bvzj/image/upload/v1720494504/cld-sample.jpg",
   };
   return (
     <div>
-      Hello world
+      Hello world <br />
       <Link to="/adminSell" state={data}>
-        admin sell page
+        <h2>admin sell page</h2> <br />
+      </Link>
+      <Link to="/Checkout" state={data}>
+        <h2>Checkout page</h2> <br />
       </Link>
     </div>
   );

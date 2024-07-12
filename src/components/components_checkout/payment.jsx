@@ -1,7 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { createTransaction } from "../API/API_Transaction";
 
-function Payment() {
+function Payment({ data }) {
+  const transaction = data.transaction;
+  console.log(transaction);
+  const createTransactionAPI = async () => {
+    console.log("start");
+    await createTransaction(transaction);
+  };
+
   return (
     <form id="inform" className="mb-[55px]">
       <div className="flex flex-col ">
@@ -89,6 +97,7 @@ function Payment() {
           <Link
             to="/paymentresult"
             className=" h-[48px] bg-[#3E5685] rounded-[10px] text-white text-2xl flex justify-center"
+            onClick={createTransactionAPI}
           >
             <input
               type="button"
