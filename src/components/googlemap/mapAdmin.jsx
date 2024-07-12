@@ -1,11 +1,12 @@
 import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps";
 
 function MapAdmin({ formData }) {
+  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
   let data = formData;
   console.log(data);
 
   return (
-    <APIProvider apiKey={"AIzaSyAkq3WzI1O3TSVCxUOwj-p8UPmaPh4Y09s"}>
+    <APIProvider apiKey={apiKey}>
       <Map
         style={{ width: "744px", height: "400px" }}
         defaultCenter={{
