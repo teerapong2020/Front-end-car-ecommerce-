@@ -74,7 +74,7 @@ function ScrollRandom() {
             />
           )}
           <div
-            className="flex w-full overflow-x-auto whitespace-nowrap shadow rounded gap-[24px]"
+            className="flex w-full overflow-x-auto whitespace-nowrap rounded gap-[24px]"
             ref={scrollRef}
             style={scrollContainerStyles}
           >

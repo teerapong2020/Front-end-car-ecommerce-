@@ -67,11 +67,14 @@ export const Selldata = () => {
 
   return (
     <>
-      <Search
+      <div className="flex justify-center">
+        <Search
         onSearchSubmit={handleSearch}
         initialSearchValue={initialSearchValue}
         Clear={handleClearSearch}
-      />
+        />
+      </div>
+
       <div className="flex flex-wrap justify-center gap-8 my-20 md:my-20 md:mx-0 lg:mx-24">
         {searchResults
           .slice(indexOfFirstImage, indexOfLastImage)
