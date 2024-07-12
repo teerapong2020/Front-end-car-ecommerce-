@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import bg from "../assets/cardcar.jsx/bg/bg.png";
-import { Selldata } from "../data/selldata";
+import Selldata  from "../data/selldata";
 
 
 function Buy() {

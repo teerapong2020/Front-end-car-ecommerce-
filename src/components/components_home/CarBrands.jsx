@@ -9,6 +9,8 @@ import Porsche from "../../assets/Logo/carLogo/PORSCHE-logo.jpg";
 import Tesla from "../../assets/Logo/carLogo/Tesla-logo.jpg";
 import Volkswagen from "../../assets/Logo/carLogo/Volkswagen.jpg";
 import Volvo from "../../assets/Logo/carLogo/Volvo-logo.jpg";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const carBrands = [
   { src: Audi, alt: "Audi" },
@@ -24,14 +26,29 @@ const carBrands = [
   { src: Volvo, alt: "Volvo" },
 ];
 
+
+
 const CarBrands = () => {
+
+  const navigate = useNavigate();
+  const handleBrandClick = (brand) => {
+    navigate(`/buy?brand=${brand}`);
+  };
+
   return (
     <div className="w-full overflow-x-auto shadow rounded">
-      <h2 className="text-xl font-bold mb-2 text-center">ยี่ห้อรถยนต์ทั้งหมด</h2>
+      <h2 className="text-xl font-bold mb-2 text-center">
+        ยี่ห้อรถยนต์ทั้งหมด
+      </h2>
       <div className="flex justify-center gap-1">
         {carBrands.map((brand, index) => (
           <div key={index} className="shadow rounded-xl flex-shrink-0">
-            <img src={brand.src} alt={brand.alt} className="h-24" />
+              <img
+               onClick={() => handleBrandClick(brand.alt)}
+                src={brand.src}
+                alt={brand.alt}
+                className="h-24 hover:shadow-2xl"
+              />
           </div>
         ))}
       </div>

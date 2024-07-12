@@ -12,14 +12,14 @@ export const NewCard = ({ product }) => {
     const toggleHeart = () => {
       setIsFilled(!isFilled);
     }
-
+ 
 
   return (
     <>
   <div className="bg-white rounded-[20px] border-t shadow flex flex-col w-[360px] pb-4 hover:bg-gray-300">
     <div className="p-2">
       <div className="flex justify-between items-center">
-        <h3 className="font-bold text-[16px]">{product.name} {product.name}</h3>
+        <h3 className="font-bold text-[16px]">{product.brand}</h3>
         <div className="flex gap-2 relative">
           <div onClick={toggleHeart} style={{ cursor: 'pointer', fontSize: '24px' }}>
             {isFilled ? <AiFillHeart color="#00008B" /> : <AiOutlineHeart color="grey" />}
@@ -28,14 +28,14 @@ export const NewCard = ({ product }) => {
         </div>
       </div>
       <div className="flex justify-between items-center">
-        <h3 className="font-light text-[12px]">{product.name}</h3>
+        <h3 className="font-light text-[12px]">{product.model}</h3>
 
       </div>
     </div>
     <img className="object-scale-down h-[140px] self-center" src={product.file1} alt={product.brand} />
-    <div className="flex justify-between mx-6">
+    <div className="flex justify-between mx-6 ">
       <div className="flex items-center">
-        <img src={check_in} className='h-2.5' alt="Check-in" /><p className="ml-1 text-[15px]">{product.address}</p>
+        <img src={check_in} className='h-2.5' alt="Check-in" /><p className="ml-1  text-[15px] ">{product.address}</p>
       </div>
       <div className="flex mx-6 text-[15px]">
         <h4>THB </h4>
@@ -46,7 +46,7 @@ export const NewCard = ({ product }) => {
     <div className="flex flex-col">
       <Link
         className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]"
-        to={`/buy_productcard_info/${product.id}`}
+        to={`/buy_productcard_info/${product._id}`}
       >
         ดูรายละเอียด
       </Link>

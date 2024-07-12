@@ -1,32 +1,29 @@
+// import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Slide from "../components/components_home/slide";
 import WhyMe from "../components/components_home/why_me";
 import CarBrands from "../components/components_home/CarBrands";
 import ScrollNew from "../components/components_home/scrollNew";
-import { useRef, useEffect,useState } from "react";
-import tokyoDrift from "../audio/tokyo drift.aac";
-import { Search } from "../components/champ/search";
-import { SearchMain } from "../components/champ/searchMain";
+import Search from "../components/champ/search"; // Adjusted import
 import Banner from "../components/components_home/banner";
 import ScrollRandom from "../components/components_home/scrollRandom";
 
 function Home() {
-  const audioRef = useRef(null)
+  // const audioRef = useRef(null);
+  const navigate = useNavigate();
 
-
-
-  
-  // useEffect(() => {
-  //   audioRef.current.play().catch(error => {
-  //     console.log('Error playing audio:', error);
-  //   });
-  // }, []);
+  const handleSearchSubmit = (searchValue) => {
+    navigate("/buy", { state: { searchValue } });
+  };
 
   return (
     <div className="flex justify-center">
       {/* <audio ref={audioRef} src={tokyoDrift} /> */}
-      <div className="w-full">
+      <div className="w-full ">
         <Slide />
-        <Search />
+        <div className="flex justify-center m-5">
+          <Search onSearchSubmit={handleSearchSubmit} />
+        </div>
         <div className="flex justify-center">
           <div className="w-[1128px]">
             <CarBrands />
