@@ -38,7 +38,7 @@ function SellAdmin() {
     console.log("Main value:", mainImage.main);
     console.log("main ID:", mainImage.id);
     console.log("hold:", hold);
-    setFormData({
+    await setFormData({
       ...formData,
       file1: mainImage.main,
       [mainImage.id]: hold,
@@ -346,11 +346,11 @@ function SellAdmin() {
             ความเห็นจากแอดมิน
           </label>
           <textarea
-            name="adminComment"
+            name="adminDescription"
             className="w-[744px]  p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="ใส่รายละเอียดเพิ่มเติม เช่น เข้าศูนย์เช็คตลอด, ไม่เคยชน"
             rows="4"
-            value={formData.adminComment}
+            value={formData.adminDescription}
             onChange={handleChange}
           />
         </div>

@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import carDefault from "../assets/sell_page/defaultcar.png";
 import uploadImage from "../assets/sell_page/upload_photo_icon.png";
-import { createCar } from "../components/API/API_Cars";
 import Mapgoogle from "../components/googlemap/map";
 import { jwtDecode } from "jwt-decode";
-
+import { createTempCar } from "../components/API/API_TemporaryCar";
 function Sell() {
   const token = localStorage.getItem("token");
   const id = jwtDecode(token).id;
+  const uploadUrl = import.meta.env.VITE_CLOUDINARY_UPLOAD_URL;
+  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
   const [formData, setFormData] = useState({
     headline: "",
     brand: "",
@@ -71,10 +72,10 @@ function Sell() {
   };
 
   const uploadToCloudinary = async (file) => {
-    const url = `https://api.cloudinary.com/v1_1/dyrs3bvzj/upload`;
+    const url = uploadUrl;
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "freetouse");
+    formData.append("upload_preset", uploadPreset);
 
     const response = await fetch(url, {
       method: "POST",
@@ -87,7 +88,7 @@ function Sell() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("start");
-    await createCar(formData);
+    await createTempCar(formData);
   };
 
   const uploadimage = () => {
