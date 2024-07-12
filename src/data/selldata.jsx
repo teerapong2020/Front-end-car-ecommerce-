@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { NewCard } from "../components/components_home/newcard";
-import example_products from "./example_products";
-import { Search } from "../components/champ/search";
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { NewCard } from '../components/components_home/newcard';
+import example_products from './example_products';
+import { onSearchCar } from '../components/API/API_Cars';
+import Search from '../components/champ/search';
 
 const imagesPerPage = 6;
 
 export const Selldata = () => {
+  const location = useLocation();
+  const initialSearchValue = location.state?.searchValue || '';
   const [currentPage, setCurrentPage] = useState(1);
   const [products, setProducts] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -18,11 +21,37 @@ export const Selldata = () => {
         setProducts(products);
         setSearchResults(products);
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error('Error fetching products:', error);
       }
     };
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    if (initialSearchValue) {
+      handleSearch(initialSearchValue);
+    }
+  }, [initialSearchValue]);
+
+  const handleSearch = async (searchValue) => {
+    try {
+      const result = await onSearchCar(searchValue);
+      setSearchResults(result);
+      setCurrentPage(1);
+    } catch (error) {
+      console.error('Error searching for cars:', error);
+    }
+  };
+
+  const handleClearSearch = async () => {
+    try {
+      const showall = await example_products();
+      setSearchResults(showall);
+      setCurrentPage(1);
+    } catch (error) {
+      console.error('Error clearing search:', error);
+    }
+  };
 
   const indexOfLastImage = currentPage * imagesPerPage;
   const indexOfFirstImage = indexOfLastImage - imagesPerPage;
@@ -31,18 +60,25 @@ export const Selldata = () => {
     setCurrentPage(pageNumber);
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(searchResults.length / imagesPerPage); i++) {
+  for (let i = 1; i <= Math.ceil((searchResults?.length || 0) / imagesPerPage); i++) {
     pageNumbers.push(i);
   }
 
   return (
     <>
-      <Search setSearchResults={setSearchResults} setSearchValue={setSearchValue} />
+      <div className="flex justify-center">
+        <Search
+          onSearchSubmit={handleSearch}
+          initialSearchValue={initialSearchValue}
+          Clear={handleClearSearch}
+        />
+      </div>
+
       <div className="flex flex-wrap justify-center gap-8 my-20 md:my-20 md:mx-0 lg:mx-24">
         {searchResults
           .slice(indexOfFirstImage, indexOfLastImage)
@@ -64,16 +100,14 @@ export const Selldata = () => {
               <button
                 key={number}
                 onClick={() => handleClick(number)}
-                className={currentPage === number ? "font-bold" : ""}
+                className={currentPage === number ? 'font-bold' : ''}
               >
                 {number}
               </button>
             ))}
           </div>
           <button
-            onClick={() =>
-              handleClick(Math.min(currentPage + 1, pageNumbers.length))
-            }
+            onClick={() => handleClick(Math.min(currentPage + 1, pageNumbers.length))}
             disabled={currentPage === pageNumbers.length}
           >
             ▶️
@@ -83,3 +117,5 @@ export const Selldata = () => {
     </>
   );
 };
+
+export default Selldata;

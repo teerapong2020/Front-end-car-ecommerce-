@@ -6,7 +6,7 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import axios from "axios";
 import {jwtDecode} from "jwt-decode";
 
-export const RandomCard = ({ product }) => {
+export const ProductCard = ({ product }) => {
   const [isFilled, setIsFilled] = useState(false);
   const [userId, setUserId] = useState("");
 

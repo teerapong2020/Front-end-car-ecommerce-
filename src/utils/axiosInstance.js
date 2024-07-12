@@ -11,6 +11,22 @@ const axiosInstance = axios.create({
   },
 });
 
+// axiosInstance.interceptors.request.use(function (config) {
+//   const token = localStorage.getItem('token');
+//   if (token) {
+//     config.headers.Authorization = `Bearer ${token}`;
+//   }
+//   return config;
+// }, function (error) {
+//   return Promise.reject(error);
+// });
+
+// // Add a response interceptor
+// axiosInstance.interceptors.response.use(function (response) {
+//   return response;
+// }, function (error) {
+//   return Promise.reject(error);
+// });
 // add the axios request interceptor to attach the auth token to every request
 // axiosInstance.interceptors.request.use(
 //   (config) => {
