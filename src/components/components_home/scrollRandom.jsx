@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { RandomCard } from "../components_home/cardCarRandom";
+import { ProductCard } from "./ProductCard";
 import leftArrow from "../../assets/Logo/logo_product_card/left_slide.png";
 import rightArrow from "../../assets/Logo/logo_product_card/right_slide.png";
 import { carRandom } from "../API/API_Cars"; //แก้
@@ -80,7 +80,7 @@ function ScrollRandom() {
           >
             {products.map((product) => (
               <div key={product.id} className="">
-                <RandomCard product={product} />
+                <ProductCard product={product} />
               </div>
             ))}
           </div>
