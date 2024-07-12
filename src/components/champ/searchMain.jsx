@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-export const SearchMain = ({setSearchResults}) => {
-  const [searchValue, setSearchValue] = useState("");
-  
+export const SearchMain = ({ onSearchSubmit, initialSearchValue = "" }) => {
+  const [searchValue, setSearchValue] = useState(initialSearchValue);
 
-  const handleClearSearch = async() => {
-    setSearchValue("")
+  const handleClearSearch = () => {
+    setSearchValue("");
+  };
+
+  const handleSearch = () => {
+    if (onSearchSubmit) {
+      onSearchSubmit(searchValue);
+    }
   };
 
   return (
@@ -31,11 +36,11 @@ export const SearchMain = ({setSearchResults}) => {
             clear
           </span>
         )}
-      
-        <button  
+        <button
           className="bg-blue-900 text-white hover:bg-blue-950 p-2 rounded-xl px-4 mx-2"
+          onClick={handleSearch}
         >
-          <Link to={`/buy`} state={searchValue} > ค้นหา</Link>
+          ค้นหา
         </button>
       </div>
     </div>
