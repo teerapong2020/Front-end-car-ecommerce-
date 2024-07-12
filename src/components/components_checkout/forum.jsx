@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Forum() {
-  const [formData, setFormData] = useState({
-    address: "",
-    etc: "",
-    date: "",
-  });
+function Forum({ data }) {
+  const { transaction, setTransaction } = data;
 
   const handleChange = async (e) => {
     const { name, value } = e.target;
-    await setFormData({ ...formData, [name]: value });
+    await setTransaction({ ...transaction, [name]: value });
   };
 
   useEffect(() => {
-    console.log(formData);
-  }, [formData]);
+    console.log(transaction);
+  }, [transaction]);
 
   return (
     <form id="informUser" className="mb-[55px]">
@@ -25,7 +21,7 @@ function Forum() {
         <input
           type="text"
           name="address"
-          value={formData.address}
+          value={transaction.address}
           onChange={handleChange}
           placeholder="ที่อยู่"
           className="  h-[56px] mb-6   px-5 rounded-2xl border border-[#E1E1E1] font-medium text-base"
@@ -34,7 +30,7 @@ function Forum() {
         <input
           type="text"
           name="etc"
-          value={formData.etc}
+          value={transaction.etc}
           onChange={handleChange}
           placeholder="ข้อมูลเพิ่มเติม (ถ้ามี) "
           className=" h-[56px] mb-6   px-5 rounded-2xl border border-[#E1E1E1] font-medium text-base"
@@ -42,8 +38,8 @@ function Forum() {
         <label className="font-medium text-sm mb-2 ">เลือกวันที่รับรถ</label>
         <input
           type="date"
-          name="date"
-          value={formData.date}
+          name="Sell_Date"
+          value={transaction.Sell_Date}
           onChange={handleChange}
           placeholder="เลือกวันที่"
           className=" h-[56px]   px-5 rounded-2xl border border-[#E1E1E1]  font-medium text-base"
@@ -60,6 +56,7 @@ function Forum() {
         <Link
           to="/Checkout2"
           className=" h-[48px] bg-[#3E5685] rounded-[10px] text-white text-2xl flex justify-center"
+          state={transaction}
         >
           <input
             type="submit"

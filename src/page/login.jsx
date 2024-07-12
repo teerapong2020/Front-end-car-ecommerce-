@@ -44,7 +44,7 @@ function Login() {
     validateEmail();
     validatePassword();
   }, [email, password]);
-//แก้เป็น async เพราะมีการต่อAPI 
+//แก้เป็น async เพราะมีการต่อAPI
   const handleSubmit = async(e) => {
     e.preventDefault();
     if (!emailError && !passwordError) {
@@ -64,7 +64,7 @@ function Login() {
 
     //ยิง API login
     const user = await loginUser(email, password);
-    // Handle successful login 
+    // Handle successful login
     if (user && user.access_token){
       localStorage.setItem("token", user.access_token)
       navigate("/")

@@ -19,21 +19,24 @@ import { getCarById } from "../components/API/API_Cars";
 import { Link } from "react-router-dom";
 
 function Buy_ProductCard_Info() {
-
   const { id } = useParams();
   const [Data, setData] = useState(null);
-  let paymentData =Data&&{
-    img:Data.file1,
-    headline:Data.headline,
-    brand:Data.brand,
-    model:Data.model,
-    year:Data.year,
-    address:Data.address,
-    price:Data.price,
-    type:Data.type,
-    fuel:Data.fuel,
-
-  }
+  console.log("DATA😊", Data);
+  let paymentData = Data && {
+    img: Data.file1,
+    headline: Data.headline,
+    brand: Data.brand,
+    model: Data.model,
+    year: Data.year,
+    address: Data.address,
+    Sell_Price: Data.price,
+    Purchase_Price: ~~(Data.price * 1.1),
+    type: Data.type,
+    fuel: Data.fuel,
+    Seller_User: Data.Seller_User,
+    Product_Id: Data._id,
+  };
+  console.log("😂", paymentData);
 
   useEffect(() => {
     if (id) {
@@ -67,15 +70,13 @@ function Buy_ProductCard_Info() {
   // }
 
   return (
-  <>
-    {Data && (
-      <div className="flex justify-center">
-        
-        <div className="้w-[1128px] flex ">
-          {/* -----------------------left -----------------------------------*/}
-            
+    <>
+      {Data && (
+        <div className="flex justify-center">
+          <div className="้w-[1128px] flex ">
+            {/* -----------------------left -----------------------------------*/}
+
             <section className="w-[648px]">
-            
               <div className="">
                 <h1 className="h-24 flex items-center text-[28px] font-extrabold">
                   {Data.headline}
@@ -118,7 +119,6 @@ function Buy_ProductCard_Info() {
                     </a>
                   </div>
                 </div>
-              
 
                 <div className="flex w-[98px] mt-2 gap-[12px]">
                   <img
@@ -159,7 +159,7 @@ function Buy_ProductCard_Info() {
                   />
                 </div>
 
-                  {/* <div className="md:hidden">
+                {/* <div className="md:hidden">
                   <h1 className="mb-2 font-black text-xl mx-4 my-4">
                     Mercedes-Benz EQS-450
                   </h1>
@@ -199,9 +199,7 @@ function Buy_ProductCard_Info() {
                     <div className="border-t-2 border-t-blue-950 w-[68px] "></div>
                     <div className="border-t border-gray-300 py-1"></div>
 
-                    <div className="text-[14px]">
-                      {Data.additionalInfo}
-                    </div>
+                    <div className="text-[14px]">{Data.additionalInfo}</div>
 
                     {/* <h4 className="font-medium mx-4 mt-4 text-[20px]">Review </h4>
                     <div className="border-t-2 border-t-blue-950 w-[68px] mx-4 "></div>
@@ -280,34 +278,40 @@ function Buy_ProductCard_Info() {
                 </section>
               </div>
             </section>
-              {/* ----------------------------------------------------Right------------------------------------------------------------------- */}
+            {/* ----------------------------------------------------Right------------------------------------------------------------------- */}
             <section className=" w-[480px] flex flex-col pl-6 border-green-600">
               <div className=" max-md:hidden rounded-[20px] border shadow-md h-[364px] w-[456px] mt-[96px]">
                 <h2 className="ml-6 mt-3 mb-3 text-[16px] ">รายละเอียด</h2>
                 <h2 className="ml-6 mt-3 mb-3 font-black text-[16px]">
-                {Data.brand} {Data.model} ({Data.year})
+                  {Data.brand} {Data.model} ({Data.year})
                 </h2>
                 <h2 className="ml-6 mt-3 mb-3 text-[16px]">{Data.address}</h2>
                 <div className="flex mt-3 mb-3 text-[12px] ">
                   <div className="ml-6 border rounded-[20px] py-[4px] px-[8px]">
-                    {Data.type} 
+                    {Data.type}
                   </div>
                   <div className="ml-2 border rounded-[20px] py-[4px] px-[8px]">
-                    {Data.brand} 
+                    {Data.brand}
                   </div>
                   <div className="ml-2 border rounded-[20px] py-[4px] px-[8px]">
-                    {Data.fuel} 
+                    {Data.fuel}
                   </div>
                 </div>
 
-                <h2 className="ml-[300px] mt-3 mb-3 text-[16px]">ราคา {Data.price} บาท</h2>
-                <h2 className="ml-[316px] mt-3 mb-3 text-[12px]">ยังไม่รวมภาษีมูลค่าเพิ่ม</h2>
+                <h2 className="ml-[300px] mt-3 mb-3 text-[16px]">
+                  ราคา {Data.price} บาท
+                </h2>
+                <h2 className="ml-[316px] mt-3 mb-3 text-[12px]">
+                  ยังไม่รวมภาษีมูลค่าเพิ่ม
+                </h2>
 
                 <div className="flex flex-col gap-4">
-                 
-                  <Link to="/Checkout" state={paymentData}
-                  className="flex justify-center pt-2 bg-[#3E5685] text-white mx-6 w-[408px] h-[48px] hover:bg-blue-950 rounded-md">
-                  ซื้อรถคันนี้
+                  <Link
+                    to="/Checkout"
+                    state={paymentData}
+                    className="bg-[#3E5685] text-white mx-6 w-[408px] h-[48px] hover:bg-blue-950 rounded-md"
+                  >
+                    ซื้อรถคันนี้
                   </Link>
                   <div className="flex gap-1">
                     <button className="bg-[#191f2c] text-white ml-6 w-[336px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center">
@@ -343,7 +347,9 @@ function Buy_ProductCard_Info() {
                     />
                     <div>
                       <p className="text-[14px]">จำนวนที่นั่ง</p>
-                      <p className="font-bold text-[15px]">{Data.seat} ที่นั่ง</p>
+                      <p className="font-bold text-[15px]">
+                        {Data.seat} ที่นั่ง
+                      </p>
                     </div>
                   </div>
                   <div className="flex mb-6">
@@ -401,7 +407,9 @@ function Buy_ProductCard_Info() {
                     />
                     <div>
                       <p className="text-[14px]">ความจุเครื่องยนต์</p>
-                      <p className="font-bold text-[15px]">{Data.enginecap} CC</p>
+                      <p className="font-bold text-[15px]">
+                        {Data.enginecap} CC
+                      </p>
                     </div>
                   </div>
                   <div className="flex mb-6">
@@ -436,10 +444,9 @@ function Buy_ProductCard_Info() {
                 </div>
               </div>
             </section>
-          
+          </div>
         </div>
-      </div>
-    )}
+      )}
     </>
   );
 }
