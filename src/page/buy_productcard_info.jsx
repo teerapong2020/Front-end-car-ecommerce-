@@ -306,7 +306,7 @@ function Buy_ProductCard_Info() {
                 <div className="flex flex-col gap-4">
                  
                   <Link to="/Checkout" state={paymentData}
-                  className="bg-[#3E5685] text-white mx-6 w-[408px] h-[48px] hover:bg-blue-950 rounded-md">
+                  className="flex justify-center pt-2 bg-[#3E5685] text-white mx-6 w-[408px] h-[48px] hover:bg-blue-950 rounded-md">
                   ซื้อรถคันนี้
                   </Link>
                   <div className="flex gap-1">

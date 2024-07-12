@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { NewCard } from "../components/components_home/newcard";
 import example_products from "./example_products";
-import { Search } from "../components/champ/search";
+import { onSearchCar } from "../components/API/API_Cars";
+import Search from "../components/champ/search"; 
 
 const imagesPerPage = 6;
 
 export const Selldata = () => {
+  const location = useLocation();
+  const initialSearchValue = location.state?.searchValue || "";
   const [currentPage, setCurrentPage] = useState(1);
   const [products, setProducts] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -23,6 +27,27 @@ export const Selldata = () => {
     };
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    if (initialSearchValue) {
+      handleSearch(initialSearchValue);
+    }
+  }, [initialSearchValue]);
+
+  const handleSearch = async (searchValue) => {
+    try {
+      const result = await onSearchCar(searchValue);
+      setSearchResults(result);
+      setCurrentPage(1);
+    } catch (error) {
+      console.error("Error searching for cars:", error);
+    }
+  };
+
+  const handleClearSearch = async()=>{
+    const showall = await example_products()
+    setSearchResults(showall)
+  }
 
   const indexOfLastImage = currentPage * imagesPerPage;
   const indexOfFirstImage = indexOfLastImage - imagesPerPage;
@@ -42,7 +67,11 @@ export const Selldata = () => {
 
   return (
     <>
-      <Search setSearchResults={setSearchResults} setSearchValue={setSearchValue} />
+      <Search
+        onSearchSubmit={handleSearch}
+        initialSearchValue={initialSearchValue}
+        Clear={handleClearSearch}
+      />
       <div className="flex flex-wrap justify-center gap-8 my-20 md:my-20 md:mx-0 lg:mx-24">
         {searchResults
           .slice(indexOfFirstImage, indexOfLastImage)
@@ -50,7 +79,6 @@ export const Selldata = () => {
             <NewCard key={index} product={product} />
           ))}
       </div>
-
       <div className="flex justify-center">
         <div className="text-2xl mb-12 flex">
           <button
@@ -83,3 +111,5 @@ export const Selldata = () => {
     </>
   );
 };
+
+export default Selldata;

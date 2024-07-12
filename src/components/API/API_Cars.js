@@ -63,3 +63,8 @@ export const onSearchCar = async (query) => {
     console.log("An unexpected error occurred. Please try again.");
   }
 };
+
+
+
+
+
