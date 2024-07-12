@@ -3,7 +3,7 @@ import logo from "../assets/Logo/logocar_final.png";
 import USA from "../assets/Logo/USA.png";
 import burger from "../assets/Logo/burger.png";
 import { useState, useEffect } from "react";
-import {jwtDecode} from "jwt-decode"; //ตัวถอดโทเคน
+import { jwtDecode } from "jwt-decode"; //ตัวถอดโทเคน
 import { useContext } from "react";
 import { FormContext } from "../context_component/Regiscontext";
 
@@ -20,6 +20,7 @@ function Navbar({ className }) {
     setIsRegistering(true); //ตั้งเป็นฟอร์ม register
     navigate("/loginandregister");
   };
+  
 
   const handleBurger = () => {
     setOpen(!open);
@@ -70,7 +71,11 @@ function Navbar({ className }) {
               </Link>
             </li>
             <li>
-              <Link className="hover:underline" onClick={scrollToTop} to="/sell">
+              <Link
+                className="hover:underline"
+                onClick={scrollToTop}
+                to="/sell"
+              >
                 ต้องการขาย
               </Link>
             </li>
@@ -138,22 +143,37 @@ function Navbar({ className }) {
       {open && (
         <ul className="flex justify-center flex-col items-center bg-gray-600 text-white text-4xl py-36 gap-16 md:hidden">
           <li>
-            <Link className="hover:bg-blue-950 py-4 px-28" onClick={handleBurger} to="/">
+            <Link
+              className="hover:bg-blue-950 py-4 px-28"
+              onClick={handleBurger}
+              to="/"
+            >
               บริการเช่า
             </Link>
           </li>
           <li>
-            <Link className="hover:bg-blue-950 py-4 px-28" onClick={handleBurger} to="/sell">
+            <Link
+              className="hover:bg-blue-950 py-4 px-28"
+              onClick={handleBurger}
+              to="/sell"
+            >
               ต้องการซื้อ
             </Link>
           </li>
           <li>
-            <Link className="hover:bg-blue-950 py-4 px-28" onClick={handleBurger} to="/buy">
+            <Link
+              className="hover:bg-blue-950 py-4 px-28"
+              onClick={handleBurger}
+              to="/buy"
+            >
               ต้องการขาย
             </Link>
           </li>
           <li>
-            <Link className="bg-gray-800 py-4 px-36 w-full hover:bg-blue-950" to="/">
+            <Link
+              className="bg-gray-800 py-4 px-36 w-full hover:bg-blue-950"
+              to="/"
+            >
               Login
             </Link>
           </li>

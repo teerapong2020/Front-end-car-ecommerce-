@@ -88,7 +88,7 @@ function LoginAndRegister() {
 
 
 // function กดปุ่ม login
-//แก้เป็น async เพราะมีการต่อAPI 
+//แก้เป็น async เพราะมีการต่อAPI
   const handleLogin = async(e) => {
     // e.preventDefault();
     if (!emailError && !passwordError) {
@@ -108,7 +108,7 @@ function LoginAndRegister() {
     }
     //ยิง API login
     const user = await loginUser(email, password);
-    // Handle successful login 
+    // Handle successful login
     if (user && user.access_token){
       localStorage.setItem("token", user.access_token)
       navigate("/")

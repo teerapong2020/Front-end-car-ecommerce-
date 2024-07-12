@@ -11,10 +11,14 @@ function SellAdmin() {
   if (!state) {
     return <div>data not found</div>;
   }
-
   const [formData, setFormData] = useState(state);
-
-  const [count, setCount] = useState(1);
+  const [mainImage, setMainImage] = useState({});
+  const mainImageChange = (e) => {
+    const { value } = e.target;
+    const selectedOption = e.target.options[e.target.selectedIndex];
+    const selectedId = selectedOption.id;
+    setMainImage({ main: value, id: selectedId });
+  };
 
   useEffect(() => {
     console.log(formData);
@@ -28,39 +32,18 @@ function SellAdmin() {
     });
   };
 
-  const handleFileChange = async (e) => {
-    const fileKey = `file${count}`;
-    const file = e.target.files[0];
-
-    // Upload image to backend and get the URL
-    try {
-      const imageURL = await uploadToCloudinary(file);
-      setFormData((prevState) => ({
-        ...prevState,
-        [fileKey]: imageURL,
-      }));
-      setCount(count + 1);
-    } catch (error) {
-      console.error("Error uploading image:", error);
-    }
-  };
-
-  const uploadToCloudinary = async (file) => {
-    const url = `https://api.cloudinary.com/v1_1/dyrs3bvzj/upload`;
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", "freetouse");
-
-    const response = await fetch(url, {
-      method: "POST",
-      body: formData,
-    });
-    console.log("response from ☁️", response);
-    const data = await response.json();
-    return data.secure_url; // This URL can be used to display the image
-  };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const hold = formData.file1;
+    console.log("Main value:", mainImage.main);
+    console.log("main ID:", mainImage.id);
+    console.log("hold:", hold);
+    setFormData({
+      ...formData,
+      file1: mainImage.main,
+      [mainImage.id]: hold,
+    });
+
     console.log("start");
     await createCar(formData);
   };
@@ -87,21 +70,6 @@ function SellAdmin() {
       alert("Failed to send notification");
     }
   };
-
-  // const turnImgtoURL = async () => {
-  //   const cld = new Cloudinary({ cloud: { cloudName: "dyrs3bvzj" } });
-
-  //   const img = await cld
-  //     .image(formData.file1)
-  //     .format("auto") // Optimize delivery by resizing and applying auto-format and auto-quality
-  //     .quality("auto")
-  //     .resize(auto().gravity(autoGravity())); // Transform the image: auto-crop to square aspect_ratio
-
-  //   setFormData({
-  //     ...formData,
-  //     file1: img,
-  //   });
-  // };
 
   return (
     <form onSubmit={handleSubmit} className=" mx-auto flex flex-col w-[1129px]">
@@ -245,25 +213,22 @@ function SellAdmin() {
             required
           ></input>
         </div>
+
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
             เชื้อเพลิง
           </label>
-          <select
+          <input
+            type="text"
             name="fuel"
             className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="เลือก เชื้อเพลิง"
             value={formData.fuel}
             onChange={handleChange}
             required
-          >
-            <option value="">เลือก เชื้อเพลิง</option>
-            <option value="benzine">Benzine</option>
-            <option value="diesel">Diesel</option>
-            <option value="electric">Electric</option>
-            <option value="hybrid">Hybrid</option>
-          </select>
+          ></input>
         </div>
+
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
             ความจุเครื่องยนต์
@@ -278,22 +243,20 @@ function SellAdmin() {
             required
           />
         </div>
+
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
             ประเภทเบาะ
           </label>
-          <select
+          <input
+            type="text"
             name="cushion"
             className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="ประเภท เบาะ"
             value={formData.cushion}
             onChange={handleChange}
             required
-          >
-            <option value="">ประเภท เบาะ</option>
-            <option value="fabric">เบาะผ้า</option>
-            <option value="leather">เบาะหนัง</option>
-          </select>
+          ></input>
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -313,18 +276,15 @@ function SellAdmin() {
           <label className=" text-gray-700 text-[18px] font-medium">
             เกียร์
           </label>
-          <select
+          <input
+            type="text"
             name="gear"
             className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="เลือกเกียร์"
             value={formData.gear}
             onChange={handleChange}
             required
-          >
-            <option value="">เลือกเกียร์</option>
-            <option value="manual">ธรรมดา</option>
-            <option value="auto">ออโต้</option>
-          </select>
+          ></input>
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -399,6 +359,38 @@ function SellAdmin() {
             ปักหมุดที่อยู่ของคุณ
           </label>
           <MapAdmin formData={formData} />
+        </div>
+        <div className="flex items-center justify-between ">
+          <img
+            src={mainImage.main || formData.file1}
+            className="w-[250px] border border-gray-400 rounded-2xl"
+          />
+          <select
+            name="mainIMageSelector"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
+            placeholder="เลือก เชื้อเพลิง"
+            onChange={mainImageChange}
+            required
+          >
+            <option value={formData.file1} id="file1">
+              file1
+            </option>
+            <option value={formData.file2} id="file2">
+              file2
+            </option>
+            <option value={formData.file3} id="file3">
+              file3
+            </option>
+            <option value={formData.file4} id="file4">
+              file4
+            </option>
+            <option value={formData.file5} id="file5">
+              file5
+            </option>
+            <option value={formData.file6} id="file6">
+              file6
+            </option>
+          </select>
         </div>
       </div>
 
