@@ -8,10 +8,9 @@ import Buy from "./page/buy";
 import { NewCard } from "./components/components_home/newcard";
 import Buy_ProductCard_Info from "./page/buy_productcard_info";
 import NavbarMain from "./components/navbarmain";
-import Login from "./page/login";
+import LoginAndRegister from "./page/login";
 import Forgot from "./page/forgotpassword";
 import ResetPassword from "./page/resetpassword";
-import Register from "./page/register";
 import ImageUpload from "./page/testCloudinary";
 import TestApi from "./page/testApi";
 import Dashboard from "./page/dashboard";
@@ -20,6 +19,8 @@ import Checkout2 from "./page/checkout2";
 import Paymentresult from "./page/paymentresult";
 import SellAdmin from "./page/sellAdmin";
 import Mockesetdata from "./page/mockesetdata";
+import UploadProfile from "./page/uploadprofile";
+import { FormProvider } from "./context_component/Regiscontext";// ตรวจสอบ path ว่าถูกต้อง
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
@@ -28,7 +29,7 @@ const RouterMain = () => {
       path: "/",
       element: (
         <>
-          <NavbarMain />
+          <NavbarMain  />
           <Home />
           <Footer />
         </>
@@ -76,20 +77,11 @@ const RouterMain = () => {
       ),
     },
     {
-      path: "/login",
+      path: "/loginandregister",
       element: (
         <>
-          <NavbarMain />
-          <Login />
-        </>
-      ),
-    },
-    {
-      path: "/register",
-      element: (
-        <>
-          <NavbarMain />
-          <Register />
+          <NavbarMain  />
+          <LoginAndRegister />
         </>
       ),
     },
@@ -197,9 +189,22 @@ const RouterMain = () => {
         </>
       ),
     },
+    {
+      path: "/uploadprofile",
+      element: (
+        <>
+          <NavbarMain />
+          <UploadProfile />
+
+        </>
+      ),
+    },
   ]);
 
-  return <RouterProvider router={router} />;
+  return ( <FormProvider>
+      <RouterProvider router={router} />
+      </FormProvider>
+      );
 };
 
 export default RouterMain;

@@ -84,25 +84,25 @@ function Buy_ProductCard_Info() {
                 <div className="relative">
                   <div className="show flex items-center">
                     <img
-                      className="rounded-[10px] w-full "
+                      className="rounded-[10px] w-full h-[364px] object-cover"
                       src={Data.file1}
                       alt="X4-main"
                     />
                   </div>
                   <div className="show hidden ">
-                    <img className="w-full" src={Data.file2} alt="X4-1" />
+                    <img className="rounded-[10px] w-full h-[364px] object-cover" src={Data.file2} alt="X4-1" />
                   </div>
                   <div className="show hidden">
-                    <img className="w-full" src={Data.file3} alt="X4-2" />
+                    <img className="rounded-[10px] w-full h-[364px] object-cover" src={Data.file3} alt="X4-2" />
                   </div>
                   <div className="show hidden">
-                    <img className="w-full" src={Data.file4} alt="X4-3" />
+                    <img className="rounded-[10px] w-full h-[364px] object-cover" src={Data.file4} alt="X4-3" />
                   </div>
                   <div className="show hidden">
-                    <img className="w-full" src={Data.file5} alt="X4-4" />
+                    <img className="rounded-[10px] w-full h-[364px] object-cover" src={Data.file5} alt="X4-4" />
                   </div>
                   <div className="show hidden">
-                    <img className="w-full" src={Data.file6} alt="X4-5" />
+                    <img className="rounded-[10px] w-full h-[364px] object-cover" src={Data.file6} alt="X4-5" />
                   </div>
                   <div className="absolute top-1/2 transform translate-y-0 w-[660px] flex justify-between px-4  text-2xl font-black select-none">
                     <a

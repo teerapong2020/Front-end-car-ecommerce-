@@ -15,7 +15,7 @@ const Dashboard = () => {
           const response = await axios.get(`http://localhost:5000/api/users/verify-email?token=${token}`);
           const { access_token } = response.data;
           localStorage.setItem('token', access_token);
-          navigate('/');
+          navigate('/uploadprofile');
         } catch (error) {
           console.error('Error verifying email:', error);
         }

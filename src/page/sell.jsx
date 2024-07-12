@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import carDefault from "../assets/sell_page/defaultcar.png";
 import uploadImage from "../assets/sell_page/upload_photo_icon.png";
-import { createCar } from "../components/API/API_Cars";
 import Mapgoogle from "../components/googlemap/map";
-
+import { jwtDecode } from "jwt-decode";
+import { createTempCar } from "../components/API/API_TemporaryCar";
 function Sell() {
+  const token = localStorage.getItem("token");
+  const id = jwtDecode(token).id;
+  const uploadUrl = import.meta.env.VITE_CLOUDINARY_UPLOAD_URL;
+  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
   const [formData, setFormData] = useState({
     headline: "",
     brand: "",
@@ -29,6 +33,7 @@ function Sell() {
     file4: null,
     file5: null,
     file6: null,
+    Seller_User: id,
   });
 
   const [count, setCount] = useState(1);
@@ -67,10 +72,10 @@ function Sell() {
   };
 
   const uploadToCloudinary = async (file) => {
-    const url = `https://api.cloudinary.com/v1_1/dyrs3bvzj/upload`;
+    const url = uploadUrl;
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "freetouse");
+    formData.append("upload_preset", uploadPreset);
 
     const response = await fetch(url, {
       method: "POST",
@@ -83,7 +88,7 @@ function Sell() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("start");
-    await createCar(formData);
+    await createTempCar(formData);
   };
 
   const uploadimage = () => {
@@ -108,21 +113,6 @@ function Sell() {
       alert("Failed to send notification");
     }
   };
-
-  // const turnImgtoURL = async () => {
-  //   const cld = new Cloudinary({ cloud: { cloudName: "dyrs3bvzj" } });
-
-  //   const img = await cld
-  //     .image(formData.file1)
-  //     .format("auto") // Optimize delivery by resizing and applying auto-format and auto-quality
-  //     .quality("auto")
-  //     .resize(auto().gravity(autoGravity())); // Transform the image: auto-crop to square aspect_ratio
-
-  //   setFormData({
-  //     ...formData,
-  //     file1: img,
-  //   });
-  // };
 
   return (
     <form onSubmit={handleSubmit} className=" mx-auto flex flex-col w-[1129px]">

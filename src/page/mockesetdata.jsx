@@ -12,7 +12,7 @@ function mockesetdata() {
     mileage: 15000,
     color: "White",
     fuel: "Petrol",
-    enginecap: "1.8L",
+    enginecap: "1.8",
     cushion: "Leather",
     seat: "5",
     gear: "Automatic",
@@ -22,6 +22,7 @@ function mockesetdata() {
     additionalInfo: "One owner, full service history, accident-free",
     latitude: "13.7563",
     longitude: "100.5018",
+    Seller_User: "66902ce48d6d51e16599f158",
     file1:
       "https://res.cloudinary.com/di8f9idgx/image/upload/v1720244966/ixuhxjluzscejal7v5tb.webp",
     file2:

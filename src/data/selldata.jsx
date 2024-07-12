@@ -44,8 +44,13 @@ export const Selldata = () => {
   };
 
   const handleClearSearch = async () => {
-    const showall = await example_products();
-    setSearchResults(showall);
+    try {
+      const showall = await example_products();
+      setSearchResults(showall);
+      setCurrentPage(1);
+    } catch (error) {
+      console.error('Error clearing search:', error);
+    }
   };
 
   const indexOfLastImage = currentPage * imagesPerPage;
@@ -60,59 +65,55 @@ export const Selldata = () => {
   };
 
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil((searchResults?.length||0) / imagesPerPage); i++) {
+  for (let i = 1; i <= Math.ceil((searchResults?.length || 0) / imagesPerPage); i++) {
     pageNumbers.push(i);
   }
 
   return (
     <>
-      <Search
-        onSearchSubmit={handleSearch}
-        initialSearchValue={initialSearchValue}
-        Clear={handleClearSearch}
-      />
-      {Array.isArray(searchResults) && searchResults.length > 0 ? (
-        <>
-          <div className="flex flex-wrap justify-center gap-8 my-20 md:my-20 md:mx-0 lg:mx-24">
-            {searchResults
-              .slice(indexOfFirstImage, indexOfLastImage)
-              .map((product, index) => (
-                <NewCard key={index} product={product} />
-              ))}
-          </div>
-          <div className="flex justify-center">
-            <div className="text-2xl mb-12 flex">
+      <div className="flex justify-center">
+        <Search
+          onSearchSubmit={handleSearch}
+          initialSearchValue={initialSearchValue}
+          Clear={handleClearSearch}
+        />
+      </div>
+
+      <div className="flex flex-wrap justify-center gap-8 my-20 md:my-20 md:mx-0 lg:mx-24">
+        {searchResults
+          .slice(indexOfFirstImage, indexOfLastImage)
+          .map((product, index) => (
+            <NewCard key={index} product={product} />
+          ))}
+      </div>
+
+      <div className="flex justify-center">
+        <div className="text-2xl mb-12 flex">
+          <button
+            onClick={() => handleClick(Math.max(currentPage - 1, 1))}
+            disabled={currentPage === 1}
+          >
+            ◀️
+          </button>
+          <div>
+            {pageNumbers.map((number) => (
               <button
-                onClick={() => handleClick(Math.max(currentPage - 1, 1))}
-                disabled={currentPage === 1}
+                key={number}
+                onClick={() => handleClick(number)}
+                className={currentPage === number ? 'font-bold' : ''}
               >
-                ◀️
+                {number}
               </button>
-              <div>
-                {pageNumbers.map((number) => (
-                  <button
-                    key={number}
-                    onClick={() => handleClick(number)}
-                    className={currentPage === number ? 'font-bold' : ''}
-                  >
-                    {number}
-                  </button>
-                ))}
-              </div>
-              <button
-                onClick={() =>
-                  handleClick(Math.min(currentPage + 1, pageNumbers.length))
-                }
-                disabled={currentPage === pageNumbers.length}
-              >
-                ▶️
-              </button>
-            </div>
+            ))}
           </div>
-        </>
-      ) : (
-        <div className="flex justify-center my-20 text-xl">No Results</div>
-      )}
+          <button
+            onClick={() => handleClick(Math.min(currentPage + 1, pageNumbers.length))}
+            disabled={currentPage === pageNumbers.length}
+          >
+            ▶️
+          </button>
+        </div>
+      </div>
     </>
   );
 };
