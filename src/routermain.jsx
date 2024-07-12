@@ -11,7 +11,6 @@ import NavbarMain from "./components/navbarmain";
 import LoginAndRegister from "./page/login";
 import Forgot from "./page/forgotpassword";
 import ResetPassword from "./page/resetpassword";
-import Register from "./page/register";
 import ImageUpload from "./page/testCloudinary";
 import TestApi from "./page/testApi";
 import Dashboard from "./page/dashboard";
@@ -22,10 +21,6 @@ import SellAdmin from "./page/sellAdmin";
 import Mockesetdata from "./page/mockesetdata";
 import UploadProfile from "./page/uploadprofile";
 import { FormProvider } from "./context_component/Regiscontext";// ตรวจสอบ path ว่าถูกต้อง
-
-
-
-
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
@@ -87,15 +82,6 @@ const RouterMain = () => {
         <>
           <NavbarMain  />
           <LoginAndRegister />
-        </>
-      ),
-    },
-    {
-      path: "/register",
-      element: (
-        <>
-          <NavbarMain />
-          <Register />
         </>
       ),
     },
