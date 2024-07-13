@@ -38,14 +38,19 @@ function SellAdmin() {
     console.log("Main value:", mainImage.main);
     console.log("main ID:", mainImage.id);
     console.log("hold:", hold);
-    await setFormData({
+
+    const updatedFormData = {
       ...formData,
       file1: mainImage.main,
       [mainImage.id]: hold,
-    });
+    };
 
+    setFormData(updatedFormData);
+
+    // Use the updated form data after the state has been set
     console.log("start");
-    await createCar(formData);
+    console.log("formdata b4 sent:", updatedFormData);
+    await createCar(updatedFormData);
   };
 
   const uploadimage = () => {
