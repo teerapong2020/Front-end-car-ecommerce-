@@ -18,6 +18,8 @@ const Search = ({ onSearchSubmit, initialSearchValue,Clear}) => {
     }
   };
 
+  console.log(handleSearch);
+
   return (
     <div className="relative bg-white rounded-2xl drop-shadow-xl w-full pb-2 md:w-1/2 pt-2 px-8">
       <div className="flex gap-8 mx-4 mb-2">
@@ -44,7 +46,7 @@ const Search = ({ onSearchSubmit, initialSearchValue,Clear}) => {
           className="bg-blue-900 text-white hover:bg-blue-950 p-2 rounded-xl px-4 mx-2"
           onClick={handleSearch}
         >
-          <Link to="/buy">ค้นหา</Link>
+          ค้นหา
         </button>
       </div>
     </div>
