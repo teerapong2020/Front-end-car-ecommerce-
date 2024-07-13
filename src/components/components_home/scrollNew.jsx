@@ -78,7 +78,7 @@ function ScrollNew() {
             ref={scrollRef}
             style={scrollContainerStyles}
           >
-            {products.map((product) => (
+            { products.map((product) => (
               <div key={product.id} className="">
                 <ProductCard product={product} />
               </div>
