@@ -4,7 +4,6 @@ import leftArrow from "../../assets/Logo/logo_product_card/left_slide.png";
 import rightArrow from "../../assets/Logo/logo_product_card/right_slide.png";
 import { carRandom } from "../API/API_Cars"; //แก้
 
-
 const scrollContainerStyles = {
   scrollbarWidth: "none",
 };
@@ -48,18 +47,20 @@ function ScrollRandom() {
   }, []);
 
   const Active = async () => {
-    const API = await carRandom ();//เปลี่ยนตาม API ที่ใช้ และ เปลี่ยน parameterขึ้นกับว่า inputเป็นแบบไหน // แก้
-    setProducts(API);
+    const API = await carRandom(); //เปลี่ยนตาม API ที่ใช้ และ เปลี่ยน parameterขึ้นกับว่า inputเป็นแบบไหน // แก้
+    if (typeof API !== "string") {
+      setProducts(API);
+    }
   };
 
-  useEffect(() =>{
-    Active()
+  useEffect(() => {
+    Active();
   }, []);
 
   useEffect(() => {
     handleScroll(); // Ensure we check the scroll position when products are loaded
-  }, [products])
-  
+  }, [products]);
+
   return (
     <section>
       <div className="flex flex-col">
@@ -78,11 +79,12 @@ function ScrollRandom() {
             ref={scrollRef}
             style={scrollContainerStyles}
           >
-            {products.map((product) => (
-              <div key={product.id} className="">
-                <ProductCard product={product} />
-              </div>
-            ))}
+            {products &&
+              products.map((product) => (
+                <div key={product.id} className="">
+                  <ProductCard product={product} />
+                </div>
+              ))}
           </div>
           {!isAtEnd && (
             <img
