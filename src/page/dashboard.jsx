@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axiosInstance from "../utils/axiosInstance";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const Dashboard = () => {
 
       if (token) {
         try {
-          const response = await axios.get(`http://localhost:5000/api/users/verify-email?token=${token}`);
+          const response = await axiosInstance.get(`/users/verify-email?token=${token}`);
           const { access_token } = response.data;
           localStorage.setItem('token', access_token);
           navigate('/uploadprofile');
