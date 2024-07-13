@@ -60,7 +60,7 @@ function UserMenu() {
         </div>
       </div>
 
-      <div className="w-[264px] h-[224px] border border-[#E1E1E1] rounded-[20px]  mb-4 ">
+      <div className="w-[264px] h-[168px] border border-[#E1E1E1] rounded-[20px]  mb-4 ">
         <div className="flex flex-col items-center">
           <button
             onClick
@@ -107,20 +107,7 @@ function UserMenu() {
             <img src={Arrow} alt="Arrow" className="w-[7px] h-[24px] mr-2" />
           </button>
 
-          <button
-            onClick
-            className="flex justify-between items-center hover:bg-sky-700 h-[40px] w-[248px] mt-4"
-          >
-            <div className="flex ">
-              <img
-                src={Alarm}
-                alt="Cart"
-                className="w-[24px] h-[24px] mr-2 ml-2"
-              />
-              <p className="text-[16px] ">การแจ้งเตือน</p>
-            </div>
-            <img src={Arrow} alt="Arrow" className="w-[7px] h-[24px] mr-2" />
-          </button>
+        
         </div>
       </div>
 

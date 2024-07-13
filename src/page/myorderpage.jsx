@@ -8,8 +8,9 @@ import { jwtDecode } from "jwt-decode";
 import UserMenu from "../components/component_userprofile/usermenu";
 import EditUser from "../components/component_userprofile/edituser";
 import CarFavourite from "../components/component_userprofile/carfavourite";
+import MyOrder from "../components/component_userprofile/myorder";
 
-function MyFavourtie() {
+function MyOrderPage() {
 
 
   return (
@@ -20,7 +21,7 @@ function MyFavourtie() {
           <UserMenu />
         </div>
         <div className="flex flex-col w-[840px]">
-          <CarFavourite />
+          <MyOrder />
         </div>
         
       </div>
@@ -28,4 +29,4 @@ function MyFavourtie() {
   );
 }
 
-export default MyFavourtie;
+export default MyOrderPage;
