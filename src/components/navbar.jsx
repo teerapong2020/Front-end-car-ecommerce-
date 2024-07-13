@@ -121,7 +121,6 @@ function Navbar({ className }) {
             </li>
             <li>
               <Link
-               onClick
                to="/loginandregister">
                 เข้าสู่ระบบ
               </Link>
