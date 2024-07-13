@@ -1,6 +1,6 @@
 @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
+@tailwind components;
+@tailwind utilities;
 @layer base {
   .myCard {
     @apply mt-4 p-4 mb-2 border rounded;
@@ -11,5 +11,4 @@
   /* button {
     @apply border rounded py-1 px-2 hover:bg-blue-200 active:bg-teal-200;
   } */
-  
 }
