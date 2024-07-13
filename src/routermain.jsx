@@ -21,6 +21,8 @@ import SellAdmin from "./page/sellAdmin";
 import Mockesetdata from "./page/mockesetdata";
 import UploadProfile from "./page/uploadprofile";
 import { FormProvider } from "./context_component/Regiscontext";// ตรวจสอบ path ว่าถูกต้อง
+import { AdminCommit } from "./page/admin_commit_car";
+import { AdminCar } from "./components/champ/admincar";
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
@@ -195,6 +197,16 @@ const RouterMain = () => {
         <>
           <NavbarMain />
           <UploadProfile />
+
+        </>
+      ),
+    },
+     {
+      path: "/admincommit",
+      element: (
+        <>
+          <Navbar className={"bg-white text-gray-950 shadow-xl"} />
+          <AdminCommit />
 
         </>
       ),

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 
+
 const Search = ({ onSearchSubmit, initialSearchValue,Clear}) => {
   const [searchValue, setSearchValue] = useState(initialSearchValue);
 
@@ -13,6 +14,7 @@ const Search = ({ onSearchSubmit, initialSearchValue,Clear}) => {
   const handleSearch = () => {
     if (onSearchSubmit) {
       onSearchSubmit(searchValue);
+     
     }
   };
 
