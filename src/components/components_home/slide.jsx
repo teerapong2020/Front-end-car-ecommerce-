@@ -46,7 +46,7 @@ const CarSlideshow = () => {
   };
 
   return (
-    <section id="SlideShow" className="flex flex-col relative">
+    <section id="SlideShow" className="flex flex-col">
       <div id="carImagesMain" className="relative mt-auto pointer-events-auto h-2/6">
         <div className="relative w-full h overflow-hidden">
           <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
