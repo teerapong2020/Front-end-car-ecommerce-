@@ -7,7 +7,6 @@ import ScrollNew from "../components/components_home/scrollNew";
 import Search from "../components/champ/search"; // Adjusted import
 import Banner from "../components/components_home/banner";
 import ScrollRandom from "../components/components_home/scrollRandom";
-import ScrollTop from "../components/components_home/scrollTop"
 
 function Home() {
   // const audioRef = useRef(null);
@@ -23,20 +22,17 @@ function Home() {
   return (
     <div className="flex justify-center">
       {/* <audio ref={audioRef} src={tokyoDrift} /> */}
-      <div className="w-full">
-        <div className="relative bg-slate-600 ">
-          <Slide/>
-          <div className="absolute bottom-0 left-0 right-0 transform translate-y-1/2 flex justify-center">
-            <Search onSearchSubmit={handleSearchSubmit} />
-          </div>
+      <div className="w-full relative">
+        <Slide />
+        <div className="flex justify-center m-5 ">
+          <Search onSearchSubmit={handleSearchSubmit} />
         </div>
-        <div className="flex justify-center m-14">
+        <div className="flex justify-center">
           <div className="w-[1128px]">
             <CarBrands />
             <Banner />
             <ScrollRandom />
             <ScrollNew />
-            <ScrollTop />
           </div>
         </div>
         <WhyMe />
