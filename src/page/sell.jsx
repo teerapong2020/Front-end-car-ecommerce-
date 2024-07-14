@@ -26,7 +26,6 @@ function Sell() {
     pnumber: "",
     address: "",
     additionalInfo: "",
-    location: "",
     file1: null,
     file2: null,
     file3: null,
@@ -35,7 +34,24 @@ function Sell() {
     file6: null,
     Seller_User: id,
   });
-
+  const [handleError, setHandleError] = useState({
+    headline: "",
+    brand: "",
+    model: "",
+    type: "",
+    year: "",
+    mileage: "",
+    color: "",
+    fuel: "",
+    enginecap: "",
+    cushion: "",
+    seat: "",
+    gear: "",
+    price: "",
+    pnumber: "",
+    address: "",
+    additionalInfo: "",
+  });
   const [count, setCount] = useState(1);
 
   useEffect(() => {
@@ -47,6 +63,10 @@ function Sell() {
     setFormData({
       ...formData,
       [name]: value,
+    });
+    setHandleError({
+      ...handleError,
+      [name]: value ? "" : "require",
     });
   };
 
@@ -158,6 +178,7 @@ function Sell() {
               />
             )}
           </div>
+
           <img
             src={carDefault}
             id="imagePreview"
@@ -184,6 +205,7 @@ function Sell() {
           />
         </div>
       </div>
+      {!formData.file6 && <p className="text-red-500">Upload 6 picture</p>}
       <h5 className="text-[24px] font-semibold mt-[40px] mb-[19px]">
         รายละเอียดสินค้า
       </h5>
@@ -192,6 +214,7 @@ function Sell() {
           <label className=" text-gray-700 text-[18px] font-medium">
             หัวข้อรถที่ต้องการขาย
           </label>
+
           <input
             type="text"
             name="headline"
@@ -201,6 +224,9 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.headline && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -215,6 +241,9 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.brand && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">รุ่น</label>
@@ -227,6 +256,9 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.model && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -241,6 +273,7 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.type && <p className="text-red-500 text-sm">required</p>}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">ปีรถ</label>
@@ -253,6 +286,7 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.year && <p className="text-red-500 text-sm">required</p>}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -267,6 +301,9 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.mileage && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">สี</label>
@@ -279,6 +316,9 @@ function Sell() {
             onChange={handleChange}
             required
           ></input>
+          {handleError.color && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -298,6 +338,7 @@ function Sell() {
             <option value="electric">Electric</option>
             <option value="hybrid">Hybrid</option>
           </select>
+          {handleError.fuel && <p className="text-red-500 text-sm">required</p>}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -312,6 +353,9 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.enginecap && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -329,6 +373,9 @@ function Sell() {
             <option value="fabric">เบาะผ้า</option>
             <option value="leather">เบาะหนัง</option>
           </select>
+          {handleError.cushion && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -343,6 +390,7 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.seat && <p className="text-red-500 text-sm">required</p>}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -360,6 +408,7 @@ function Sell() {
             <option value="manual">ธรรมดา</option>
             <option value="auto">ออโต้</option>
           </select>
+          {handleError.gear && <p className="text-red-500 text-sm">required</p>}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -374,6 +423,9 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.price && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -388,6 +440,9 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.pnumber && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -402,6 +457,9 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.address && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex  justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium mt-4">
