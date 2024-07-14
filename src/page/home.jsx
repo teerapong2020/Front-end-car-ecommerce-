@@ -16,6 +16,9 @@ function Home() {
     navigate("/buy", { state: { searchValue } });
   };
 
+  console.log(handleSearchSubmit);
+  
+
   return (
     <div className="flex justify-center">
       {/* <audio ref={audioRef} src={tokyoDrift} /> */}

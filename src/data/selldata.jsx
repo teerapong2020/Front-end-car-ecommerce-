@@ -16,7 +16,15 @@ export const Selldata = () => {
   const [products, setProducts] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
 
+
+
   useEffect(() => {
+    if (initialSearchValue) {
+      handleSearch(initialSearchValue);
+    }
+  }, [initialSearchValue]);
+
+  useState(() => {
     const fetchProducts = async () => {
       try {
         const products = await example_products();
@@ -67,6 +75,8 @@ export const Selldata = () => {
     }
   };
 
+
+
   const handleClearSearch = async () => {
     try {
       const showall = await example_products();
@@ -102,49 +112,55 @@ export const Selldata = () => {
           Clear={handleClearSearch}
         />
       </div>
-      <div class="md:grid md:place-items-center">
-      <div class=" md:mt-12 md:grid md:grid-cols-3 md:w-[1128px] md:gap-6 mb-12">
+      {Array.isArray(searchResults) && searchResults.length > 0 ? (
+        <>      <div class="md:grid md:place-items-center">
+          <div class=" md:mt-12 md:grid md:grid-cols-3 md:w-[1128px] md:gap-6 mb-12">
         {/* <div className="grid grid-cols-3 justify-center gap-8 my-20 md:my-20 md:mx-0 lg:mx-24"> */}
-          {searchResults
-            .slice(indexOfFirstImage, indexOfLastImage)
-            .map((product, index) => (
-              <NewCard key={index} product={product} />
-            ))}
-        </div>
-      </div>
-
-      <div className="flex justify-center ">
-        <div className="text-[16px] mb-12 flex gap-6">
-          <button
-            onClick={() => handleClick(Math.max(currentPage - 1, 1))}
-            disabled={currentPage === 1}
-          >
-            <img src={ChangeArrow} alt="" className='h-8 '/>
-          </button>
-          <div>
-          <div className="flex flex-row space-x-6 ">
-            {pageNumbers.map((number) => (
-            
-              <button
-                key={number}
-                onClick={() => handleClick(number)}
-                className={`px-3 py-1 rounded transition-colors duration-200 ${currentPage === number ? 'font-bold bg-[#3E5685] text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
-              >
-                
-                {number}
-              </button>
-            ))}
+              {searchResults
+                .slice(indexOfFirstImage, indexOfLastImage)
+                .map((product, index) => (
+                  <NewCard key={index} product={product} />
+                ))}
             </div>
+      </div>
+          <div className="flex justify-center ">
+            <div className="text-[16px] mb-12 flex gap-6">
+              <button
+                onClick={() => handleClick(Math.max(currentPage - 1, 1))}
+                disabled={currentPage === 1}
+              >
+                <img src={ChangeArrow} alt="" className='h-8 '/>
+              </button>
+              <div>
+              <div className="flex flex-row space-x-6 ">
+            {pageNumbers.map((number) => (
+                
+              <button
+                    key={number}
+                    onClick={() => handleClick(number)}
+                    className={`px-3 py-1 rounded transition-colors duration-200 ${currentPage === number ? 'font-bold bg-[#3E5685] text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
+                  >
+                    
+                {number}
+                  </button>
+                ))}
+                </div>
 
           </div>
-          <button
-            onClick={() => handleClick(Math.min(currentPage + 1, pageNumbers.length))}
-            disabled={currentPage === pageNumbers.length}
-          >
-            <img src={ChangeArrowRight} alt="" className='h-8 '/>
-          </button>
-        </div>
-      </div>
+              <button
+                onClick={() =>
+                  handleClick(Math.min(currentPage + 1, pageNumbers.length))
+                }
+                disabled={currentPage === pageNumbers.length}
+              >
+                <img src={ChangeArrowRight} alt="" className='h-8 '/>
+              </button>
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="flex justify-center my-20 text-xl">No Results</div>
+      )}
     </>
   );
 };
