@@ -36,18 +36,19 @@ const CarBrands = () => {
   };
 
   return (
-    <div className="w-full overflow-x-auto shadow rounded">
-      <h2 className="text-xl font-bold mb-2 text-center">
+    // <div className="w-full overflow-x-auto shadow rounded">
+    <div>
+      <h2 className="text-xl font-bold mb-4 mt-4 text-center">
         ยี่ห้อรถยนต์ทั้งหมด
       </h2>
-      <div className="flex justify-center gap-1">
+      <div className="flex justify-center gap-4 ">
         {carBrands.map((brand, index) => (
-          <div key={index} className="shadow rounded-xl flex-shrink-0">
+          <div key={index} className="shadow rounded-xl flex-shrink-0 " >
               <img
                onClick={() => handleBrandClick(brand.alt)}
                 src={brand.src}
                 alt={brand.alt}
-                className="h-24 hover:shadow-2xl"
+                className="h-[88px] hover:shadow-2xl duration-200 rounded-xl"
               />
           </div>
         ))}
