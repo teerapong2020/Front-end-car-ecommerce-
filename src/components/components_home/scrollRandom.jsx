@@ -64,14 +64,14 @@ function ScrollRandom() {
   return (
     <section>
       <div className="flex flex-col">
-        <h1 className="text-xl mb-4">🔖รถแนะนำประจำวัน</h1>
+        <h1 className="text-xl mb-6 mt-8 font-bold">🔖รถแนะนำประจำวัน</h1>
         <div className="relative w-[1128px] mx-auto">
           {!isAtStart && (
             <img
               src={leftArrow}
               alt="Scroll Left"
               onClick={scrollLeft}
-              className="absolute left-[-50px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110"
+              className="absolute left-[-35px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110 duration-200"
             />
           )}
           <div
@@ -91,7 +91,7 @@ function ScrollRandom() {
               src={rightArrow}
               alt="Scroll Right"
               onClick={scrollRight}
-              className="absolute right-[-50px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110"
+              className="absolute right-[-35px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110 duration-200"
             />
           )}
         </div>

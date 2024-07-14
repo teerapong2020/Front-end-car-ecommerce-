@@ -48,9 +48,9 @@ function CarFavourite() {
 
         {/* ------------------product card 1 -----------------------*/}
         <div className="bg-white rounded-[20px] border-t shadow flex flex-col w-[360px] h-[320px]  hover:bg-gray-300">
-          <div className="p-2">
+          <div>
             <div className="flex justify-between items-center">
-              <h3 className="font-bold text-[16px] ml-4">
+              <h3 className="font-bold text-[16px] ml-4 mt-2">
                 Benz CLS300
                 {/* {product.brand} {product.model} */}
               </h3>
@@ -65,7 +65,7 @@ function CarFavourite() {
                     <AiOutlineHeart color="grey" />
                   )} */}
                 </div>
-                <img src={sharenetwork} className="h-4 m-1" alt="Share" />
+                <img src={sharenetwork} className="h-4 mr-4 mt-2" alt="Share" />
               </div>
             </div>
             <div className="flex justify-between items-center">
@@ -80,7 +80,7 @@ function CarFavourite() {
             // src={product.file1}
             // alt={product.file1}
           />
-          <div className="flex justify-between mx-6">
+          <div className="flex justify-between mx-4 mt-2">
             <div className="flex items-center">
               <img src={check_in} className="h-2.5" alt="Check-in" />
               <p className="ml-1 text-[16px]">
@@ -88,17 +88,17 @@ function CarFavourite() {
                 {/* {product.address} */}
               </p>
             </div>
-            <div className="flex  text-[16px]">
+            <div className="flex text-[16px]">
               <h4>THB 3,000,000</h4>
               <h4 className="mx-1 font-bold">
                 {/* {product.price.toLocaleString()} */}
                 </h4>
             </div>
           </div>
-          <div className="border-t border-gray-300 mx-7 my-1 py-1"></div>
-          <div className="flex flex-col">
+          <div className="border-t border-gray-300 mx-4 my-1 py-1"></div>
+          <div>
             <Link
-              className="mx-6 py-2 text-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]"
+              className="mx-4 h-[40px] flex justify-center items-center bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[18px]"
               // to={`/buy_productcard_info/${product._id}`}
             >
               ดูรายละเอียด
