@@ -2,19 +2,21 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/Logo/logocar_final.png";
 import USA from "../assets/Logo/USA.png";
 import burger from "../assets/Logo/burger.png";
-import { useState, useEffect } from "react";
-import { jwtDecode } from "jwt-decode"; //ตัวถอดโทเคน
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
+import {jwtDecode} from "jwt-decode"; //ตัวถอดโทเคน
 import { FormContext } from "../context_component/Regiscontext";
-import roddee from "../assets/Logo/roddee.png"
-import vector from "../assets/Logo/vector.png"
+import roddee from "../assets/Logo/roddee.png";
+import vector from "../assets/Logo/vector.png";
+import { getUserById } from "../components/API/API_Users";
 
 function Navbar({ className }) {
   const [open, setOpen] = useState(false);
-  const [User, setUser] = useState(""); // Id Global
+  const [UserId, setUserId] = useState(""); // Id Global
   const [istoken, setIstoken] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
+  const [User, setUser] = useState({});
+  const [Admin, setAdmin] = useState(false);
 
   const { setIsRegistering } = useContext(FormContext);
 
@@ -22,7 +24,6 @@ function Navbar({ className }) {
     setIsRegistering(true); //ตั้งเป็นฟอร์ม register
     navigate("/loginandregister");
   };
-  
 
   const handleBurger = () => {
     setOpen(!open);
@@ -39,35 +40,39 @@ function Navbar({ className }) {
   const onLogout = () => {
     localStorage.clear();
     setIstoken(null); // Clear the token state
-    setUser(""); // Clear the user state
+    setUserId(""); // Clear the userId state
     navigate("/");
   };
 
-  // Effect to decode token and set user information
+  // Effect to decode token, set userId information and fetch user data
   useEffect(() => {
-    try {
-      const token = localStorage.getItem("token");
-      if (token && token !== istoken) {
-        setIstoken(token);
-        const decodedToken = jwtDecode(token);
-        setUser(decodedToken.id); // Update according to your token structure
-      }
-    } catch (error) {
-      console.error("Error decoding token:", error);
-    }
-  }, [istoken, location]); // Include location in dependencies to trigger on route change
+    const fetchUserData = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (token && token !== istoken) {
+          setIstoken(token);
+          const decodedToken = jwtDecode(token);
+          setUserId(decodedToken.id); // Update according to your token structure
 
-  
+          const API = await getUserById(decodedToken.id);
+          setUser(API);
+          setAdmin(API.isAdmin);
+        }
+      } catch (error) {
+        console.error("Error decoding token or fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, [istoken, location]); // Include location in dependencies to trigger on route change
 
   return (
     <nav className={`${className} bg-blue-950 text-white max-md:fixed w-full`}>
-      <div className="flex justify-between mx-4 ">
+      <div className="flex justify-between mx-4 h-14">
         <ul className="flex gap-12">
-          
-            <Link to="/" onClick={scrollToTop} className="flex gap-1 items-center">
-              <img src={vector} alt="vector" /><img src={roddee} alt="roddee" className="w-full h-4" />
-            </Link>
-          
+          <Link to="/" onClick={scrollToTop} className="flex gap-1 items-center">
+            <img src={vector} alt="vector" /><img src={roddee} alt="roddee" className="w-full h-4" />
+          </Link>
           <div className="flex gap-12 items-center max-md:hidden">
             <li>
               <Link className="hover:bg-white hover:rounded-full hover:p-2 hover:text-black duration-200 font-semibold " onClick={scrollToTop} to="/buy">
@@ -112,10 +117,20 @@ function Navbar({ className }) {
 
         {/* Desktop */}
         {istoken ? (
-          <div>
-            <h1>{User}</h1>
-            <button onClick={onLogout}>Logout</button>
-          </div>
+          <ul className="flex items-center gap-8 mr-8 max-md:hidden">
+            <li>
+              <Link onClick={scrollToTop} to="/">
+                <img src={USA} alt="USA Flag" />
+              </Link>
+            </li>
+            <li>
+              <h1>{User.FirstName}</h1>
+            </li>
+            {Admin && (<Link to="/">Admin</Link>)}
+            <li>
+              <button onClick={onLogout}>Logout</button>
+            </li>
+          </ul>
         ) : (
           <ul className="flex items-center gap-8 mr-8 max-md:hidden">
             <li>
@@ -125,8 +140,8 @@ function Navbar({ className }) {
             </li>
             <li>
               <Link
-               to="/loginandregister"
-               className="hover:bg-white hover:rounded-full hover:p-2 hover:text-black duration-200 font-semibold">
+                to="/loginandregister"
+                className="hover:bg-white hover:rounded-full hover:p-2 hover:text-black duration-200 font-semibold">
                 เข้าสู่ระบบ
               </Link>
             </li>
