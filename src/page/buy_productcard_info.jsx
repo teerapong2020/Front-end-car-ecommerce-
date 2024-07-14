@@ -106,13 +106,13 @@ function Buy_ProductCard_Info() {
                   </div>
                   <div className="absolute top-1/2 transform translate-y-0 w-[660px] flex justify-between px-4  text-2xl font-black select-none">
                     <a
-                      className="cursor-pointer backdrop-blur-sm bg-white/30 bg-gray-800 rounded-full px-2 hover:text-gray-500"
+                      className="cursor-pointer backdrop-blur-sm bg-white/30 bg-gray-800 rounded-full px-2 hover:text-gray-500 duration-200" 
                       onClick={() => plusSlides(-1)}
                     >
                       ❮
                     </a>
                     <a
-                      className="cursor-pointer backdrop-blur-sm bg-white/30 bg-gray-800 rounded-full px-2 hover:text-gray-500"
+                      className="cursor-pointer backdrop-blur-sm bg-white/30 bg-gray-800 rounded-full px-2 hover:text-gray-500 duration-200"
                       onClick={() => plusSlides(1)}
                     >
                       ❯
@@ -122,37 +122,37 @@ function Buy_ProductCard_Info() {
 
                 <div className="flex w-[98px] mt-2 gap-[12px]">
                   <img
-                    className="silde cursor-pointer rounded-[5px] hover:border border-blue-500"
+                    className="silde cursor-pointer rounded-[5px] hover:border border-blue-500 duration-100"
                     src={Data.file1}
                     onClick={() => currentSlide(1)}
                     alt="X4-main"
                   />
                   <img
-                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500"
+                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500 duration-100"
                     src={Data.file2}
                     onClick={() => currentSlide(2)}
                     alt="X4-1"
                   />
                   <img
-                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500"
+                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500 duration-100"
                     src={Data.file3}
                     onClick={() => currentSlide(3)}
                     alt="X4-2"
                   />
                   <img
-                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500"
+                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500 duration-100"
                     src={Data.file4}
                     onClick={() => currentSlide(4)}
                     alt="X4-3"
                   />
                   <img
-                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500"
+                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500 duration-100"
                     src={Data.file5}
                     onClick={() => currentSlide(5)}
                     alt="X4-4"
                   />
                   <img
-                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500"
+                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500 duration-100"
                     src={Data.file6}
                     onClick={() => currentSlide(6)}
                     alt="X4-5"
@@ -309,16 +309,16 @@ function Buy_ProductCard_Info() {
                   <Link
                     to="/Checkout"
                     state={paymentData}
-                    className="bg-[#3E5685] text-white mx-6 w-[408px] h-[48px] hover:bg-blue-950 rounded-md"
+                    className="bg-[#3E5685] text-white mx-6 w-[408px] h-[48px] hover:bg-blue-950 rounded-md duration-200"
                   >
                     ซื้อรถคันนี้
                   </Link>
                   <div className="flex gap-1">
-                    <button className="bg-[#191f2c] text-white ml-6 w-[336px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center">
+                    <button className="bg-[#191f2c] text-white ml-6 w-[336px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center duration-200">
                       <img className="h-[15px] " src={favwhite} alt="" />
                       เพิ่มรายการโปรด
                     </button>
-                    <button className="border border-gray-400  ml-1 w-[64px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center">
+                    <button className="border border-gray-400  ml-1 w-[64px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center duration-200">
                       <img className="h-[17px]" src={share} alt="" />
                     </button>
                   </div>
@@ -429,16 +429,16 @@ function Buy_ProductCard_Info() {
               {/* Etc */}
               <div className="self-center">
                 <div>
-                  <p className=" py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-[96px] pl-4 ">
+                  <p className=" py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-[96px] pl-4 duration-200">
                     เงื่อนไขข้อตกลง
                   </p>
-                  <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6 pl-4">
+                  <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6 pl-4 duration-200">
                     เอกสารที่ใช้เช่ารถ
                   </p>
-                  <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6 pl-4">
+                  <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6 pl-4 duration-200">
                     ประกันภัยรถยนต์
                   </p>
-                  <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6 mb-10 pl-4">
+                  <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6 mb-10 pl-4 duration-200">
                     อื่นๆ
                   </p>
                 </div>
