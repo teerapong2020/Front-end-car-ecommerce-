@@ -242,6 +242,15 @@ const RouterMain = () => {
         </>
       ),
     },
+    {
+      path:"/admincommit",
+      element:(
+        <>
+        <Navbar/>
+        <AdminCommit/>
+        </>
+      )
+    }
   ]);
 
   return (
