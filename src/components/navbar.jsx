@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode"; //ตัวถอดโทเคน
 import { useContext } from "react";
 import { FormContext } from "../context_component/Regiscontext";
+import roddee from "../assets/Logo/roddee.png"
+import vector from "../assets/Logo/vector.png"
 
 function Navbar({ className }) {
   const [open, setOpen] = useState(false);
@@ -55,15 +57,17 @@ function Navbar({ className }) {
     }
   }, [istoken, location]); // Include location in dependencies to trigger on route change
 
+  
+
   return (
     <nav className={`${className} bg-blue-950 text-white max-md:fixed w-full`}>
       <div className="flex justify-between mx-4 ">
         <ul className="flex gap-12">
-          <li>
-            <Link to="/" onClick={scrollToTop}>
-              <img src={logo} alt="Logo" />
+          
+            <Link to="/" onClick={scrollToTop} className="flex gap-1 items-center">
+              <img src={vector} alt="vector" /><img src={roddee} alt="roddee" className="w-full h-4" />
             </Link>
-          </li>
+          
           <div className="flex gap-12 items-center max-md:hidden">
             <li>
               <Link className="hover:underline" onClick={scrollToTop} to="/buy">
@@ -77,16 +81,6 @@ function Navbar({ className }) {
                 to="/sell"
               >
                 ต้องการขาย
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:underline" onClick={scrollToTop} to="/">
-                ความช่วยเหลือ
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:underline" onClick={scrollToTop} to="/">
-                เช่ารถยนต์
               </Link>
             </li>
           </div>
@@ -141,15 +135,6 @@ function Navbar({ className }) {
       {/* Mobile */}
       {open && (
         <ul className="flex justify-center flex-col items-center bg-gray-600 text-white text-4xl py-36 gap-16 md:hidden">
-          <li>
-            <Link
-              className="hover:bg-blue-950 py-4 px-28"
-              onClick={handleBurger}
-              to="/"
-            >
-              บริการเช่า
-            </Link>
-          </li>
           <li>
             <Link
               className="hover:bg-blue-950 py-4 px-28"

@@ -48,3 +48,14 @@ export const uploadProfilePicture = async (userId, Profile_Image) => {
     throw error.response ? error.response.data : new Error(error.message);
   }
 };
+
+//API - Get User info by ID
+export const getUserById = async (id) => {
+  try {
+    const response = await axiosInstance.get(`/users/profile/${id}`);
+    console.log("Frontend - User Data:", response.data); 
+    return response.data; 
+  } catch (error) {
+    return error.response.data; 
+  }
+};
