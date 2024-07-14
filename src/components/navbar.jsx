@@ -66,13 +66,13 @@ function Navbar({ className }) {
           </li>
           <div className="flex gap-12 items-center max-md:hidden">
             <li>
-              <Link className="hover:underline" onClick={scrollToTop} to="/buy">
+              <Link className="hover:bg-white hover:rounded-full hover:p-2 hover:text-black duration-200 font-semibold " onClick={scrollToTop} to="/buy">
                 ซื้อรถยนต์
               </Link>
             </li>
             <li>
               <Link
-                className="hover:underline"
+                className="hover:bg-white hover:rounded-full hover:p-2 hover:text-black duration-200 font-semibold"
                 onClick={scrollToTop}
                 to="/sell"
               >
@@ -80,12 +80,12 @@ function Navbar({ className }) {
               </Link>
             </li>
             <li>
-              <Link className="hover:underline" onClick={scrollToTop} to="/">
+              <Link className="hover:bg-white hover:rounded-full hover:p-2 hover:text-black duration-200 font-semibold" onClick={scrollToTop} to="/">
                 ความช่วยเหลือ
               </Link>
             </li>
             <li>
-              <Link className="hover:underline" onClick={scrollToTop} to="/">
+              <Link className="hover:bg-white hover:rounded-full hover:p-2 hover:text-black duration-200 font-semibold" onClick={scrollToTop} to="/">
                 เช่ารถยนต์
               </Link>
             </li>
@@ -121,15 +121,15 @@ function Navbar({ className }) {
             </li>
             <li>
               <Link
-               onClick
-               to="/loginandregister">
+               to="/loginandregister"
+               className="hover:bg-white hover:rounded-full hover:p-2 hover:text-black duration-200 font-semibold">
                 เข้าสู่ระบบ
               </Link>
             </li>
             <li>
               <Link
                 onClick={handleRegisterClick}
-                className="bg-white text-black p-2 rounded-full"
+                className="bg-white text-black p-2 rounded-full hover:bg-black hover:text-white duration-200 font-semibold"
                 to="/loginandregister"
               >
                 สมัครสมาชิก

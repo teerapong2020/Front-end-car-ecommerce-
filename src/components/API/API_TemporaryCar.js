@@ -17,3 +17,13 @@ export const createTempCar = async (data) => {
     return null;
   }
 };
+
+
+  export const getTemallcar = async()=>{
+    try {
+      const response = await axiosInstance.get("/temporarycars/")
+      return response.data
+    } catch (error) {
+      return error.response.data
+    }
+  };

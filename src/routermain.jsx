@@ -20,7 +20,12 @@ import Paymentresult from "./page/paymentresult";
 import SellAdmin from "./page/sellAdmin";
 import Mockesetdata from "./page/mockesetdata";
 import UploadProfile from "./page/uploadprofile";
-import { FormProvider } from "./context_component/Regiscontext";// ตรวจสอบ path ว่าถูกต้อง
+import { FormProvider } from "./context_component/Regiscontext"; // ตรวจสอบ path ว่าถูกต้อง
+import UserProfile from "./page/userprofile";
+import ChangePassPage from "./page/changePassword";
+import CarFavourite from "./components/component_userprofile/carfavourite";
+import MyFavourtie from "./page/myfavourite";
+import MyOrderPage from "./page/myorderpage";
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
@@ -29,7 +34,7 @@ const RouterMain = () => {
       path: "/",
       element: (
         <>
-          <NavbarMain  />
+          <NavbarMain />
           <Home />
           <Footer />
         </>
@@ -80,7 +85,7 @@ const RouterMain = () => {
       path: "/loginandregister",
       element: (
         <>
-          <NavbarMain  />
+          <NavbarMain />
           <LoginAndRegister />
         </>
       ),
@@ -195,16 +200,55 @@ const RouterMain = () => {
         <>
           <NavbarMain />
           <UploadProfile />
-
+        </>
+      ),
+    },
+    {
+      path: "/edituser",
+      element: (
+        <>
+          <Navbar />
+          <UserProfile />
+        </>
+      ),
+    },
+    {
+      path: "/changepassword",
+      element: (
+        <>
+          <Navbar />
+          <ChangePassPage />
+        </>
+      ),
+    },
+    {
+      path: "/myfavourite",
+      element: (
+        <>
+          <Navbar />
+          <MyFavourtie />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/myorder",
+      element: (
+        <>
+          <Navbar />
+          <MyOrderPage />
+          <Footer />
+        
         </>
       ),
     },
   ]);
 
-  return ( <FormProvider>
+  return (
+    <FormProvider>
       <RouterProvider router={router} />
-      </FormProvider>
-      );
+    </FormProvider>
+  );
 };
 
 export default RouterMain;
