@@ -62,8 +62,8 @@ const CarSlideshow = () => {
             ))}
           </div>
         </div>
-        <img onClick={handlePrevClick} className="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer hover:scale-110" src={left} />
-        <img onClick={handleNextClick} className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer hover:scale-110" src={right} />
+        <img onClick={handlePrevClick} className="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer hover:scale-110 duration-200" src={left} />
+        <img onClick={handleNextClick} className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer hover:scale-110 duration-200" src={right} />
       </div>
     </section>
   );

@@ -22,9 +22,9 @@ function Home() {
   return (
     <div className="flex justify-center">
       {/* <audio ref={audioRef} src={tokyoDrift} /> */}
-      <div className="w-full ">
+      <div className="w-full relative">
         <Slide />
-        <div className="flex justify-center m-5">
+        <div className="flex justify-center m-5 ">
           <Search onSearchSubmit={handleSearchSubmit} />
         </div>
         <div className="flex justify-center">

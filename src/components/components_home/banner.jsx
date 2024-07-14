@@ -53,18 +53,18 @@ const Banner = () => {
   return (
     <section>
       <div className="flex flex-col">
-        <h1 className="text-xl mb-4">🎁 โปรโมชั่นประจำเดือน</h1>
+        <h1 className="text-xl mb-6 mt-8 font-bold">🎁 โปรโมชั่นประจำเดือน</h1>
         <div className="relative w-[1128px] mx-auto">
-          {!isAtStart && (
+          {/* {!isAtStart && (
             <img
               src={leftArrow}
               alt="Scroll Left"
               onClick={bannerLeft}
               className="absolute left-[-50px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110"
             />
-          )}
+          )} */}
           <div
-            className="flex w-full overflow-x-auto whitespace-nowrap shadow rounded gap-[24px]"
+            className="flex  whitespace-nowrap  rounded gap-[24px]"
             ref={bannerRef}
           >
             {slides.map((slide, index) => (
@@ -72,19 +72,19 @@ const Banner = () => {
                 <img
                   src={slide.src}
                   alt={slide.alt}
-                  className="w-full h-full object-cover"
+                  className=" object-cover rounded-lg   hover:scale-110 duration-300"
                 />
               </div>
             ))}
           </div>
-          {!isAtEnd && (
+          {/* {!isAtEnd && (
             <img
               src={rightArrow}
               alt="Scroll Right"
               onClick={bannerRight}
               className="absolute right-[-50px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110"
             />
-          )}
+          )} */}
         </div>
       </div>
     </section>

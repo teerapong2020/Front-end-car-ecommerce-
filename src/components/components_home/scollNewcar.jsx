@@ -64,14 +64,14 @@ useEffect(() => {
   return (
     <section>
       <div className="flex flex-col">
-        <h1 className="text-xl mb-4">🏷️รถเข้าใหม่ประจำเดือน</h1>
+        <h1 className="text-xl mb-6 mt-8 font-bold">🏷️รถเข้าใหม่ประจำเดือน</h1>
         <div className="relative w-[1128px] mx-auto">
           {!isAtStart && (
             <img
               src={leftArrow}
               alt="Scroll Left"
               onClick={scrollLeft}
-              className="absolute left-[-50px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110"
+              className="absolute left-[-50px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110 duration-200"
             />
           )}
           <div className="flex w-full overflow-x-auto whitespace-nowrap shadow rounded gap-[24px]" ref={scrollRef} style={scrollContainerStyles}>
@@ -86,7 +86,7 @@ useEffect(() => {
               src={rightArrow}
               alt="Scroll Right"
               onClick={scrollRight}
-              className="absolute right-[-50px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110"
+              className="absolute right-[-50px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110 duration-200"
             />
           )}
         </div>
