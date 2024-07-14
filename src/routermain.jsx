@@ -26,6 +26,7 @@ import ChangePassPage from "./page/changePassword";
 import CarFavourite from "./components/component_userprofile/carfavourite";
 import MyFavourtie from "./page/myfavourite";
 import MyOrderPage from "./page/myorderpage";
+import { AdminCommit } from "./page/admin_commit_car";
 
 const RouterMain = () => {
   // const [products, setProducts] = useState([]);
@@ -238,7 +239,6 @@ const RouterMain = () => {
           <Navbar />
           <MyOrderPage />
           <Footer />
-        
         </>
       ),
     },
