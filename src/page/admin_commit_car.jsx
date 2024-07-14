@@ -1,5 +1,5 @@
-import React from "react";
-import { AdminCar } from "../components/champ/admincar";
+
+import Adminsell from "../components/champ/adminsell";
 
 
 export const AdminCommit = ()=>{
@@ -9,8 +9,9 @@ export const AdminCommit = ()=>{
        <div
         className="text-4xl text-black my-16 mx-16 "
         >สินค้าทั้งหมด
+        <Adminsell/>
         </div>
-        {/* <AdminCar/> */}
+   
        </>
     )
 };

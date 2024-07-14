@@ -10,6 +10,11 @@ export const createTempCar = async (data) => {
     }
   };
 
-  export const carCommit = async()=>{
-    const response = await axiosInstance.get("/temporarycars/")
-  }
+  export const getTemallcar = async()=>{
+    try {
+      const response = await axiosInstance.get("/temporarycars/")
+      return response.data
+    } catch (error) {
+      return error.response.data
+    }
+  };
