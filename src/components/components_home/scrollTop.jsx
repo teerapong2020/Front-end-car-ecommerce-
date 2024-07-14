@@ -2,13 +2,13 @@ import { useRef, useState, useEffect } from "react";
 import { ProductCard } from "./ProductCard";
 import leftArrow from "../../assets/Logo/logo_product_card/left_slide.png";
 import rightArrow from "../../assets/Logo/logo_product_card/right_slide.png";
-import { carRandom } from "../API/API_Cars"; //แก้
+import { carTop } from "../API/API_Cars"; //แก้
 
 const scrollContainerStyles = {
   scrollbarWidth: "none",
 };
 
-function ScrollRandom() {
+function ScrollTop() {
   const scrollRef = useRef(null);
   const [isAtStart, setIsAtStart] = useState(true);
   const [isAtEnd, setIsAtEnd] = useState(false);
@@ -47,7 +47,7 @@ function ScrollRandom() {
   }, []);
 
   const Active = async () => {
-    const API = await carRandom(); //เปลี่ยนตาม API ที่ใช้ และ เปลี่ยน parameterขึ้นกับว่า inputเป็นแบบไหน // แก้
+    const API = await carTop(); //เปลี่ยนตาม API ที่ใช้ และ เปลี่ยน parameterขึ้นกับว่า inputเป็นแบบไหน // แก้
     if (typeof API !== "string") {
       setProducts(API);
     }
@@ -64,7 +64,7 @@ function ScrollRandom() {
   return (
     <section>
       <div className="flex flex-col">
-        <h1 className="text-xl mb-6 mt-8 font-bold">🔖รถแนะนำประจำวัน</h1>
+        <h1 className="text-xl mb-6 mt-8 font-bold">🎉รถยอดนิยม</h1>
         <div className="relative w-[1128px] mx-auto">
           {!isAtStart && (
             <img
@@ -100,4 +100,4 @@ function ScrollRandom() {
   );
 }
 
-export default ScrollRandom;
+export default ScrollTop;

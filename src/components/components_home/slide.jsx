@@ -46,7 +46,7 @@ const CarSlideshow = () => {
   };
 
   return (
-    <section id="SlideShow" className="flex flex-col">
+    <section id="SlideShow" className="flex flex-col relative">
       <div id="carImagesMain" className="relative mt-auto pointer-events-auto h-2/6">
         <div className="relative w-full h overflow-hidden">
           <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
@@ -62,8 +62,8 @@ const CarSlideshow = () => {
             ))}
           </div>
         </div>
-        <img onClick={handlePrevClick} className="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer hover:scale-110" src={left} />
-        <img onClick={handleNextClick} className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer hover:scale-110" src={right} />
+        <img onClick={handlePrevClick} className="absolute top-1/2 left-4 transform -translate-y-1/2 cursor-pointer hover:scale-110 duration-200" src={left} />
+        <img onClick={handleNextClick} className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer hover:scale-110 duration-200" src={right} />
       </div>
     </section>
   );

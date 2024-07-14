@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 
+
 const Search = ({ onSearchSubmit, initialSearchValue,Clear}) => {
   const [searchValue, setSearchValue] = useState(initialSearchValue);
 
@@ -13,8 +14,11 @@ const Search = ({ onSearchSubmit, initialSearchValue,Clear}) => {
   const handleSearch = () => {
     if (onSearchSubmit) {
       onSearchSubmit(searchValue);
+     
     }
   };
+
+  console.log(handleSearch);
 
   return (
     <div className="relative bg-white rounded-2xl drop-shadow-xl w-full pb-2 md:w-1/2 pt-2 px-8">
@@ -42,7 +46,7 @@ const Search = ({ onSearchSubmit, initialSearchValue,Clear}) => {
           className="bg-blue-900 text-white hover:bg-blue-950 p-2 rounded-xl px-4 mx-2"
           onClick={handleSearch}
         >
-          <Link to="/buy">ค้นหา</Link>
+          ค้นหา
         </button>
       </div>
     </div>
