@@ -10,12 +10,12 @@ function NavbarMain() {
   // };
 
   const handleScroll = () => {
-    console.log('Scroll position:', window.scrollY); // เพิ่มการ console.log เพื่อตรวจสอบตำแหน่งการเลื่อน
+    // console.log('Scroll position:', window.scrollY); // เพิ่มการ console.log เพื่อตรวจสอบตำแหน่งการเลื่อน
     if (window.scrollY > 430) {
-      console.log('Scrolled: true'); // ตรวจสอบว่าเงื่อนไขเป็นจริง
+      // console.log('Scrolled: true'); // ตรวจสอบว่าเงื่อนไขเป็นจริง
       setScrolled(true);
     } else {
-      console.log('Scrolled: false'); // ตรวจสอบว่าเงื่อนไขเป็นเท็จ
+      // console.log('Scrolled: false'); // ตรวจสอบว่าเงื่อนไขเป็นเท็จ
       setScrolled(false);
     }
   };
