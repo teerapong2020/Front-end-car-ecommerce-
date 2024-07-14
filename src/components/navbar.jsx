@@ -8,7 +8,7 @@ import { FormContext } from "../context_component/Regiscontext";
 import roddee from "../assets/Logo/roddee.png";
 import vector from "../assets/Logo/vector.png";
 import { getUserById } from "../components/API/API_Users";
-
+import profile from "../assets/Logo/login.png"
 function Navbar({ className }) {
   const [open, setOpen] = useState(false);
   const [UserId, setUserId] = useState(""); // Id Global
@@ -124,9 +124,14 @@ function Navbar({ className }) {
               </Link>
             </li>
             <li>
+              <Link onClick={scrollToTop} to="/edituser">
+                <img src={profile} alt="profile" className="h-8"/>
+              </Link>
+            </li>
+            <li>
               <h1>{User.FirstName}</h1>
             </li>
-            {Admin && (<Link to="/">Admin</Link>)}
+            {Admin && (<Link to="/admincommit">Admin</Link>)}
             <li>
               <button onClick={onLogout}>Logout</button>
             </li>
