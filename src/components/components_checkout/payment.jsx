@@ -10,6 +10,7 @@ function Payment({ data }) {
     console.log("start");
     try {
       const transactionData = await createTransaction(transaction);
+      console.log("transactionData::", transactionData);
       navigate("/paymentresult", { state: { transactionData } });
     } catch (error) {
       console.error("Error creating transaction:", error);
