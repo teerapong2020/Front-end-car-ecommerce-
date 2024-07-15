@@ -7,11 +7,12 @@ import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import UserMenu from "../components/component_userprofile/usermenu";
 import CarFavourite from "../components/component_userprofile/carfavourite";
-
+import { UserProvider } from "../context_component/Usercontext";
 function MyFavourtie() {
 
 
   return (
+    <UserProvider>
     <div className="flex flex-col items-center text-base">
    
       <div className="w-[1128px] flex gap-x-[24px] my-16">
@@ -24,6 +25,7 @@ function MyFavourtie() {
         
       </div>
     </div>
+    </UserProvider>
   );
 }
 

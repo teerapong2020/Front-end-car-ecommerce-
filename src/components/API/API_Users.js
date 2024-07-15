@@ -51,6 +51,18 @@ export const uploadProfilePicture = async (userId, Profile_Image) => {
   }
 };
 
+//API - Get User info by ID
+export const getUserById = async (id) => {
+  try {
+    const response = await axiosInstance.get(`/users/profile/${id}`);
+    console.log("Frontend - User Data:", response.data); 
+    return response.data; 
+  } catch (error) {
+    return error.response.data; 
+  }
+};
+
+
 //edit user
 export const editUser = async (userId, formData) => {
   try {
@@ -62,9 +74,8 @@ export const editUser = async (userId, formData) => {
 };
 
 
-
 //Get user by id
-export const getUserById = async (userId) => {
+export const getUserByIdTest = async (userId) => {
   try {
     const response = await axiosInstance.get(`/users/edit/${userId}`);
     console.log("Frontend - User Data:", response.data);
