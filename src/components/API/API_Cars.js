@@ -19,6 +19,7 @@ export const createCar = async (data) => {
     console.log("resResult", response.data.data);
     return response.data.data;
   } catch (error) {
+    console.log("errorrun::", error);
     return error.response.data;
   }
 };
@@ -62,5 +63,15 @@ export const onSearchCar = async (query) => {
     return response.data;
   } catch (error) {
     console.log("An unexpected error occurred. Please try again.");
+  }
+};
+
+// Top Car
+export const carTop = async () => {
+  try {
+    const response = await axiosInstance.get("/users/Top-Car");
+    return response.data;
+  } catch (error) {
+    return error.response.data;
   }
 };

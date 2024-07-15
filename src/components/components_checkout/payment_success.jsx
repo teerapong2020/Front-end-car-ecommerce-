@@ -1,6 +1,24 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 function Payment_success() {
+  let { state } = useLocation();
+
+  const purchaseDate = new Date(state.transactionData.Purchase_Date);
+
+  // Extract date and time parts
+  const date = purchaseDate.toLocaleDateString("th-TH", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  const time = purchaseDate.toLocaleTimeString("th-TH", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+
+  console.log("receipt::", state.transactionData);
   return (
     <div className="flex flex-col items-center mb-[52px]">
       <div
@@ -31,29 +49,35 @@ function Payment_success() {
       >
         <div id="value" className="flex justify-between px-[23px] mt-3">
           <p>จำนวน</p>
-          <p>3000 บาท</p>
+          <p>{state.transactionData.Purchase_Price} บาท</p>
         </div>
-        <div id="status" className="flex justify-between px-[23px] mt-[54px] mb-[30px]">
+        <div
+          id="status"
+          className="flex justify-between px-[23px] mt-[54px] mb-[30px]"
+        >
           <p>สถานะการจ่ายเงิน</p>
           <p>สำเร็จ</p>
         </div>
 
-        <div id="detail" className="flex flex-col gap-[54px] px-[23px]  border-t-[1px]">
+        <div
+          id="detail"
+          className="flex flex-col gap-[54px] px-[23px]  border-t-[1px]"
+        >
           <div id="code" className="flex justify-between mt-[33px]">
             <p>หมายเลขเช่า</p>
-            <p>RD1099092</p>
+            <p>{state.transactionData._id}</p>
           </div>
-          <diver id="typeOfPayMent" className="flex justify-between">
+          <div id="typeOfPayment" className="flex justify-between">
             <p>รูปแบบการจ่ายเงิน</p>
             <p>PromptPay</p>
-          </diver>
+          </div>
           <div id="dat" className="flex justify-between">
             <p>วันที่จ่ายเงิน</p>
-            <p>21 มิ.ย. 2568</p>
+            <p>{date}</p>
           </div>
           <div id="time" className="flex justify-between">
             <p>เวลา</p>
-            <p>18 . 05 น.</p>
+            <p>{time}</p>
           </div>
         </div>
         <Link
