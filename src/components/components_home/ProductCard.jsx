@@ -6,6 +6,7 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { UserContext } from "../../context_component/Usercontext";
+import axiosInstance from "../../utils/axiosInstance"
 
 export const ProductCard = ({ product }) => {
   const [isFilled, setIsFilled] = useState(false);
@@ -25,7 +26,7 @@ export const ProductCard = ({ product }) => {
       setIsFilled(!isFilled);
 
       const action = isFilled ? "remove" : "add";
-      const response = await axios.post("http://localhost:5000/api/car-list/togglePin", {
+      const response = await axiosInstance.post("/car-list/togglePin", {
         userId: User._id,
         carId: product._id,
         action: action
