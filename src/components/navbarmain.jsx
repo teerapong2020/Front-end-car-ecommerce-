@@ -29,7 +29,7 @@ function NavbarMain() {
 
   return (
     <Navbar
-      className={`fixed top-0 w-full text-white z-20 transition-colors duration-700 ${scrolled ? 'bg-[#1E3769]' : 'bg-black bg-opacity-10'}`}
+      className={`fixed top-0 w-full text-white z-20 transition-colors duration-700 ${scrolled ? 'bg-[#1E3769]' : 'bg-black bg-opacity-20'}`}
     />
   );
 }

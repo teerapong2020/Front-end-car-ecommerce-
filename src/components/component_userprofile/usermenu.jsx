@@ -7,6 +7,7 @@ import ChangePass from "../../assets/userPage/lock-alt.png";
 import UserIcon from "../../assets/userPage/user-alt-3.png";
 import Favourite from "../../assets/userPage/heart.png";
 import Cart from "../../assets/userPage/cart.png";
+import { Link } from "react-router-dom";
 
 
 function UserMenu() {
@@ -28,9 +29,9 @@ function UserMenu() {
         </div>
 
         <div className="flex flex-col items-center">
-          <button
-            onClick
-            className="flex justify-between items-center hover:bg-sky-700 h-[40px] w-[248px] mt-2"
+          <Link
+            to="/myorder"
+            className="flex justify-between items-center hover:bg-[#CEECFF] h-[40px] w-[248px] mt-2 hover:rounded-lg duration-200"
           >
             <div className="flex ">
               <img
@@ -41,11 +42,12 @@ function UserMenu() {
               <p className="text-[16px] ">คำสั่งซื้อของฉัน</p>
             </div>
             <img src={Arrow} alt="Arrow" className="w-[7px] h-[24px] mr-2" />
-          </button>
+          </Link>
 
-          <button
+          <Link
+            to="/loginandregister"
             onClick
-            className="flex justify-between items-center hover:bg-sky-700 h-[40px] w-[248px] mt-4"
+            className="flex justify-between items-center hover:bg-[#CEECFF] h-[40px] w-[248px] mt-4 hover:rounded-lg duration-200"
           >
             <div className="flex ">
               <img
@@ -56,15 +58,15 @@ function UserMenu() {
               <p className="text-[16px] ">สินค้าของฉัน</p>
             </div>
             <img src={Arrow} alt="Arrow" className="w-[7px] h-[24px] mr-2" />
-          </button>
+          </Link>
         </div>
       </div>
 
       <div className="w-[264px] h-[168px] border border-[#E1E1E1] rounded-[20px]  mb-4 ">
         <div className="flex flex-col items-center">
-          <button
-            onClick
-            className="flex justify-between items-center hover:bg-sky-700 h-[40px] w-[248px] mt-2"
+          <Link
+            to="/edituser"
+            className="flex justify-between items-center hover:bg-[#CEECFF] h-[40px] w-[248px] mt-2 hover:rounded-lg duration-200"
           >
             <div className="flex ">
               <img
@@ -75,11 +77,11 @@ function UserMenu() {
               <p className="text-[16px] ">จัดการบัญชีโปรไฟล์</p>
             </div>
             <img src={Arrow} alt="Arrow" className="w-[7px] h-[24px] mr-2" />
-          </button>
+          </Link>
 
-          <button
-            onClick
-            className="flex justify-between items-center hover:bg-sky-700 h-[40px] w-[248px] mt-4"
+          <Link
+            to="/changepassword"
+            className="flex justify-between items-center hover:bg-[#CEECFF] h-[40px] w-[248px] mt-4  hover:rounded-lg duration-200"
           >
             <div className="flex ">
               <img
@@ -90,11 +92,11 @@ function UserMenu() {
               <p className="text-[16px] ">เปลี่ยนรหัสผ่าน</p>
             </div>
             <img src={Arrow} alt="Arrow" className="w-[7px] h-[24px] mr-2" />
-          </button>
+          </Link>
 
-          <button
-            onClick
-            className="flex justify-between items-center hover:bg-sky-700 h-[40px] w-[248px] mt-4"
+          <Link
+            to="/myfavourite"
+            className="flex justify-between items-center hover:bg-[#CEECFF] h-[40px] w-[248px] mt-4 hover:rounded-lg duration-200"
           >
             <div className="flex ">
               <img
@@ -105,7 +107,7 @@ function UserMenu() {
               <p className="text-[16px] ">รายการโปรด</p>
             </div>
             <img src={Arrow} alt="Arrow" className="w-[7px] h-[24px] mr-2" />
-          </button>
+          </Link>
 
         
         </div>
@@ -115,7 +117,7 @@ function UserMenu() {
         <div className="flex flex-col items-center">
           <button
             onClick
-            className="flex justify-between items-center hover:bg-sky-700 h-[40px] w-[248px] mt-2"
+            className="flex justify-between items-center hover:bg-[#CEECFF] h-[40px] w-[248px] mt-2  hover:rounded-lg duration-200"
           >
             <div className="flex ">
               <img

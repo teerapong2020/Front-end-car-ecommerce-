@@ -41,7 +41,7 @@ export const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="bg-white rounded-[20px] shadow flex flex-col w-[360px] h-[320px] hover:bg-gray-300 duration-200">
+    <div className="bg-white rounded-[20px] shadow flex flex-col w-[360px] h-[320px] hover:bg-gray-300 duration-200  border-[0.5px]">
       <div>
         <div className="flex justify-between items-center ">
           <Tooltip content={`${product.headline}`}>
@@ -84,9 +84,9 @@ export const ProductCard = ({ product }) => {
            </p>
           </Tooltip>
         </div>
-        <div className="flex  text-[16px]">
-          <h4>THB </h4>
-          <h4 className=" font-bold">{product.price.toLocaleString()}</h4>
+        <div className="flex text-[16px]">
+          <h4 className="mr-1">THB </h4>
+          <h4 className="font-bold ">{product.price.toLocaleString()}</h4>
         </div>
       </div>
       <div className="border-t border-gray-300 mx-6 my-1 py-1"></div>
