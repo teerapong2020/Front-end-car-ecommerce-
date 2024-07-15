@@ -1,97 +1,139 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { editUser } from "../API/API_Users";
+import { getUserById } from "../API/API_Users";
+import { useParams } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+
+
 function EditUser() {
-    
-
-  const handleChange = async (e) => {
-    const { name, value } = e.target;
-    await setTransaction({ ...transaction, [name]: value });
-  };
-
-
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+      FirstName: '',
+      LastName: '',
+      Email: '',
+      pnumber: '',
+    });
+  
+    useEffect(() => {
+      const fetchUser = async () => {
+        try {
+          const token = localStorage.getItem('token');
+          if (token) {
+            const decoded = jwtDecode(token);
+            const userId = decoded.id; // ถอดรหัส JWT เพื่อดึง userId
+  
+            const user = await getUserById(userId); // ดึงข้อมูลผู้ใช้จาก API ด้วย userId
+            setFormData({
+              FirstName: user.FirstName,
+              LastName: user.LastName,
+              Email: user.Email,
+              pnumber: user.pnumber,
+            });
+          }
+        } catch (error) {
+          console.error('Error fetching user:', error);
+        }
+      };
+  
+      fetchUser();
+    }, []);
+  
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    };
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        const token = localStorage.getItem('token');
+        if (token) {
+          const decoded = jwtDecode(token);
+          const userId = decoded.id; // ถอดรหัส JWT เพื่อดึง userId
+  
+          await editUser(userId, formData); // ส่งข้อมูลแก้ไขผู้ใช้ไปยัง API ด้วย userId
+          alert('แก้ไขข้อมูลผู้ใช้เรียบร้อยแล้ว');
+          navigate('/'); // Redirect หรือทำอย่างอื่นตามที่ต้องการหลังจากแก้ไขเสร็จสิ้น
+        }
+      } catch (error) {
+        console.error('Error editing user:', error);
+        alert('เกิดข้อผิดพลาดในการแก้ไขข้อมูลผู้ใช้');
+      }
+    };
   return (
-    <form id="informUser" className="mb-[55px]">
-      <div className="flex flex-col  border border-[#E1E1E1] rounded-[20px]  px-6 pt-[28px] text-base">
-        <p className="font-semibold text-2xl mb-6 ">จัดการบัญชีโปรไฟล์</p>
-            <div className="flex">
-                <div >
-                    <p className="font-medium text-sm mb-2 ">อีเมล</p>
-                    <input
-                    type="text"
-                    name="address"
-                    //   value={transaction.address}
-                    onChange={handleChange}
-                    placeholder="name@company.com"
-                    className="  h-[48px] w-[384px] mb-6 px-5 rounded-2xl border border-[#E1E1E1] text-base"
-                    />
-                </div>
-                
-                <div className="ml-6">
-                    <p className="font-medium text-sm mb-2 ">เบอร์</p>
-                        <input
-                        type="text"
-                        name="etc"
-                        //   value={transaction.etc}
-                        onChange={handleChange}
-                        placeholder="เบอร์โทรศัพท์ส่่วนตัว "
-                        className=" h-[48px] w-[384px] px-5 rounded-2xl border border-[#E1E1E1] font-medium text-base"
-                    />
-                </div>
-            </div>
+    <form onSubmit={handleSubmit} className="mb-[55px]">
+      <div className="flex flex-col border border-[#E1E1E1] rounded-[20px] px-6 pt-[28px] text-base">
+        <p className="font-semibold text-2xl mb-6">จัดการบัญชีโปรไฟล์</p>
+        <div className="flex">
+          <div>
+            <p className="font-medium text-sm mb-2">อีเมล</p>
+            <input
+              type="text"
+              name="Email"
+              value={formData.Email}
+              onChange={handleChange}
+              placeholder="name@company.com"
+              className="h-[48px] w-[384px] mb-6 px-5 rounded-2xl border border-[#E1E1E1] text-base hover:border-blue-300 focus:outline-none focus:border-sky-700 focus:ring-sky-700 focus:ring-1 duration-200"
+            />
+          </div>
 
-            <div className="flex">
-                <div >
-                    <p className="font-medium text-sm mb-2 ">ชื่อจริง</p>
-                    <input
-                    type="text"
-                    name="address"
-                    //   value={transaction.address}
-                    onChange={handleChange}
-                    placeholder="ชื่อจริง"
-                    className="  h-[48px] w-[384px]   px-5 rounded-2xl border border-[#E1E1E1] font-medium text-base"
-                    />
-                </div>
-                
-                <div className="ml-6">
-                    <p className="font-medium text-sm mb-2 ">นามสกุล</p>
-                        <input
-                        type="text"
-                        name="etc"
-                        //   value={transaction.etc}
-                        onChange={handleChange}
-                        placeholder="นามสกุล"
-                        className=" h-[48px] w-[384px]   px-5 rounded-2xl border border-[#E1E1E1] font-medium text-base"
-                    />
-                </div>
+          <div className="ml-6">
+            <p className="font-medium text-sm mb-2">เบอร์</p>
+            <input
+              type="text"
+              name="pnumber"
+              value={formData.pnumber}
+              onChange={handleChange}
+              placeholder="เบอร์โทรศัพท์ส่วนตัว"
+              className="h-[48px] w-[384px] px-5 rounded-2xl border border-[#E1E1E1]  text-base hover:border-blue-300 focus:outline-none focus:border-sky-700 focus:ring-sky-700 focus:ring-1 duration-200"
+            />
+          </div>
+        </div>
 
-                
-            </div>
+        <div className="flex">
+          <div>
+            <p className="font-medium text-sm mb-2">ชื่อจริง</p>
+            <input
+              type="text"
+              name="FirstName"
+              value={formData.FirstName}
+              onChange={handleChange}
+              placeholder="ชื่อจริง"
+              className="h-[48px] w-[384px] px-5 rounded-2xl border border-[#E1E1E1]  text-base hover:border-blue-300 focus:outline-none focus:border-sky-700 focus:ring-sky-700 focus:ring-1 duration-200"
+            />
+          </div>
 
-            <Link
-                  to="/Checkout2"
-                 className=" h-[48px] bg-[#3E5685] rounded-[10px] text-white text-2xl flex justify-center mt-8 mb-4"
-                //   state={transaction}
-                 >
-                <input
-                    type="submit"
-                    value="ยืนยัน"
-                    className="cursor-pointer border-none text-lg"
-                />
-            </Link>
-       
-       
+          <div className="ml-6">
+            <p className="font-medium text-sm mb-2">นามสกุล</p>
+            <input
+              type="text"
+              name="LastName"
+              value={formData.LastName}
+              onChange={handleChange}
+              placeholder="นามสกุล"
+              className="h-[48px] w-[384px] px-5 rounded-2xl border border-[#E1E1E1]  text-base hover:border-blue-300 focus:outline-none focus:border-sky-700 focus:ring-sky-700 focus:ring-1 duration-200"
+            />
+          </div>
+        </div>
 
- 
-       
-
+        <button
+          type="submit"
+          className="h-[48px] bg-[#3E5685] rounded-[10px] text-white text-[18px] flex justify-center mt-8 mb-4 "
+        >
+          ยืนยัน
+        </button>
       </div>
       <div
         id="hire"
-        className="mt-6 h-[48px] w-[840px] border border-[#E1E1E1] rounded-[15px] flex justify-between items-center "
-      > 
+        className="mt-6 h-[48px] w-[840px] border border-[#E1E1E1] rounded-[15px] flex justify-between items-center"
+      >
         <span className="font-medium text-sm ml-6">ลบบัญชีของคุณ</span>
         <button className="font-medium text-sm mr-6 text-red-600">ลบ</button>
-       
       </div>
     </form>
   );
@@ -101,18 +143,26 @@ export default EditUser;
 
 
 
+
+
+
+
+
+
+
+
 // function EditUser({ data }) {
 //     const { transaction, setTransaction } = data;
-  
+
 //     const handleChange = async (e) => {
 //       const { name, value } = e.target;
 //       await setTransaction({ ...transaction, [name]: value });
 //     };
-  
+
 //     useEffect(() => {
 //       console.log(transaction);
 //     }, [transaction]);
-  
+
 //     return (
 //       <form id="informUser" className="mb-[55px]">
 //         <div className="flex flex-col  border border-[#E1E1E1] rounded-[20px]  px-6 pt-[28px] pb-10 text-base">

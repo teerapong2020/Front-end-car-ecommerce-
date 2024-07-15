@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import uploadImagePhoto from "../assets/sell_page/upload_photo_icon.png";
+import uploadImagePhoto from "../assets/userPage/picupload.png";
 import { jwtDecode } from "jwt-decode";
 import { uploadProfilePicture } from "../components/API/API_Users";
 import Tesla from "../../src/assets/Login/Tesla1.png";
@@ -94,19 +94,20 @@ function UploadProfile() {
       
       <form onSubmit={handleSubmit} className="mx-auto flex flex-col items-end ">
         <div className="p-4 rounded-[10px] w-[400px] relative mt-60 mr-60 bg-white shadow-md ">
-        <h5 className="text-xl font-semibold  mb-[30px]">อัพโหลดรูปโปรไฟล์</h5>
+        <h5 className="text-xl font-semibold  mb-[30px]">ตั้งรูปโปรไฟล์ของคุณ</h5>
       
           
-            <div className="w-[344px] flex flex-col justify-center items-center rounded-[10px]">
+            <div className=" flex flex-col justify-center items-center rounded-[10px]">
               <img
                 src={formData.Profile_Image ? formData.Profile_Image : (uploadImagePhoto)} // Display uploaded image or upload icon
                 alt="upload"
-                className="w-[216px] h-[216px] rounded-full border-[4px] border-black object-cover"
+                className="w-[216px] h-[216px] rounded-full border-[4px]  object-cover"
                 onClick={uploadImageButton}
+
               />
             </div>
-            <button type="submit" className="btn btn-primary mt-4">
-              อัพโหลด
+            <button type="submit" className="btn btn-primary mt-4 bg-[#1E3769] text-white w-[368px] h-[40px] rounded-lg hover:bg-[#677FAF] duration-200">
+              อัปโหลดหลังจากเลือกรูป
             </button>
             <input
               id="uploadfileinbuycar"
