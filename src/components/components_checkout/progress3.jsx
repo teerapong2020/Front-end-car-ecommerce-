@@ -40,7 +40,7 @@ function Progress() {
             className="w-[4px] h-[31px] top-[13px] left-[32px] rotate-45 rounded-full bg-white absolute"
           ></div>
         </div>
-        <p className=" top-[49px] left-[-10px] w-20  absolute ">เช่ารถสำเร็จ</p>
+        <p className=" top-[49px] left-[-10px] w-20  absolute ">ซื้อรถสำเร็จ</p>
       </div>
     </article>
   );

@@ -207,7 +207,7 @@ function Sell() {
               onClick={uploadimage}
             />
             <div className="text-[#9E9E9E] font-medium text-[18px]">
-              อัพโหลดรูปภาพ
+              อัปโหลดรูปภาพ
             </div>
           </div>
           <input
