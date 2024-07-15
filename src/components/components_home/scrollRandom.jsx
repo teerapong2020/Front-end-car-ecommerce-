@@ -64,7 +64,7 @@ function ScrollRandom() {
   return (
     <section>
       <div className="flex flex-col">
-        <h1 className="text-xl mb-6 mt-8 font-bold">🔖รถแนะนำประจำวัน</h1>
+        <h1 className="text-xl mb-6 mt-8 font-bold">รถแนะนำประจำวัน</h1>
         <div className="relative w-[1128px] mx-auto">
           {!isAtStart && (
             <img

@@ -1,44 +1,43 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import check_in from "../../assets/Logo/logo_product_card/check_in.png";
 import sharenetwork from "../../assets/Logo/logo_product_card/sharenetwork.png";
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-import axios from "axios";
-import {jwtDecode} from "jwt-decode";
+import axiosInstance from "../../utils/axiosInstance";
+import { UserContext } from "../../context_component/Usercontext";
 
 export const ProductCard = ({ product }) => {
   const [isFilled, setIsFilled] = useState(false);
-  const [userId, setUserId] = useState("");
+  const { User } = useContext(UserContext);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      const decodedToken = jwtDecode(token);
-      setUserId(decodedToken.id);
+    if (User && Array.isArray(User.pinned) && User.pinned.includes(product._id)) {
+      setIsFilled(true);
+    } else {
+      setIsFilled(false);
     }
-  }, []);
+  }, [User, product]);
 
   const toggleHeart = async () => {
     try {
       setIsFilled(!isFilled);
 
-      const action = isFilled ? "remove" : "add"; // ตรวจสอบว่าต้องการลบหรือเพิ่ม
-      const response = await axios.post("http://localhost:5000/api/car-list/togglePin", {
-        userId: userId,
-        carId: product._id, // หรือเปลี่ยนเป็นตัวแปรที่เก็บ _id ของ product นี้
+      const action = isFilled ? "remove" : "add";
+      const response = await axiosInstance.post("/car-list/togglePin", {
+        userId: User._id,
+        carId: product._id,
         action: action
       });
 
-      console.log(response.data); // แสดงผลลัพธ์จาก backend ที่ตอบกลับ
+      console.log(response.data);
     } catch (error) {
       console.error("Error toggling pin:", error);
-      // จัดการ error ตามที่คุณต้องการ
     }
   }
 
   return (
     <div className="bg-white rounded-[20px] shadow flex flex-col w-[360px] h-[320px] hover:bg-gray-300 duration-200">
-      <div >
+      <div>
         <div className="flex justify-between items-center">
           <h3 className="font-bold text-[16px] ml-6 mt-2">{product.brand} {product.model}</h3>
           <div className="flex gap-2 relative mt-2">

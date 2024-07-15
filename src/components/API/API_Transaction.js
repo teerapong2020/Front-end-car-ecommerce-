@@ -9,3 +9,8 @@ export const createTransaction = async (data) => {
     return error.response.data;
   }
 };
+
+export const getTransaction = async()=>{
+  const response = await axiosInstance.get("/transaction")
+  return response
+}
