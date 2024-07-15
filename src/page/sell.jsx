@@ -6,15 +6,6 @@ import { jwtDecode } from "jwt-decode";
 import { createTempCar } from "../components/API/API_TemporaryCar";
 import { useNavigate } from "react-router-dom";
 function Sell() {
-  const navigate = useNavigate();
-  const token = localStorage.getItem("token");
-  if (!token) {
-    navigate("/");
-  }
-  const id = jwtDecode(token).id;
-  const uploadUrl = import.meta.env.VITE_CLOUDINARY_UPLOAD_URL;
-  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
-
   const [formData, setFormData] = useState({
     headline: "",
     brand: "",
@@ -38,8 +29,23 @@ function Sell() {
     file4: null,
     file5: null,
     file6: null,
-    Seller_User: id,
+    Seller_User: null,
   });
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    try {
+      const id = jwtDecode(token).id;
+      setFormData({ ...formData, Seller_User: id });
+    } catch (error) {
+      alert("please login");
+      navigate("/loginandregister");
+    }
+  }, []);
+
+  const uploadUrl = import.meta.env.VITE_CLOUDINARY_UPLOAD_URL;
+  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+
   const [handleError, setHandleError] = useState({
     headline: "",
     brand: "",
@@ -59,10 +65,6 @@ function Sell() {
     additionalInfo: "",
   });
   const [count, setCount] = useState(1);
-
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -115,7 +117,7 @@ function Sell() {
     e.preventDefault();
     console.log("start");
     await createTempCar(formData);
-    navigate("/");
+    // navigate("/");
   };
 
   const uploadimage = () => {
