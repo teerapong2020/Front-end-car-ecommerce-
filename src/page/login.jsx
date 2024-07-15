@@ -214,7 +214,7 @@ function LoginAndRegister() {
                   <img
                     onClick={handleHidePassword}
                     src={hidePassword ? ShowEye : HideEye}
-                    className=" cursor-pointer absolute place-self-center"
+                    className=" cursor-pointer absolute place-self-center ml-[328px]"
                     alt={hidePassword ? "hide password" : "show password"}
                   />
                 </div>
@@ -268,7 +268,7 @@ function LoginAndRegister() {
                 onClick={handleToggleForm}
                 className=" text-white bg-[#333333]  mb-[24px] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-[6px] text-sm text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 w-[360px] h-[40px]"
               >
-                สมัครสมาชิก?
+                หรือสมัครสมาชิก
               </button>    
             </div>
           </form>
@@ -280,7 +280,7 @@ function LoginAndRegister() {
 
           <form
             onSubmit={handleSubmit}
-            className={`bg-white h-[772px] w-[456px] relative mt-[104px] rounded-[10px] shadow-md transition opacity duration-500  
+            className={`bg-white h-[816px] w-[456px] relative mt-[80px] rounded-[10px] shadow-md transition opacity duration-500  
                 ${
                   !isRegistering
                     ? "opacity-0 pointer-events-none"
@@ -367,7 +367,7 @@ function LoginAndRegister() {
                   <img
                     onClick={handleHidePassword}
                     src={hidePassword ? ShowEye : HideEye}
-                    className=" cursor-pointer absolute place-self-center"
+                    className=" cursor-pointer absolute place-self-center ml-[328px]"
                     alt={hidePassword ? "hide password" : "show password"}
                   />
                 </div>
@@ -396,7 +396,7 @@ function LoginAndRegister() {
                   <img
                     onClick={handleHideConfirmPassword}
                     src={hideConfirmPassword ? ShowEye : HideEye}
-                    className=" cursor-pointer absolute place-self-center"
+                    className=" cursor-pointer absolute place-self-center ml-[328px]"
                     alt={hideConfirmPassword ? "hide password" : "show password"}
                   />
                 </div>
@@ -447,7 +447,7 @@ function LoginAndRegister() {
                 onClick={handleToggleForm}
                 className=" text-white bg-[#333333]  mb-[24px] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-[6px] text-sm text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 w-[360px] h-[40px]"
               >
-                เข้าสู่ระบบด้วย Google
+                หรือเข้าสู่ระบบ
               </button>
 
              

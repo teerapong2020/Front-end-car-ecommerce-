@@ -16,7 +16,7 @@ export const NewCard = ({ product }) => {
 
   return (
     <>
-  <div className="bg-white rounded-[20px] border-t shadow flex flex-col w-[360px] h-[320px] hover:bg-gray-300">
+  <div className="bg-white rounded-[20px] border-t shadow flex flex-col w-[360px] h-[320px] hover:bg-gray-300 duration-200">
     <div>
       <div className="flex justify-between items-center">
         <h3 className="font-bold text-[16px] ml-6 mt-2">{product.brand}</h3>
