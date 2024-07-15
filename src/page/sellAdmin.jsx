@@ -408,16 +408,6 @@ function SellAdmin() {
         </div>
       </div>
 
-      <div className="flex items-center gap-[8px] mb-[50px] text-[18px] ">
-        <input type="checkbox" className="h-6 w-6" />
-        <label>
-          กดเพื่อยอมรับ
-          <a href="" className="text-red-600">
-            ข้อกำหนดและเงื่อนไขการลงประกาศ
-          </a>
-        </label>
-      </div>
-
       <div className="flex justify-center gap-[23px] text-[18px] font-bold mb-[186px]">
         <button
           type="submit"
