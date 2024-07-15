@@ -17,6 +17,7 @@ import seattype from "../assets/Logo/Icon_productcard_info/seattype.png";
 import share from "../assets/Logo/Icon_productcard_info/share.png";
 import { getCarById } from "../components/API/API_Cars";
 import { Link } from "react-router-dom";
+
 import { UserContext } from "../context_component/Usercontext";
 import axiosInstance from "../utils/axiosInstance";
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
@@ -121,23 +122,43 @@ function Buy_ProductCard_Info() {
                     />
                   </div>
                   <div className="show hidden ">
-                    <img className="rounded-[10px] w-full h-[364px] object-cover" src={Data.file2} alt="X4-1" />
+                    <img
+                      className="rounded-[10px] w-full h-[364px] object-cover"
+                      src={Data.file2}
+                      alt="X4-1"
+                    />
                   </div>
                   <div className="show hidden">
-                    <img className="rounded-[10px] w-full h-[364px] object-cover" src={Data.file3} alt="X4-2" />
+                    <img
+                      className="rounded-[10px] w-full h-[364px] object-cover"
+                      src={Data.file3}
+                      alt="X4-2"
+                    />
                   </div>
                   <div className="show hidden">
-                    <img className="rounded-[10px] w-full h-[364px] object-cover" src={Data.file4} alt="X4-3" />
+                    <img
+                      className="rounded-[10px] w-full h-[364px] object-cover"
+                      src={Data.file4}
+                      alt="X4-3"
+                    />
                   </div>
                   <div className="show hidden">
-                    <img className="rounded-[10px] w-full h-[364px] object-cover" src={Data.file5} alt="X4-4" />
+                    <img
+                      className="rounded-[10px] w-full h-[364px] object-cover"
+                      src={Data.file5}
+                      alt="X4-4"
+                    />
                   </div>
                   <div className="show hidden">
-                    <img className="rounded-[10px] w-full h-[364px] object-cover" src={Data.file6} alt="X4-5" />
+                    <img
+                      className="rounded-[10px] w-full h-[364px] object-cover"
+                      src={Data.file6}
+                      alt="X4-5"
+                    />
                   </div>
                   <div className="absolute top-1/2 transform translate-y-0 w-[660px] flex justify-between px-4  text-2xl font-black select-none">
                     <a
-                      className="cursor-pointer backdrop-blur-sm bg-white/30 bg-gray-800 rounded-full px-2 hover:text-gray-500 duration-200" 
+                      className="cursor-pointer backdrop-blur-sm bg-white/30 bg-gray-800 rounded-full px-2 hover:text-gray-500 duration-200"
                       onClick={() => plusSlides(-1)}
                     >
                       ❮
@@ -223,6 +244,8 @@ function Buy_ProductCard_Info() {
                       ที่ช่วยให้ EQS 450
                       เป็นตัวเลือกที่น่าสนใจสำหรับผู้ที่ต้องการรถยนต์ไฟฟ้าระดับพรีเมียมที่สมบูรณ์แบบ
                     </p>
+
+                    
 
                     <h4 className="text-[20px] font-medium mt-6 ">
                       Additional Info
@@ -312,7 +335,7 @@ function Buy_ProductCard_Info() {
             {/* ----------------------------------------------------Right------------------------------------------------------------------- */}
             <section className=" w-[480px] flex flex-col pl-6 border-green-600">
               <div className=" max-md:hidden rounded-[20px] border shadow-md h-[364px] w-[456px] mt-[96px]">
-                <h2 className="ml-6 mt-3 mb-3 text-[16px] ">รายละเอียด</h2>
+                <h2 className="ml-6 mt-3 mb-3 text-[18px] ">รายละเอียด</h2>
                 <h2 className="ml-6 mt-3 mb-3 font-black text-[16px]">
                   {Data.brand} {Data.model} ({Data.year})
                 </h2>
@@ -340,21 +363,14 @@ function Buy_ProductCard_Info() {
                   <Link
                     to="/Checkout"
                     state={paymentData}
-                    className="bg-[#3E5685] text-white mx-6 w-[408px] h-[48px] hover:bg-blue-950 rounded-md duration-200"
+                    className="bg-[#3E5685] text-white mx-6 w-[408px] h-[48px] hover:bg-[#677FAF] rounded-md duration-200 text-center place-content-center"
                   >
                     ซื้อรถคันนี้
                   </Link>
                   <div className="flex gap-1">
-
-
                     <button className="bg-[#191f2c] text-white ml-6 w-[336px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center duration-200 gap-2" onClick={toggleHeart}>
                     {isFilled ? <AiFillHeart color="#f06181" /> : <AiOutlineHeart color="#f7faff" />}
                       เพิ่มรายการโปรด
-                    </button>
-
-
-                    <button className="border border-gray-400  ml-1 w-[64px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center duration-200">
-                      <img className="h-[17px]" src={share} alt="" />
                     </button>
                   </div>
                 </div>
