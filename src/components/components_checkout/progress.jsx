@@ -40,7 +40,7 @@ function Progress() {
         >
           3
         </div>
-        <p className=" top-[49px] left-[-10px] w-20  absolute ">เช่ารถสำเร็จ</p>
+        <p className=" top-[49px] left-[-10px] w-20  absolute ">ซื้อรถสำเร็จ</p>
       </div>
     </article>
   );
