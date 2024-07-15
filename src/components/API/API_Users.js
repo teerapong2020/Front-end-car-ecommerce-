@@ -1,4 +1,6 @@
 import axiosInstance from "../../utils/axiosInstance";
+import { jwtDecode } from "jwt-decode";
+
 
 
 //API - Login
@@ -46,5 +48,28 @@ export const uploadProfilePicture = async (userId, Profile_Image) => {
     return response.data;
   } catch (error) {
     throw error.response ? error.response.data : new Error(error.message);
+  }
+};
+
+//edit user
+export const editUser = async (userId, formData) => {
+  try {
+    const response = await axiosInstance.put(`/users/profile/${userId}`, formData);
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+
+
+
+//Get user by id
+export const getUserById = async (userId) => {
+  try {
+    const response = await axiosInstance.get(`/users/edit/${userId}`);
+    console.log("Frontend - User Data:", response.data);
+    return response.data;
+  } catch (error) {
+    return error.response.data;
   }
 };

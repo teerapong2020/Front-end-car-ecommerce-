@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import UserMenu from "../components/component_userprofile/usermenu";
-import EditUser from "../components/component_userprofile/edituser";
+
 import Chang from "./uploadprofile";
 import EditPassWord from "../components/component_userprofile/editpassword";
 

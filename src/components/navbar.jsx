@@ -120,11 +120,10 @@ function Navbar({ className }) {
               </Link>
             </li>
             <li>
-              <Link
-               to="/loginandregister"
+              <a href="/loginandregister"
                className="hover:bg-white hover:rounded-full hover:p-2 hover:text-black duration-200 font-semibold">
                 เข้าสู่ระบบ
-              </Link>
+              </a>
             </li>
             <li>
               <Link

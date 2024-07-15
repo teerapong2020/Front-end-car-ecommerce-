@@ -6,7 +6,6 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import UserMenu from "../components/component_userprofile/usermenu";
-import EditUser from "../components/component_userprofile/edituser";
 import CarFavourite from "../components/component_userprofile/carfavourite";
 import MyOrder from "../components/component_userprofile/myorder";
 

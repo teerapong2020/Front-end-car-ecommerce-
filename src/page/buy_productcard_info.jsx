@@ -309,16 +309,16 @@ function Buy_ProductCard_Info() {
                   <Link
                     to="/Checkout"
                     state={paymentData}
-                    className="bg-[#3E5685] text-white mx-6 w-[408px] h-[48px] hover:bg-blue-950 rounded-md duration-200"
+                    className="bg-[#3E5685] text-white mx-6 w-[408px] h-[48px] hover:bg-[#677FAF] rounded-md duration-200 text-center place-content-center"
                   >
                     ซื้อรถคันนี้
                   </Link>
                   <div className="flex gap-1">
-                    <button className="bg-[#191f2c] text-white ml-6 w-[336px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center duration-200">
+                    <button className="bg-[#191f2c] text-white ml-6 w-[336px] h-[48px] hover:bg-[#6A6A6A] hover:text-white rounded-md flex items-center place-content-center duration-200">
                       <img className="h-[15px] " src={favwhite} alt="" />
                       เพิ่มรายการโปรด
                     </button>
-                    <button className="border border-gray-400  ml-1 w-[64px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center duration-200">
+                    <button className="border border-gray-400  ml-1 w-[64px] h-[48px]  rounded-md flex items-center place-content-center duration-200 hover:bg-slate-300">
                       <img className="h-[17px]" src={share} alt="" />
                     </button>
                   </div>
