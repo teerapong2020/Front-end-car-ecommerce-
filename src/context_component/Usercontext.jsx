@@ -1,12 +1,11 @@
 import { createContext, useState, useEffect } from 'react';
 import {jwtDecode} from "jwt-decode";
-import { getUserById } from "../components/API/API_Users"
+import { getUserById } from "../components/API/API_Users";
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [User, setUser] = useState({});
-
+  const [User, setUser] = useState(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
