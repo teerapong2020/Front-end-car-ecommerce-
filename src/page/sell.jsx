@@ -117,8 +117,11 @@ function Sell() {
     e.preventDefault();
     console.log(formData);
     console.log("start");
-    await createTempCar(formData);
-    // navigate("/");
+    const create = await createTempCar(formData);
+    console.log(create);
+    if (create) {
+      navigate("/");
+    }
   };
 
   const uploadimage = () => {
@@ -204,7 +207,7 @@ function Sell() {
               onClick={uploadimage}
             />
             <div className="text-[#9E9E9E] font-medium text-[18px]">
-              อัพโหลดรูปภาพ
+              อัปโหลดรูปภาพ
             </div>
           </div>
           <input

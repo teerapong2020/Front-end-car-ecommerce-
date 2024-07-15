@@ -6,6 +6,7 @@ import { onSearchCar } from '../components/API/API_Cars';
 import Search from '../components/champ/search';
 import ChangeArrow from '../../src/assets/sell_page/Frame 104.png'
 import ChangeArrowRight from '../../src/assets/sell_page/Frame 103.png'
+import { ProductCard } from '../components/components_home/ProductCard';
 
 const imagesPerPage = 6;
 
@@ -67,7 +68,14 @@ export const Selldata = () => {
 
   const handleSearch = async (searchValue) => {
     try {
-      const result = await onSearchCar(searchValue);
+      let result;
+      if (!isNaN(searchValue)) {
+        // Handle as a number
+        result = await onSearchCar(parseInt(searchValue));
+      } else {
+        // Handle as a string
+        result = await onSearchCar(searchValue);
+      }
       setSearchResults(result);
       setCurrentPage(1);
     } catch (error) {
@@ -119,7 +127,7 @@ export const Selldata = () => {
               {searchResults
                 .slice(indexOfFirstImage, indexOfLastImage)
                 .map((product, index) => (
-                  <NewCard key={index} product={product} />
+                  <ProductCard key={index} product={product} />
                 ))}
             </div>
       </div>

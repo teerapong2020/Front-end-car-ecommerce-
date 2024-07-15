@@ -56,9 +56,11 @@ function SellAdmin() {
     // Use the updated form data after the state has been set
     console.log("start");
     console.log(result);
-    if (result) {
+    if (result.status != "error") {
       alert("Car posted success");
       navigate("/admincommit"); // Go back one step in history
+    } else {
+      alert("error cannot public car ");
     }
   };
 

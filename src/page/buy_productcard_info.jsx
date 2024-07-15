@@ -1,7 +1,7 @@
 import example_products from "../data/example_products";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import star from "../assets/Logo/Icon_productcard_info/star.png";
 import verify from "../assets/Logo/Icon_productcard_info/Verified.png";
 import favwhite from "../assets/Logo/Icon_productcard_info/favwhite.png";
@@ -18,10 +18,16 @@ import share from "../assets/Logo/Icon_productcard_info/share.png";
 import { getCarById } from "../components/API/API_Cars";
 import { Link } from "react-router-dom";
 
+import { UserContext } from "../context_component/Usercontext";
+import axiosInstance from "../utils/axiosInstance";
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 function Buy_ProductCard_Info() {
   const { id } = useParams();
-  const [Data, setData] = useState(null);
+  const [Data, setData] = useState([]);
+  const { User } = useContext(UserContext)
+  const [isFilled, setIsFilled] = useState(false)
+
   console.log("DATA😊", Data);
   let paymentData = Data && {
     img: Data.file1,
@@ -69,6 +75,31 @@ function Buy_ProductCard_Info() {
   //   setlscore(false);
   //   setrscore(true);
   // }
+
+  useEffect(() => {
+    if (User && Array.isArray(User.pinned) && User.pinned.includes(Data._id)) {
+      setIsFilled(true);
+    } else {
+      setIsFilled(false);
+    }
+  }, [User, Data]);
+
+  const toggleHeart = async () => {
+    try {
+      setIsFilled(!isFilled);
+
+      const action = isFilled ? "remove" : "add";
+      const response = await axiosInstance.post("/car-list/togglePin", {
+        userId: User._id,
+        carId: Data._id,
+        action: action
+      });
+
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error toggling pin:", error);
+    }
+  }
 
   return (
     <>
@@ -394,12 +425,9 @@ function Buy_ProductCard_Info() {
                     ซื้อรถคันนี้
                   </Link>
                   <div className="flex gap-1">
-                    <button className="bg-[#191f2c] text-white ml-6 w-[336px] h-[48px] hover:bg-[#6A6A6A] hover:text-white rounded-md flex items-center place-content-center duration-200 mb-5">
-                      <img className="h-[15px] " src={favwhite} alt="" />
+                    <button className="bg-[#191f2c] text-white ml-6 w-[336px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center duration-200 gap-2" onClick={toggleHeart}>
+                    {isFilled ? <AiFillHeart color="#f06181" /> : <AiOutlineHeart color="#f7faff" />}
                       เพิ่มรายการโปรด
-                    </button>
-                    <button className="border border-gray-400  ml-1 w-[64px] h-[48px]  rounded-md flex items-center place-content-center duration-200 hover:bg-slate-300">
-                      <img className="h-[17px]" src={share} alt="" />
                     </button>
                   </div>
                 </div>
