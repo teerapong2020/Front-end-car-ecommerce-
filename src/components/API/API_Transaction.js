@@ -11,7 +11,14 @@ export const createTransaction = async (data) => {
   }
 };
 
-export const getTransaction = async () => {
-  const response = await axiosInstance.get("/transaction");
-  return response;
+
+export const getTransaction = async (id) => {
+  try {
+    const response = await axiosInstance.get(`/transaction/${id}`);
+    console.log("dataTrans", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching transaction data:", error);
+    return null;
+  }
 };
