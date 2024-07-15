@@ -4,11 +4,17 @@ import uploadImage from "../assets/sell_page/upload_photo_icon.png";
 import Mapgoogle from "../components/googlemap/map";
 import { jwtDecode } from "jwt-decode";
 import { createTempCar } from "../components/API/API_TemporaryCar";
+import { useNavigate } from "react-router-dom";
 function Sell() {
+  const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  if (!token) {
+    navigate("/");
+  }
   const id = jwtDecode(token).id;
   const uploadUrl = import.meta.env.VITE_CLOUDINARY_UPLOAD_URL;
   const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+
   const [formData, setFormData] = useState({
     headline: "",
     brand: "",
@@ -109,6 +115,7 @@ function Sell() {
     e.preventDefault();
     console.log("start");
     await createTempCar(formData);
+    navigate("/");
   };
 
   const uploadimage = () => {
