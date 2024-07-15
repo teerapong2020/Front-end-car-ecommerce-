@@ -3,6 +3,7 @@ import SellAdmin from "./sellAdmin";
 import { Link } from "react-router-dom";
 
 function mockesetdata() {
+
   let data = {
     headline: "Tresssssss",
     brand: "Honda",

@@ -3,10 +3,11 @@ import carDefault from "../assets/sell_page/defaultcar.png";
 import uploadImage from "../assets/sell_page/upload_photo_icon.png";
 import { createCar } from "../components/API/API_Cars";
 import MapAdmin from "../components/googlemap/mapAdmin";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function SellAdmin() {
   let { state } = useLocation();
+  const navigate = useNavigate();
 
   if (!state) {
     return <div>data not found</div>;
@@ -34,23 +35,31 @@ function SellAdmin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const hold = formData.file1;
-    console.log("Main value:", mainImage.main);
-    console.log("main ID:", mainImage.id);
-    console.log("hold:", hold);
+    let result = null;
+    if (mainImage.main) {
+      const hold = formData.file1;
+      console.log("Main value:", mainImage.main);
+      console.log("main ID:", mainImage.id);
+      console.log("hold:", hold);
 
-    const updatedFormData = {
-      ...formData,
-      file1: mainImage.main,
-      [mainImage.id]: hold,
-    };
-
-    setFormData(updatedFormData);
+      const updatedFormData = {
+        ...formData,
+        file1: mainImage.main,
+        [mainImage.id]: hold,
+      };
+      setFormData(updatedFormData);
+      result = await createCar(updatedFormData);
+    } else {
+      result = await createCar(formData);
+    }
 
     // Use the updated form data after the state has been set
     console.log("start");
-    console.log("formdata b4 sent:", updatedFormData);
-    await createCar(updatedFormData);
+    console.log(result);
+    if (result) {
+      alert("Car posted success");
+      navigate("/admincommit"); // Go back one step in history
+    }
   };
 
   const uploadimage = () => {
@@ -397,16 +406,6 @@ function SellAdmin() {
             </option>
           </select>
         </div>
-      </div>
-
-      <div className="flex items-center gap-[8px] mb-[50px] text-[18px] ">
-        <input type="checkbox" className="h-6 w-6" />
-        <label>
-          กดเพื่อยอมรับ
-          <a href="" className="text-red-600">
-            ข้อกำหนดและเงื่อนไขการลงประกาศ
-          </a>
-        </label>
       </div>
 
       <div className="flex justify-center gap-[23px] text-[18px] font-bold mb-[186px]">

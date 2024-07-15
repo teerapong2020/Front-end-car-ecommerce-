@@ -14,7 +14,7 @@ function Buy() {
           alt=""
         />
         <div className="pt-20 md:py-0">
-          <h1 className="relative flex justify-center text-white font-black text-4xl md:py-20 shadow-lg">
+          <h1 className="relative flex justify-center text-white text-4xl md:py-20 shadow-lg font-semibold font-kanit">
             บริการซื้อรถยนต์
           </h1>
         </div>

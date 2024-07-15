@@ -7,7 +7,7 @@ import ScrollNew from "../components/components_home/scrollNew";
 import Search from "../components/champ/search"; // Adjusted import
 import Banner from "../components/components_home/banner";
 import ScrollRandom from "../components/components_home/scrollRandom";
-import ScrollTop from "../components/components_home/scrollTop"
+import ScrollTop from "../components/components_home/scrollTop";
 
 function Home() {
   // const audioRef = useRef(null);
@@ -36,7 +36,7 @@ function Home() {
             <Banner />
             <ScrollRandom />
             <ScrollNew />
-            <ScrollTop />
+            <ScrollTop/>
           </div>
         </div>
         <WhyMe />

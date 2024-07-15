@@ -1,4 +1,6 @@
 import axiosInstance from "../../utils/axiosInstance";
+import { jwtDecode } from "jwt-decode";
+
 
 
 //API - Login
@@ -11,7 +13,7 @@ export const loginUser = async (email, password) => {
             Password: password,
         }
       );
-      return response.data.data;
+      return response.data;
     } catch (error) {
       return error.response.data; 
     }
@@ -59,3 +61,26 @@ export const getUserById = async (id) => {
     return error.response.data; 
   }
 };
+
+
+//edit user
+export const editUser = async (userId, formData) => {
+  try {
+    const response = await axiosInstance.put(`/users/profile/${userId}`, formData);
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+
+
+//Get user by id
+// export const getUserByIdTest = async (userId) => {
+//   try {
+//     const response = await axiosInstance.get(`/users/edit/${userId}`);
+//     console.log("Frontend - User Data:", response.data);
+//     return response.data;
+//   } catch (error) {
+//     return error.response.data;
+//   }
+// };

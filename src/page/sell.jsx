@@ -4,11 +4,8 @@ import uploadImage from "../assets/sell_page/upload_photo_icon.png";
 import Mapgoogle from "../components/googlemap/map";
 import { jwtDecode } from "jwt-decode";
 import { createTempCar } from "../components/API/API_TemporaryCar";
+import { useNavigate } from "react-router-dom";
 function Sell() {
-  const token = localStorage.getItem("token");
-  const id = jwtDecode(token).id;
-  const uploadUrl = import.meta.env.VITE_CLOUDINARY_UPLOAD_URL;
-  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
   const [formData, setFormData] = useState({
     headline: "",
     brand: "",
@@ -26,27 +23,58 @@ function Sell() {
     pnumber: "",
     address: "",
     additionalInfo: "",
-    location: "",
     file1: null,
     file2: null,
     file3: null,
     file4: null,
     file5: null,
     file6: null,
-    Seller_User: id,
+    Seller_User: null,
   });
-
-  const [count, setCount] = useState(1);
-
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
   useEffect(() => {
-    console.log(formData);
-  }, [formData]);
+    try {
+      const id = jwtDecode(token).id;
+      setFormData({ ...formData, Seller_User: id });
+    } catch (error) {
+      alert("please login");
+      navigate("/loginandregister");
+    }
+  }, []);
+
+  const uploadUrl = import.meta.env.VITE_CLOUDINARY_UPLOAD_URL;
+  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+
+  const [handleError, setHandleError] = useState({
+    headline: "",
+    brand: "",
+    model: "",
+    type: "",
+    year: "",
+    mileage: "",
+    color: "",
+    fuel: "",
+    enginecap: "",
+    cushion: "",
+    seat: "",
+    gear: "",
+    price: "",
+    pnumber: "",
+    address: "",
+    additionalInfo: "",
+  });
+  const [count, setCount] = useState(1);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
+    });
+    setHandleError({
+      ...handleError,
+      [name]: value ? "" : "require",
     });
   };
 
@@ -87,8 +115,10 @@ function Sell() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData);
     console.log("start");
     await createTempCar(formData);
+    // navigate("/");
   };
 
   const uploadimage = () => {
@@ -158,6 +188,7 @@ function Sell() {
               />
             )}
           </div>
+
           <img
             src={carDefault}
             id="imagePreview"
@@ -184,6 +215,7 @@ function Sell() {
           />
         </div>
       </div>
+      {!formData.file6 && <p className="text-red-500">Upload 6 picture</p>}
       <h5 className="text-[24px] font-semibold mt-[40px] mb-[19px]">
         รายละเอียดสินค้า
       </h5>
@@ -192,6 +224,7 @@ function Sell() {
           <label className=" text-gray-700 text-[18px] font-medium">
             หัวข้อรถที่ต้องการขาย
           </label>
+
           <input
             type="text"
             name="headline"
@@ -201,20 +234,38 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.headline && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
             แบรนด์
           </label>
-          <input
-            type="text"
+          <select
             name="brand"
-            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px] py-0"
             placeholder="เลือกแบรนด์"
             value={formData.brand}
             onChange={handleChange}
             required
-          />
+          >
+            <option value="">เลือกแบรนด์</option>
+            <option value="Audi">Audi</option>
+            <option value="BMW">BMW</option>
+            <option value="Jaguar">Jaguar</option>
+            <option value="Land Rover">Land Rover</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="Mini">Mini</option>
+            <option value="Peugeot">Peugeot</option>
+            <option value="Porsche">Porsche</option>
+            <option value="Tesla">Tesla</option>
+            <option value="Volkswagen">Volkswagen</option>
+            <option value="Volvo">Volvo</option>
+          </select>
+          {handleError.brand && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">รุ่น</label>
@@ -227,6 +278,9 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.model && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -241,6 +295,7 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.type && <p className="text-red-500 text-sm">required</p>}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">ปีรถ</label>
@@ -253,6 +308,7 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.year && <p className="text-red-500 text-sm">required</p>}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -267,6 +323,9 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.mileage && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">สี</label>
@@ -279,6 +338,9 @@ function Sell() {
             onChange={handleChange}
             required
           ></input>
+          {handleError.color && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -286,7 +348,7 @@ function Sell() {
           </label>
           <select
             name="fuel"
-            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]  py-0  "
             placeholder="เลือก เชื้อเพลิง"
             value={formData.fuel}
             onChange={handleChange}
@@ -298,6 +360,7 @@ function Sell() {
             <option value="electric">Electric</option>
             <option value="hybrid">Hybrid</option>
           </select>
+          {handleError.fuel && <p className="text-red-500 text-sm">required</p>}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -312,6 +375,9 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.enginecap && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -319,7 +385,7 @@ function Sell() {
           </label>
           <select
             name="cushion"
-            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]  py-0"
             placeholder="ประเภท เบาะ"
             value={formData.cushion}
             onChange={handleChange}
@@ -329,6 +395,9 @@ function Sell() {
             <option value="fabric">เบาะผ้า</option>
             <option value="leather">เบาะหนัง</option>
           </select>
+          {handleError.cushion && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -343,6 +412,7 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.seat && <p className="text-red-500 text-sm">required</p>}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -350,7 +420,7 @@ function Sell() {
           </label>
           <select
             name="gear"
-            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]  py-0"
             placeholder="เลือกเกียร์"
             value={formData.gear}
             onChange={handleChange}
@@ -360,6 +430,7 @@ function Sell() {
             <option value="manual">ธรรมดา</option>
             <option value="auto">ออโต้</option>
           </select>
+          {handleError.gear && <p className="text-red-500 text-sm">required</p>}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -374,6 +445,9 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.price && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -388,6 +462,9 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.pnumber && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex items-center justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium">
@@ -402,6 +479,9 @@ function Sell() {
             onChange={handleChange}
             required
           />
+          {handleError.address && (
+            <p className="text-red-500 text-sm">required</p>
+          )}
         </div>
         <div className="flex  justify-between ">
           <label className=" text-gray-700 text-[18px] font-medium mt-4">
@@ -425,7 +505,7 @@ function Sell() {
       </div>
 
       <div className="flex items-center gap-[8px] mb-[50px] text-[18px] ">
-        <input type="checkbox" className="h-6 w-6" />
+        <input type="checkbox" className="h-6 w-6" required />
         <label>
           กดเพื่อยอมรับ
           <a href="" className="text-red-600">

@@ -65,7 +65,7 @@ function ScrollNew() {
   return (
     <section>
       <div className="flex flex-col">
-        <h1 className="text-xl font-bold mb-6 mt-8">🎀 รถเข้าใหม่</h1>
+        <h1 className="text-xl font-bold mb-6 mt-8"> รถเข้าใหม่</h1>
         <div className="relative w-[1128px] mx-auto">
           {!isAtStart && (
             <img

@@ -15,7 +15,9 @@ export const createCar = async (data) => {
   console.log("werun");
   try {
     const response = await axiosInstance.post("/cars", data);
-    return response.data.result;
+    console.log("resData", response.data);
+    console.log("resResult", response.data.data);
+    return response.data.data;
   } catch (error) {
     return error.response.data;
   }
@@ -25,40 +27,39 @@ export const createCar = async (data) => {
 export const getCarById = async (id) => {
   try {
     const response = await axiosInstance.get(`/cars/${id}`);
-    console.log("Frontend - Car Data:", response.data); 
-    return response.data; 
+    console.log("Frontend - Car Data:", response.data);
+    return response.data;
   } catch (error) {
-    return error.response.data; 
+    return error.response.data;
   }
 };
 
 // API Car Buy
-export const carBuy = async()=>{
+export const carBuy = async () => {
   try {
-    const response = await axiosInstance.get("/cars/")
-    
-    return response.data
+    const response = await axiosInstance.get("/cars/");
+
+    return response.data;
   } catch (error) {
-    return error.response.data
+    return error.response.data;
   }
 };
 
 // CAR NEW
-export const carNew = async()=>{
+export const carNew = async () => {
   try {
-    const response = await axiosInstance.get("/cars/car-new")
-    return response.data
+    const response = await axiosInstance.get("/cars/car-new");
+    return response.data;
   } catch (error) {
-    return error.response.data
+    return error.response.data;
   }
 };
 
-// car Seach 
+// car Seach
 export const onSearchCar = async (query) => {
   try {
-    const response = await axiosInstance.post("/cars/searchbar", {query});
-      return response.data;
-  
+    const response = await axiosInstance.post("/cars/searchbar", { query });
+    return response.data;
   } catch (error) {
     console.log("An unexpected error occurred. Please try again.");
   }
