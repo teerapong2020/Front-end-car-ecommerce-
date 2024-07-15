@@ -117,8 +117,11 @@ function Sell() {
     e.preventDefault();
     console.log(formData);
     console.log("start");
-    await createTempCar(formData);
-    // navigate("/");
+    const create = await createTempCar(formData);
+    console.log(create);
+    if (create) {
+      navigate("/");
+    }
   };
 
   const uploadimage = () => {
