@@ -6,15 +6,6 @@ import { jwtDecode } from "jwt-decode";
 import { createTempCar } from "../components/API/API_TemporaryCar";
 import { useNavigate } from "react-router-dom";
 function Sell() {
-  const navigate = useNavigate();
-  const token = localStorage.getItem("token");
-  if (!token) {
-    navigate("/");
-  }
-  const id = jwtDecode(token).id;
-  const uploadUrl = import.meta.env.VITE_CLOUDINARY_UPLOAD_URL;
-  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
-
   const [formData, setFormData] = useState({
     headline: "",
     brand: "",
@@ -38,8 +29,23 @@ function Sell() {
     file4: null,
     file5: null,
     file6: null,
-    Seller_User: id,
+    Seller_User: null,
   });
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    try {
+      const id = jwtDecode(token).id;
+      setFormData({ ...formData, Seller_User: id });
+    } catch (error) {
+      alert("please login");
+      navigate("/loginandregister");
+    }
+  }, []);
+
+  const uploadUrl = import.meta.env.VITE_CLOUDINARY_UPLOAD_URL;
+  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+
   const [handleError, setHandleError] = useState({
     headline: "",
     brand: "",
@@ -59,10 +65,6 @@ function Sell() {
     additionalInfo: "",
   });
   const [count, setCount] = useState(1);
-
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -113,9 +115,10 @@ function Sell() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData);
     console.log("start");
     await createTempCar(formData);
-    navigate("/");
+    // navigate("/");
   };
 
   const uploadimage = () => {
@@ -239,15 +242,27 @@ function Sell() {
           <label className=" text-gray-700 text-[18px] font-medium">
             แบรนด์
           </label>
-          <input
-            type="text"
+          <select
             name="brand"
-            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px] py-0"
             placeholder="เลือกแบรนด์"
             value={formData.brand}
             onChange={handleChange}
             required
-          />
+          >
+            <option value="">เลือกแบรนด์</option>
+            <option value="Audi">Audi</option>
+            <option value="BMW">BMW</option>
+            <option value="Jaguar">Jaguar</option>
+            <option value="Land Rover">Land Rover</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="Mini">Mini</option>
+            <option value="Peugeot">Peugeot</option>
+            <option value="Porsche">Porsche</option>
+            <option value="Tesla">Tesla</option>
+            <option value="Volkswagen">Volkswagen</option>
+            <option value="Volvo">Volvo</option>
+          </select>
           {handleError.brand && (
             <p className="text-red-500 text-sm">required</p>
           )}
@@ -333,7 +348,7 @@ function Sell() {
           </label>
           <select
             name="fuel"
-            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]  py-0  "
             placeholder="เลือก เชื้อเพลิง"
             value={formData.fuel}
             onChange={handleChange}
@@ -370,7 +385,7 @@ function Sell() {
           </label>
           <select
             name="cushion"
-            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]  py-0"
             placeholder="ประเภท เบาะ"
             value={formData.cushion}
             onChange={handleChange}
@@ -405,7 +420,7 @@ function Sell() {
           </label>
           <select
             name="gear"
-            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
+            className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]  py-0"
             placeholder="เลือกเกียร์"
             value={formData.gear}
             onChange={handleChange}
@@ -490,7 +505,7 @@ function Sell() {
       </div>
 
       <div className="flex items-center gap-[8px] mb-[50px] text-[18px] ">
-        <input type="checkbox" className="h-6 w-6" />
+        <input type="checkbox" className="h-6 w-6" required />
         <label>
           กดเพื่อยอมรับ
           <a href="" className="text-red-600">
