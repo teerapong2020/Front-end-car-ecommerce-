@@ -3,18 +3,15 @@ import { Link } from "react-router-dom";
 import check_in from "../../assets/Logo/logo_product_card/check_in.png";
 import sharenetwork from "../../assets/Logo/logo_product_card/sharenetwork.png";
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-import axios from "axios";
-import { jwtDecode } from "jwt-decode";
+import axiosInstance from "../../utils/axiosInstance";
 import { UserContext } from "../../context_component/Usercontext";
-import axiosInstance from "../../utils/axiosInstance"
 
 export const ProductCard = ({ product }) => {
   const [isFilled, setIsFilled] = useState(false);
   const { User } = useContext(UserContext);
 
   useEffect(() => {
-    // Check if the product is already pinned by the user
-    if (User.pinned.includes(product._id)) {
+    if (User && Array.isArray(User.pinned) && User.pinned.includes(product._id)) {
       setIsFilled(true);
     } else {
       setIsFilled(false);
@@ -32,10 +29,9 @@ export const ProductCard = ({ product }) => {
         action: action
       });
 
-      console.log(response.data); // แสดงผลลัพธ์จาก backend ที่ตอบกลับ
+      console.log(response.data);
     } catch (error) {
       console.error("Error toggling pin:", error);
-      // Handle errors as needed
     }
   }
 
