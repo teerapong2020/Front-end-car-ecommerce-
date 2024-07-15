@@ -75,12 +75,12 @@ export const editUser = async (userId, formData) => {
 
 
 //Get user by id
-export const getUserByIdTest = async (userId) => {
-  try {
-    const response = await axiosInstance.get(`/users/edit/${userId}`);
-    console.log("Frontend - User Data:", response.data);
-    return response.data;
-  } catch (error) {
-    return error.response.data;
-  }
-};
+// export const getUserByIdTest = async (userId) => {
+//   try {
+//     const response = await axiosInstance.get(`/users/edit/${userId}`);
+//     console.log("Frontend - User Data:", response.data);
+//     return response.data;
+//   } catch (error) {
+//     return error.response.data;
+//   }
+// };
