@@ -27,7 +27,7 @@ function Product_details({ data }) {
         <div id="pickUp" className=" flex ">
           <div className="h-10 w-10   mr-4 bg-[#3E5685] rounded-full grid place-content-center">
             <img
-              src="/src/assets/checkout_page/carlogo.png"
+              src="https://res.cloudinary.com/dyrs3bvzj/image/upload/v1721057741/sold8mnuqinbeeptkm2x.png"
               alt="supercarlogo"
             />
           </div>
