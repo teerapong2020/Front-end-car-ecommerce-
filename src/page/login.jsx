@@ -177,7 +177,7 @@ function LoginAndRegister() {
                 }`}
           >
             <div className="mx-[48px] mt-[128px]">
-              <span className="text-[24px]">ยินดีต้อนรับกลับมา!</span>
+              <span className="text-[24px] font-bold">ยินดีต้อนรับกลับมา!</span>
               <div className="mt-[24px] mb-[16px]">
                 <h3 className="text-[12px] font-medium text-gray-900 mb-[8px]">
                   อีเมล
@@ -289,7 +289,7 @@ function LoginAndRegister() {
             // className={`bg-white h-[772px] w-[456px] relative mt-[104px] rounded-[10px] shadow-md transition-transform duration-500 ${isRegistering ? 'translate-x-20' : 'translate-x-0'}`}
           >
             <div className="mx-[48px] mt-[16px]">
-              <span className="text-[24px]">สร้างบัญชีของคุณ</span>
+              <span className="text-[24px] font-bold">สร้างบัญชีของคุณ</span>
               <div className="mt-[24px] mb-[16px]">
                 <h3 className="text-[12px] font-medium text-gray-900 mb-[4px]">
                   อีเมล

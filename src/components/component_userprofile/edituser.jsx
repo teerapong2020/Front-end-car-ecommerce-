@@ -122,8 +122,9 @@ function EditUser() {
         </div>
 
         <button
+        
           type="submit"
-          className="h-[48px] bg-[#3E5685] rounded-[10px] text-white text-[18px] flex justify-center mt-8 mb-4 "
+          className="h-[48px] bg-[#3E5685] rounded-[10px] text-white text-[18px] flex justify-center items-center mt-8 mb-4 hover:bg-[#677FAF] duration-200"
         >
           ยืนยัน
         </button>

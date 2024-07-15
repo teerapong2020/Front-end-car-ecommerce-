@@ -143,37 +143,37 @@ function Buy_ProductCard_Info() {
 
                 <div className="flex w-[98px] mt-2 gap-[12px]">
                   <img
-                    className="silde cursor-pointer rounded-[5px] hover:border border-blue-500 duration-100"
+                    className="silde cursor-pointer rounded-[5px] hover:border border-blue-500 duration-100 object-cover"
                     src={Data.file1}
                     onClick={() => currentSlide(1)}
                     alt="X4-main"
                   />
                   <img
-                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500 duration-100"
+                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500 duration-100 object-cover"
                     src={Data.file2}
                     onClick={() => currentSlide(2)}
                     alt="X4-1"
                   />
                   <img
-                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500 duration-100"
+                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500 duration-100 object-cover"
                     src={Data.file3}
                     onClick={() => currentSlide(3)}
                     alt="X4-2"
                   />
                   <img
-                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500 duration-100"
+                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500 duration-100 object-cover"
                     src={Data.file4}
                     onClick={() => currentSlide(4)}
                     alt="X4-3"
                   />
                   <img
-                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500 duration-100"
+                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500 duration-100 object-cover"
                     src={Data.file5}
                     onClick={() => currentSlide(5)}
                     alt="X4-4"
                   />
                   <img
-                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500 duration-100"
+                    className="silde cursor-pointer rounded-[5px] hover:border-2 border-blue-500 duration-100 object-cover"
                     src={Data.file6}
                     onClick={() => currentSlide(6)}
                     alt="X4-5"
@@ -188,7 +188,7 @@ function Buy_ProductCard_Info() {
 
                 <section>
                   <main>
-                    <h4 className="font-medium  mt-6 text-[20px]">Detail</h4>
+                    <h4 className="font-medium  mt-6 text-[20px]">รายละเอียดรถยนต์</h4>
                     <div className="border-t-2 border-t-blue-950 w-[68px] "></div>
                     <div className="border-t border-gray-300 py-1"></div>
                     <p className="mt-3 text-[14px]">
@@ -217,12 +217,68 @@ function Buy_ProductCard_Info() {
                     
 
                     <h4 className="text-[20px] font-medium mt-6 ">
-                      Additional Info
+                      รายละเอียดเพิ่มเติม
                     </h4>
                     <div className="border-t-2 border-t-blue-950 w-[68px] "></div>
                     <div className="border-t border-gray-300 py-1"></div>
 
-                    <div className="text-[14px]">{Data.additionalInfo}</div>
+                    <div className="text-[14px] mt-3">{Data.additionalInfo}</div>
+
+                      {/* <!-- review part --> */}
+
+                      
+              
+                    <h4 class="font-medium  mt-6 text-[20px]">รายงานตรวจสภาพรถยนต์ </h4>
+                    <div class="border-t-2 border-t-blue-950 w-[68px] "></div>
+                    <div class="border-t border-gray-300  py- "></div> 
+
+                    <div class="  rounded-[5px] py-2 flex justify-center mt-3 mx-4">
+                      <h1 className="rounded-[5px] bg-[#3E5685] text-white py-2 w-[616px] flex justify-center font-semibold">รถยนต์คันนี้ได้รับการปรับสภาพจากศูนย์ปรับสภาพรถยนต์มือสองของ RODDEE</h1>
+                     
+                    </div>
+                    <div class="border shadow-sm rounded-[5px] mx-4 flex justify-around h-[72px] items-center bg-slate-100 mb-24">
+                      <div>
+                        <div class="flex justify-center ">
+                          {/* <img class="mr-1 mt-[6px] h-[13px]"
+                          src="../../icon/star.png"
+                          alt='favourite'/> */}
+                          <p>ความปลอดภัย</p>
+                        </div>
+                          <p>เหนือมาตรฐาน</p>
+                      </div> 
+                      <div>
+                        <div class="flex justify-center">
+                          {/* <img class="mr-1 mt-[6px] h-[13px]"
+                          src="/icon/Verified.png"
+                          alt='favourite'/> */}
+                          <p>100%</p>
+                        </div>
+                          <p>ขับขี่สะดวกสบาย</p>
+                      </div> 
+                      <div>
+                        <div class="flex justify-center">
+                          {/* <img class="mr-1 mt-[6px] h-[13px]"
+                          src="/icon/mdi_favourite.png"
+                          alt='favourite'/> */}
+                          <p>รถทุกคันผ่าน</p>
+                        </div>
+                          <p>การตรวจเช็คสภาพ</p>
+                      </div> 
+                    </div>
+                          
+                    
+                        
+                    
+
+
+                    
+
+
+
+
+
+
+
 
                     {/* <h4 className="font-medium mx-4 mt-4 text-[20px]">Review </h4>
                     <div className="border-t-2 border-t-blue-950 w-[68px] mx-4 "></div>
@@ -303,8 +359,9 @@ function Buy_ProductCard_Info() {
             </section>
             {/* ----------------------------------------------------Right------------------------------------------------------------------- */}
             <section className=" w-[480px] flex flex-col pl-6 border-green-600">
-              <div className=" max-md:hidden rounded-[20px] border shadow-md h-[364px] w-[456px] mt-[96px]">
-                <h2 className="ml-6 mt-3 mb-3 text-[18px] ">รายละเอียด</h2>
+              <div className=" max-md:hidden rounded-[20px] border shadow-md h-auto w-[456px] mt-[96px]">
+              {/* h-[364px] */}
+                <h2 className="ml-6 mt-3 mb-3 text-[18px] font-semibold">รายละเอียด</h2>
                 <h2 className="ml-6 mt-3 mb-3 font-black text-[16px]">
                   {Data.brand} {Data.model} ({Data.year})
                 </h2>
@@ -321,10 +378,10 @@ function Buy_ProductCard_Info() {
                   </div>
                 </div>
 
-                <h2 className="ml-[300px] mt-3 mb-3 text-[16px]">
-                  ราคา {Data.price} บาท
+                <h2 className="flex justify-end mt-3 mr-6 mb-3 text-[16px] font-semibold">
+                  ราคา {Data.price.toLocaleString()} บาท
                 </h2>
-                <h2 className="ml-[316px] mt-3 mb-3 text-[12px]">
+                <h2 className="flex justify-end mr-6 mt-3 mb-3 text-[12px]">
                   ยังไม่รวมภาษีมูลค่าเพิ่ม
                 </h2>
 
@@ -332,12 +389,12 @@ function Buy_ProductCard_Info() {
                   <Link
                     to="/Checkout"
                     state={paymentData}
-                    className="bg-[#3E5685] text-white mx-6 w-[408px] h-[48px] hover:bg-[#677FAF] rounded-md duration-200 text-center place-content-center"
+                    className="bg-[#3E5685] text-white text-[18px] mx-6 w-[408px] h-[48px] hover:bg-[#677FAF] rounded-md duration-200 text-center place-content-center"
                   >
                     ซื้อรถคันนี้
                   </Link>
                   <div className="flex gap-1">
-                    <button className="bg-[#191f2c] text-white ml-6 w-[336px] h-[48px] hover:bg-[#6A6A6A] hover:text-white rounded-md flex items-center place-content-center duration-200">
+                    <button className="bg-[#191f2c] text-white ml-6 w-[336px] h-[48px] hover:bg-[#6A6A6A] hover:text-white rounded-md flex items-center place-content-center duration-200 mb-5">
                       <img className="h-[15px] " src={favwhite} alt="" />
                       เพิ่มรายการโปรด
                     </button>
@@ -461,7 +518,7 @@ function Buy_ProductCard_Info() {
                   <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6 pl-4 duration-200">
                     ประกันภัยรถยนต์
                   </p>
-                  <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6 mb-10 pl-4 duration-200">
+                  <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6  pl-4 duration-200">
                     อื่นๆ
                   </p>
                 </div>
