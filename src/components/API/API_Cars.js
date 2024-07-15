@@ -64,3 +64,13 @@ export const onSearchCar = async (query) => {
     console.log("An unexpected error occurred. Please try again.");
   }
 };
+
+// Top Car
+export const carTop = async()=>{
+  try {
+    const response = await axiosInstance.get("/users/Top-Car")
+    return response.data
+  } catch (error) {
+    return error.response.data
+  }
+};

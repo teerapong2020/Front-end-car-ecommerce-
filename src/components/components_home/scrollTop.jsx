@@ -2,13 +2,13 @@ import { useRef, useState, useEffect } from "react";
 import { ProductCard } from "./ProductCard";
 import leftArrow from "../../assets/Logo/logo_product_card/left_slide.png";
 import rightArrow from "../../assets/Logo/logo_product_card/right_slide.png";
-import { carNew } from "../API/API_Cars"; //แก้
+import { carTop } from "../API/API_Cars"; //แก้
 
 const scrollContainerStyles = {
   scrollbarWidth: "none",
 };
 
-function ScrollNew() {
+function ScrollTop() {
   const scrollRef = useRef(null);
   const [isAtStart, setIsAtStart] = useState(true);
   const [isAtEnd, setIsAtEnd] = useState(false);
@@ -47,11 +47,10 @@ function ScrollNew() {
   }, []);
 
   const Active = async () => {
-    const API = await carNew(); //เปลี่ยนตาม API ที่ใช้ และ เปลี่ยน parameterขึ้นกับว่า inputเป็นแบบไหน // แก้
+    const API = await carTop(); //เปลี่ยนตาม API ที่ใช้ และ เปลี่ยน parameterขึ้นกับว่า inputเป็นแบบไหน // แก้
     if (typeof API !== "string") {
       setProducts(API);
     }
-    console.log(API);
   };
 
   useEffect(() => {
@@ -65,7 +64,7 @@ function ScrollNew() {
   return (
     <section>
       <div className="flex flex-col">
-        <h1 className="text-xl font-bold mb-6 mt-8"> รถเข้าใหม่</h1>
+        <h1 className="text-xl mb-6 mt-8 font-bold">รถยอดนิยม</h1>
         <div className="relative w-[1128px] mx-auto">
           {!isAtStart && (
             <img
@@ -76,7 +75,7 @@ function ScrollNew() {
             />
           )}
           <div
-            className="flex w-full overflow-x-auto whitespace-nowrap rounded gap-[24px] "
+            className="flex w-full overflow-x-auto whitespace-nowrap rounded gap-[24px]"
             ref={scrollRef}
             style={scrollContainerStyles}
           >
@@ -92,7 +91,7 @@ function ScrollNew() {
               src={rightArrow}
               alt="Scroll Right"
               onClick={scrollRight}
-              className="absolute right-[-35px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110 duration-200" 
+              className="absolute right-[-35px] top-1/2 transform -translate-y-1/2 cursor-pointer rounded-full shadow-md hover:scale-110 duration-200"
             />
           )}
         </div>
@@ -101,4 +100,4 @@ function ScrollNew() {
   );
 }
 
-export default ScrollNew;
+export default ScrollTop;
