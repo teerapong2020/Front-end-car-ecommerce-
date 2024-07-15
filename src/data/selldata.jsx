@@ -68,7 +68,14 @@ export const Selldata = () => {
 
   const handleSearch = async (searchValue) => {
     try {
-      const result = await onSearchCar(searchValue);
+      let result;
+      if (!isNaN(searchValue)) {
+        // Handle as a number
+        result = await onSearchCar(parseInt(searchValue));
+      } else {
+        // Handle as a string
+        result = await onSearchCar(searchValue);
+      }
       setSearchResults(result);
       setCurrentPage(1);
     } catch (error) {
