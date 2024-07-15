@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import {jwtDecode} from "jwt-decode"; // Imported correctly
-import { Trandata } from "../../data/trandata"; // Ensure Trandata is imported correctly
+import {jwtDecode} from "jwt-decode"; 
+import { Trandata } from "../../data/trandata"; 
 import { carBuy } from "../API/API_Cars";
 
 function MyOrder() {
@@ -26,12 +25,13 @@ function MyOrder() {
 
   return (
     <div>
-      {transaction.map((product, index) => (
-        <div key={index} product={product} className="border border-[#E1E1E1] rounded-[20px]">
-          <p className="font-semibold text-2xl mt-[16px] ml-6">คำสั่งซื้อของฉัน</p>
+        <p className="font-semibold text-2xl mt-[16px] ml-6">คำสั่งซื้อของฉัน</p>
           <p className="font-semibold text-[14px] my-[16px] ml-6">
             ดูรายละเอียดคำสั่งซื้อของคุณ
           </p>
+    <div className={transaction.length > 2 ? 'h-screen overflow-y-auto' : ''}>
+      {transaction.map((product, index) => (
+        <div key={index} className="border border-[#E1E1E1] rounded-[20px] mb-4"> 
           <div className="mx-6 mb-8 flex flex-col gap-6">
             <div className="relative w-[792px] h-[232px] bg-neutral-100 rounded-[5px] border border-neutral-200">
               <div className="text-black text-[14px] font-medium ml-4 mt-2">
@@ -40,7 +40,7 @@ function MyOrder() {
               <div className="ml-4 mt-3 text-black text-xs font-medium">
                 สั่งซื้อวันที่ {product.createOn}
               </div>
-              <div className="ml-4 mt-4 w-[168px] h-[120px]  rounded-[10px] border border-neutral-200" >
+              <div className="ml-4 mt-4 w-[168px] h-[120px] rounded-[10px] border border-neutral-200">
                 <img src={product.file1} alt="" />
               </div>
               <div className="absolute top-[82px] left-[200px] w-[209.26px] h-4 text-black text-sm font-semibold">
@@ -73,6 +73,7 @@ function MyOrder() {
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 }
