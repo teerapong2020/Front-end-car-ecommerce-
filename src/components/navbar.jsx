@@ -96,17 +96,20 @@ function Navbar({ className }) {
                 <img src={USA} alt="USA Flag" />
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link onClick={scrollToTop} to="/edituser">
                 <img src={profile} alt="profile" className="h-8"/>
               </Link>
-            </li>
-            <li>
-              <h1>{User.FirstName}</h1>
+            </li> */}
+            <li className="bg-white rounded-full text-black py-1 px-3 flex">   
+              <Link onClick={scrollToTop} to="/edituser">
+                <img src={User.Profile_Image} alt="profile" className="h-8 rounded-full mr-4"/>
+              </Link>
+              <h1 className="font-semibold place-content-center">{User.FirstName}</h1>
             </li>
             {User.isAdmin && (<Link to="/admincommit">Admin</Link>)}
             <li>
-              <button onClick={onLogout}>Logout</button>
+              <button onClick={onLogout} className="font-semibold">ออกจากระบบ</button>
             </li>
           </ul>
         ) : (
