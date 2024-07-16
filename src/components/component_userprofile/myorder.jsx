@@ -52,9 +52,9 @@ function MyOrder() {
                 <div className="ml-4 mt-4 w-[168px] h-[120px] rounded-[10px] border border-neutral-200">
                  <img src={product.img} alt="" />
                 </div>
-                <div className="absolute top-[82px] left-[200px] w-[209.26px] h-4 text-black text-sm font-semibold">
+{/*                 <div className="absolute top-[82px] left-[200px] w-[209.26px] h-4 text-black text-sm font-semibold">
                   {product.Product_Id}
-                </div>
+                </div> */}
                 <div className="absolute top-[132px] left-[200px] text-black text-xs font-normal">
                   {product.address}
                 </div>
