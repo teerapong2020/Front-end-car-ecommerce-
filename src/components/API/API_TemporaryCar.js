@@ -4,9 +4,9 @@ export const createTempCar = async (data) => {
   console.log("werun at create temp car");
   try {
     const response = await axiosInstance.post("/temporarycars", data);
-    console.log(response);
+    console.log("response::",response);
     alert(`create success`);
-    return response.data.result;
+    return response.data;
   } catch (error) {
     console.log(error);
     if (error.response) {

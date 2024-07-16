@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { ProductCard } from "./ProductCard";
 import leftArrow from "../../assets/Logo/logo_product_card/left_slide.png";
 import rightArrow from "../../assets/Logo/logo_product_card/right_slide.png";
-import { carTop } from "../API/API_Cars"; //แก้
+import { carTop } from "../API/API_Cars";
 
 const scrollContainerStyles = {
   scrollbarWidth: "none",
@@ -47,9 +47,10 @@ function ScrollTop() {
   }, []);
 
   const Active = async () => {
-    const API = await carTop(); //เปลี่ยนตาม API ที่ใช้ และ เปลี่ยน parameterขึ้นกับว่า inputเป็นแบบไหน // แก้
-    if (typeof API !== "string") {
-      setProducts(API);
+    const API = await carTop();
+    if (Array.isArray(API)) {
+      const validProducts = API.filter(product => product !== null && product !== undefined);
+      setProducts(validProducts);
     }
   };
 
@@ -79,12 +80,13 @@ function ScrollTop() {
             ref={scrollRef}
             style={scrollContainerStyles}
           >
-            {products &&
-              products.map((product) => (
-                <div key={product.id} className="">
+            {products.map((product) => (
+              product && (
+                <div key={product.id}>
                   <ProductCard product={product} />
                 </div>
-              ))}
+              )
+            ))}
           </div>
           {!isAtEnd && (
             <img

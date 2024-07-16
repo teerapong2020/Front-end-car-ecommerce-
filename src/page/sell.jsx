@@ -117,8 +117,11 @@ function Sell() {
     e.preventDefault();
     console.log(formData);
     console.log("start");
-    await createTempCar(formData);
-    // navigate("/");
+    const create = await createTempCar(formData);
+    console.log(create);
+    if (create) {
+      navigate("/");
+    }
   };
 
   const uploadimage = () => {
@@ -204,7 +207,7 @@ function Sell() {
               onClick={uploadimage}
             />
             <div className="text-[#9E9E9E] font-medium text-[18px]">
-              อัพโหลดรูปภาพ
+              อัปโหลดรูปภาพ
             </div>
           </div>
           <input
@@ -367,7 +370,7 @@ function Sell() {
             ความจุเครื่องยนต์
           </label>
           <input
-            type="text"
+            type="number"
             name="enginecap"
             className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="ความจุเครื่องยนต์"

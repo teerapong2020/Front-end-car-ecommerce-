@@ -1,13 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createTransaction } from "../API/API_Transaction";
 
 function Payment({ data }) {
   const transaction = data.transaction;
+  const navigate = useNavigate();
   console.log(transaction);
   const createTransactionAPI = async () => {
     console.log("start");
-    await createTransaction(transaction);
+    try {
+      const transactionData = await createTransaction(transaction);
+      console.log("transactionData::", transactionData);
+      navigate("/paymentresult", { state: { transactionData } });
+    } catch (error) {
+      console.error("Error creating transaction:", error);
+    }
   };
 
   return (
@@ -21,35 +28,35 @@ function Payment({ data }) {
           <ul className="flex justify-between mb-[21px]">
             <li className="w-[120px] h-[80px]">
               <img
-                src="/src/assets/checkout_page/visaEdit1.jpg"
+                src="https://res.cloudinary.com/dyrs3bvzj/image/upload/v1721057781/trkln8dgibfhhioylnvr.jpg"
                 alt="visa"
                 className="w-[120px] h-[80px] border border-[#E1E1E1] rounded-lg p-1"
               />
             </li>
             <li className="w-[120px] h-[80px]">
               <img
-                src="/src/assets/checkout_page/masterCardEdit1.webp"
+                src="https://res.cloudinary.com/dyrs3bvzj/image/upload/v1721057749/ftpoiz1vrislxs2c2s3n.webp"
                 alt="mastercard"
                 className="object-contain w-[120px] h-[80px] border border-[#E1E1E1] rounded-lg p-1 grayscale"
               />
             </li>
             <li className="w-[120px] h-[80px]">
               <img
-                src="/src/assets/checkout_page/prompt-pay-logo.png"
+                src="https://res.cloudinary.com/dyrs3bvzj/image/upload/v1721057778/imgyrejtcfdpmea7tki9.png"
                 alt="promptpay"
                 className="object-contain w-[120px] h-[80px] border border-[#E1E1E1] rounded-lg p-1 grayscale"
               />
             </li>
             <li className="w-[120px] h-[80px]">
               <img
-                src="/src/assets/checkout_page/binance2.png"
+                src="https://res.cloudinary.com/dyrs3bvzj/image/upload/v1721057734/plf4je4qdzblzgaemmfy.png"
                 alt="binance"
                 className="object-contain w-[120px] h-[80px] border border-[#E1E1E1] rounded-lg p-1 grayscale"
               />
             </li>
             <li className="w-[120px] h-[80px]">
               <img
-                src="/src/assets/checkout_page/kPlusEdit1.png"
+                src="https://res.cloudinary.com/dyrs3bvzj/image/upload/v1721057745/rq3gbzgzkvdg0ueocnld.png"
                 alt="kplus"
                 className="object-contain w-[120px] h-[80px] border border-[#E1E1E1] rounded-lg p-1 grayscale"
               />
@@ -95,7 +102,6 @@ function Payment({ data }) {
             <label>กรุณาตรวจสอบข้อมูลการเช่าให้ครบถ้วนก่อนการกดยืนยัน</label>
           </div>
           <Link
-            to="/paymentresult"
             className=" h-[48px] bg-[#3E5685] rounded-[10px] text-white text-2xl flex justify-center"
             onClick={createTransactionAPI}
           >
