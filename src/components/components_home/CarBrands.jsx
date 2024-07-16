@@ -2,7 +2,8 @@ import Audi from "../../assets/Logo/carLogo/audi-logo.jpg";
 import BMW from "../../assets/Logo/carLogo/BMW.jpg";
 import Jaguar from "../../assets/Logo/carLogo/Jaguar.jpg";
 import LandRover from "../../assets/Logo/carLogo/Land-Rover.jpg";
-import MercedesBenz from "../../assets/Logo/carLogo/Mercedes-Benz.jpg";
+
+import MercedesBenz from "../../assets/Logo/carLogo/Mercedes-Benz-removebg-preview.png";
 import Mini from "../../assets/Logo/carLogo/Mini-logo.jpg";
 import Peugeot from "../../assets/Logo/carLogo/Peugeot.jpg";
 import Porsche from "../../assets/Logo/carLogo/PORSCHE-logo.jpg";
