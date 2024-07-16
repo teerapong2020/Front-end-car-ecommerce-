@@ -5,6 +5,7 @@ import sharenetwork from "../../assets/Logo/logo_product_card/sharenetwork.png";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
+import axiosInstance from "../../utils/axiosInstance";
 
 export const Admincard = ({ product }) => {
   const [isFilled, setIsFilled] = useState(false);
@@ -23,8 +24,8 @@ export const Admincard = ({ product }) => {
       setIsFilled(!isFilled);
 
       const action = isFilled ? "remove" : "add"; // ตรวจสอบว่าต้องการลบหรือเพิ่ม
-      const response = await axios.post(
-        "http://localhost:5000/api/car-list/togglePin",
+      const response = await axiosInstance.post(
+        "/car-list/togglePin",
         {
           userId: userId,
           carId: product._id, // หรือเปลี่ยนเป็นตัวแปรที่เก็บ _id ของ product นี้
