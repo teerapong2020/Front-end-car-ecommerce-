@@ -222,6 +222,15 @@ function Buy_ProductCard_Info() {
                     <h4 className="font-medium  mt-6 text-[20px]">รายละเอียดรถยนต์</h4>
                     <div className="border-t-2 border-t-blue-950 w-[68px] "></div>
                     <div className="border-t border-gray-300 py-1"></div>
+                    
+                    <h4 className="text-[20px] font-medium mt-6 ">
+                      รายละเอียดเพิ่มเติม
+                    </h4>
+                    <div className="border-t-2 border-t-blue-950 w-[68px] "></div>
+                    <div className="border-t border-gray-300 py-1"></div>
+
+                    <div className="text-[14px] mt-3">{Data.additionalInfo}</div>
+
                     <p className="mt-3 text-[14px]">
                       EQS 450 คือรุ่นยนต์ไฟฟ้าของ Mercedes-Benz
                       ที่เป็นส่วนหนึ่งของตระกูล EQ
@@ -244,16 +253,6 @@ function Buy_ProductCard_Info() {
                       ที่ช่วยให้ EQS 450
                       เป็นตัวเลือกที่น่าสนใจสำหรับผู้ที่ต้องการรถยนต์ไฟฟ้าระดับพรีเมียมที่สมบูรณ์แบบ
                     </p>
-
-                    
-
-                    <h4 className="text-[20px] font-medium mt-6 ">
-                      รายละเอียดเพิ่มเติม
-                    </h4>
-                    <div className="border-t-2 border-t-blue-950 w-[68px] "></div>
-                    <div className="border-t border-gray-300 py-1"></div>
-
-                    <div className="text-[14px] mt-3">{Data.additionalInfo}</div>
 
                       {/* <!-- review part --> */}
 
