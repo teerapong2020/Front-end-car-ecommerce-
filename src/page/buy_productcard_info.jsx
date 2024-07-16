@@ -20,13 +20,13 @@ import { Link } from "react-router-dom";
 
 import { UserContext } from "../context_component/Usercontext";
 import axiosInstance from "../utils/axiosInstance";
-import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 function Buy_ProductCard_Info() {
   const { id } = useParams();
   const [Data, setData] = useState([]);
-  const { User } = useContext(UserContext)
-  const [isFilled, setIsFilled] = useState(false)
+  const { User } = useContext(UserContext);
+  const [isFilled, setIsFilled] = useState(false);
 
   console.log("DATA😊", Data);
   let paymentData = Data && {
@@ -37,7 +37,7 @@ function Buy_ProductCard_Info() {
     year: Data.year,
     address: Data.address,
     Sell_Price: Data.price,
-    Purchase_Price: ~~(Data.price * 1.1),
+    Purchase_Price: ~~(Data.price * 1.02),
     type: Data.type,
     fuel: Data.fuel,
     Seller_User: Data.Seller_User,
@@ -92,14 +92,14 @@ function Buy_ProductCard_Info() {
       const response = await axiosInstance.post("/car-list/togglePin", {
         userId: User._id,
         carId: Data._id,
-        action: action
+        action: action,
       });
 
       console.log(response.data);
     } catch (error) {
       console.error("Error toggling pin:", error);
     }
-  }
+  };
 
   return (
     <>
@@ -219,7 +219,9 @@ function Buy_ProductCard_Info() {
 
                 <section>
                   <main>
-                    <h4 className="font-medium  mt-6 text-[20px]">รายละเอียดรถยนต์</h4>
+                    <h4 className="font-medium  mt-6 text-[20px]">
+                      รายละเอียดรถยนต์
+                    </h4>
                     <div className="border-t-2 border-t-blue-950 w-[68px] "></div>
                     <div className="border-t border-gray-300 py-1"></div>
                     <p className="mt-3 text-[14px]">
@@ -245,27 +247,29 @@ function Buy_ProductCard_Info() {
                       เป็นตัวเลือกที่น่าสนใจสำหรับผู้ที่ต้องการรถยนต์ไฟฟ้าระดับพรีเมียมที่สมบูรณ์แบบ
                     </p>
 
-                    
-
                     <h4 className="text-[20px] font-medium mt-6 ">
                       รายละเอียดเพิ่มเติม
                     </h4>
                     <div className="border-t-2 border-t-blue-950 w-[68px] "></div>
                     <div className="border-t border-gray-300 py-1"></div>
 
-                    <div className="text-[14px] mt-3">{Data.additionalInfo}</div>
+                    <div className="text-[14px] mt-3">
+                      {Data.additionalInfo}
+                    </div>
 
-                      {/* <!-- review part --> */}
+                    {/* <!-- review part --> */}
 
-                      
-              
-                    <h4 class="font-medium  mt-6 text-[20px]">รายงานตรวจสภาพรถยนต์ </h4>
+                    <h4 class="font-medium  mt-6 text-[20px]">
+                      รายงานตรวจสภาพรถยนต์{" "}
+                    </h4>
                     <div class="border-t-2 border-t-blue-950 w-[68px] "></div>
-                    <div class="border-t border-gray-300  py- "></div> 
+                    <div class="border-t border-gray-300  py- "></div>
 
                     <div class="  rounded-[5px] py-2 flex justify-center mt-3 mx-4">
-                      <h1 className="rounded-[5px] bg-[#3E5685] text-white py-2 w-[616px] flex justify-center font-semibold">รถยนต์คันนี้ได้รับการปรับสภาพจากศูนย์ปรับสภาพรถยนต์มือสองของ RODDEE</h1>
-                     
+                      <h1 className="rounded-[5px] bg-[#3E5685] text-white py-2 w-[616px] flex justify-center font-semibold">
+                        รถยนต์คันนี้ได้รับการปรับสภาพจากศูนย์ปรับสภาพรถยนต์มือสองของ
+                        RODDEE
+                      </h1>
                     </div>
                     <div class="border shadow-sm rounded-[5px] mx-4 flex justify-around h-[72px] items-center bg-slate-100 mb-24">
                       <div>
@@ -275,8 +279,8 @@ function Buy_ProductCard_Info() {
                           alt='favourite'/> */}
                           <p>ความปลอดภัย</p>
                         </div>
-                          <p>เหนือมาตรฐาน</p>
-                      </div> 
+                        <p>เหนือมาตรฐาน</p>
+                      </div>
                       <div>
                         <div class="flex justify-center">
                           {/* <img class="mr-1 mt-[6px] h-[13px]"
@@ -284,8 +288,8 @@ function Buy_ProductCard_Info() {
                           alt='favourite'/> */}
                           <p>100%</p>
                         </div>
-                          <p>ขับขี่สะดวกสบาย</p>
-                      </div> 
+                        <p>ขับขี่สะดวกสบาย</p>
+                      </div>
                       <div>
                         <div class="flex justify-center">
                           {/* <img class="mr-1 mt-[6px] h-[13px]"
@@ -293,23 +297,9 @@ function Buy_ProductCard_Info() {
                           alt='favourite'/> */}
                           <p>รถทุกคันผ่าน</p>
                         </div>
-                          <p>การตรวจเช็คสภาพ</p>
-                      </div> 
+                        <p>การตรวจเช็คสภาพ</p>
+                      </div>
                     </div>
-                          
-                    
-                        
-                    
-
-
-                    
-
-
-
-
-
-
-
 
                     {/* <h4 className="font-medium mx-4 mt-4 text-[20px]">Review </h4>
                     <div className="border-t-2 border-t-blue-950 w-[68px] mx-4 "></div>
@@ -391,8 +381,10 @@ function Buy_ProductCard_Info() {
             {/* ----------------------------------------------------Right------------------------------------------------------------------- */}
             <section className=" w-[480px] flex flex-col pl-6 border-green-600">
               <div className=" max-md:hidden rounded-[20px] border shadow-md h-auto w-[456px] mt-[96px]">
-              {/* h-[364px] */}
-                <h2 className="ml-6 mt-3 mb-3 text-[18px] font-semibold">รายละเอียด</h2>
+                {/* h-[364px] */}
+                <h2 className="ml-6 mt-3 mb-3 text-[18px] font-semibold">
+                  รายละเอียด
+                </h2>
                 <h2 className="ml-6 mt-3 mb-3 font-black text-[16px]">
                   {Data.brand} {Data.model} ({Data.year})
                 </h2>
@@ -425,8 +417,15 @@ function Buy_ProductCard_Info() {
                     ซื้อรถคันนี้
                   </Link>
                   <div className="flex gap-1">
-                    <button className="bg-[#191f2c] text-white ml-6 w-[336px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center duration-200 gap-2 mb-5" onClick={toggleHeart}>
-                    {isFilled ? <AiFillHeart color="#f06181" /> : <AiOutlineHeart color="#f7faff" />}
+                    <button
+                      className="bg-[#191f2c] text-white ml-6 w-[336px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center duration-200 gap-2 mb-5"
+                      onClick={toggleHeart}
+                    >
+                      {isFilled ? (
+                        <AiFillHeart color="#f06181" />
+                      ) : (
+                        <AiOutlineHeart color="#f7faff" />
+                      )}
                       เพิ่มรายการโปรด
                     </button>
                     <button className="border border-gray-400  ml-1 w-[64px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center">

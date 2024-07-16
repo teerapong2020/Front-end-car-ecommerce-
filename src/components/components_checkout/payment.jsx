@@ -99,7 +99,7 @@ function Payment({ data }) {
         >
           <div className="flex  ">
             <input type="checkbox" className="h-4 w-4 mr-2 mt-1" />
-            <label>กรุณาตรวจสอบข้อมูลการเช่าให้ครบถ้วนก่อนการกดยืนยัน</label>
+            <label>กรุณาตรวจสอบข้อมูลการซื้อให้ครบถ้วนก่อนการกดยืนยัน</label>
           </div>
           <Link
             className=" h-[48px] bg-[#3E5685] rounded-[10px] text-white text-2xl flex justify-center"

@@ -64,7 +64,7 @@ function Payment_success() {
           className="flex flex-col gap-[54px] px-[23px]  border-t-[1px]"
         >
           <div id="code" className="flex justify-between mt-[33px]">
-            <p>หมายเลขเช่า</p>
+            <p>หมายเลขซื้อ</p>
             <p>{state.transactionData._id}</p>
           </div>
           <div id="typeOfPayment" className="flex justify-between">
