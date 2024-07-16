@@ -22,3 +22,8 @@ export const getTransaction = async (id) => {
     return null;
   }
 };
+
+export const delecttrans = async(id)=>{
+  const response = await axiosInstance.delete(`/transaction/${id}`)
+  return response
+}
