@@ -65,6 +65,9 @@ function Sell() {
     additionalInfo: "",
   });
   const [count, setCount] = useState(1);
+  const goBack = () => {
+    navigate("/");
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -527,6 +530,7 @@ function Sell() {
         <button
           type="button"
           className=" bg-[#E7E9EE] text-black rounded-[10px]  w-[361px] h-[48px] "
+          onClick={goBack}
         >
           ยกเลิก
         </button>

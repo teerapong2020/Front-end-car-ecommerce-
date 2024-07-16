@@ -54,12 +54,12 @@ function Product_details({ data }) {
         <p>Service Charge</p>
         <p>
           THB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          {(transaction.Sell_Price / 10).toLocaleString()}
+          {(transaction.Sell_Price / 50).toLocaleString()}
         </p>
       </div>
       <div id="sum" className="flex justify-between  text-lg font-semibold  ">
         <p className="text-[#3E5685]">รวมทั้งสิ้น</p>
-        <p>THB&nbsp;{(~~(transaction.Sell_Price * 1.1)).toLocaleString()}</p>
+        <p>THB&nbsp;{(~~(transaction.Sell_Price * 1.02)).toLocaleString()}</p>
       </div>
     </div>
   );
