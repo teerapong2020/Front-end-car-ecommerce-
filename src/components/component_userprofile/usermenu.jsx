@@ -8,10 +8,47 @@ import UserIcon from "../../assets/userPage/user-alt-3.png";
 import Favourite from "../../assets/userPage/heart.png";
 import Cart from "../../assets/userPage/cart.png";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { UserContext } from "../../context_component/Usercontext";
+import { useContext } from "react";
+
 
 
 function UserMenu() {
+
+  const [formData, setFormData] = useState({
+    FirstName: '',
+    LastName: '',
+    Email: '',
+    pnumber: '',
+  });
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        if (token) {
+          const decoded = jwtDecode(token);
+          const userId = decoded.id; // ถอดรหัส JWT เพื่อดึง userId
+
+          const user = await getUserById(userId); // ดึงข้อมูลผู้ใช้จาก API ด้วย userId
+          setFormData({
+            FirstName: user.FirstName,
+            LastName: user.LastName,
+            Email: user.Email,
+            pnumber: user.pnumber,
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching user:', error);
+      }
+    };
+
+    fetchUser();
+  }, []);
+  // const {User} = useContext(UserContext);
   //   const { transaction, setTransacion } = data;
+
 
   return (
     <div>
@@ -21,7 +58,8 @@ function UserMenu() {
             <p className="flex justify-center items-center">KS</p>
           </div>
           <p className="text-[16px] text-white font-semibold flex justify-center mt-6">
-            Kittipong Satayanusakkul
+               {/* {User.FirstName} */}
+
           </p>
           <p className="text-[12px] text-white font-semibold flex justify-center">
             ยืนยันอีเมลล์แล้ว

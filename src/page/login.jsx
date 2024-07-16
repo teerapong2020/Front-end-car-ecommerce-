@@ -301,7 +301,7 @@ function LoginAndRegister() {
                   onChange={(e) => setRegisterEmail(e.target.value)}
                   className={`bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-[6px] focus:ring-primary-600 focus:border-primary-600 w-[360px] h-[48px] 
                     ${emailError ? "border-red-500" : ""}`}
-                  placeholder="  name@company.com  "
+                  placeholder=" name@company.com  "
                 />
                 {emailError && email !== "" && (
                   <p className="text-red-500  text-[12px]">{emailError}</p>
@@ -318,7 +318,7 @@ function LoginAndRegister() {
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   className="bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-[6px] focus:ring-primary-600 focus:border-primary-600 w-[360px] h-[48px]"
-                  placeholder="  ชื่อจริง  "
+                  placeholder="    ชื่อจริง  "
                 />
               </div>
 
@@ -332,7 +332,7 @@ function LoginAndRegister() {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   className="bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-[6px] focus:ring-primary-600 focus:border-primary-600 w-[360px] h-[48px]"
-                  placeholder="  นามสกุล  "
+                  placeholder="    นามสกุล  "
                 />
               </div>
 
@@ -345,7 +345,7 @@ function LoginAndRegister() {
                   value={pnumber}
                   onChange={(e) => setPnumber(e.target.value)}
                   className="bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-[6px] focus:ring-primary-600 focus:border-primary-600 w-[360px] h-[48px]"
-                  placeholder="  นามสกุล  "
+                  placeholder="    ใส่เบอร์ของคุณ "
                 />
               </div>
 
@@ -358,7 +358,7 @@ function LoginAndRegister() {
                     type={hidePassword ? "password" : "text"}
                     value={registerPassword}
                     onChange={(e) => setRegisterPassword(e.target.value)}
-                    placeholder="  ••••••••  "
+                    placeholder=" ••••••••  "
                     className={`bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-[6px] relative focus:border-primary-600 w-[360px] h-[48px] ${
                       passwordError ? "border-red-500" : ""
                     }`}
@@ -387,7 +387,7 @@ function LoginAndRegister() {
                     type={hideConfirmPassword ? "password" : "text"}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    placeholder="  ••••••••  "
+                    placeholder=" ••••••••  "
                     className={`bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-[6px] relative focus:border-primary-600 w-[360px] h-[48px] ${
                       passwordError ? "border-red-500" : ""
                     }`}
@@ -413,7 +413,7 @@ function LoginAndRegister() {
                       id="terms"
                       type="checkbox"
                       className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-primary-300"
-                      required=""
+                      required="true"
                     />
                   </div>
                   <div className="ml-3 text-[12px] place-self-center">
