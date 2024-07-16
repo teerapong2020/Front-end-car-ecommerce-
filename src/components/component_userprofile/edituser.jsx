@@ -54,11 +54,12 @@ function EditUser() {
         const token = localStorage.getItem('token');
         if (token) {
           const decoded = jwtDecode(token);
-          const userId = decoded.id; // ถอดรหัส JWT เพื่อดึง userId
+          const userId = decoded.id; 
   
           await editUser(userId, formData); // ส่งข้อมูลแก้ไขผู้ใช้ไปยัง API ด้วย userId
           alert('แก้ไขข้อมูลผู้ใช้เรียบร้อยแล้ว');
-          navigate('/'); // Redirect หรือทำอย่างอื่นตามที่ต้องการหลังจากแก้ไขเสร็จสิ้น
+          navigate('/'); 
+          window.location.reload();
         }
       } catch (error) {
         console.error('Error editing user:', error);
@@ -67,7 +68,7 @@ function EditUser() {
     };
   return (
     <form onSubmit={handleSubmit} className="mb-[55px]">
-      <div className="flex flex-col border border-[#E1E1E1] rounded-[20px] px-6 pt-[28px] text-base">
+      <div className="flex flex-col border border-[#E1E1E1] rounded-[20px] px-6 pt-[28px] ">
         <p className="font-semibold text-2xl mb-6">จัดการบัญชีโปรไฟล์</p>
         <div className="flex">
           <div>
@@ -133,8 +134,11 @@ function EditUser() {
         id="hire"
         className="mt-6 h-[48px] w-[840px] border border-[#E1E1E1] rounded-[15px] flex justify-between items-center"
       >
-        <span className="font-medium text-sm ml-6">ลบบัญชีของคุณ</span>
-        <button className="font-medium text-sm mr-6 text-red-600">ลบ</button>
+        <span className="font-medium text-sm ml-6">เปลี่ยนรูปโปรไฟล์</span>
+        <Link 
+        to = "/uploadprofile"
+        className="font-medium text-sm mr-6 text-red-600">แก้ไข
+        </Link>
       </div>
     </form>
   );
