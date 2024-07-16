@@ -2,11 +2,26 @@ import { useState, useEffect, useContext } from "react";
 import {jwtDecode} from "jwt-decode";
 import { Trandata } from "../../data/trandata";
 import { UserContext } from "../../context_component/Usercontext";
+import { Detransaction } from "../../data/delecttrans";
 
 function MyOrder() {
   const [userId, setUserId] = useState("");
   const [transaction, setTransaction] = useState([]);
+  const [detransaction,setDetransaction] = useState([])
   const { User } = useContext(UserContext); // Assuming UserContext provides User information
+
+  const handleDel = async (id) => {
+    const isConfirmed = window.confirm("คุณต้องการยกเลิกการซื้อสินค้านี้หรือไม่?");
+    if (isConfirmed) {
+      try {
+        const delect = await Detransaction(id);
+        setDetransaction([...detransaction, delect.data.id]);
+        setTransaction(transaction.filter((item) => item._id !== id));
+      } catch (error) {
+        console.error("Error deleting transaction:", error);
+      }
+    }
+  };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -64,9 +79,11 @@ function MyOrder() {
                 <div className="absolute top-[156px] left-[200px] h-3 text-black text-xs font-light">
                   ขนส่งโดย Roddee
                 </div>
-                {/* <button className="absolute top-[203px] left-[656px] text-red-600 text-sm font-medium">
+                <button 
+                 onClick={() => handleDel(product._id)}
+                className="absolute top-[203px] left-[656px] text-red-600 text-sm font-medium">
                   ยกเลิกการซื้อสินค้า
-                </button> */}
+                </button>
                 <div className="absolute top-[108px] left-[200px] w-[46.06px] h-4 text-black text-xs font-normal">
                   {product.etc}
                 </div>
