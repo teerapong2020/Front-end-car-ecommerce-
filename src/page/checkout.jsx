@@ -5,20 +5,28 @@ import Product_details from "../components/components_checkout/product_details";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 function checkout() {
   let { state } = useLocation();
+  const navigate = useNavigate();
 
   const [transaction, setTransaction] = useState(state);
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const id = jwtDecode(token).id;
-    setTransaction((prevTransaction) => ({
-      ...prevTransaction,
-      address: "",
-      etc: "",
-      Purchase_User: id,
-    }));
+
+    try {
+      const id = jwtDecode(token).id;
+      setTransaction((prevTransaction) => ({
+        ...prevTransaction,
+        address: "",
+        etc: "",
+        Purchase_User: id,
+      }));
+    } catch (error) {
+      alert("please login");
+      navigate("/loginandregister");
+    }
   }, []);
   // console.log("transaction:", transaction);
 

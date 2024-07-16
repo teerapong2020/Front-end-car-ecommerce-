@@ -51,7 +51,7 @@ function Forum({ data }) {
       >
         <div className="flex  ">
           <input type="checkbox" className="h-4 w-4 mr-2 mt-1" />
-          <label>กรุณาตรวจสอบข้อมูลการเช่าให้ครบถ้วนก่อนการกดยืนยัน</label>
+          <label>กรุณาตรวจสอบข้อมูลการซื้อให้ครบถ้วนก่อนการกดยืนยัน</label>
         </div>
         <Link
           to="/Checkout2"
@@ -60,7 +60,7 @@ function Forum({ data }) {
         >
           <input
             type="submit"
-            value="เช่ารถคันนี้"
+            value="ซื้อรถคันนี้"
             className="cursor-pointer border-none text-lg"
           />
         </Link>

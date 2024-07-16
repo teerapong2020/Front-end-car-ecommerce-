@@ -21,6 +21,9 @@ function LoginAndRegister() {
   const [hideConfirmPassword, setHideConfirmPassword] = useState(true);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [emailErrorRegister, setEmailErrorRegister] = useState("");
+  const [passwordErrorRegister, setPasswordErrorRegister] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
   // const [isRegistering, setIsRegistering] = useState(false);
   const [loginError, setLoginError] = useState("");
   
@@ -64,8 +67,48 @@ function LoginAndRegister() {
     validatePassword();
   }, [email, password]);
 
+// ---------------validate for register------------
+  useEffect(() => {
+    const validateEmailRegister = () => {
+      if (registerEmail === "") {
+        setEmailErrorRegister("");
+        return;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(registerEmail)) {
+        setEmailErrorRegister("โปรดระบุที่อยู่อีเมลล์ให้ถูกต้อง");
+      } else {
+        setEmailErrorRegister("");
+      }
+    };
+    const validatePasswordRegister = () => {
+      if (registerPassword === "") {
+        setPasswordErrorRegister("");
+      } else if (registerPassword.length < 6) {
+        setPasswordErrorRegister(
+          "รหัสผ่านผิด, ต้องมีจำนวนอย่างน้อย 6 ตัว"
+        );
+      } else {
+        setPasswordErrorRegister("");
+      }
+    };
+    const validateConfirmPassword = () => {
+      if (confirmPassword === "") {
+        setConfirmPasswordError("");
+      } else if (confirmPassword !== registerPassword) {
+        setConfirmPasswordError("รหัสผ่านไม่ตรงกัน");
+      } else {
+        setConfirmPasswordError("");
+      }
+    };
+    validateEmailRegister();
+    validatePasswordRegister();
+    validateConfirmPassword();
+  }, [registerEmail, registerPassword, confirmPassword]);
 
 
+
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isRegistering) {
@@ -288,7 +331,7 @@ function LoginAndRegister() {
 
           <form
             onSubmit={handleSubmit}
-            className={`bg-white h-[816px] w-[456px] relative mt-[80px] rounded-[10px] shadow-md transition opacity duration-500  
+            className={`bg-white h-auto w-[456px] relative mt-[80px] rounded-[10px] shadow-md transition opacity duration-500  
                 ${
                   !isRegistering
                     ? "opacity-0 pointer-events-none"
@@ -308,11 +351,11 @@ function LoginAndRegister() {
                   value={registerEmail}
                   onChange={(e) => setRegisterEmail(e.target.value)}
                   className={`bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-[6px] focus:ring-primary-600 focus:border-primary-600 w-[360px] h-[48px] 
-                    ${emailError ? "border-red-500" : ""}`}
+                    ${emailErrorRegister ? "border-red-500" : ""}`}
                   placeholder="name@company.com  "
                 />
-                {emailError && email !== "" && (
-                  <p className="text-red-500  text-[12px]">{emailError}</p>
+                {emailErrorRegister && registerEmail !== "" && (
+                  <p className="text-red-500  text-[12px]">{emailErrorRegister}</p>
                 )}
               </div>
 
@@ -368,7 +411,7 @@ function LoginAndRegister() {
                     onChange={(e) => setRegisterPassword(e.target.value)}
                     placeholder="••••••••  "
                     className={`bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-[6px] relative focus:border-primary-600 w-[360px] h-[48px] ${
-                      passwordError ? "border-red-500" : ""
+                      passwordErrorRegister ? "border-red-500" : ""
                     }`}
                   />
 
@@ -380,12 +423,12 @@ function LoginAndRegister() {
                   />
                 </div>
 
-                {passwordError && password !== "" && (
-                  <p className="text-red-500 text-[12px] ">{passwordError}</p>
+                {passwordErrorRegister && registerPassword !== "" && (
+                  <p className="text-red-500 text-[12px] ">{passwordErrorRegister}</p>
                 )}
               </div>
 
-
+{/*------------- confirmPassword -------------------*/}
               <div className="mb-[16px]">
                 <h3 className="text-[12px] font-medium text-gray-900 mb-[8px]">
                   ยืนยันรหัสผ่านรหัสผ่าน
@@ -397,7 +440,7 @@ function LoginAndRegister() {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder="••••••••  "
                     className={`bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-[6px] relative focus:border-primary-600 w-[360px] h-[48px] ${
-                      passwordError ? "border-red-500" : ""
+                      confirmPasswordError ? "border-red-500" : ""
                     }`}
                   />
 
@@ -409,12 +452,12 @@ function LoginAndRegister() {
                   />
                 </div>
 
-                {passwordError && password !== "" && (
-                  <p className="text-red-500 text-[12px] ">{passwordError}</p>
+                {confirmPasswordError && confirmPassword !== "" && (
+                  <p className="text-red-500 text-[12px] ">{confirmPasswordError}</p>
                 )}
               </div>
 
-              <div className="flex ">
+              {/* <div className="flex ">
                 <div className="flex">
                   <div className="flex items-center">
                     <input
@@ -434,7 +477,7 @@ function LoginAndRegister() {
                     เงื่อนไขสำหรับการสมัครสมาชิกและนโยบายความเป็นส่วนตัว
                   </a>
                 </div>
-              </div>
+              </div> */}
 
       
               <button
