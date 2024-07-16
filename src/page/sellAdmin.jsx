@@ -250,7 +250,7 @@ function SellAdmin() {
             ความจุเครื่องยนต์
           </label>
           <input
-            type="text"
+            type="number"
             name="enginecap"
             className="w-[744px] h-[56px] p-5 text-base border border-gray-300 rounded-[15px]"
             placeholder="ความจุเครื่องยนต์"
