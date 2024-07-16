@@ -159,7 +159,7 @@ function Buy_ProductCard_Info() {
                       alt="X4-5"
                     />
                   </div>
-                  <div className="absolute top-1/2 transform translate-y-0 w-[660px] flex justify-between px-4  text-2xl font-black select-none">
+                  <div className="absolute top-1/2 transform translate-y-0 w-[660px] flex justify-between px-4 text-2xl font-black select-none">
                     <a
                       className="cursor-pointer backdrop-blur-sm bg-white/30 bg-gray-800 rounded-full px-2 hover:text-gray-500 duration-200"
                       onClick={() => plusSlides(-1)}
