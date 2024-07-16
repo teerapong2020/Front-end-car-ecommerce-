@@ -70,6 +70,7 @@ function UploadProfile() {
           `Profile image updated successfully`
         );
         navigate('/'); 
+        window.location.reload();
       }
     } catch (error) {
       console.error("Failed to update profile image", error);

@@ -1,22 +1,16 @@
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import logo from "../assets/Logo/logocar_final.png";
+import { Link, useNavigate } from "react-router-dom";
 import USA from "../assets/Logo/USA.png";
 import burger from "../assets/Logo/burger.png";
-import { useState, useEffect, useContext } from "react";
-import {jwtDecode} from "jwt-decode"; //ตัวถอดโทเคน
+import { useState, useContext } from "react";
 import { FormContext } from "../context_component/Regiscontext";
 import roddee from "../assets/Logo/roddee.png";
 import vector from "../assets/Logo/vector.png";
-import { getUserById } from "../components/API/API_Users";
 import profile from "../assets/Logo/login.png"
+import { UserContext } from "../context_component/Usercontext"
 function Navbar({ className }) {
   const [open, setOpen] = useState(false);
-  const [UserId, setUserId] = useState(""); // Id Global
-  const [istoken, setIstoken] = useState(null);
-  const location = useLocation();
   const navigate = useNavigate();
-  const [User, setUser] = useState({});
-  const [Admin, setAdmin] = useState(false);
+  const { User } = useContext(UserContext);///3
 
   const { setIsRegistering } = useContext(FormContext);
 
@@ -39,32 +33,11 @@ function Navbar({ className }) {
   // Logout function
   const onLogout = () => {
     localStorage.clear();
-    setIstoken(null); // Clear the token state
-    setUserId(""); // Clear the userId state
     navigate("/");
+    window.location.reload();
   };
 
   // Effect to decode token, set userId information and fetch user data
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        if (token && token !== istoken) {
-          setIstoken(token);
-          const decodedToken = jwtDecode(token);
-          setUserId(decodedToken.id); // Update according to your token structure
-
-          const API = await getUserById(decodedToken.id);
-          setUser(API);
-          setAdmin(API.isAdmin);
-        }
-      } catch (error) {
-        console.error("Error decoding token or fetching user data:", error);
-      }
-    };
-
-    fetchUserData();
-  }, [istoken, location]); // Include location in dependencies to trigger on route change
 
   return (
     <nav className={`${className} bg-blue-950 text-white max-md:fixed w-full`}>
@@ -116,7 +89,7 @@ function Navbar({ className }) {
         </div>
 
         {/* Desktop */}
-        {istoken ? (
+        {User ? (
           <ul className="flex items-center gap-8 mr-8 max-md:hidden">
             <li>
               <Link onClick={scrollToTop} to="/">
@@ -131,7 +104,7 @@ function Navbar({ className }) {
             <li>
               <h1>{User.FirstName}</h1>
             </li>
-            {Admin && (<Link to="/admincommit">Admin</Link>)}
+            {User.isAdmin && (<Link to="/admincommit">Admin</Link>)}
             <li>
               <button onClick={onLogout}>Logout</button>
             </li>
