@@ -40,7 +40,7 @@ function Buy_ProductCard_Info() {
     year: Data.year,
     address: Data.address,
     Sell_Price: Data.price,
-    Purchase_Price: ~~(Data.price * 1.1),
+    Purchase_Price: ~~(Data.price * 1.02),
     type: Data.type,
     fuel: Data.fuel,
     Seller_User: Data.Seller_User,
