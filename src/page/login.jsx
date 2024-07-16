@@ -112,6 +112,7 @@ function LoginAndRegister() {
     if (user && user.access_token){
       localStorage.setItem("token", user.access_token)
       navigate("/")
+      window.location.reload();
     }
   }
   // function กดปุ่ม Register
