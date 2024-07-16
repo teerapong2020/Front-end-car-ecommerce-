@@ -11,17 +11,14 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { UserContext } from "../../context_component/Usercontext";
 import { useContext } from "react";
-
+import { getUserById } from "../API/API_Users";
+import { jwtDecode } from "jwt-decode";
+// const {User} = useContext(UserContext);
 
 
 function UserMenu() {
 
-  const [formData, setFormData] = useState({
-    FirstName: '',
-    LastName: '',
-    Email: '',
-    pnumber: '',
-  });
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -32,12 +29,7 @@ function UserMenu() {
           const userId = decoded.id; // ถอดรหัส JWT เพื่อดึง userId
 
           const user = await getUserById(userId); // ดึงข้อมูลผู้ใช้จาก API ด้วย userId
-          setFormData({
-            FirstName: user.FirstName,
-            LastName: user.LastName,
-            Email: user.Email,
-            pnumber: user.pnumber,
-          });
+          setUser(user);
         }
       } catch (error) {
         console.error('Error fetching user:', error);
@@ -46,8 +38,11 @@ function UserMenu() {
 
     fetchUser();
   }, []);
-  // const {User} = useContext(UserContext);
-  //   const { transaction, setTransacion } = data;
+
+
+
+    
+
 
 
   return (
@@ -55,10 +50,14 @@ function UserMenu() {
       <div className="w-[264px] h-[336px] border border-[#E1E1E1] rounded-[20px] mb-4">
         <div className="w-[264px] h-[224px] bg-[#3E5685] rounded-[20px] flex flex-col justify-center ">
           <div className="h-[94px] w-[94px] bg-white rounded-full place-content-center ml-20 ">
-            <p className="flex justify-center items-center">KS</p>
+            {user && user.Profile_Image ? (
+              <img src={user.Profile_Image} alt="Profile" className="h-[94px] w-[94px] rounded-full object-cover" />
+            ) : (
+              <p className="text-2xl">KS</p>
+            )}
           </div>
           <p className="text-[16px] text-white font-semibold flex justify-center mt-6">
-               {/* {User.FirstName} */}
+          {user ? `${user.FirstName} ${user.LastName}` : 'Loading...'}
 
           </p>
           <p className="text-[12px] text-white font-semibold flex justify-center">
@@ -83,7 +82,7 @@ function UserMenu() {
           </Link>
 
           <Link
-            to="/loginandregister"
+            // to="/loginandregister"
             onClick
             className="flex justify-between items-center hover:bg-[#CEECFF] h-[40px] w-[248px] mt-4 hover:rounded-lg duration-200"
           >
@@ -133,8 +132,10 @@ function UserMenu() {
           </Link>
 
           <Link
+            // onClick={refresh}
             to="/myfavourite"
             className="flex justify-between items-center hover:bg-[#CEECFF] h-[40px] w-[248px] mt-4 hover:rounded-lg duration-200"
+            
           >
             <div className="flex ">
               <img
