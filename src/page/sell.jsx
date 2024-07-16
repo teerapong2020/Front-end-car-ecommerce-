@@ -123,6 +123,7 @@ function Sell() {
     const create = await createTempCar(formData);
     console.log(create);
     if (create) {
+      sendNotification();
       navigate("/");
     }
   };

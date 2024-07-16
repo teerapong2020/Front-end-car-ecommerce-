@@ -5,6 +5,7 @@ import { useState, useContext } from "react";
 import { FormContext } from "../context_component/Regiscontext";
 import roddee from "../assets/Logo/roddee.png";
 import vector from "../assets/Logo/vector.png";
+import thaiflag from "../assets/Logo/thaiflag.png";
 import profile from "../assets/Logo/login.png"
 import { UserContext } from "../context_component/Usercontext"
 function Navbar({ className }) {
@@ -76,7 +77,7 @@ function Navbar({ className }) {
 
         <div className="flex gap-8">
           <Link to="/" className="flex flex-col justify-center mr-3">
-            <img className="md:hidden" src={USA} alt="USA Flag" />
+            <img className="md:hidden" src={thaiflag} alt="USA Flag" />
           </Link>
           <Link className="flex flex-col justify-center mr-3">
             <img
@@ -93,7 +94,7 @@ function Navbar({ className }) {
           <ul className="flex items-center gap-8 mr-8 max-md:hidden">
             <li>
               <Link onClick={scrollToTop} to="/">
-                <img src={USA} alt="USA Flag" />
+                <img src={thaiflag} alt="USA Flag" />
               </Link>
             </li>
             {/* <li>
@@ -116,7 +117,7 @@ function Navbar({ className }) {
           <ul className="flex items-center gap-8 mr-8 max-md:hidden">
             <li>
               <Link onClick={scrollToTop} to="/">
-                <img src={USA} alt="USA Flag" />
+                <img src={thaiflag} alt="USA Flag" className="mt-2" />
               </Link>
             </li>
             <li>

@@ -17,10 +17,13 @@ import seattype from "../assets/Logo/Icon_productcard_info/seattype.png";
 import share from "../assets/Logo/Icon_productcard_info/share.png";
 import { getCarById } from "../components/API/API_Cars";
 import { Link } from "react-router-dom";
+import carmeter from "../assets/Logo/Icon_productcard_info/meter.png";
+import carcolor from "../assets/Logo/Icon_productcard_info/color.png";
 
 import { UserContext } from "../context_component/Usercontext";
 import axiosInstance from "../utils/axiosInstance";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import sharenew from "../assets/Logo/Icon_productcard_info/sharenew.png";
 
 function Buy_ProductCard_Info() {
   const { id } = useParams();
@@ -219,38 +222,10 @@ function Buy_ProductCard_Info() {
 
                 <section>
                   <main>
-                    <h4 className="font-medium  mt-6 text-[20px]">
+                    <h4 className="text-[20px] font-medium mt-6 ">
                       รายละเอียดรถยนต์
                     </h4>
-                    <div className="border-t-2 border-t-blue-950 w-[68px] "></div>
-                    <div className="border-t border-gray-300 py-1"></div>
-                    <p className="mt-3 text-[14px]">
-                      EQS 450 คือรุ่นยนต์ไฟฟ้าของ Mercedes-Benz
-                      ที่เป็นส่วนหนึ่งของตระกูล EQ
-                      ซึ่งเป็นรถยนต์ไฟฟ้าแบบเต็มรูปแบบของบริษัท
-                      มันเป็นรถยนต์ที่มุ่งหน้าไปสู่การขับขี่ที่ยั่งยืนและยังความสวยงามของรถยนต์เล็กทุกความเร็ว
-                      รถยนต์รุ่นนี้มาพร้อมกับความสามารถในการขับขี่ไกลโดยใช้พลังงานไฟฟ้า
-                      ด้วยชุดแบตเตอรี่ขนาดใหญ่ที่ให้ระยะทางขับขี่ที่ยาวนาน
-                      และมีสมรรถนะขับเคลื่อนที่ยอดเยี่ยม นอกจากนี้
-                      มันยังมีดีไซน์ที่หรูหราและสมวัยมาพร้อมกับเทคโนโลยีที่ล้ำหน้าอื่นๆ
-                      ที่ช่วยให้ EQS 450
-                      เป็นตัวเลือกที่น่าสนใจสำหรับผู้ที่ต้องการรถยนต์ไฟฟ้าระดับพรีเมียมที่สมบูรณ์แบบ
-                      EQS 450 คือรุ่นยนต์ไฟฟ้าของ Mercedes-Benz
-                      ที่เป็นส่วนหนึ่งของตระกูล EQ
-                      ซึ่งเป็นรถยนต์ไฟฟ้าแบบเต็มรูปแบบของบริษัท
-                      มันเป็นรถยนต์ที่มุ่งหน้าไปสู่การขับขี่ที่ยั่งยืนและยังความสวยงามของรถยนต์เล็กทุกความเร็ว
-                      รถยนต์รุ่นนี้มาพร้อมกับความสามารถในการขับขี่ไกลโดยใช้พลังงานไฟฟ้า
-                      ด้วยชุดแบตเตอรี่ขนาดใหญ่ที่ให้ระยะทางขับขี่ที่ยาวนาน
-                      และมีสมรรถนะขับเคลื่อนที่ยอดเยี่ยม นอกจากนี้
-                      มันยังมีดีไซน์ที่หรูหราและสมวัยมาพร้อมกับเทคโนโลยีที่ล้ำหน้าอื่นๆ
-                      ที่ช่วยให้ EQS 450
-                      เป็นตัวเลือกที่น่าสนใจสำหรับผู้ที่ต้องการรถยนต์ไฟฟ้าระดับพรีเมียมที่สมบูรณ์แบบ
-                    </p>
-
-                    <h4 className="text-[20px] font-medium mt-6 ">
-                      รายละเอียดเพิ่มเติม
-                    </h4>
-                    <div className="border-t-2 border-t-blue-950 w-[68px] "></div>
+                    <div className="border-t-2 border-t-blue-950 w-[153px] "></div>
                     <div className="border-t border-gray-300 py-1"></div>
 
                     <div className="text-[14px] mt-3">
@@ -259,11 +234,11 @@ function Buy_ProductCard_Info() {
 
                     {/* <!-- review part --> */}
 
-                    <h4 class="font-medium  mt-6 text-[20px]">
-                      รายงานตรวจสภาพรถยนต์{" "}
+                    <h4 class="font-medium  mt-8 text-[20px]">
+                      รายงานตรวจสภาพรถยนต์
                     </h4>
-                    <div class="border-t-2 border-t-blue-950 w-[68px] "></div>
-                    <div class="border-t border-gray-300  py- "></div>
+                    <div class="border-t-2 border-t-blue-950 w-[212px] "></div>
+                    <div class="border-t border-gray-300   "></div>
 
                     <div class="  rounded-[5px] py-2 flex justify-center mt-3 mx-4">
                       <h1 className="rounded-[5px] bg-[#3E5685] text-white py-2 w-[616px] flex justify-center font-semibold">
@@ -271,7 +246,7 @@ function Buy_ProductCard_Info() {
                         RODDEE
                       </h1>
                     </div>
-                    <div class="border shadow-sm rounded-[5px] mx-4 flex justify-around h-[72px] items-center bg-slate-100 mb-24">
+                    <div class="border shadow-sm rounded-[5px] mx-4 flex justify-around h-[72px] items-center bg-slate-100 ">
                       <div>
                         <div class="flex justify-center ">
                           {/* <img class="mr-1 mt-[6px] h-[13px]"
@@ -300,6 +275,26 @@ function Buy_ProductCard_Info() {
                         <p>การตรวจเช็คสภาพ</p>
                       </div>
                     </div>
+
+                    <h4 className="font-medium  mt-8 text-[20px]">
+                      เกี่ยวกับเรา
+                    </h4>
+                    <div className="border-t-2 border-t-blue-950 w-[92px] "></div>
+                    <div className="border-t border-gray-300 py-1"></div>
+                    <p className="mt-3 text-[14px] mb-8">
+                      "RODDEE
+                      เปลี่ยนประสบการณ์การซื้อขายรถหรูมือสองให้เป็นเรื่องง่ายและพิเศษกว่าที่เคย
+                      ด้วยการดูแลจากทีมงานมืออาชีพที่มีความเชี่ยวชาญและทุ่มเทในการคัดสรรรถทุกคันอย่างพิถีพิถัน
+                      เพื่อให้มั่นใจว่าทุกคันรถที่เรานำเสนออยู่ในสภาพที่ดีที่สุด
+                      เราเข้าใจถึงความสำคัญของคุณภาพและความปลอดภัย
+                      เพื่อให้ลูกค้าของเราได้รับความพึงพอใจสูงสุด RODDEE
+                      มีบริการหลังการขายที่ยอดเยี่ยม
+                      พร้อมทั้งให้คำปรึกษาและคำแนะนำในทุกขั้นตอนอย่างใกล้ชิด
+                      ไม่ว่าจะเป็นเรื่องการเลือกซื้อ การตรวจสภาพรถ
+                      หรือการดูแลรักษา RODDEE ไม่ใช่แค่แหล่งซื้อขายรถหรูมือสอง
+                      แต่เป็นคู่คิดที่คุณวางใจได้เสมอ
+                      และพร้อมอยู่เคียงข้างคุณในทุกๆ การตัดสินใจ"
+                    </p>
 
                     {/* <h4 className="font-medium mx-4 mt-4 text-[20px]">Review </h4>
                     <div className="border-t-2 border-t-blue-950 w-[68px] mx-4 "></div>
@@ -401,34 +396,34 @@ function Buy_ProductCard_Info() {
                   </div>
                 </div>
 
-                <h2 className="flex justify-end mt-3 mr-6 mb-3 text-[16px] font-semibold">
+                <h2 className="flex justify-end mt-3 mr-6 mb-3 text-[16px] font-semibold ">
                   ราคา {Data.price} บาท
                 </h2>
                 <h2 className="flex justify-end mr-6 mt-3 mb-3 text-[12px]">
-                  ยังไม่รวมภาษีมูลค่าเพิ่ม
+                  ยังไม่รวมภาษีมูลค่าเพิ่ม 2%
                 </h2>
 
                 <div className="flex flex-col gap-4">
                   <Link
                     to="/Checkout"
                     state={paymentData}
-                    className="bg-[#3E5685] text-white text-[18px] mx-6 w-[408px] h-[48px] hover:bg-[#677FAF] rounded-md duration-200 text-center place-content-center"
+                    className="bg-[#3E5685] text-white font-semibold text-[18px] mx-6 w-[408px] h-[48px] hover:bg-[#677FAF] rounded-md duration-200 text-center place-content-center"
                   >
                     ซื้อรถคันนี้
                   </Link>
                   <div className="flex gap-1">
                     <button
-                      className="bg-[#191f2c] text-white ml-6 w-[336px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center duration-200 gap-2 mb-5"
-                      onClick={toggleHeart}
+                      className="bg-blue-100   ml-6 w-[336px] h-[48px] hover:bg-blue-200 rounded-md flex items-center place-content-center duration-200 gap-2 mb-5"
+                      onClick={toggleHeart} 
                     >
                       {isFilled ? (
-                        <AiFillHeart color="#f06181" />
+                        <AiFillHeart color="#3E5685" />
                       ) : (
-                        <AiOutlineHeart color="#f7faff" />
+                        <AiOutlineHeart  />
                       )}
-                      เพิ่มรายการโปรด
+                       <span className="font-semibold">เพิ่มรายการโปรด</span>
                     </button>
-                    <button className="border border-gray-400  ml-1 w-[64px] h-[48px] hover:bg-blue-950 rounded-md flex items-center place-content-center">
+                    <button className="bg-[#ffffff] border border-gray-400  ml-1 w-[64px] h-[48px] hover:bg-blue-100 rounded-md flex items-center place-content-center duration-200">
                       <img className="h-[17px]" src={share} alt="" />
                     </button>
                   </div>
@@ -476,7 +471,7 @@ function Buy_ProductCard_Info() {
                   <div className="flex mb-6">
                     <img
                       className="ml-8 mr-2 h-[42px]"
-                      src={doortype}
+                      src={carmeter}
                       alt="cartype"
                     />
                     <div>
@@ -525,7 +520,7 @@ function Buy_ProductCard_Info() {
                   <div className="flex mb-6">
                     <img
                       className="ml-8 mr-2 h-[42px]"
-                      src={bagtype}
+                      src={carcolor}
                       alt="cartype"
                     />
                     <div>
@@ -548,7 +543,7 @@ function Buy_ProductCard_Info() {
                   <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6 pl-4 duration-200">
                     ประกันภัยรถยนต์
                   </p>
-                  <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6  pl-4 duration-200">
+                  <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6  pl-4 duration-200 mb-8">
                     อื่นๆ
                   </p>
                 </div>
