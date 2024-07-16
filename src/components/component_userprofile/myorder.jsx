@@ -67,9 +67,9 @@ function MyOrder() {
                 <div className="ml-4 mt-4 w-[168px] h-[120px] rounded-[10px] border border-neutral-200">
                  <img src={product.img} alt="" />
                 </div>
-                <div className="absolute top-[82px] left-[200px] w-[209.26px] h-4 text-black text-sm font-semibold">
+                {/* <div className="absolute top-[82px] left-[200px] w-[209.26px] h-4 text-black text-sm font-semibold">
                   {product.Product_Id}
-                </div>
+                </div> */}
                 <div className="absolute top-[132px] left-[200px] text-black text-xs font-normal">
                   {product.address}
                 </div>
@@ -81,7 +81,7 @@ function MyOrder() {
                 </div>
                 <button 
                  onClick={() => handleDel(product._id)}
-                className="absolute top-[203px] left-[656px] text-red-600 text-sm font-medium">
+                className="absolute top-[203px]  right-[12px] text-red-600 text-sm font-medium">
                   ยกเลิกการซื้อสินค้า
                 </button>
                 <div className="absolute top-[108px] left-[200px] w-[46.06px] h-4 text-black text-xs font-normal">
@@ -90,7 +90,7 @@ function MyOrder() {
                 <div className="absolute top-[148px] right-[16px]">
                   <p>รวมคำสั่งซื้อ</p>
                   <span className="text-black text-sm font-normal">THB</span>
-                  <span className="text-black text-sm font-bold">฿{product.Sell_Price}</span>
+                  <span className="text-black text-sm font-bold">฿{product.Purchase_Price.toLocaleString()}</span>
                 </div>
               </div>
             </div>
