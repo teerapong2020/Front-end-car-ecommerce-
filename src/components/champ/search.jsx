@@ -1,23 +1,26 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 const Search = ({ onSearchSubmit, initialSearchValue, Clear }) => {
   const [searchValue, setSearchValue] = useState(initialSearchValue);
-
   const handleClearSearch = async () => {
     setSearchValue("");
     Clear();
   };
-
   const handleSearch = () => {
     if (onSearchSubmit) {
       onSearchSubmit(searchValue);
     }
   };
-
-  console.log(handleSearch);
-
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+  const handleKeyUp = (event) => {
+    if (event.key === "Backspace") {
+      handleClearSearch();
+    }
+  };
   return (
     <div className="relative bg-white rounded-2xl drop-shadow-xl w-full pb-2 md:w-1/2 pt-2 px-8">
       <div className="flex gap-8 mx-4 mb-2">
@@ -31,6 +34,8 @@ const Search = ({ onSearchSubmit, initialSearchValue, Clear }) => {
           placeholder="ค้นหารถรุ่นที่ต้องการ ยี่ห้อ รุ่น หรือ คีย์เวิร์ด "
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
+          onKeyDown={handleKeyDown}
+          onKeyUp={handleKeyUp}
         />
         {searchValue && (
           <span
@@ -50,5 +55,4 @@ const Search = ({ onSearchSubmit, initialSearchValue, Clear }) => {
     </div>
   );
 };
-
 export default Search;
