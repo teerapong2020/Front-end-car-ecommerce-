@@ -69,7 +69,7 @@ function Payment({ data }) {
             className=" h-[56px]  px-5 mb-8 rounded-[15px] border border-[#E1E1E1] text-base font-medium duration-300"
           />
           <input
-            type="number"
+            type="text"
             placeholder="ชื่อเจ้าของบัตร"
             className=" h-[56px]  px-5  mb-8 rounded-[15px] border border-[#E1E1E1]  text-base font-medium duration-300"
           />
