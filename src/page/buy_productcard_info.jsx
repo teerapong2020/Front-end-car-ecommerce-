@@ -19,11 +19,13 @@ import { getCarById } from "../components/API/API_Cars";
 import { Link } from "react-router-dom";
 import carmeter from "../assets/Logo/Icon_productcard_info/meter.png";
 import carcolor from "../assets/Logo/Icon_productcard_info/color.png";
+import maintain from "../assets/Logo/Icon_productcard_info/maintain.png"
+
 
 import { UserContext } from "../context_component/Usercontext";
 import axiosInstance from "../utils/axiosInstance";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import sharenew from "../assets/Logo/Icon_productcard_info/sharenew.png";
+
 
 function Buy_ProductCard_Info() {
   const { id } = useParams();
@@ -103,58 +105,65 @@ function Buy_ProductCard_Info() {
       console.error("Error toggling pin:", error);
     }
   };
+  const price = Data.price;
+  const formattedPrice = (price !== null && price !== undefined)
+  ? price.toLocaleString({ style: 'currency', currency: 'THB', minimumFractionDigits: 0, maximumFractionDigits: 0 })
+  : 'ราคาไม่ถูกต้อง';
 
   return (
     <>
       {Data && (
-        <div className="flex justify-center">
-          <div className="้w-[1128px] flex ">
+        <div className="md:flex md:justify-center">
+          <div className="้md:w-[1128px] md:flex ml-6">
             {/* -----------------------left -----------------------------------*/}
 
-            <section className="w-[648px]">
+            <section className="md:w-[648px] w-auto">
               <div className="">
-                <h1 className="h-24 flex items-center text-[28px] font-extrabold">
+                <h1 className="h-24 md:flex items-center text-[28px] font-extrabold ">
+                  {Data.headline}
+                </h1>
+                <h1 className="md:hidden items-center md:text-[28px] text-[24px] font-extrabold mb-4">
                   {Data.headline}
                 </h1>
                 <div className="relative">
                   <div className="show flex items-center">
                     <img
-                      className="rounded-[10px] w-full h-[364px] object-cover"
+                      className="rounded-[10px]  md:w-full md:h-[364px] object-cover"
                       src={Data.file1}
                       alt="X4-main"
                     />
                   </div>
                   <div className="show hidden ">
                     <img
-                      className="rounded-[10px] w-full h-[364px] object-cover"
+                      className="rounded-[10px] w-full md:h-[364px] object-cover"
                       src={Data.file2}
                       alt="X4-1"
                     />
                   </div>
                   <div className="show hidden">
                     <img
-                      className="rounded-[10px] w-full h-[364px] object-cover"
+                      className="rounded-[10px] w-full md:h-[364px] object-cover"
                       src={Data.file3}
                       alt="X4-2"
                     />
                   </div>
                   <div className="show hidden">
                     <img
-                      className="rounded-[10px] w-full h-[364px] object-cover"
+                      className="rounded-[10px] w-full md:h-[364px] object-cover"
                       src={Data.file4}
                       alt="X4-3"
                     />
                   </div>
                   <div className="show hidden">
                     <img
-                      className="rounded-[10px] w-full h-[364px] object-cover"
+                      className="rounded-[10px] w-full md:h-[364px] object-cover"
                       src={Data.file5}
                       alt="X4-4"
                     />
                   </div>
                   <div className="show hidden">
                     <img
-                      className="rounded-[10px] w-full h-[364px] object-cover"
+                      className="rounded-[10px] w-full md:h-[364px] object-cover"
                       src={Data.file6}
                       alt="X4-5"
                     />
@@ -174,6 +183,8 @@ function Buy_ProductCard_Info() {
                     </a>
                   </div>
                 </div>
+
+                
 
                 <div className="flex w-[98px] mt-2 gap-[12px]">
                   <img
@@ -214,6 +225,63 @@ function Buy_ProductCard_Info() {
                   />
                 </div>
 
+                <div className=" md:hidden rounded-[20px] border shadow-md h-auto w-[456px] md:mt-[96px] mt-[24px]">
+                {/* h-[364px] */}
+                <h2 className="ml-6 mt-3 mb-3 text-[18px] font-semibold">
+                  รายละเอียด
+                </h2>
+                <h2 className="ml-6 mt-3 mb-3 font-black text-[16px]">
+                  {Data.brand} {Data.model} ({Data.year})
+                </h2>
+                <h2 className="ml-6 mt-3 mb-3 text-[16px]">{Data.address}</h2>
+                <div className="flex mt-3 mb-3 text-[12px] ">
+                  <div className="ml-6 border rounded-[20px] py-[4px] px-[8px]">
+                    {Data.type}
+                  </div>
+                  <div className="ml-2 border rounded-[20px] py-[4px] px-[8px]">
+                    {Data.brand}
+                  </div>
+                  <div className="ml-2 border rounded-[20px] py-[4px] px-[8px]">
+                    {Data.fuel}
+                  </div>
+                </div>
+
+                <h2 className="flex justify-end mt-3 mr-6 mb-3 text-[16px] font-semibold ">
+                  ราคา {formattedPrice} บาท
+                </h2>
+                <h2 className="flex justify-end mr-6 mt-3 mb-3 text-[12px]">
+                  ยังไม่รวมค่าบริการเพิ่ม 2%
+                </h2>
+
+                <div className="flex flex-col gap-4">
+                  <Link
+                    to="/Checkout"
+                    state={paymentData}
+                    className="bg-[#3E5685] text-white font-semibold text-[18px] mx-6 w-[408px] h-[48px] hover:bg-[#677FAF] rounded-md duration-200 text-center place-content-center"
+                  >
+                    ซื้อรถคันนี้
+                  </Link>
+                  <div className="flex gap-1">
+                    <button
+                      className="bg-blue-100   ml-6 w-[336px] h-[48px] hover:bg-blue-200 rounded-md flex items-center place-content-center duration-200 gap-2 mb-5"
+                      onClick={toggleHeart} 
+                    >
+                      {isFilled ? (
+                        <AiFillHeart color="#3E5685" />
+                      ) : (
+                        <AiOutlineHeart  />
+                      )}
+                       <span className="font-semibold ">เพิ่มรายการโปรด</span>
+                    </button>
+                    <button className="bg-[#ffffff] border border-gray-400  ml-1 w-[64px] h-[48px] hover:bg-blue-100 rounded-md flex items-center place-content-center duration-200">
+                      <img className="h-[17px]" src={share} alt="" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+                
+
                 {/* <div className="md:hidden">
                   <h1 className="mb-2 font-black text-xl mx-4 my-4">
                     Mercedes-Benz EQS-450
@@ -241,7 +309,7 @@ function Buy_ProductCard_Info() {
                     <div class="border-t border-gray-300   "></div>
 
                     <div class="  rounded-[5px] py-2 flex justify-center mt-3 mx-4">
-                      <h1 className="rounded-[5px] bg-[#3E5685] text-white py-2 w-[616px] flex justify-center font-semibold">
+                      <h1 className="rounded-[5px] bg-[#3E5685] text-white py-2 md:w-[616px] px-4 md:flex md:justify-center font-semibold md:text-base text-[12px] ">
                         รถยนต์คันนี้ได้รับการปรับสภาพจากศูนย์ปรับสภาพรถยนต์มือสองของ
                         RODDEE
                       </h1>
@@ -249,27 +317,27 @@ function Buy_ProductCard_Info() {
                     <div class="border shadow-sm rounded-[5px] mx-4 flex justify-around h-[72px] items-center bg-slate-100 ">
                       <div>
                         <div class="flex justify-center ">
-                          {/* <img class="mr-1 mt-[6px] h-[13px]"
-                          src="../../icon/star.png"
-                          alt='favourite'/> */}
+                          <img class="mr-1 mt-[6px] h-[13px]"
+                          src={star}
+                          alt='favourite'/>
                           <p>ความปลอดภัย</p>
                         </div>
-                        <p>เหนือมาตรฐาน</p>
+                        <p className="flex justify-center">เหนือมาตรฐาน</p>
                       </div>
                       <div>
                         <div class="flex justify-center">
-                          {/* <img class="mr-1 mt-[6px] h-[13px]"
-                          src="/icon/Verified.png"
-                          alt='favourite'/> */}
+                          <img class="mr-1 mt-[6px] h-[13px]"
+                          src={verify}
+                          alt='favourite'/>
                           <p>100%</p>
                         </div>
                         <p>ขับขี่สะดวกสบาย</p>
                       </div>
                       <div>
                         <div class="flex justify-center">
-                          {/* <img class="mr-1 mt-[6px] h-[13px]"
-                          src="/icon/mdi_favourite.png"
-                          alt='favourite'/> */}
+                          <img class="mr-1 mt-[3px] h-[18px]"
+                          src={maintain}
+                          alt='favourite'/>
                           <p>รถทุกคันผ่าน</p>
                         </div>
                         <p>การตรวจเช็คสภาพ</p>
@@ -374,7 +442,7 @@ function Buy_ProductCard_Info() {
               </div>
             </section>
             {/* ----------------------------------------------------Right------------------------------------------------------------------- */}
-            <section className=" w-[480px] flex flex-col pl-6 border-green-600">
+            <section className=" md:w-[480px] flex flex-col pl-6 border-green-600">
               <div className=" max-md:hidden rounded-[20px] border shadow-md h-auto w-[456px] mt-[96px]">
                 {/* h-[364px] */}
                 <h2 className="ml-6 mt-3 mb-3 text-[18px] font-semibold">
@@ -397,10 +465,10 @@ function Buy_ProductCard_Info() {
                 </div>
 
                 <h2 className="flex justify-end mt-3 mr-6 mb-3 text-[16px] font-semibold ">
-                  ราคา {Data.price} บาท
+                  ราคา {formattedPrice} บาท
                 </h2>
                 <h2 className="flex justify-end mr-6 mt-3 mb-3 text-[12px]">
-                  ยังไม่รวมภาษีมูลค่าเพิ่ม 2%
+                  ยังไม่รวมค่าบริการเพิ่ม 2%
                 </h2>
 
                 <div className="flex flex-col gap-4">
@@ -421,7 +489,7 @@ function Buy_ProductCard_Info() {
                       ) : (
                         <AiOutlineHeart  />
                       )}
-                       <span className="font-semibold">เพิ่มรายการโปรด</span>
+                       <span className="font-semibold ">เพิ่มรายการโปรด</span>
                     </button>
                     <button className="bg-[#ffffff] border border-gray-400  ml-1 w-[64px] h-[48px] hover:bg-blue-100 rounded-md flex items-center place-content-center duration-200">
                       <img className="h-[17px]" src={share} alt="" />
@@ -431,7 +499,7 @@ function Buy_ProductCard_Info() {
               </div>
 
               {/* spec */}
-              <div className="flex pt-[96px] items-center place-content-center">
+              <div className="flex md:pt-[96px] items-center place-content-center">
                 <div>
                   <div className="flex my-6">
                     <img
@@ -534,7 +602,7 @@ function Buy_ProductCard_Info() {
               {/* Etc */}
               <div className="self-center">
                 <div>
-                  <p className=" py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-[96px] pl-4 duration-200">
+                  <p className=" py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] md:mt-[96px] mt-16 pl-4 duration-200">
                     เงื่อนไขข้อตกลง
                   </p>
                   <p className="py-2 bg-[#3E5685] text-white hover:bg-blue-950 rounded-md text-[17px] w-[304px] mt-6 pl-4 duration-200">
