@@ -7,7 +7,7 @@ import ChangePass from "../../assets/userPage/lock-alt.png";
 import UserIcon from "../../assets/userPage/user-alt-3.png";
 import Favourite from "../../assets/userPage/heart.png";
 import Cart from "../../assets/userPage/cart.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { UserContext } from "../../context_component/Usercontext";
 import { useContext } from "react";
@@ -17,7 +17,7 @@ import { jwtDecode } from "jwt-decode";
 
 
 function UserMenu() {
-
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -39,7 +39,11 @@ function UserMenu() {
     fetchUser();
   }, []);
 
-
+  const onLogout = () => {
+    localStorage.clear();
+    navigate("/");
+    window.location.reload();
+  };
 
     
 
@@ -155,7 +159,7 @@ function UserMenu() {
       <div className="w-[264px] h-[56px] border border-[#E1E1E1] rounded-[20px] ">
         <div className="flex flex-col items-center">
           <button
-            onClick
+            onClick={onLogout}
             className="flex justify-between items-center hover:bg-[#CEECFF] h-[40px] w-[248px] mt-2  hover:rounded-lg duration-200"
           >
             <div className="flex ">
